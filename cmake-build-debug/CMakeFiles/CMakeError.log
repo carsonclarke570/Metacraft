@@ -1,0 +1,81 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_49557/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_49557.dir\build.make CMakeFiles/cmTC_49557.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49557.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_49557.dir\CheckIncludeFile.c.obj   -c C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:21: fatal error: pthread.h: No such file or directory
+ #include <pthread.h>
+                     ^
+compilation terminated.
+CMakeFiles\cmTC_49557.dir\build.make:64: recipe for target 'CMakeFiles/cmTC_49557.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_49557.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:120: recipe for target 'cmTC_49557/fast' failed
+mingw32-make.exe: *** [cmTC_49557/fast] Error 2
+
+
+Determining if the include file dinput.h exists failed with the following output:
+Change Dir: C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_1c27a/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_1c27a.dir\build.make CMakeFiles/cmTC_1c27a.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1c27a.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_1c27a.dir\CheckIncludeFile.c.obj   -c C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:20: fatal error: dinput.h: No such file or directory
+ #include <dinput.h>
+                    ^
+compilation terminated.
+CMakeFiles\cmTC_1c27a.dir\build.make:64: recipe for target 'CMakeFiles/cmTC_1c27a.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_1c27a.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:120: recipe for target 'cmTC_1c27a/fast' failed
+mingw32-make.exe: *** [cmTC_1c27a/fast] Error 2
+
+
+Determining if the include file xinput.h exists failed with the following output:
+Change Dir: C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_e0c6b/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_e0c6b.dir\build.make CMakeFiles/cmTC_e0c6b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e0c6b.dir/CheckIncludeFile.c.obj
+C:\MinGW\bin\gcc.exe    -o CMakeFiles\cmTC_e0c6b.dir\CheckIncludeFile.c.obj   -c C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\CheckIncludeFile.c:1:20: fatal error: xinput.h: No such file or directory
+ #include <xinput.h>
+                    ^
+compilation terminated.
+CMakeFiles\cmTC_e0c6b.dir\build.make:64: recipe for target 'CMakeFiles/cmTC_e0c6b.dir/CheckIncludeFile.c.obj' failed
+mingw32-make.exe[1]: *** [CMakeFiles/cmTC_e0c6b.dir/CheckIncludeFile.c.obj] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:120: recipe for target 'cmTC_e0c6b/fast' failed
+mingw32-make.exe: *** [cmTC_e0c6b/fast] Error 2
+
+
+Performing C SOURCE FILE Test _GLFW_HAS_64ASLR failed with the following output:
+Change Dir: C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/mingw32-make.exe" "cmTC_bdf4b/fast"
+C:/MinGW/bin/mingw32-make.exe -f CMakeFiles\cmTC_bdf4b.dir\build.make CMakeFiles/cmTC_bdf4b.dir/build
+mingw32-make.exe[1]: Entering directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bdf4b.dir/src.c.obj
+C:\MinGW\bin\gcc.exe   -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va   -o CMakeFiles\cmTC_bdf4b.dir\src.c.obj   -c C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles\CMakeTmp\src.c
+Linking C executable cmTC_bdf4b.exe
+"C:\Program Files\JetBrains\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_bdf4b.dir\link.txt --verbose=1
+"C:\Program Files\JetBrains\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\cmTC_bdf4b.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\cmTC_bdf4b.dir/objects.a @CMakeFiles\cmTC_bdf4b.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe  -D_GLFW_HAS_64ASLR -Wl,--high-entropy-va    -Wl,--whole-archive CMakeFiles\cmTC_bdf4b.dir/objects.a -Wl,--no-whole-archive  -o cmTC_bdf4b.exe -Wl,--out-implib,libcmTC_bdf4b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_bdf4b.dir\linklibs.rsp
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe: unrecognized option '--high-entropy-va'
+c:/mingw/bin/../lib/gcc/mingw32/6.3.0/../../../../mingw32/bin/ld.exe: use the --help option for usage information
+collect2.exe: error: ld returned 1 exit status
+CMakeFiles\cmTC_bdf4b.dir\build.make:87: recipe for target 'cmTC_bdf4b.exe' failed
+mingw32-make.exe[1]: *** [cmTC_bdf4b.exe] Error 1
+mingw32-make.exe[1]: Leaving directory 'C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:120: recipe for target 'cmTC_bdf4b/fast' failed
+mingw32-make.exe: *** [cmTC_bdf4b/fast] Error 2
+
+Source file was:
+int main(void) { return 0; }
