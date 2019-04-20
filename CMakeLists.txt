@@ -1,13 +1,23 @@
 cmake_minimum_required(VERSION 3.13)
 project(Daybreak)
 
+# OpenGL
+find_package(OpenGL REQUIRED)
+
 # GLFW
 option(GLFW_BUILD_DOCS OFF)
 option(GLFW_BUILD_EAMPLES OFF)
 option(GLFW_BUILD_TEST OFF)
 add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glfw)
 
+# glad
+add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glad)
+
+# glm
+add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glm)
+
 # Compile settings
+set(CMAKE_CXX_STANDARD 11)
 if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
 else()
@@ -20,6 +30,7 @@ endif()
 # Includes
 include_directories(
         ${PROJECT_SOURCE_DIR}/include/
+        ${PROJECT_SOURCE_DIR}}/libs/glad/include/
         ${PROJECT_SOURCE_DIR}/libs/glfw/include/
 )
 
@@ -39,9 +50,12 @@ add_definitions(
         -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\"
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${SHADERS} main.cpp)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHADERS} main.cpp)
 
 target_link_libraries(${PROJECT_NAME}
-        glfw ${GLFW_LIBRARIES}
+        glfw
+        ${GLFW_LIBRARIES}
+        glad
+        glm
 )
 
