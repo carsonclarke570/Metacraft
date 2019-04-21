@@ -20,14 +20,18 @@ namespace daybreak {
 
     void resize_callback(GLFWwindow* window, int width, int height);
 
-    void Window::create(uint16_t width, uint16_t height, const std::string& title, bool full_screen) {
+    Window::Window() {
+        _window = nullptr;
+    }
+
+    int32_t Window::create(uint16_t width, uint16_t height, const std::string& title, bool full_screen) {
         // Create window and context
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, GL_VER_MAJ);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, GL_VER_MIN);
         _window = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
         if (!_window) {
             fprintf(stderr, "ERROR: Failed to create window!\n");
-            exit(CODE_WINDOW_CREATE_ERR);
+            return CODE_WINDOW_CREATE_ERR;
         }
         glfwMakeContextCurrent(_window);
 
@@ -36,9 +40,12 @@ namespace daybreak {
 
         // Load glad to access OpenGL
         if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+            glfwDestroyWindow(_window);
             fprintf(stderr, "ERROR: Failed to initialize GLAD!\n");
-            exit(CODE_GLAD_INIT_ERR);
+            return CODE_GLAD_INIT_ERR;
         }
+
+        return CODE_SUCCESS;
     }
 
     void Window::destroy() {

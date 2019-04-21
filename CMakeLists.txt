@@ -40,6 +40,7 @@ file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB SHADERS ${PROJECT_SOURCE_DIR}/res/shaders/*.frag
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.geom
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.vert)
+file(COPY ${SHADERS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 source_group("headers" FILES ${HEADERS})
 source_group("sources" FILES ${SOURCES})
@@ -50,7 +51,7 @@ add_definitions(
         -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\"
 )
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHADERS} main.cpp)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} main.cpp)
 
 target_link_libraries(${PROJECT_NAME}
         glfw

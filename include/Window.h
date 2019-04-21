@@ -35,14 +35,20 @@ namespace daybreak {
     public:
 
         /**
+         * Constructs a new Window object.
+         */
+        Window();
+
+        /**
          * Creates a new, empty window.
          *
          * @param width         Initial width of the window
          * @param height        Initial height of the window
          * @param title         Title to display on the window
          * @param full_screen   Initialize to full screen mode if true, else windowed mode
+         * @return  CODE_SUCCESS if success, else returns a relevant error code.
          */
-        void create(uint16_t width, uint16_t height, const std::string& title, bool full_screen);
+        int32_t create(uint16_t width, uint16_t height, const std::string& title, bool full_screen);
 
         /**
          * Destroys the Window object.
@@ -69,7 +75,7 @@ namespace daybreak {
         // Getters / Setter
         inline const GLFWwindow* get_window() { return _window; };
         inline glm::ivec2 get_size() {
-            int width, height;
+            int32_t width, height;
             glfwGetFramebufferSize(_window, &width, &height);
             return glm::ivec2(width, height);
         }

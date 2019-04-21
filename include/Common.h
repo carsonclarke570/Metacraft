@@ -18,10 +18,14 @@
 #define _COMMON_H_
 
 // Error Codes
-#define CODE_SUCCESS            0
-#define CODE_GLFW_INIT_ERR      1
-#define CODE_WINDOW_CREATE_ERR  2
-#define CODE_GLAD_INIT_ERR      3
+#define CODE_SUCCESS                00
+#define CODE_GLFW_INIT_ERR          01   // GLFW
+#define CODE_WINDOW_CREATE_ERR      02
+#define CODE_GLAD_INIT_ERR          10   // glad
+#define CODE_INVALID_SHADER_TYPE    20   // Shaders
+#define CODE_SHADER_COMPILE_ERROR   21
+#define CODE_SHADER_LINK_ERROR      22
+#define CODE_INVALID_FILENAME       30  // File reading
 
 // GL
 #define GL_VER_MAJ  3
