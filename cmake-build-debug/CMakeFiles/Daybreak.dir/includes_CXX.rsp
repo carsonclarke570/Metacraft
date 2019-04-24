@@ -1,1 +1,1 @@
--IC:/Users/birdi/CLionProjects/Daybreak/include -IC:/Users/birdi/CLionProjects/Daybreak/libs/glfw/include 
+-IC:/Users/birdi/CLionProjects/Daybreak/include -IC:/Users/birdi/CLionProjects/Daybreak}/libs/glad/include -IC:/Users/birdi/CLionProjects/Daybreak/libs/glfw/include -IC:/Users/birdi/CLionProjects/Daybreak/libs/glad/include -IC:/Users/birdi/CLionProjects/Daybreak/libs/glm -IC:/Users/birdi/CLionProjects/Daybreak/libs/stb/include 

@@ -5,7 +5,7 @@
 		<Option title="GLFW"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\glfw\;CMake Files\libs\glfw\CMake\;CMake Files\libs\glfw\CMake\modules\;CMake Files\libs\glfw\src\;CMake Files\libs\glfw\examples\;CMake Files\libs\glfw\tests\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\glfw\;CMake Files\libs\glfw\CMake\;CMake Files\libs\glfw\CMake\modules\;CMake Files\libs\glfw\src\;CMake Files\libs\glfw\examples\;CMake Files\libs\glfw\tests\;CMake Files\libs\glad\;CMake Files\libs\glm\;CMake Files\libs\glm\cmake\;CMake Files\libs\glm\glm\;CMake Files\libs\glm\test\;CMake Files\libs\glm\test\bug\;CMake Files\libs\glm\test\core\;CMake Files\libs\glm\test\ext\;CMake Files\libs\glm\test\gtc\;CMake Files\libs\glm\test\gtx\;CMake Files\libs\glm\test\perf\;CMake Files\libs\stb\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw"/>
@@ -1567,6 +1567,54 @@
 		</Unit>
 		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\libs\glfw\tests\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glad/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glad\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/cmake/CMakePackageConfigHelpers.cmake">
+			<Option virtualFolder="CMake Files\libs\glm\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/cmake/GNUInstallDirs.cmake">
+			<Option virtualFolder="CMake Files\libs\glm\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/cmake/glm.pc.in">
+			<Option virtualFolder="CMake Files\libs\glm\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/cmake/glmBuildConfig.cmake.in">
+			<Option virtualFolder="CMake Files\libs\glm\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/cmake/glmConfig.cmake.in">
+			<Option virtualFolder="CMake Files\libs\glm\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/glm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\glm\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/bug/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\bug\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/core/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\core\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/ext/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\ext\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/gtc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\gtc\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/gtx/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\gtx\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/glm/test/perf/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\glm\test\perf\"/>
+		</Unit>
+		<Unit filename="C:/Users/birdi/CLionProjects/Daybreak/libs/stb/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libs\stb\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

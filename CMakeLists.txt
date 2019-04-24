@@ -16,6 +16,9 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glad)
 # glm
 add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glm)
 
+# stb
+add_subdirectory(${PROJECT_SOURCE_DIR}/libs/stb)
+
 # Compile settings
 set(CMAKE_CXX_STANDARD 11)
 if (MSVC)
@@ -58,5 +61,6 @@ target_link_libraries(${PROJECT_NAME}
         ${GLFW_LIBRARIES}
         glad
         glm
+        stb
 )
 

@@ -56,10 +56,66 @@ include CMakeFiles/Daybreak.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Daybreak.dir/flags.make
 
+CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj: CMakeFiles/Daybreak.dir/flags.make
+CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj: CMakeFiles/Daybreak.dir/includes_CXX.rsp
+CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj: ../src/Mesh.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Daybreak.dir\src\Mesh.cpp.obj -c C:\Users\birdi\CLionProjects\Daybreak\src\Mesh.cpp
+
+CMakeFiles/Daybreak.dir/src/Mesh.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Daybreak.dir/src/Mesh.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\birdi\CLionProjects\Daybreak\src\Mesh.cpp > CMakeFiles\Daybreak.dir\src\Mesh.cpp.i
+
+CMakeFiles/Daybreak.dir/src/Mesh.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Daybreak.dir/src/Mesh.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\birdi\CLionProjects\Daybreak\src\Mesh.cpp -o CMakeFiles\Daybreak.dir\src\Mesh.cpp.s
+
+CMakeFiles/Daybreak.dir/src/Shader.cpp.obj: CMakeFiles/Daybreak.dir/flags.make
+CMakeFiles/Daybreak.dir/src/Shader.cpp.obj: CMakeFiles/Daybreak.dir/includes_CXX.rsp
+CMakeFiles/Daybreak.dir/src/Shader.cpp.obj: ../src/Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Daybreak.dir/src/Shader.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Daybreak.dir\src\Shader.cpp.obj -c C:\Users\birdi\CLionProjects\Daybreak\src\Shader.cpp
+
+CMakeFiles/Daybreak.dir/src/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Daybreak.dir/src/Shader.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\birdi\CLionProjects\Daybreak\src\Shader.cpp > CMakeFiles\Daybreak.dir\src\Shader.cpp.i
+
+CMakeFiles/Daybreak.dir/src/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Daybreak.dir/src/Shader.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\birdi\CLionProjects\Daybreak\src\Shader.cpp -o CMakeFiles\Daybreak.dir\src\Shader.cpp.s
+
+CMakeFiles/Daybreak.dir/src/Texture.cpp.obj: CMakeFiles/Daybreak.dir/flags.make
+CMakeFiles/Daybreak.dir/src/Texture.cpp.obj: CMakeFiles/Daybreak.dir/includes_CXX.rsp
+CMakeFiles/Daybreak.dir/src/Texture.cpp.obj: ../src/Texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Daybreak.dir/src/Texture.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Daybreak.dir\src\Texture.cpp.obj -c C:\Users\birdi\CLionProjects\Daybreak\src\Texture.cpp
+
+CMakeFiles/Daybreak.dir/src/Texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Daybreak.dir/src/Texture.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\birdi\CLionProjects\Daybreak\src\Texture.cpp > CMakeFiles\Daybreak.dir\src\Texture.cpp.i
+
+CMakeFiles/Daybreak.dir/src/Texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Daybreak.dir/src/Texture.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\birdi\CLionProjects\Daybreak\src\Texture.cpp -o CMakeFiles\Daybreak.dir\src\Texture.cpp.s
+
+CMakeFiles/Daybreak.dir/src/Window.cpp.obj: CMakeFiles/Daybreak.dir/flags.make
+CMakeFiles/Daybreak.dir/src/Window.cpp.obj: CMakeFiles/Daybreak.dir/includes_CXX.rsp
+CMakeFiles/Daybreak.dir/src/Window.cpp.obj: ../src/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Daybreak.dir/src/Window.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Daybreak.dir\src\Window.cpp.obj -c C:\Users\birdi\CLionProjects\Daybreak\src\Window.cpp
+
+CMakeFiles/Daybreak.dir/src/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Daybreak.dir/src/Window.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\birdi\CLionProjects\Daybreak\src\Window.cpp > CMakeFiles\Daybreak.dir\src\Window.cpp.i
+
+CMakeFiles/Daybreak.dir/src/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Daybreak.dir/src/Window.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\birdi\CLionProjects\Daybreak\src\Window.cpp -o CMakeFiles\Daybreak.dir\src\Window.cpp.s
+
 CMakeFiles/Daybreak.dir/main.cpp.obj: CMakeFiles/Daybreak.dir/flags.make
 CMakeFiles/Daybreak.dir/main.cpp.obj: CMakeFiles/Daybreak.dir/includes_CXX.rsp
 CMakeFiles/Daybreak.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Daybreak.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Daybreak.dir/main.cpp.obj"
 	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Daybreak.dir\main.cpp.obj -c C:\Users\birdi\CLionProjects\Daybreak\main.cpp
 
 CMakeFiles/Daybreak.dir/main.cpp.i: cmake_force
@@ -72,18 +128,28 @@ CMakeFiles/Daybreak.dir/main.cpp.s: cmake_force
 
 # Object files for target Daybreak
 Daybreak_OBJECTS = \
+"CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj" \
+"CMakeFiles/Daybreak.dir/src/Shader.cpp.obj" \
+"CMakeFiles/Daybreak.dir/src/Texture.cpp.obj" \
+"CMakeFiles/Daybreak.dir/src/Window.cpp.obj" \
 "CMakeFiles/Daybreak.dir/main.cpp.obj"
 
 # External object files for target Daybreak
 Daybreak_EXTERNAL_OBJECTS =
 
+Daybreak.exe: CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj
+Daybreak.exe: CMakeFiles/Daybreak.dir/src/Shader.cpp.obj
+Daybreak.exe: CMakeFiles/Daybreak.dir/src/Texture.cpp.obj
+Daybreak.exe: CMakeFiles/Daybreak.dir/src/Window.cpp.obj
 Daybreak.exe: CMakeFiles/Daybreak.dir/main.cpp.obj
 Daybreak.exe: CMakeFiles/Daybreak.dir/build.make
 Daybreak.exe: libs/glfw/src/libglfw3.a
+Daybreak.exe: libs/glad/libglad.a
+Daybreak.exe: libs/stb/libstb.a
 Daybreak.exe: CMakeFiles/Daybreak.dir/linklibs.rsp
 Daybreak.exe: CMakeFiles/Daybreak.dir/objects1.rsp
 Daybreak.exe: CMakeFiles/Daybreak.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Daybreak.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\birdi\CLionProjects\Daybreak\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Daybreak.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Daybreak.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

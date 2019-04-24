@@ -519,6 +519,2034 @@ windows/fast:
 	$(MAKE) -f libs\glfw\tests\CMakeFiles\windows.dir\build.make libs/glfw/tests/CMakeFiles/windows.dir/build
 .PHONY : windows/fast
 
+#=============================================================================
+# Target rules for targets named glad
+
+# Build rule for target.
+glad: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 glad
+.PHONY : glad
+
+# fast build rule for target.
+glad/fast:
+	$(MAKE) -f libs\glad\CMakeFiles\glad.dir\build.make libs/glad/CMakeFiles/glad.dir/build
+.PHONY : glad/fast
+
+#=============================================================================
+# Target rules for targets named glm_static
+
+# Build rule for target.
+glm_static: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 glm_static
+.PHONY : glm_static
+
+# fast build rule for target.
+glm_static/fast:
+	$(MAKE) -f libs\glm\glm\CMakeFiles\glm_static.dir\build.make libs/glm/glm/CMakeFiles/glm_static.dir/build
+.PHONY : glm_static/fast
+
+#=============================================================================
+# Target rules for targets named test-bug_ms_vec_static
+
+# Build rule for target.
+test-bug_ms_vec_static: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-bug_ms_vec_static
+.PHONY : test-bug_ms_vec_static
+
+# fast build rule for target.
+test-bug_ms_vec_static/fast:
+	$(MAKE) -f libs\glm\test\bug\CMakeFiles\test-bug_ms_vec_static.dir\build.make libs/glm/test/bug/CMakeFiles/test-bug_ms_vec_static.dir/build
+.PHONY : test-bug_ms_vec_static/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_integer_find_msb
+
+# Build rule for target.
+test-core_func_integer_find_msb: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_integer_find_msb
+.PHONY : test-core_func_integer_find_msb
+
+# fast build rule for target.
+test-core_func_integer_find_msb/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_integer_find_msb.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_integer_find_msb.dir/build
+.PHONY : test-core_func_integer_find_msb/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_pure
+
+# Build rule for target.
+test-core_force_pure: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_pure
+.PHONY : test-core_force_pure
+
+# fast build rule for target.
+test-core_force_pure/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_pure.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_pure.dir/build
+.PHONY : test-core_force_pure/fast
+
+#=============================================================================
+# Target rules for targets named test-core_setup_precision
+
+# Build rule for target.
+test-core_setup_precision: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_setup_precision
+.PHONY : test-core_setup_precision
+
+# fast build rule for target.
+test-core_setup_precision/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_setup_precision.dir\build.make libs/glm/test/core/CMakeFiles/test-core_setup_precision.dir/build
+.PHONY : test-core_setup_precision/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_common
+
+# Build rule for target.
+test-core_func_common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_common
+.PHONY : test-core_func_common
+
+# fast build rule for target.
+test-core_func_common/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_common.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_common.dir/build
+.PHONY : test-core_func_common/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_aligned_gentypes
+
+# Build rule for target.
+test-core_force_aligned_gentypes: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_aligned_gentypes
+.PHONY : test-core_force_aligned_gentypes
+
+# fast build rule for target.
+test-core_force_aligned_gentypes/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_aligned_gentypes.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_aligned_gentypes.dir/build
+.PHONY : test-core_force_aligned_gentypes/fast
+
+#=============================================================================
+# Target rules for targets named test-core_cpp_constexpr
+
+# Build rule for target.
+test-core_cpp_constexpr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_cpp_constexpr
+.PHONY : test-core_cpp_constexpr
+
+# fast build rule for target.
+test-core_cpp_constexpr/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_cpp_constexpr.dir\build.make libs/glm/test/core/CMakeFiles/test-core_cpp_constexpr.dir/build
+.PHONY : test-core_cpp_constexpr/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat4x2
+
+# Build rule for target.
+test-core_type_mat4x2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat4x2
+.PHONY : test-core_type_mat4x2
+
+# fast build rule for target.
+test-core_type_mat4x2/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat4x2.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat4x2.dir/build
+.PHONY : test-core_type_mat4x2/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_inline
+
+# Build rule for target.
+test-core_force_inline: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_inline
+.PHONY : test-core_force_inline
+
+# fast build rule for target.
+test-core_force_inline/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_inline.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_inline.dir/build
+.PHONY : test-core_force_inline/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_ctor_init
+
+# Build rule for target.
+test-core_force_ctor_init: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_ctor_init
+.PHONY : test-core_force_ctor_init
+
+# fast build rule for target.
+test-core_force_ctor_init/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_ctor_init.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_ctor_init.dir/build
+.PHONY : test-core_force_ctor_init/fast
+
+#=============================================================================
+# Target rules for targets named test-core_cpp_defaulted_ctor
+
+# Build rule for target.
+test-core_cpp_defaulted_ctor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_cpp_defaulted_ctor
+.PHONY : test-core_cpp_defaulted_ctor
+
+# fast build rule for target.
+test-core_cpp_defaulted_ctor/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_cpp_defaulted_ctor.dir\build.make libs/glm/test/core/CMakeFiles/test-core_cpp_defaulted_ctor.dir/build
+.PHONY : test-core_cpp_defaulted_ctor/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_xyzw_only
+
+# Build rule for target.
+test-core_force_xyzw_only: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_xyzw_only
+.PHONY : test-core_force_xyzw_only
+
+# fast build rule for target.
+test-core_force_xyzw_only/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_xyzw_only.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_xyzw_only.dir/build
+.PHONY : test-core_force_xyzw_only/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat2x2
+
+# Build rule for target.
+test-core_type_mat2x2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat2x2
+.PHONY : test-core_type_mat2x2
+
+# fast build rule for target.
+test-core_type_mat2x2/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat2x2.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat2x2.dir/build
+.PHONY : test-core_type_mat2x2/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_unrestricted_gentype
+
+# Build rule for target.
+test-core_force_unrestricted_gentype: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_unrestricted_gentype
+.PHONY : test-core_force_unrestricted_gentype
+
+# fast build rule for target.
+test-core_force_unrestricted_gentype/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_unrestricted_gentype.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_unrestricted_gentype.dir/build
+.PHONY : test-core_force_unrestricted_gentype/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_ctor
+
+# Build rule for target.
+test-core_type_ctor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_ctor
+.PHONY : test-core_type_ctor
+
+# fast build rule for target.
+test-core_type_ctor/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_ctor.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_ctor.dir/build
+.PHONY : test-core_type_ctor/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_aligned
+
+# Build rule for target.
+test-core_type_aligned: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_aligned
+.PHONY : test-core_type_aligned
+
+# fast build rule for target.
+test-core_type_aligned/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_aligned.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_aligned.dir/build
+.PHONY : test-core_type_aligned/fast
+
+#=============================================================================
+# Target rules for targets named test-core_force_explicit_ctor
+
+# Build rule for target.
+test-core_force_explicit_ctor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_force_explicit_ctor
+.PHONY : test-core_force_explicit_ctor
+
+# fast build rule for target.
+test-core_force_explicit_ctor/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_force_explicit_ctor.dir\build.make libs/glm/test/core/CMakeFiles/test-core_force_explicit_ctor.dir/build
+.PHONY : test-core_force_explicit_ctor/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_exponential
+
+# Build rule for target.
+test-core_func_exponential: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_exponential
+.PHONY : test-core_func_exponential
+
+# fast build rule for target.
+test-core_func_exponential/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_exponential.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_exponential.dir/build
+.PHONY : test-core_func_exponential/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_cast
+
+# Build rule for target.
+test-core_type_cast: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_cast
+.PHONY : test-core_type_cast
+
+# fast build rule for target.
+test-core_type_cast/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_cast.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_cast.dir/build
+.PHONY : test-core_type_cast/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat4x3
+
+# Build rule for target.
+test-core_type_mat4x3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat4x3
+.PHONY : test-core_type_mat4x3
+
+# fast build rule for target.
+test-core_type_mat4x3/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat4x3.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat4x3.dir/build
+.PHONY : test-core_type_mat4x3/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_int
+
+# Build rule for target.
+test-core_type_int: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_int
+.PHONY : test-core_type_int
+
+# fast build rule for target.
+test-core_type_int/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_int.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_int.dir/build
+.PHONY : test-core_type_int/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_integer_find_lsb
+
+# Build rule for target.
+test-core_func_integer_find_lsb: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_integer_find_lsb
+.PHONY : test-core_func_integer_find_lsb
+
+# fast build rule for target.
+test-core_func_integer_find_lsb/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_integer_find_lsb.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_integer_find_lsb.dir/build
+.PHONY : test-core_func_integer_find_lsb/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_length
+
+# Build rule for target.
+test-core_type_length: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_length
+.PHONY : test-core_type_length
+
+# fast build rule for target.
+test-core_type_length/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_length.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_length.dir/build
+.PHONY : test-core_type_length/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat2x3
+
+# Build rule for target.
+test-core_type_mat2x3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat2x3
+.PHONY : test-core_type_mat2x3
+
+# fast build rule for target.
+test-core_type_mat2x3/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat2x3.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat2x3.dir/build
+.PHONY : test-core_type_mat2x3/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat2x4
+
+# Build rule for target.
+test-core_type_mat2x4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat2x4
+.PHONY : test-core_type_mat2x4
+
+# fast build rule for target.
+test-core_type_mat2x4/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat2x4.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat2x4.dir/build
+.PHONY : test-core_type_mat2x4/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat3x2
+
+# Build rule for target.
+test-core_type_mat3x2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat3x2
+.PHONY : test-core_type_mat3x2
+
+# fast build rule for target.
+test-core_type_mat3x2/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat3x2.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat3x2.dir/build
+.PHONY : test-core_type_mat3x2/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat3x3
+
+# Build rule for target.
+test-core_type_mat3x3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat3x3
+.PHONY : test-core_type_mat3x3
+
+# fast build rule for target.
+test-core_type_mat3x3/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat3x3.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat3x3.dir/build
+.PHONY : test-core_type_mat3x3/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat3x4
+
+# Build rule for target.
+test-core_type_mat3x4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat3x4
+.PHONY : test-core_type_mat3x4
+
+# fast build rule for target.
+test-core_type_mat3x4/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat3x4.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat3x4.dir/build
+.PHONY : test-core_type_mat3x4/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_mat4x4
+
+# Build rule for target.
+test-core_type_mat4x4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_mat4x4
+.PHONY : test-core_type_mat4x4
+
+# fast build rule for target.
+test-core_type_mat4x4/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_mat4x4.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_mat4x4.dir/build
+.PHONY : test-core_type_mat4x4/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_vec1
+
+# Build rule for target.
+test-core_type_vec1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_vec1
+.PHONY : test-core_type_vec1
+
+# fast build rule for target.
+test-core_type_vec1/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_vec1.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_vec1.dir/build
+.PHONY : test-core_type_vec1/fast
+
+#=============================================================================
+# Target rules for targets named test-core_setup_message
+
+# Build rule for target.
+test-core_setup_message: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_setup_message
+.PHONY : test-core_setup_message
+
+# fast build rule for target.
+test-core_setup_message/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_setup_message.dir\build.make libs/glm/test/core/CMakeFiles/test-core_setup_message.dir/build
+.PHONY : test-core_setup_message/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_vec2
+
+# Build rule for target.
+test-core_type_vec2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_vec2
+.PHONY : test-core_type_vec2
+
+# fast build rule for target.
+test-core_type_vec2/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_vec2.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_vec2.dir/build
+.PHONY : test-core_type_vec2/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_vec3
+
+# Build rule for target.
+test-core_type_vec3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_vec3
+.PHONY : test-core_type_vec3
+
+# fast build rule for target.
+test-core_type_vec3/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_vec3.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_vec3.dir/build
+.PHONY : test-core_type_vec3/fast
+
+#=============================================================================
+# Target rules for targets named test-core_type_vec4
+
+# Build rule for target.
+test-core_type_vec4: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_type_vec4
+.PHONY : test-core_type_vec4
+
+# fast build rule for target.
+test-core_type_vec4/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_type_vec4.dir\build.make libs/glm/test/core/CMakeFiles/test-core_type_vec4.dir/build
+.PHONY : test-core_type_vec4/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_geometric
+
+# Build rule for target.
+test-core_func_geometric: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_geometric
+.PHONY : test-core_func_geometric
+
+# fast build rule for target.
+test-core_func_geometric/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_geometric.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_geometric.dir/build
+.PHONY : test-core_func_geometric/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_swizzle
+
+# Build rule for target.
+test-core_func_swizzle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_swizzle
+.PHONY : test-core_func_swizzle
+
+# fast build rule for target.
+test-core_func_swizzle/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_swizzle.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_swizzle.dir/build
+.PHONY : test-core_func_swizzle/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_integer
+
+# Build rule for target.
+test-core_func_integer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_integer
+.PHONY : test-core_func_integer
+
+# fast build rule for target.
+test-core_func_integer/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_integer.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_integer.dir/build
+.PHONY : test-core_func_integer/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_noise
+
+# Build rule for target.
+test-core_func_noise: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_noise
+.PHONY : test-core_func_noise
+
+# fast build rule for target.
+test-core_func_noise/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_noise.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_noise.dir/build
+.PHONY : test-core_func_noise/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_integer_bit_count
+
+# Build rule for target.
+test-core_func_integer_bit_count: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_integer_bit_count
+.PHONY : test-core_func_integer_bit_count
+
+# fast build rule for target.
+test-core_func_integer_bit_count/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_integer_bit_count.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_integer_bit_count.dir/build
+.PHONY : test-core_func_integer_bit_count/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_matrix
+
+# Build rule for target.
+test-core_func_matrix: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_matrix
+.PHONY : test-core_func_matrix
+
+# fast build rule for target.
+test-core_func_matrix/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_matrix.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_matrix.dir/build
+.PHONY : test-core_func_matrix/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_packing
+
+# Build rule for target.
+test-core_func_packing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_packing
+.PHONY : test-core_func_packing
+
+# fast build rule for target.
+test-core_func_packing/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_packing.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_packing.dir/build
+.PHONY : test-core_func_packing/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_trigonometric
+
+# Build rule for target.
+test-core_func_trigonometric: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_trigonometric
+.PHONY : test-core_func_trigonometric
+
+# fast build rule for target.
+test-core_func_trigonometric/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_trigonometric.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_trigonometric.dir/build
+.PHONY : test-core_func_trigonometric/fast
+
+#=============================================================================
+# Target rules for targets named test-core_setup_platform_unknown
+
+# Build rule for target.
+test-core_setup_platform_unknown: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_setup_platform_unknown
+.PHONY : test-core_setup_platform_unknown
+
+# fast build rule for target.
+test-core_setup_platform_unknown/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_setup_platform_unknown.dir\build.make libs/glm/test/core/CMakeFiles/test-core_setup_platform_unknown.dir/build
+.PHONY : test-core_setup_platform_unknown/fast
+
+#=============================================================================
+# Target rules for targets named test-core_func_vector_relational
+
+# Build rule for target.
+test-core_func_vector_relational: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_func_vector_relational
+.PHONY : test-core_func_vector_relational
+
+# fast build rule for target.
+test-core_func_vector_relational/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_func_vector_relational.dir\build.make libs/glm/test/core/CMakeFiles/test-core_func_vector_relational.dir/build
+.PHONY : test-core_func_vector_relational/fast
+
+#=============================================================================
+# Target rules for targets named test-core_setup_force_cxx98
+
+# Build rule for target.
+test-core_setup_force_cxx98: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_setup_force_cxx98
+.PHONY : test-core_setup_force_cxx98
+
+# fast build rule for target.
+test-core_setup_force_cxx98/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_setup_force_cxx98.dir\build.make libs/glm/test/core/CMakeFiles/test-core_setup_force_cxx98.dir/build
+.PHONY : test-core_setup_force_cxx98/fast
+
+#=============================================================================
+# Target rules for targets named test-core_setup_force_size_t_length
+
+# Build rule for target.
+test-core_setup_force_size_t_length: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-core_setup_force_size_t_length
+.PHONY : test-core_setup_force_size_t_length
+
+# fast build rule for target.
+test-core_setup_force_size_t_length/fast:
+	$(MAKE) -f libs\glm\test\core\CMakeFiles\test-core_setup_force_size_t_length.dir\build.make libs/glm/test/core/CMakeFiles/test-core_setup_force_size_t_length.dir/build
+.PHONY : test-core_setup_force_size_t_length/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_trigonometric
+
+# Build rule for target.
+test-ext_quaternion_trigonometric: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_trigonometric
+.PHONY : test-ext_quaternion_trigonometric
+
+# fast build rule for target.
+test-ext_quaternion_trigonometric/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_trigonometric.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_trigonometric.dir/build
+.PHONY : test-ext_quaternion_trigonometric/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_matrix_relational
+
+# Build rule for target.
+test-ext_matrix_relational: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_matrix_relational
+.PHONY : test-ext_matrix_relational
+
+# fast build rule for target.
+test-ext_matrix_relational/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_matrix_relational.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_matrix_relational.dir/build
+.PHONY : test-ext_matrix_relational/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_matrix_transform
+
+# Build rule for target.
+test-ext_matrix_transform: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_matrix_transform
+.PHONY : test-ext_matrix_transform
+
+# fast build rule for target.
+test-ext_matrix_transform/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_matrix_transform.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_matrix_transform.dir/build
+.PHONY : test-ext_matrix_transform/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_transform
+
+# Build rule for target.
+test-ext_quaternion_transform: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_transform
+.PHONY : test-ext_quaternion_transform
+
+# fast build rule for target.
+test-ext_quaternion_transform/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_transform.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_transform.dir/build
+.PHONY : test-ext_quaternion_transform/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vector_ulp
+
+# Build rule for target.
+test-ext_vector_ulp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vector_ulp
+.PHONY : test-ext_vector_ulp
+
+# fast build rule for target.
+test-ext_vector_ulp/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vector_ulp.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vector_ulp.dir/build
+.PHONY : test-ext_vector_ulp/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vector_bool1
+
+# Build rule for target.
+test-ext_vector_bool1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vector_bool1
+.PHONY : test-ext_vector_bool1
+
+# fast build rule for target.
+test-ext_vector_bool1/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vector_bool1.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vector_bool1.dir/build
+.PHONY : test-ext_vector_bool1/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_matrix_common
+
+# Build rule for target.
+test-ext_matrix_common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_matrix_common
+.PHONY : test-ext_matrix_common
+
+# fast build rule for target.
+test-ext_matrix_common/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_matrix_common.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_matrix_common.dir/build
+.PHONY : test-ext_matrix_common/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_relational
+
+# Build rule for target.
+test-ext_quaternion_relational: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_relational
+.PHONY : test-ext_quaternion_relational
+
+# fast build rule for target.
+test-ext_quaternion_relational/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_relational.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_relational.dir/build
+.PHONY : test-ext_quaternion_relational/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_common
+
+# Build rule for target.
+test-ext_quaternion_common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_common
+.PHONY : test-ext_quaternion_common
+
+# fast build rule for target.
+test-ext_quaternion_common/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_common.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_common.dir/build
+.PHONY : test-ext_quaternion_common/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_exponential
+
+# Build rule for target.
+test-ext_quaternion_exponential: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_exponential
+.PHONY : test-ext_quaternion_exponential
+
+# fast build rule for target.
+test-ext_quaternion_exponential/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_exponential.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_exponential.dir/build
+.PHONY : test-ext_quaternion_exponential/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_geometric
+
+# Build rule for target.
+test-ext_quaternion_geometric: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_geometric
+.PHONY : test-ext_quaternion_geometric
+
+# fast build rule for target.
+test-ext_quaternion_geometric/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_geometric.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_geometric.dir/build
+.PHONY : test-ext_quaternion_geometric/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_quaternion_type
+
+# Build rule for target.
+test-ext_quaternion_type: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_quaternion_type
+.PHONY : test-ext_quaternion_type
+
+# fast build rule for target.
+test-ext_quaternion_type/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_quaternion_type.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_quaternion_type.dir/build
+.PHONY : test-ext_quaternion_type/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_scalar_common
+
+# Build rule for target.
+test-ext_scalar_common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_scalar_common
+.PHONY : test-ext_scalar_common
+
+# fast build rule for target.
+test-ext_scalar_common/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_scalar_common.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_scalar_common.dir/build
+.PHONY : test-ext_scalar_common/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_scalar_int_sized
+
+# Build rule for target.
+test-ext_scalar_int_sized: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_scalar_int_sized
+.PHONY : test-ext_scalar_int_sized
+
+# fast build rule for target.
+test-ext_scalar_int_sized/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_scalar_int_sized.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_scalar_int_sized.dir/build
+.PHONY : test-ext_scalar_int_sized/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_scalar_constants
+
+# Build rule for target.
+test-ext_scalar_constants: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_scalar_constants
+.PHONY : test-ext_scalar_constants
+
+# fast build rule for target.
+test-ext_scalar_constants/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_scalar_constants.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_scalar_constants.dir/build
+.PHONY : test-ext_scalar_constants/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_scalar_uint_sized
+
+# Build rule for target.
+test-ext_scalar_uint_sized: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_scalar_uint_sized
+.PHONY : test-ext_scalar_uint_sized
+
+# fast build rule for target.
+test-ext_scalar_uint_sized/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_scalar_uint_sized.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_scalar_uint_sized.dir/build
+.PHONY : test-ext_scalar_uint_sized/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_scalar_ulp
+
+# Build rule for target.
+test-ext_scalar_ulp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_scalar_ulp
+.PHONY : test-ext_scalar_ulp
+
+# fast build rule for target.
+test-ext_scalar_ulp/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_scalar_ulp.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_scalar_ulp.dir/build
+.PHONY : test-ext_scalar_ulp/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_scalar_relational
+
+# Build rule for target.
+test-ext_scalar_relational: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_scalar_relational
+.PHONY : test-ext_scalar_relational
+
+# fast build rule for target.
+test-ext_scalar_relational/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_scalar_relational.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_scalar_relational.dir/build
+.PHONY : test-ext_scalar_relational/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vec1
+
+# Build rule for target.
+test-ext_vec1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vec1
+.PHONY : test-ext_vec1
+
+# fast build rule for target.
+test-ext_vec1/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vec1.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vec1.dir/build
+.PHONY : test-ext_vec1/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vector_common
+
+# Build rule for target.
+test-ext_vector_common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vector_common
+.PHONY : test-ext_vector_common
+
+# fast build rule for target.
+test-ext_vector_common/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vector_common.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vector_common.dir/build
+.PHONY : test-ext_vector_common/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vector_iec559
+
+# Build rule for target.
+test-ext_vector_iec559: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vector_iec559
+.PHONY : test-ext_vector_iec559
+
+# fast build rule for target.
+test-ext_vector_iec559/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vector_iec559.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vector_iec559.dir/build
+.PHONY : test-ext_vector_iec559/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vector_integer
+
+# Build rule for target.
+test-ext_vector_integer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vector_integer
+.PHONY : test-ext_vector_integer
+
+# fast build rule for target.
+test-ext_vector_integer/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vector_integer.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vector_integer.dir/build
+.PHONY : test-ext_vector_integer/fast
+
+#=============================================================================
+# Target rules for targets named test-ext_vector_relational
+
+# Build rule for target.
+test-ext_vector_relational: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-ext_vector_relational
+.PHONY : test-ext_vector_relational
+
+# fast build rule for target.
+test-ext_vector_relational/fast:
+	$(MAKE) -f libs\glm\test\ext\CMakeFiles\test-ext_vector_relational.dir\build.make libs/glm/test/ext/CMakeFiles/test-ext_vector_relational.dir/build
+.PHONY : test-ext_vector_relational/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_vec1
+
+# Build rule for target.
+test-gtc_vec1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_vec1
+.PHONY : test-gtc_vec1
+
+# fast build rule for target.
+test-gtc_vec1/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_vec1.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_vec1.dir/build
+.PHONY : test-gtc_vec1/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_bitfield
+
+# Build rule for target.
+test-gtc_bitfield: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_bitfield
+.PHONY : test-gtc_bitfield
+
+# fast build rule for target.
+test-gtc_bitfield/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_bitfield.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_bitfield.dir/build
+.PHONY : test-gtc_bitfield/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_color_space
+
+# Build rule for target.
+test-gtc_color_space: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_color_space
+.PHONY : test-gtc_color_space
+
+# fast build rule for target.
+test-gtc_color_space/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_color_space.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_color_space.dir/build
+.PHONY : test-gtc_color_space/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_integer
+
+# Build rule for target.
+test-gtc_integer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_integer
+.PHONY : test-gtc_integer
+
+# fast build rule for target.
+test-gtc_integer/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_integer.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_integer.dir/build
+.PHONY : test-gtc_integer/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_epsilon
+
+# Build rule for target.
+test-gtc_epsilon: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_epsilon
+.PHONY : test-gtc_epsilon
+
+# fast build rule for target.
+test-gtc_epsilon/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_epsilon.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_epsilon.dir/build
+.PHONY : test-gtc_epsilon/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_random
+
+# Build rule for target.
+test-gtc_random: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_random
+.PHONY : test-gtc_random
+
+# fast build rule for target.
+test-gtc_random/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_random.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_random.dir/build
+.PHONY : test-gtc_random/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_constants
+
+# Build rule for target.
+test-gtc_constants: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_constants
+.PHONY : test-gtc_constants
+
+# fast build rule for target.
+test-gtc_constants/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_constants.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_constants.dir/build
+.PHONY : test-gtc_constants/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_matrix_inverse
+
+# Build rule for target.
+test-gtc_matrix_inverse: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_matrix_inverse
+.PHONY : test-gtc_matrix_inverse
+
+# fast build rule for target.
+test-gtc_matrix_inverse/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_matrix_inverse.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_matrix_inverse.dir/build
+.PHONY : test-gtc_matrix_inverse/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_matrix_transform
+
+# Build rule for target.
+test-gtc_matrix_transform: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_matrix_transform
+.PHONY : test-gtc_matrix_transform
+
+# fast build rule for target.
+test-gtc_matrix_transform/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_matrix_transform.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_matrix_transform.dir/build
+.PHONY : test-gtc_matrix_transform/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_matrix_access
+
+# Build rule for target.
+test-gtc_matrix_access: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_matrix_access
+.PHONY : test-gtc_matrix_access
+
+# fast build rule for target.
+test-gtc_matrix_access/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_matrix_access.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_matrix_access.dir/build
+.PHONY : test-gtc_matrix_access/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_matrix_integer
+
+# Build rule for target.
+test-gtc_matrix_integer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_matrix_integer
+.PHONY : test-gtc_matrix_integer
+
+# fast build rule for target.
+test-gtc_matrix_integer/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_matrix_integer.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_matrix_integer.dir/build
+.PHONY : test-gtc_matrix_integer/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_noise
+
+# Build rule for target.
+test-gtc_noise: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_noise
+.PHONY : test-gtc_noise
+
+# fast build rule for target.
+test-gtc_noise/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_noise.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_noise.dir/build
+.PHONY : test-gtc_noise/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_packing
+
+# Build rule for target.
+test-gtc_packing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_packing
+.PHONY : test-gtc_packing
+
+# fast build rule for target.
+test-gtc_packing/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_packing.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_packing.dir/build
+.PHONY : test-gtc_packing/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_quaternion
+
+# Build rule for target.
+test-gtc_quaternion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_quaternion
+.PHONY : test-gtc_quaternion
+
+# fast build rule for target.
+test-gtc_quaternion/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_quaternion.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_quaternion.dir/build
+.PHONY : test-gtc_quaternion/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_round
+
+# Build rule for target.
+test-gtc_round: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_round
+.PHONY : test-gtc_round
+
+# fast build rule for target.
+test-gtc_round/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_round.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_round.dir/build
+.PHONY : test-gtc_round/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_reciprocal
+
+# Build rule for target.
+test-gtc_reciprocal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_reciprocal
+.PHONY : test-gtc_reciprocal
+
+# fast build rule for target.
+test-gtc_reciprocal/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_reciprocal.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_reciprocal.dir/build
+.PHONY : test-gtc_reciprocal/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_type_aligned
+
+# Build rule for target.
+test-gtc_type_aligned: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_type_aligned
+.PHONY : test-gtc_type_aligned
+
+# fast build rule for target.
+test-gtc_type_aligned/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_type_aligned.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_type_aligned.dir/build
+.PHONY : test-gtc_type_aligned/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_type_precision
+
+# Build rule for target.
+test-gtc_type_precision: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_type_precision
+.PHONY : test-gtc_type_precision
+
+# fast build rule for target.
+test-gtc_type_precision/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_type_precision.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_type_precision.dir/build
+.PHONY : test-gtc_type_precision/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_type_ptr
+
+# Build rule for target.
+test-gtc_type_ptr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_type_ptr
+.PHONY : test-gtc_type_ptr
+
+# fast build rule for target.
+test-gtc_type_ptr/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_type_ptr.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_type_ptr.dir/build
+.PHONY : test-gtc_type_ptr/fast
+
+#=============================================================================
+# Target rules for targets named test-gtc_ulp
+
+# Build rule for target.
+test-gtc_ulp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtc_ulp
+.PHONY : test-gtc_ulp
+
+# fast build rule for target.
+test-gtc_ulp/fast:
+	$(MAKE) -f libs\glm\test\gtc\CMakeFiles\test-gtc_ulp.dir\build.make libs/glm/test/gtc/CMakeFiles/test-gtc_ulp.dir/build
+.PHONY : test-gtc_ulp/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_operation
+
+# Build rule for target.
+test-gtx_matrix_operation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_operation
+.PHONY : test-gtx_matrix_operation
+
+# fast build rule for target.
+test-gtx_matrix_operation/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_operation.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_operation.dir/build
+.PHONY : test-gtx_matrix_operation/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx
+
+# Build rule for target.
+test-gtx: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx
+.PHONY : test-gtx
+
+# fast build rule for target.
+test-gtx/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx.dir/build
+.PHONY : test-gtx/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_component_wise
+
+# Build rule for target.
+test-gtx_component_wise: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_component_wise
+.PHONY : test-gtx_component_wise
+
+# fast build rule for target.
+test-gtx_component_wise/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_component_wise.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_component_wise.dir/build
+.PHONY : test-gtx_component_wise/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_compatibility
+
+# Build rule for target.
+test-gtx_compatibility: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_compatibility
+.PHONY : test-gtx_compatibility
+
+# fast build rule for target.
+test-gtx_compatibility/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_compatibility.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_compatibility.dir/build
+.PHONY : test-gtx_compatibility/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_scalar_relational
+
+# Build rule for target.
+test-gtx_scalar_relational: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_scalar_relational
+.PHONY : test-gtx_scalar_relational
+
+# fast build rule for target.
+test-gtx_scalar_relational/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_scalar_relational.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_scalar_relational.dir/build
+.PHONY : test-gtx_scalar_relational/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_io
+
+# Build rule for target.
+test-gtx_io: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_io
+.PHONY : test-gtx_io
+
+# fast build rule for target.
+test-gtx_io/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_io.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_io.dir/build
+.PHONY : test-gtx_io/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_associated_min_max
+
+# Build rule for target.
+test-gtx_associated_min_max: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_associated_min_max
+.PHONY : test-gtx_associated_min_max
+
+# fast build rule for target.
+test-gtx_associated_min_max/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_associated_min_max.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_associated_min_max.dir/build
+.PHONY : test-gtx_associated_min_max/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_closest_point
+
+# Build rule for target.
+test-gtx_closest_point: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_closest_point
+.PHONY : test-gtx_closest_point
+
+# fast build rule for target.
+test-gtx_closest_point/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_closest_point.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_closest_point.dir/build
+.PHONY : test-gtx_closest_point/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_euler_angle
+
+# Build rule for target.
+test-gtx_euler_angle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_euler_angle
+.PHONY : test-gtx_euler_angle
+
+# fast build rule for target.
+test-gtx_euler_angle/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_euler_angle.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_euler_angle.dir/build
+.PHONY : test-gtx_euler_angle/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_color_encoding
+
+# Build rule for target.
+test-gtx_color_encoding: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_color_encoding
+.PHONY : test-gtx_color_encoding
+
+# fast build rule for target.
+test-gtx_color_encoding/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_color_encoding.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_color_encoding.dir/build
+.PHONY : test-gtx_color_encoding/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_log_base
+
+# Build rule for target.
+test-gtx_log_base: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_log_base
+.PHONY : test-gtx_log_base
+
+# fast build rule for target.
+test-gtx_log_base/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_log_base.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_log_base.dir/build
+.PHONY : test-gtx_log_base/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_color_space
+
+# Build rule for target.
+test-gtx_color_space: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_color_space
+.PHONY : test-gtx_color_space
+
+# fast build rule for target.
+test-gtx_color_space/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_color_space.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_color_space.dir/build
+.PHONY : test-gtx_color_space/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_color_space_YCoCg
+
+# Build rule for target.
+test-gtx_color_space_YCoCg: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_color_space_YCoCg
+.PHONY : test-gtx_color_space_YCoCg
+
+# fast build rule for target.
+test-gtx_color_space_YCoCg/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_color_space_YCoCg.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_color_space_YCoCg.dir/build
+.PHONY : test-gtx_color_space_YCoCg/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_intersect
+
+# Build rule for target.
+test-gtx_intersect: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_intersect
+.PHONY : test-gtx_intersect
+
+# fast build rule for target.
+test-gtx_intersect/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_intersect.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_intersect.dir/build
+.PHONY : test-gtx_intersect/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_common
+
+# Build rule for target.
+test-gtx_common: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_common
+.PHONY : test-gtx_common
+
+# fast build rule for target.
+test-gtx_common/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_common.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_common.dir/build
+.PHONY : test-gtx_common/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_easing
+
+# Build rule for target.
+test-gtx_easing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_easing
+.PHONY : test-gtx_easing
+
+# fast build rule for target.
+test-gtx_easing/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_easing.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_easing.dir/build
+.PHONY : test-gtx_easing/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_extend
+
+# Build rule for target.
+test-gtx_extend: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_extend
+.PHONY : test-gtx_extend
+
+# fast build rule for target.
+test-gtx_extend/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_extend.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_extend.dir/build
+.PHONY : test-gtx_extend/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_extended_min_max
+
+# Build rule for target.
+test-gtx_extended_min_max: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_extended_min_max
+.PHONY : test-gtx_extended_min_max
+
+# fast build rule for target.
+test-gtx_extended_min_max/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_extended_min_max.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_extended_min_max.dir/build
+.PHONY : test-gtx_extended_min_max/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_exterior_product
+
+# Build rule for target.
+test-gtx_exterior_product: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_exterior_product
+.PHONY : test-gtx_exterior_product
+
+# fast build rule for target.
+test-gtx_exterior_product/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_exterior_product.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_exterior_product.dir/build
+.PHONY : test-gtx_exterior_product/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_fast_exponential
+
+# Build rule for target.
+test-gtx_fast_exponential: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_fast_exponential
+.PHONY : test-gtx_fast_exponential
+
+# fast build rule for target.
+test-gtx_fast_exponential/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_fast_exponential.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_fast_exponential.dir/build
+.PHONY : test-gtx_fast_exponential/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_fast_square_root
+
+# Build rule for target.
+test-gtx_fast_square_root: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_fast_square_root
+.PHONY : test-gtx_fast_square_root
+
+# fast build rule for target.
+test-gtx_fast_square_root/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_fast_square_root.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_fast_square_root.dir/build
+.PHONY : test-gtx_fast_square_root/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_fast_trigonometry
+
+# Build rule for target.
+test-gtx_fast_trigonometry: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_fast_trigonometry
+.PHONY : test-gtx_fast_trigonometry
+
+# fast build rule for target.
+test-gtx_fast_trigonometry/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_fast_trigonometry.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_fast_trigonometry.dir/build
+.PHONY : test-gtx_fast_trigonometry/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_functions
+
+# Build rule for target.
+test-gtx_functions: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_functions
+.PHONY : test-gtx_functions
+
+# fast build rule for target.
+test-gtx_functions/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_functions.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_functions.dir/build
+.PHONY : test-gtx_functions/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_vec_swizzle
+
+# Build rule for target.
+test-gtx_vec_swizzle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_vec_swizzle
+.PHONY : test-gtx_vec_swizzle
+
+# fast build rule for target.
+test-gtx_vec_swizzle/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_vec_swizzle.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_vec_swizzle.dir/build
+.PHONY : test-gtx_vec_swizzle/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_gradient_paint
+
+# Build rule for target.
+test-gtx_gradient_paint: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_gradient_paint
+.PHONY : test-gtx_gradient_paint
+
+# fast build rule for target.
+test-gtx_gradient_paint/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_gradient_paint.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_gradient_paint.dir/build
+.PHONY : test-gtx_gradient_paint/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_handed_coordinate_space
+
+# Build rule for target.
+test-gtx_handed_coordinate_space: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_handed_coordinate_space
+.PHONY : test-gtx_handed_coordinate_space
+
+# fast build rule for target.
+test-gtx_handed_coordinate_space/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_handed_coordinate_space.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_handed_coordinate_space.dir/build
+.PHONY : test-gtx_handed_coordinate_space/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_norm
+
+# Build rule for target.
+test-gtx_norm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_norm
+.PHONY : test-gtx_norm
+
+# fast build rule for target.
+test-gtx_norm/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_norm.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_norm.dir/build
+.PHONY : test-gtx_norm/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_integer
+
+# Build rule for target.
+test-gtx_integer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_integer
+.PHONY : test-gtx_integer
+
+# fast build rule for target.
+test-gtx_integer/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_integer.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_integer.dir/build
+.PHONY : test-gtx_integer/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_load
+
+# Build rule for target.
+test-gtx_load: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_load
+.PHONY : test-gtx_load
+
+# fast build rule for target.
+test-gtx_load/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_load.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_load.dir/build
+.PHONY : test-gtx_load/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_number_precision
+
+# Build rule for target.
+test-gtx_number_precision: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_number_precision
+.PHONY : test-gtx_number_precision
+
+# fast build rule for target.
+test-gtx_number_precision/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_number_precision.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_number_precision.dir/build
+.PHONY : test-gtx_number_precision/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_factorisation
+
+# Build rule for target.
+test-gtx_matrix_factorisation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_factorisation
+.PHONY : test-gtx_matrix_factorisation
+
+# fast build rule for target.
+test-gtx_matrix_factorisation/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_factorisation.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_factorisation.dir/build
+.PHONY : test-gtx_matrix_factorisation/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_cross_product
+
+# Build rule for target.
+test-gtx_matrix_cross_product: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_cross_product
+.PHONY : test-gtx_matrix_cross_product
+
+# fast build rule for target.
+test-gtx_matrix_cross_product/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_cross_product.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_cross_product.dir/build
+.PHONY : test-gtx_matrix_cross_product/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_texture
+
+# Build rule for target.
+test-gtx_texture: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_texture
+.PHONY : test-gtx_texture
+
+# fast build rule for target.
+test-gtx_texture/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_texture.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_texture.dir/build
+.PHONY : test-gtx_texture/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_dual_quaternion
+
+# Build rule for target.
+test-gtx_dual_quaternion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_dual_quaternion
+.PHONY : test-gtx_dual_quaternion
+
+# fast build rule for target.
+test-gtx_dual_quaternion/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_dual_quaternion.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_dual_quaternion.dir/build
+.PHONY : test-gtx_dual_quaternion/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_decompose
+
+# Build rule for target.
+test-gtx_matrix_decompose: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_decompose
+.PHONY : test-gtx_matrix_decompose
+
+# fast build rule for target.
+test-gtx_matrix_decompose/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_decompose.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_decompose.dir/build
+.PHONY : test-gtx_matrix_decompose/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_wrap
+
+# Build rule for target.
+test-gtx_wrap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_wrap
+.PHONY : test-gtx_wrap
+
+# fast build rule for target.
+test-gtx_wrap/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_wrap.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_wrap.dir/build
+.PHONY : test-gtx_wrap/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_interpolation
+
+# Build rule for target.
+test-gtx_matrix_interpolation: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_interpolation
+.PHONY : test-gtx_matrix_interpolation
+
+# fast build rule for target.
+test-gtx_matrix_interpolation/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_interpolation.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_interpolation.dir/build
+.PHONY : test-gtx_matrix_interpolation/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_major_storage
+
+# Build rule for target.
+test-gtx_matrix_major_storage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_major_storage
+.PHONY : test-gtx_matrix_major_storage
+
+# fast build rule for target.
+test-gtx_matrix_major_storage/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_major_storage.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_major_storage.dir/build
+.PHONY : test-gtx_matrix_major_storage/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_query
+
+# Build rule for target.
+test-gtx_matrix_query: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_query
+.PHONY : test-gtx_matrix_query
+
+# fast build rule for target.
+test-gtx_matrix_query/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_query.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_query.dir/build
+.PHONY : test-gtx_matrix_query/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_range
+
+# Build rule for target.
+test-gtx_range: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_range
+.PHONY : test-gtx_range
+
+# fast build rule for target.
+test-gtx_range/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_range.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_range.dir/build
+.PHONY : test-gtx_range/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_matrix_transform_2d
+
+# Build rule for target.
+test-gtx_matrix_transform_2d: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_matrix_transform_2d
+.PHONY : test-gtx_matrix_transform_2d
+
+# fast build rule for target.
+test-gtx_matrix_transform_2d/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_matrix_transform_2d.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_matrix_transform_2d.dir/build
+.PHONY : test-gtx_matrix_transform_2d/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_vector_angle
+
+# Build rule for target.
+test-gtx_vector_angle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_vector_angle
+.PHONY : test-gtx_vector_angle
+
+# fast build rule for target.
+test-gtx_vector_angle/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_vector_angle.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_vector_angle.dir/build
+.PHONY : test-gtx_vector_angle/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_normal
+
+# Build rule for target.
+test-gtx_normal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_normal
+.PHONY : test-gtx_normal
+
+# fast build rule for target.
+test-gtx_normal/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_normal.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_normal.dir/build
+.PHONY : test-gtx_normal/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_normalize_dot
+
+# Build rule for target.
+test-gtx_normalize_dot: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_normalize_dot
+.PHONY : test-gtx_normalize_dot
+
+# fast build rule for target.
+test-gtx_normalize_dot/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_normalize_dot.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_normalize_dot.dir/build
+.PHONY : test-gtx_normalize_dot/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_orthonormalize
+
+# Build rule for target.
+test-gtx_orthonormalize: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_orthonormalize
+.PHONY : test-gtx_orthonormalize
+
+# fast build rule for target.
+test-gtx_orthonormalize/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_orthonormalize.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_orthonormalize.dir/build
+.PHONY : test-gtx_orthonormalize/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_optimum_pow
+
+# Build rule for target.
+test-gtx_optimum_pow: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_optimum_pow
+.PHONY : test-gtx_optimum_pow
+
+# fast build rule for target.
+test-gtx_optimum_pow/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_optimum_pow.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_optimum_pow.dir/build
+.PHONY : test-gtx_optimum_pow/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_perpendicular
+
+# Build rule for target.
+test-gtx_perpendicular: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_perpendicular
+.PHONY : test-gtx_perpendicular
+
+# fast build rule for target.
+test-gtx_perpendicular/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_perpendicular.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_perpendicular.dir/build
+.PHONY : test-gtx_perpendicular/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_polar_coordinates
+
+# Build rule for target.
+test-gtx_polar_coordinates: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_polar_coordinates
+.PHONY : test-gtx_polar_coordinates
+
+# fast build rule for target.
+test-gtx_polar_coordinates/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_polar_coordinates.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_polar_coordinates.dir/build
+.PHONY : test-gtx_polar_coordinates/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_projection
+
+# Build rule for target.
+test-gtx_projection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_projection
+.PHONY : test-gtx_projection
+
+# fast build rule for target.
+test-gtx_projection/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_projection.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_projection.dir/build
+.PHONY : test-gtx_projection/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_quaternion
+
+# Build rule for target.
+test-gtx_quaternion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_quaternion
+.PHONY : test-gtx_quaternion
+
+# fast build rule for target.
+test-gtx_quaternion/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_quaternion.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_quaternion.dir/build
+.PHONY : test-gtx_quaternion/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_rotate_normalized_axis
+
+# Build rule for target.
+test-gtx_rotate_normalized_axis: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_rotate_normalized_axis
+.PHONY : test-gtx_rotate_normalized_axis
+
+# fast build rule for target.
+test-gtx_rotate_normalized_axis/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_rotate_normalized_axis.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_rotate_normalized_axis.dir/build
+.PHONY : test-gtx_rotate_normalized_axis/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_rotate_vector
+
+# Build rule for target.
+test-gtx_rotate_vector: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_rotate_vector
+.PHONY : test-gtx_rotate_vector
+
+# fast build rule for target.
+test-gtx_rotate_vector/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_rotate_vector.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_rotate_vector.dir/build
+.PHONY : test-gtx_rotate_vector/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_scalar_multiplication
+
+# Build rule for target.
+test-gtx_scalar_multiplication: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_scalar_multiplication
+.PHONY : test-gtx_scalar_multiplication
+
+# fast build rule for target.
+test-gtx_scalar_multiplication/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_scalar_multiplication.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_scalar_multiplication.dir/build
+.PHONY : test-gtx_scalar_multiplication/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_spline
+
+# Build rule for target.
+test-gtx_spline: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_spline
+.PHONY : test-gtx_spline
+
+# fast build rule for target.
+test-gtx_spline/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_spline.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_spline.dir/build
+.PHONY : test-gtx_spline/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_string_cast
+
+# Build rule for target.
+test-gtx_string_cast: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_string_cast
+.PHONY : test-gtx_string_cast
+
+# fast build rule for target.
+test-gtx_string_cast/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_string_cast.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_string_cast.dir/build
+.PHONY : test-gtx_string_cast/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_type_aligned
+
+# Build rule for target.
+test-gtx_type_aligned: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_type_aligned
+.PHONY : test-gtx_type_aligned
+
+# fast build rule for target.
+test-gtx_type_aligned/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_type_aligned.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_type_aligned.dir/build
+.PHONY : test-gtx_type_aligned/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_type_trait
+
+# Build rule for target.
+test-gtx_type_trait: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_type_trait
+.PHONY : test-gtx_type_trait
+
+# fast build rule for target.
+test-gtx_type_trait/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_type_trait.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_type_trait.dir/build
+.PHONY : test-gtx_type_trait/fast
+
+#=============================================================================
+# Target rules for targets named test-gtx_vector_query
+
+# Build rule for target.
+test-gtx_vector_query: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-gtx_vector_query
+.PHONY : test-gtx_vector_query
+
+# fast build rule for target.
+test-gtx_vector_query/fast:
+	$(MAKE) -f libs\glm\test\gtx\CMakeFiles\test-gtx_vector_query.dir\build.make libs/glm/test/gtx/CMakeFiles/test-gtx_vector_query.dir/build
+.PHONY : test-gtx_vector_query/fast
+
+#=============================================================================
+# Target rules for targets named test-perf_matrix_div
+
+# Build rule for target.
+test-perf_matrix_div: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-perf_matrix_div
+.PHONY : test-perf_matrix_div
+
+# fast build rule for target.
+test-perf_matrix_div/fast:
+	$(MAKE) -f libs\glm\test\perf\CMakeFiles\test-perf_matrix_div.dir\build.make libs/glm/test/perf/CMakeFiles/test-perf_matrix_div.dir/build
+.PHONY : test-perf_matrix_div/fast
+
+#=============================================================================
+# Target rules for targets named test-perf_matrix_inverse
+
+# Build rule for target.
+test-perf_matrix_inverse: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-perf_matrix_inverse
+.PHONY : test-perf_matrix_inverse
+
+# fast build rule for target.
+test-perf_matrix_inverse/fast:
+	$(MAKE) -f libs\glm\test\perf\CMakeFiles\test-perf_matrix_inverse.dir\build.make libs/glm/test/perf/CMakeFiles/test-perf_matrix_inverse.dir/build
+.PHONY : test-perf_matrix_inverse/fast
+
+#=============================================================================
+# Target rules for targets named test-perf_matrix_mul
+
+# Build rule for target.
+test-perf_matrix_mul: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-perf_matrix_mul
+.PHONY : test-perf_matrix_mul
+
+# fast build rule for target.
+test-perf_matrix_mul/fast:
+	$(MAKE) -f libs\glm\test\perf\CMakeFiles\test-perf_matrix_mul.dir\build.make libs/glm/test/perf/CMakeFiles/test-perf_matrix_mul.dir/build
+.PHONY : test-perf_matrix_mul/fast
+
+#=============================================================================
+# Target rules for targets named test-perf_vector_mul_matrix
+
+# Build rule for target.
+test-perf_vector_mul_matrix: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-perf_vector_mul_matrix
+.PHONY : test-perf_vector_mul_matrix
+
+# fast build rule for target.
+test-perf_vector_mul_matrix/fast:
+	$(MAKE) -f libs\glm\test\perf\CMakeFiles\test-perf_vector_mul_matrix.dir\build.make libs/glm/test/perf/CMakeFiles/test-perf_vector_mul_matrix.dir/build
+.PHONY : test-perf_vector_mul_matrix/fast
+
+#=============================================================================
+# Target rules for targets named test-perf_matrix_mul_vector
+
+# Build rule for target.
+test-perf_matrix_mul_vector: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-perf_matrix_mul_vector
+.PHONY : test-perf_matrix_mul_vector
+
+# fast build rule for target.
+test-perf_matrix_mul_vector/fast:
+	$(MAKE) -f libs\glm\test\perf\CMakeFiles\test-perf_matrix_mul_vector.dir\build.make libs/glm/test/perf/CMakeFiles/test-perf_matrix_mul_vector.dir/build
+.PHONY : test-perf_matrix_mul_vector/fast
+
+#=============================================================================
+# Target rules for targets named test-perf_matrix_transpose
+
+# Build rule for target.
+test-perf_matrix_transpose: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 test-perf_matrix_transpose
+.PHONY : test-perf_matrix_transpose
+
+# fast build rule for target.
+test-perf_matrix_transpose/fast:
+	$(MAKE) -f libs\glm\test\perf\CMakeFiles\test-perf_matrix_transpose.dir\build.make libs/glm/test/perf/CMakeFiles/test-perf_matrix_transpose.dir/build
+.PHONY : test-perf_matrix_transpose/fast
+
+#=============================================================================
+# Target rules for targets named stb
+
+# Build rule for target.
+stb: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 stb
+.PHONY : stb
+
+# fast build rule for target.
+stb/fast:
+	$(MAKE) -f libs\stb\CMakeFiles\stb.dir\build.make libs/stb/CMakeFiles/stb.dir/build
+.PHONY : stb/fast
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -545,6 +2573,114 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+src/Mesh.obj: src/Mesh.cpp.obj
+
+.PHONY : src/Mesh.obj
+
+# target to build an object file
+src/Mesh.cpp.obj:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj
+.PHONY : src/Mesh.cpp.obj
+
+src/Mesh.i: src/Mesh.cpp.i
+
+.PHONY : src/Mesh.i
+
+# target to preprocess a source file
+src/Mesh.cpp.i:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Mesh.cpp.i
+.PHONY : src/Mesh.cpp.i
+
+src/Mesh.s: src/Mesh.cpp.s
+
+.PHONY : src/Mesh.s
+
+# target to generate assembly for a file
+src/Mesh.cpp.s:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Mesh.cpp.s
+.PHONY : src/Mesh.cpp.s
+
+src/Shader.obj: src/Shader.cpp.obj
+
+.PHONY : src/Shader.obj
+
+# target to build an object file
+src/Shader.cpp.obj:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Shader.cpp.obj
+.PHONY : src/Shader.cpp.obj
+
+src/Shader.i: src/Shader.cpp.i
+
+.PHONY : src/Shader.i
+
+# target to preprocess a source file
+src/Shader.cpp.i:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Shader.cpp.i
+.PHONY : src/Shader.cpp.i
+
+src/Shader.s: src/Shader.cpp.s
+
+.PHONY : src/Shader.s
+
+# target to generate assembly for a file
+src/Shader.cpp.s:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Shader.cpp.s
+.PHONY : src/Shader.cpp.s
+
+src/Texture.obj: src/Texture.cpp.obj
+
+.PHONY : src/Texture.obj
+
+# target to build an object file
+src/Texture.cpp.obj:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Texture.cpp.obj
+.PHONY : src/Texture.cpp.obj
+
+src/Texture.i: src/Texture.cpp.i
+
+.PHONY : src/Texture.i
+
+# target to preprocess a source file
+src/Texture.cpp.i:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Texture.cpp.i
+.PHONY : src/Texture.cpp.i
+
+src/Texture.s: src/Texture.cpp.s
+
+.PHONY : src/Texture.s
+
+# target to generate assembly for a file
+src/Texture.cpp.s:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Texture.cpp.s
+.PHONY : src/Texture.cpp.s
+
+src/Window.obj: src/Window.cpp.obj
+
+.PHONY : src/Window.obj
+
+# target to build an object file
+src/Window.cpp.obj:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Window.cpp.obj
+.PHONY : src/Window.cpp.obj
+
+src/Window.i: src/Window.cpp.i
+
+.PHONY : src/Window.i
+
+# target to preprocess a source file
+src/Window.cpp.i:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Window.cpp.i
+.PHONY : src/Window.cpp.i
+
+src/Window.s: src/Window.cpp.s
+
+.PHONY : src/Window.s
+
+# target to generate assembly for a file
+src/Window.cpp.s:
+	$(MAKE) -f CMakeFiles\Daybreak.dir\build.make CMakeFiles/Daybreak.dir/src/Window.cpp.s
+.PHONY : src/Window.cpp.s
 
 # Help Target
 help:
@@ -586,9 +2722,177 @@ help:
 	@echo ... timeout
 	@echo ... title
 	@echo ... windows
+	@echo ... glad
+	@echo ... glm_static
+	@echo ... test-bug_ms_vec_static
+	@echo ... test-core_func_integer_find_msb
+	@echo ... test-core_force_pure
+	@echo ... test-core_setup_precision
+	@echo ... test-core_func_common
+	@echo ... test-core_force_aligned_gentypes
+	@echo ... test-core_cpp_constexpr
+	@echo ... test-core_type_mat4x2
+	@echo ... test-core_force_inline
+	@echo ... test-core_force_ctor_init
+	@echo ... test-core_cpp_defaulted_ctor
+	@echo ... test-core_force_xyzw_only
+	@echo ... test-core_type_mat2x2
+	@echo ... test-core_force_unrestricted_gentype
+	@echo ... test-core_type_ctor
+	@echo ... test-core_type_aligned
+	@echo ... test-core_force_explicit_ctor
+	@echo ... test-core_func_exponential
+	@echo ... test-core_type_cast
+	@echo ... test-core_type_mat4x3
+	@echo ... test-core_type_int
+	@echo ... test-core_func_integer_find_lsb
+	@echo ... test-core_type_length
+	@echo ... test-core_type_mat2x3
+	@echo ... test-core_type_mat2x4
+	@echo ... test-core_type_mat3x2
+	@echo ... test-core_type_mat3x3
+	@echo ... test-core_type_mat3x4
+	@echo ... test-core_type_mat4x4
+	@echo ... test-core_type_vec1
+	@echo ... test-core_setup_message
+	@echo ... test-core_type_vec2
+	@echo ... test-core_type_vec3
+	@echo ... test-core_type_vec4
+	@echo ... test-core_func_geometric
+	@echo ... test-core_func_swizzle
+	@echo ... test-core_func_integer
+	@echo ... test-core_func_noise
+	@echo ... test-core_func_integer_bit_count
+	@echo ... test-core_func_matrix
+	@echo ... test-core_func_packing
+	@echo ... test-core_func_trigonometric
+	@echo ... test-core_setup_platform_unknown
+	@echo ... test-core_func_vector_relational
+	@echo ... test-core_setup_force_cxx98
+	@echo ... test-core_setup_force_size_t_length
+	@echo ... test-ext_quaternion_trigonometric
+	@echo ... test-ext_matrix_relational
+	@echo ... test-ext_matrix_transform
+	@echo ... test-ext_quaternion_transform
+	@echo ... test-ext_vector_ulp
+	@echo ... test-ext_vector_bool1
+	@echo ... test-ext_matrix_common
+	@echo ... test-ext_quaternion_relational
+	@echo ... test-ext_quaternion_common
+	@echo ... test-ext_quaternion_exponential
+	@echo ... test-ext_quaternion_geometric
+	@echo ... test-ext_quaternion_type
+	@echo ... test-ext_scalar_common
+	@echo ... test-ext_scalar_int_sized
+	@echo ... test-ext_scalar_constants
+	@echo ... test-ext_scalar_uint_sized
+	@echo ... test-ext_scalar_ulp
+	@echo ... test-ext_scalar_relational
+	@echo ... test-ext_vec1
+	@echo ... test-ext_vector_common
+	@echo ... test-ext_vector_iec559
+	@echo ... test-ext_vector_integer
+	@echo ... test-ext_vector_relational
+	@echo ... test-gtc_vec1
+	@echo ... test-gtc_bitfield
+	@echo ... test-gtc_color_space
+	@echo ... test-gtc_integer
+	@echo ... test-gtc_epsilon
+	@echo ... test-gtc_random
+	@echo ... test-gtc_constants
+	@echo ... test-gtc_matrix_inverse
+	@echo ... test-gtc_matrix_transform
+	@echo ... test-gtc_matrix_access
+	@echo ... test-gtc_matrix_integer
+	@echo ... test-gtc_noise
+	@echo ... test-gtc_packing
+	@echo ... test-gtc_quaternion
+	@echo ... test-gtc_round
+	@echo ... test-gtc_reciprocal
+	@echo ... test-gtc_type_aligned
+	@echo ... test-gtc_type_precision
+	@echo ... test-gtc_type_ptr
+	@echo ... test-gtc_ulp
+	@echo ... test-gtx_matrix_operation
+	@echo ... test-gtx
+	@echo ... test-gtx_component_wise
+	@echo ... test-gtx_compatibility
+	@echo ... test-gtx_scalar_relational
+	@echo ... test-gtx_io
+	@echo ... test-gtx_associated_min_max
+	@echo ... test-gtx_closest_point
+	@echo ... test-gtx_euler_angle
+	@echo ... test-gtx_color_encoding
+	@echo ... test-gtx_log_base
+	@echo ... test-gtx_color_space
+	@echo ... test-gtx_color_space_YCoCg
+	@echo ... test-gtx_intersect
+	@echo ... test-gtx_common
+	@echo ... test-gtx_easing
+	@echo ... test-gtx_extend
+	@echo ... test-gtx_extended_min_max
+	@echo ... test-gtx_exterior_product
+	@echo ... test-gtx_fast_exponential
+	@echo ... test-gtx_fast_square_root
+	@echo ... test-gtx_fast_trigonometry
+	@echo ... test-gtx_functions
+	@echo ... test-gtx_vec_swizzle
+	@echo ... test-gtx_gradient_paint
+	@echo ... test-gtx_handed_coordinate_space
+	@echo ... test-gtx_norm
+	@echo ... test-gtx_integer
+	@echo ... test-gtx_load
+	@echo ... test-gtx_number_precision
+	@echo ... test-gtx_matrix_factorisation
+	@echo ... test-gtx_matrix_cross_product
+	@echo ... test-gtx_texture
+	@echo ... test-gtx_dual_quaternion
+	@echo ... test-gtx_matrix_decompose
+	@echo ... test-gtx_wrap
+	@echo ... test-gtx_matrix_interpolation
+	@echo ... test-gtx_matrix_major_storage
+	@echo ... test-gtx_matrix_query
+	@echo ... test-gtx_range
+	@echo ... test-gtx_matrix_transform_2d
+	@echo ... test-gtx_vector_angle
+	@echo ... test-gtx_normal
+	@echo ... test-gtx_normalize_dot
+	@echo ... test-gtx_orthonormalize
+	@echo ... test-gtx_optimum_pow
+	@echo ... test-gtx_perpendicular
+	@echo ... test-gtx_polar_coordinates
+	@echo ... test-gtx_projection
+	@echo ... test-gtx_quaternion
+	@echo ... test-gtx_rotate_normalized_axis
+	@echo ... test-gtx_rotate_vector
+	@echo ... test-gtx_scalar_multiplication
+	@echo ... test-gtx_spline
+	@echo ... test-gtx_string_cast
+	@echo ... test-gtx_type_aligned
+	@echo ... test-gtx_type_trait
+	@echo ... test-gtx_vector_query
+	@echo ... test-perf_matrix_div
+	@echo ... test-perf_matrix_inverse
+	@echo ... test-perf_matrix_mul
+	@echo ... test-perf_vector_mul_matrix
+	@echo ... test-perf_matrix_mul_vector
+	@echo ... test-perf_matrix_transpose
+	@echo ... stb
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/Mesh.obj
+	@echo ... src/Mesh.i
+	@echo ... src/Mesh.s
+	@echo ... src/Shader.obj
+	@echo ... src/Shader.i
+	@echo ... src/Shader.s
+	@echo ... src/Texture.obj
+	@echo ... src/Texture.i
+	@echo ... src/Texture.s
+	@echo ... src/Window.obj
+	@echo ... src/Window.i
+	@echo ... src/Window.s
 .PHONY : help
 
 

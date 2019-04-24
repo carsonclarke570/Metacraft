@@ -31,9 +31,9 @@
 #define GL_VER_MAJ  3
 #define GL_VER_MIN  3
 
-#define GL_CLEAR_COLOR_R 0.2f
-#define GL_CLEAR_COLOR_G 0.3f
-#define GL_CLEAR_COLOR_B 0.3f
+#define GL_CLEAR_COLOR_R 0.0f
+#define GL_CLEAR_COLOR_G 0.0f
+#define GL_CLEAR_COLOR_B 0.0f
 
 #define NO_COPY(T)                     \
     T(const T&) = delete;              \

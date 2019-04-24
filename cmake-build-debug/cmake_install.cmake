@@ -35,6 +35,9 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/cmake_install.cmake")
+  include("C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glad/cmake_install.cmake")
+  include("C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glm/cmake_install.cmake")
+  include("C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/stb/cmake_install.cmake")
 
 endif()
 

@@ -11,6 +11,7 @@ CMake Deprecation Warning at libs/glfw/CMakeLists.txt:10 (cmake_policy):
 
 -- Could NOT find Vulkan (missing: VULKAN_INCLUDE_DIR) 
 -- Using Win32 for window creation
+GLM: GCC - GNU compiler
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug
