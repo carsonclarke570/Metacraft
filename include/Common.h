@@ -26,6 +26,7 @@
 #define CODE_SHADER_COMPILE_ERROR   21
 #define CODE_SHADER_LINK_ERROR      22
 #define CODE_INVALID_FILENAME       30  // File reading
+#define CODE_READING_ERROR          31
 
 // GL
 #define GL_VER_MAJ  3

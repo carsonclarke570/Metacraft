@@ -1,8 +1,6 @@
-extern "C" {
-    #include <Mesh.h>
-    #include <Window.h>
+#include <Mesh.h>
+#include <Window.h>
 #include <Shader.h>
-}
 
 int main() {
     if (!glfwInit()) {

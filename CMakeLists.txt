@@ -35,10 +35,10 @@ include_directories(
 )
 
 # Sources
-file(GLOB HEADERS ${PROJECT_SOURCE_DIR}/include/*.h)
-file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp
+file(GLOB_RECURSE HEADERS ${PROJECT_SOURCE_DIR}/include/*.h)
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp
                   ${PROJECT_SOURCE_DIR}/src/*.c)
-file(GLOB SHADERS ${PROJECT_SOURCE_DIR}/res/shaders/*.frag
+file(GLOB_RECURSE SHADERS ${PROJECT_SOURCE_DIR}/res/shaders/*.frag
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.geom
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.vert)
 file(COPY ${SHADERS} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -52,7 +52,7 @@ add_definitions(
         -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\"
 )
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} src/main.cpp)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} src/main.c)
 
 target_link_libraries(${PROJECT_NAME}
         glfw

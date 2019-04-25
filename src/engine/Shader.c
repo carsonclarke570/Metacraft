@@ -86,7 +86,23 @@ int shader_load_file(Shader* shader, enum ShaderType type, const char* file) {
     //    return load_text(type, buffer);
     //}
     //fprintf(stderr, "ERROR: Invalid file path \"%s\"\n", file);
-    return CODE_INVALID_FILENAME;
+    FILE* fp = fopen(file, "rb");
+    if (!fp) {
+        fprintf(stderr, "ERROR: Failed to open file %s\n", file);
+        return CODE_INVALID_FILENAME;
+    }
+    fseek(fp, 0, SEEK_END);
+    size_t size = ftell(fp);
+    rewind(fp);
+
+    char* data = malloc((size + 1) * sizeof(char));
+    fread(data, sizeof(char), size, fp);
+    data[size] = 0;
+    fclose(fp);
+
+    int error_code = shader_load_text(shader, type, data);
+    free(data);
+    return error_code;
 }
 
 int shader_compile(Shader* shader) {
