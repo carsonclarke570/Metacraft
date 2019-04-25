@@ -17,70 +17,54 @@
 #ifndef _WINDOW_H_
 #define _WINDOW_H_
 
-#include <cstdint>
-#include <string>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
-#include <glm/glm.hpp>
 
-#include "Common.h"
+#include <Common.h>
+#include <Math.h>
 
-namespace daybreak {
+typedef struct {
+    GLFWwindow* window;
+} Window;
 
-    class Window {
-        NO_COPY(Window)
-    private:
-        GLFWwindow* _window;
-    public:
+/**
+ * Creates a new, empty window and initializes the Window struct.
+ *
+ * @param window        Pointer to window struct
+ * @param width         Initial width of the window
+ * @param height        Initial height of the window
+ * @param title         Title to display on the window
+ * @param full_screen   Initialize to full screen mode if true, else windowed mode
+ * @return  CODE_SUCCESS if success, else returns a relevant error code.
+ */
+int32_t window_create(Window* window, uint16_t width, uint16_t height, const char* title, bool full_screen);
 
-        /**
-         * Constructs a new Window object.
-         */
-        Window();
+/**
+ * Destroys the Window structure.
+ *
+ * @param window    Pointer to Window structure
+ */
+void window_destroy(Window* window);
 
-        /**
-         * Creates a new, empty window.
-         *
-         * @param width         Initial width of the window
-         * @param height        Initial height of the window
-         * @param title         Title to display on the window
-         * @param full_screen   Initialize to full screen mode if true, else windowed mode
-         * @return  CODE_SUCCESS if success, else returns a relevant error code.
-         */
-        int32_t create(uint16_t width, uint16_t height, const std::string& title, bool full_screen);
+/**
+ * Checks if the window should close.
+ *
+ * @param window    Pointer to Window struct
+ * @return True if the window should close, else false.
+ */
+bool window_should_close(Window* window);
 
-        /**
-         * Destroys the Window object.
-         */
-        void destroy();
-
-        /**
-         * Checks if the window should close.
-         *
-         * @return True if the window should close, else false.
-         */
-        inline bool should_close() { return glfwWindowShouldClose(_window); }
-
-        /**
-         * Swaps the back screen buffer with the front buffer.
-         */
-        inline void swap_buffers() { glfwSwapBuffers(_window); }
-
-        /**
-         * Polls events.
-         */
-        inline void poll_events() { glfwPollEvents(); }
-
-        // Getters / Setter
-        inline const GLFWwindow* get_window() { return _window; };
-        inline glm::ivec2 get_size() {
-            int32_t width, height;
-            glfwGetFramebufferSize(_window, &width, &height);
-            return glm::ivec2(width, height);
-        }
-    };
-}
-
+/**
+ * Gets the current size of the framebuffer
+ *
+ * @param window    Pointer to Window struct
+ * @param size      The size of the window in a vec2 formatted { width, height }
+ */
+void window_size(Window* window, ivec2* size);
 
 #endif

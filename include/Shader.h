@@ -17,100 +17,94 @@
 #ifndef _SHADER_H_
 #define _SHADER_H_
 
-#include <cstdint>
-#include <fstream>
-#include <map>
-#include <string>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <glad/glad.h>
 
-#include "Common.h"
+#include <Common.h>
 
-namespace daybreak {
+enum ShaderType {
+    VERTEX, FRAGMENT, GEOMETRY, COMPUTE
+};
 
-    enum ShaderType {
-        VERTEX, FRAGMENT, GEOMETRY, COMPUTE
-    };
+typedef struct {
+    GLuint program;
+    GLuint shaders[4];
+} Shader;
 
-    class Shader {
-        NO_COPY(Shader)
-    private:
-        std::map<std::string, uint32_t> _attributes;
-        std::map<std::string, uint32_t> _uniforms;
-        uint32_t _shader;
-        uint32_t _shaders[4];
-    public:
-        /**
-         * Constructs a new Shader object.
-         */
-        Shader();
+/**
+ * Constructs a new Shader object.
+ *
+ * @param shader    Pointer to Shader struct
+ */
+void shader_create(Shader* shader);
 
-        /**
-         * Destroys a Shader object.
-         */
-        ~Shader();
+/**
+ * Destroys a Shader object
+ *
+ * @param shader    Pointer to Shader struct
+ */
+void shader_destroy(Shader* shader);
 
-        /**
-         * Loads and attaches a shader from text.
-         *
-         * @param type  Type of shader to attach.
-         * @param src   The text of the shader.
-         * @return  CODE_SUCCESS if success, else a relevant error code.
-         */
-        int32_t load_text(ShaderType type, const std::string& src);
+/**
+ * Loads and attaches a shader from text.
+ *
+ * @param shader    Pointer to Shader struct
+ * @param type      Type of shader to attach.
+ * @param src       The text of the shader.
+ * @return  CODE_SUCCESS if success, else a relevant error code.
+ */
+int shader_load_text(Shader* shader, enum ShaderType type, const char* src);
 
-        /**
-         * Loads and attaches a shader from a file.
-         *
-         * @param type  Type of shader to attach.
-         * @param file  File path of the file to open and read.
-         * @return  CODE_SUCCESS if success, else a relevant error code.
-         */
-        int32_t load_file(ShaderType type, const char* file);
+/**
+ * Loads and attaches a shader from a file.
+ *
+ * @param shader    Pointer to Shader struct
+ * @param type      Type of shader to attach.
+ * @param file      File path of the file to open and read.
+ * @return  CODE_SUCCESS if success, else a relevant error code.
+ */
+int shader_load_file(Shader* shader, enum ShaderType type, const char* file);
 
-        /**
-         * Attempts to compiles all attached shaders. To prevent memory
-         * leakages, make sure to call dispose() when you're done using the
-         * shader.
-         *
-         * @return  CODE_SUCCESS if success, else a relevant error code.
-         */
-        int32_t compile();
+/**
+ * Attempts to compiles all attached shaders. To prevent memory
+ * leakages, make sure to call dispose() when you're done using the
+ * shader.
+ *
+ * @param shader    Pointer to Shader struct
+ * @return  CODE_SUCCESS if success, else a relevant error code.
+ */
+int shader_compile(Shader* shader);
 
-        /**
-         * Destroys the shader module. Be sure to call this on every Shader
-         * object you create before exiting the program.
-         */
-        void dispose();
+/**
+ * Registers an attribute to a Shader object.
+ *
+ * @param shader    Pointer to Shader struct
+ * @param attrib    Name of the attribute to register.
+ */
+void shader_register_attrib(Shader* shader, const char* attrib);
 
-        /**
-         * Registers an attribute to this Shader object.
-         *
-         * @param attrib    Name of the attribute to register.
-         */
-        void register_attrib(const char* attrib);
+/**
+ * Registers a uniform by querying its location in the shader and
+ * storing it in a map.
+ *
+ * @param shader    Pointer to Shader struct
+ * @param uniform   Name of the uniform to register.
+ */
+void shader_register_uniform(Shader* shader, const char* uniform);
 
-        /**
-         * Registers a uniform by querying its location in the shader and
-         * storing it in a map.
-         *
-         * @param uniform   Name of the uniform to register.
-         */
-        void register_uniform(const char* uniform);
+/**
+ * Binds the shader by making it the active shader.
+ *
+ * @param shader    Pointer to Shader struct
+ */
+void shader_bind(Shader* shader);
 
-        /**
-         * Binds the shader by making it the active shader.
-         */
-        void bind();
-
-        /**
-         * Unbinds the shader by removing the active shader.
-         */
-        void unbind();
-
-        // Getters/Setters
-        inline uint32_t get_shader() { return _shader; }
-    };
-}
+/**
+ * Unbinds shaders.
+ */
+void shader_unbind();
 
 #endif

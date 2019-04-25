@@ -17,50 +17,53 @@
 #ifndef _MESH_H_
 #define _MESH_H_
 
-#include <cstdint>
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
 
 #include <glad/glad.h>
-#include <glm/glm.hpp>
 
-namespace daybreak {
+#include <Math.h>
 
-    struct Vertex {
-        glm::vec3 position;
-        glm::vec3 normal;
-        glm::vec2 texture;
-    };
+typedef struct {
+    vec3 position;
+    vec3 normal;
+    vec2 texture;
+} Vertex;
 
-    class Mesh {
-    private:
-        uint32_t _vbo;
-        uint32_t _vao;
-        uint32_t _ibo;
-        uint32_t _num_elements;
-        bool _indexed;
-    public:
+typedef struct {
+    GLuint vbo;
+    GLuint vao;
+    GLuint ibo;
+    unsigned int num_elements;
+    bool indexed;
+} Mesh;
 
-         /**
-          * Constructs a new Mesh object. The indices is set to nullptr, the mesh
-          * will draw it's vertices sequentially.
-          *
-          * @param vertices     Vertices to add into the Mesh's buffer.
-          * @param num_v        Number of vertices to add.
-          * @param indices      Indices to add inti the Mesh's buffer.
-          * @param num_i        Number of indices to add.
-          */
-        Mesh(Vertex *vertices, uint32_t num_v, uint32_t* indices, uint32_t num_i);
+/**
+ * Constructs a new Mesh object. The indices is set to NULL, the mesh
+ * will draw it's vertices sequentially and ignore num_i.
+ *
+ * @param mesh          Pointer to Mesh struct
+ * @param vertices      Vertices to add into the Mesh's buffer.
+ * @param num_v         Number of vertices to add.
+ * @param indices       Indices to add inti the Mesh's buffer.
+ * @param num_i         Number of indices to add.
+ */
+void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i);
 
-        /**
-         * Destroys a Mesh object.
-         */
-        ~Mesh();
+/**
+ * Destroys a Mesh struct
+ *
+ * @param mesh  Pointer to Mesh struct
+ */
+void mesh_destroy(Mesh* mesh);
 
-        /**
-         * Renders the Mesh to the screen.
-         */
-        void render();
-    };
-}
+/**
+ * Renders the Mesh to the screen.
+ *
+ * @param mesh  Pointer to Mesh struct
+ */
+void mesh_render(Mesh* mesh);
 
 
-#endif //DAYBREAK_MESH_H
+#endif

@@ -13,16 +13,13 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glfw)
 # glad
 add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glad)
 
-# glm
-add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glm)
-
 # stb
 add_subdirectory(${PROJECT_SOURCE_DIR}/libs/stb)
 
 # Compile settings
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD  11)
 if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+    set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} /W4")
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++11")
     if(NOT WIN32)
@@ -33,13 +30,14 @@ endif()
 # Includes
 include_directories(
         ${PROJECT_SOURCE_DIR}/include/
-        ${PROJECT_SOURCE_DIR}}/libs/glad/include/
+        ${PROJECT_SOURCE_DIR}/libs/glad/include/
         ${PROJECT_SOURCE_DIR}/libs/glfw/include/
 )
 
 # Sources
 file(GLOB HEADERS ${PROJECT_SOURCE_DIR}/include/*.h)
-file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp
+                  ${PROJECT_SOURCE_DIR}/src/*.c)
 file(GLOB SHADERS ${PROJECT_SOURCE_DIR}/res/shaders/*.frag
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.geom
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.vert)
@@ -54,13 +52,12 @@ add_definitions(
         -DPROJECT_SOURCE_DIR=\"${PROJECT_SOURCE_DIR}\"
 )
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} main.cpp)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} src/main.cpp)
 
 target_link_libraries(${PROJECT_NAME}
         glfw
         ${GLFW_LIBRARIES}
         glad
-        glm
         stb
 )
 
