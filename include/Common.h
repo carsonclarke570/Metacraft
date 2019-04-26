@@ -27,6 +27,7 @@
 #define CODE_SHADER_LINK_ERROR      22
 #define CODE_INVALID_FILENAME       30  // File reading
 #define CODE_READING_ERROR          31
+#define CODE_UNRECOGNIZED_FORMAT    40  // Textures
 
 // GL
 #define GL_VER_MAJ  3

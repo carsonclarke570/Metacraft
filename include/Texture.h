@@ -17,50 +17,44 @@
 #ifndef _TEXTURE_H_
 #define _TEXTURE_H_
 
-#include <cstdint>
+#include <stdbool.h>
 
 #include <glad/glad.h>
 
 #include <Common.h>
 
-namespace daybreak {
+typedef GLuint Texture;
 
-    class Texture {
-        NO_COPY(Texture)
-    private:
-        uint32_t _texture;
-    public:
+/**
+ * Creates a new Texture object.
+ *
+ * @param texture   Pointer to Texture struct
+ */
+void create_texture(Texture texture);
 
-        /**
-         * Creates a new Texture object.
-         */
-        Texture();
+/**
+ * Destroys a Texture object.
+ *
+ * @param texture   Pointer to Texture struct
+ */
+void destroy_texture(Texture texture);
 
-        /**
-         * Destroys a Texture object.
-         */
-        ~Texture();
+/**
+ * Loads pixel data from a file and stores it in the Texture.
+ *
+ * @param texture   Pointer to Texture struct
+ * @param file      Filepath of image to open.
+ * @return  CODE_SUCCESS if success, else a relevant error code.
+ */
+int load_texture(Texture texture, const char* file);
 
-        /**
-         * Loads pixel data from a file and stores it in the Texture.
-         *
-         * @param file  Filepath of image to open.
-         */
-        void load_image(const char* file);
-
-        /**
-         * Binds the texture to a specific texture slot.
-         *
-         * @param id    Id number of the texture slot.
-         */
-        void bind(uint32_t id);
-
-        /**
-         * Unbinds the texture.
-         */
-        void unbind();
-    };
-}
+/**
+ * Binds the texture to a specific texture slot.
+ *
+ * @param texture   Pointer to Texture struct
+ * @param id        Number of the texture slot.
+ */
+void bind_texture(Texture texture, unsigned int slot);
 
 
 #endif
