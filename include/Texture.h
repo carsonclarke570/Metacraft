@@ -18,35 +18,37 @@
 #define _TEXTURE_H_
 
 #include <stdbool.h>
+#include <stdint.h>
 
 #include <glad/glad.h>
 
 #include <Common.h>
 
-typedef GLuint Texture;
+// Member
+
+typedef struct {
+    char* name;
+    GLuint texture;
+    GLint channels;
+} Texture;
 
 /**
- * Creates a new Texture object.
+ * Creates a new Texture object. Loads pixel data from a file and stores it in
+ * the Texture.
  *
  * @param texture   Pointer to Texture struct
+ * @param file      Filepath of image to open
+ * @param name      The name of texture
+ * @return  CODE_SUCCESS if success, else a relevant error code.
  */
-void create_texture(Texture texture);
+int create_texture(Texture* texture, const char* file, char* name);
 
 /**
  * Destroys a Texture object.
  *
  * @param texture   Pointer to Texture struct
  */
-void destroy_texture(Texture texture);
-
-/**
- * Loads pixel data from a file and stores it in the Texture.
- *
- * @param texture   Pointer to Texture struct
- * @param file      Filepath of image to open.
- * @return  CODE_SUCCESS if success, else a relevant error code.
- */
-int load_texture(Texture texture, const char* file);
+void destroy_texture(Texture* texture);
 
 /**
  * Binds the texture to a specific texture slot.
@@ -54,7 +56,27 @@ int load_texture(Texture texture, const char* file);
  * @param texture   Pointer to Texture struct
  * @param id        Number of the texture slot.
  */
-void bind_texture(Texture texture, unsigned int slot);
+void bind_texture(Texture* texture, unsigned int slot);
+
+// Global
+
+typedef struct {
+    Texture **textures;
+    unsigned int capacity;
+    unsigned int num_textures;
+} TexturePool;
+
+/**
+ * Initializes the global texture pool to a specific size.
+ *
+ * @param size  Size of the texture pool.
+ */
+void texture_pool_allocate(unsigned int size);
+
+/**
+ * Destroys the global texture pool.
+ */
+void texture_pool_delete();
 
 
 #endif

@@ -26,7 +26,7 @@
 #include <glad/glad.h>
 
 #include <Common.h>
-#include <Math.h>
+#include <Vector.h>
 
 typedef struct {
     GLFWwindow* window;

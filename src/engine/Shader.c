@@ -151,6 +151,11 @@ void shader_register_uniform(Shader* shader, const char* uniform) {
     //TODO
 }
 
+void register_texture(Shader* shader, Texture* texture, unsigned int slot) {
+    glActiveTexture(GL_TEXTURE0 + slot);
+    glUniform1i(glGetUniformLocation(shader->program, texture->name), slot);
+}
+
 void shader_bind(Shader* shader) {
     glUseProgram(shader->program);
 }

@@ -16,12 +16,17 @@
 
 #include <Texture.h>
 
+#include <math.h>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-void create_texture(Texture texture) {
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+// Member
+
+int create_texture(Texture* texture, const char* file, char* name) {
+    texture->name = name;
+
+    glGenTextures(1, &texture->texture);
+    glBindTexture(GL_TEXTURE_2D, texture->texture);
 
     // Set texture wrapping
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -30,16 +35,7 @@ void create_texture(Texture texture) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    glBindTexture(GL_TEXTURE_2D, 0);
-}
-
-void destroy_texture(Texture texture) {
-    glDeleteTextures(1, &texture);
-}
-
-int load_texture(Texture texture, const char* file) {
-    glBindTexture(GL_TEXTURE_2D, texture);
-
+    // Load images
     int width, height, channels;
     stbi_set_flip_vertically_on_load(true);
 
@@ -66,6 +62,7 @@ int load_texture(Texture texture, const char* file) {
         }
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
+        texture->channels = format;
     } else {
         fprintf(stderr, "ERROR: Failed to read file %s\n", file);
         return CODE_INVALID_FILENAME;
@@ -75,7 +72,30 @@ int load_texture(Texture texture, const char* file) {
     return CODE_SUCCESS;
 }
 
-void bind_texture(Texture texture, unsigned int slot) {
+void destroy_texture(Texture* texture) {
+    glDeleteTextures(1, &texture->texture);
+    texture->texture = 0;
+    texture->name = NULL;
+}
+
+void bind_texture(Texture* texture, unsigned int slot) {
     glActiveTexture(GL_TEXTURE0 + slot);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    glBindTexture(GL_TEXTURE_2D, texture->texture);
+}
+
+// Globals
+TexturePool texture_pool = {NULL, 0, 0};
+
+void texture_pool_allocate(unsigned int size) {
+    texture_pool.textures = malloc(size * sizeof(Texture*));
+    texture_pool.capacity = size;
+    texture_pool.num_textures = 0;
+}
+
+void texture_pool_delete() {
+    free(texture_pool.textures);
+
+    texture_pool.textures = NULL;
+    texture_pool.capacity = 0;
+    texture_pool.num_textures = 0;
 }

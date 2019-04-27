@@ -24,6 +24,7 @@
 #include <glad/glad.h>
 
 #include <Common.h>
+#include <Texture.h>
 
 enum ShaderType {
     VERTEX, FRAGMENT, GEOMETRY, COMPUTE
@@ -96,11 +97,21 @@ void shader_register_attrib(Shader* shader, const char* attrib);
 void shader_register_uniform(Shader* shader, const char* uniform);
 
 /**
+ * Registers a texture to the shader
+ *
+ * @param shader    Pointer to Shader struct
+ * @param texture   The texture to register
+ * @param slot      The slot number to register it to
+ */
+void register_texture(Shader* shader, Texture* texture, unsigned int slot);
+
+/**
  * Binds the shader by making it the active shader.
  *
  * @param shader    Pointer to Shader struct
  */
 void shader_bind(Shader* shader);
+
 
 /**
  * Unbinds shaders.
