@@ -22,8 +22,8 @@
 
 // Member
 
-int create_texture(Texture* texture, const char* file, char* name) {
-    texture->name = name;
+int create_texture(Texture* texture, const char* file, enum TextureType type) {
+    texture->type = type;
 
     glGenTextures(1, &texture->texture);
     glBindTexture(GL_TEXTURE_2D, texture->texture);
@@ -75,7 +75,6 @@ int create_texture(Texture* texture, const char* file, char* name) {
 void destroy_texture(Texture* texture) {
     glDeleteTextures(1, &texture->texture);
     texture->texture = 0;
-    texture->name = NULL;
 }
 
 void bind_texture(Texture* texture, unsigned int slot) {
@@ -85,6 +84,13 @@ void bind_texture(Texture* texture, unsigned int slot) {
 
 // Globals
 TexturePool texture_pool = {NULL, 0, 0};
+const char *texture_type_map[4] = {
+        "texture_diffuse",
+        "texture_specular",
+        "texture_normal",
+        "texture_height"
+};
+
 
 void texture_pool_allocate(unsigned int size) {
     texture_pool.textures = malloc(size * sizeof(Texture*));

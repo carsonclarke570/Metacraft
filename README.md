@@ -1,3 +1,7 @@
-# Daybreak
+# mineCraft
 
-Hey u should write a good readme
+## Building
+
+Before building make sure you have the latest version of cmake and OpenGL.
+
+

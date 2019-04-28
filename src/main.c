@@ -4,6 +4,8 @@
 #include <Texture.h>
 #include <Model.h>
 
+extern TexturePool texture_pool;
+
 int main() {
 
     // Start Up Code
@@ -31,7 +33,7 @@ int main() {
     shader_compile(&shader);
 
     Texture texture;
-    if ((err = create_texture(&texture, "dirt.png", "tex"))) {
+    if ((err = create_texture(&texture, "dirt.png", TEXTURE_DIFFUSE))) {
         return err;
     }
     texture_pool.textures[0] = &texture;
@@ -40,7 +42,7 @@ int main() {
     model_create(&model, "cube.obj");
 
     shader_bind(&shader);
-    register_texture(&shader, &texture, 0);
+    register_texture(&shader, &texture, 1);
 
     while (!window_should_close(&window)) {
         // Clear buffer
@@ -48,6 +50,7 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         // render
+        bind_texture(&texture, 1);
         model_render(&model, &shader);
 
         // Swap buffers, poll IO events

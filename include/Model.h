@@ -24,8 +24,6 @@
 #include <Mesh.h>
 #include <Shader.h>
 
-extern TexturePool texture_pool;
-
 typedef struct {
     Mesh* meshes;
     unsigned int num_meshes;

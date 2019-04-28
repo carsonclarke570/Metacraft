@@ -29,6 +29,9 @@
 #define CODE_READING_ERROR          31
 #define CODE_UNRECOGNIZED_FORMAT    40  // Textures
 
+// String stuff
+#define MAX_STR_LEN 50
+
 // GL
 #define GL_VER_MAJ  3
 #define GL_VER_MIN  3

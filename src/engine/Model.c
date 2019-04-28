@@ -54,7 +54,7 @@ void process(Model* model, struct aiNode *node, const struct aiScene *scene, int
         Vertex* vertices = malloc(mesh->mNumVertices * sizeof(Vertex));
         unsigned int* indices = malloc(mesh->mNumFaces * 3 * sizeof(unsigned int));
 
-        for (int j = 0; j < mesh->mNumVertices; i++) {
+        for (int j = 0; j < mesh->mNumVertices; j++) {
             vertices[j].position[0] = mesh->mVertices[j].x;
             vertices[j].position[1] = mesh->mVertices[j].y;
             vertices[j].position[2] = mesh->mVertices[j].z;
@@ -72,7 +72,7 @@ void process(Model* model, struct aiNode *node, const struct aiScene *scene, int
             }
         }
 
-        for (int j = 0; j < mesh->mNumFaces; i++) {
+        for (int j = 0; j < mesh->mNumFaces; j++) {
             struct aiFace face = mesh->mFaces[j];
             for (int k = 0; k < 3; k++) {
                 indices[(j * 3) + k] = face.mIndices[k];

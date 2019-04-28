@@ -26,10 +26,14 @@
 
 // Member
 
+enum TextureType {
+    TEXTURE_DIFFUSE, TEXTURE_SPECULAR, TEXTURE_NORMAL, TEXTURE_HEIGHT
+};
+
 typedef struct {
-    char* name;
     GLuint texture;
     GLint channels;
+    enum TextureType type;
 } Texture;
 
 /**
@@ -41,7 +45,7 @@ typedef struct {
  * @param name      The name of texture
  * @return  CODE_SUCCESS if success, else a relevant error code.
  */
-int create_texture(Texture* texture, const char* file, char* name);
+int create_texture(Texture* texture, const char* file, enum TextureType type);
 
 /**
  * Destroys a Texture object.

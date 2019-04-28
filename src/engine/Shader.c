@@ -17,6 +17,8 @@
 #include <Shader.h>
 
 
+extern const char *texture_type_map[4];
+
 void shader_create(Shader* shader) {
     shader->program = 0;
     shader->shaders[VERTEX] = 0;
@@ -153,7 +155,7 @@ void shader_register_uniform(Shader* shader, const char* uniform) {
 
 void register_texture(Shader* shader, Texture* texture, unsigned int slot) {
     glActiveTexture(GL_TEXTURE0 + slot);
-    glUniform1i(glGetUniformLocation(shader->program, texture->name), slot);
+    glUniform1i(glGetUniformLocation(shader->program, texture_type_map[texture->type]), slot);
 }
 
 void shader_bind(Shader* shader) {
