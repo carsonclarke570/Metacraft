@@ -23,9 +23,9 @@
 
 #include <glad/glad.h>
 
-#include <Shader.h>
-#include <Texture.h>
-#include <Vector.h>
+#include <shader.h>
+#include <texture.h>
+#include <vector.h>
 
 typedef struct {
     vec3 position;

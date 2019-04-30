@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include <Matrix.h>
+#include <matrix.h>
 
 void mat4_identity(mat4 mat) {
     memset(mat, 0, 16 * sizeof(float));
@@ -48,16 +48,6 @@ void mat4_scale(mat4 mat, const vec3 scale) {
     mat[INDEX(1, 1)] = scale[1];
     mat[INDEX(2, 2)] = scale[2];
     mat[INDEX(3, 3)] = 1.0f;
-}
-
-void mat4_transform(mat4 mat, const vec3 scale, const vec3 translate) {
-    mat4 s;
-    mat4 t;
-    mat4_translate(t, translate);
-    mat4_scale(s, scale);
-
-    mat4_mul(t, s, t);
-    memcpy(mat, t, sizeof(float) * 16);
 }
 
 void mat4_mul(mat4 a, mat4 b, mat4 y) {

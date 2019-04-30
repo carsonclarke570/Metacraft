@@ -14,4 +14,23 @@
     limitations under the License.
 */
 
-#include <Vector.h>
+#ifndef _MATH_H_
+#define _MATH_H_
+
+#include <math.h>
+
+typedef float vec2[2];
+typedef float vec3[3];
+typedef int ivec2[2];
+typedef int ivec3[3];
+
+/**
+ * Normalizes a vector.
+ *
+ * @param vec   Vector to normalize.
+ * @param y     Normalized vector.
+ */
+void vec3_normalize(vec3 vec, vec3 y);
+void vec2_normalize(vec2 vec, vec2 y);
+
+#endif

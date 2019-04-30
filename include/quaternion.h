@@ -17,10 +17,34 @@
 #ifndef _QUATERNION_H_
 #define _QUATERNION_H_
 
-#include <Vector.h>
+#include <vector.h>
+#include <matrix.h>
 
 typedef float quat[4];
 
+/**
+ * Creates a quaternion from an axis and an angle
+ *
+ * @param q     Quaternion
+ * @param axis  Axis to rotate around.
+ * @param angle Angle to rotate by.
+ */
 void quat_axis_angle(quat q, vec3 axis, float angle);
+
+/**
+ * Normalizes a quaternions.
+ *
+ * @param q     Quaternion to normalize
+ * @param y     Result of normalization
+ */
+void normalize(quat q, quat y);
+
+/**
+ * Creates a rotation matrix from a quaternion.
+ *
+ * @param q     Quaternion
+ * @param mat   Resulting matrix.
+ */
+void quat_rotation(quat q, mat4 mat);
 
 #endif

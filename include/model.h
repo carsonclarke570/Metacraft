@@ -21,8 +21,8 @@
 #include <assimp/scene.h>          // Output data structure
 #include <assimp/postprocess.h>    // Post processing flags
 
-#include <Mesh.h>
-#include <Shader.h>
+#include <mesh.h>
+#include <shader.h>
 
 typedef struct {
     Mesh* meshes;

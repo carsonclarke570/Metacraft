@@ -23,9 +23,9 @@
 
 #include <glad/glad.h>
 
-#include <Common.h>
-#include <Matrix.h>
-#include <Texture.h>
+#include <common.h>
+#include <matrix.h>
+#include <texture.h>
 
 enum ShaderType {
     VERTEX, FRAGMENT, GEOMETRY, COMPUTE

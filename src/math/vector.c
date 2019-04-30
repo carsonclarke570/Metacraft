@@ -14,12 +14,17 @@
     limitations under the License.
 */
 
-#ifndef _MATH_H_
-#define _MATH_H_
+#include <vector.h>
 
-typedef float vec2[2];
-typedef float vec3[3];
-typedef int ivec2[2];
-typedef int ivec3[3];
+void vec3_normalize(vec3 vec, vec3 y) {
+    const float n = 1.0f / sqrtf((vec[0] * vec[0]) + (vec[1] * vec[1]) + (vec[2] * vec[2]));
+    y[0] = vec[0] * n;
+    y[1] = vec[1] * n;
+    y[2] = vec[2] * n;
+}
 
-#endif
+void vec2_normalize(vec2 vec, vec2 y) {
+    const float n = 1.0f / sqrtf((vec[0] * vec[0]) + (vec[1] * vec[1]));
+    y[0] = vec[0] * n;
+    y[1] = vec[1] * n;
+}

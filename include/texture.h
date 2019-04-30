@@ -22,7 +22,7 @@
 
 #include <glad/glad.h>
 
-#include <Common.h>
+#include <common.h>
 
 // Member
 

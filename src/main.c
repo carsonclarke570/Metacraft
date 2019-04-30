@@ -1,9 +1,10 @@
-#include <Mesh.h>
-#include <Window.h>
-#include <Shader.h>
-#include <Texture.h>
-#include <Model.h>
-#include <Matrix.h>
+#include <mesh.h>
+#include <window.h>
+#include <shader.h>
+#include <texture.h>
+#include <model.h>
+#include <matrix.h>
+#include <transform.h>
 
 extern TexturePool texture_pool;
 
@@ -19,11 +20,15 @@ int main() {
     texture_pool_allocate(10);
 
     Window window;
-    int32_t err = window_create(&window, 640, 480, "Daybreak Test", false);
+    int32_t err = window_create(&window, 1200, 800, "Definitely Not Minecraft", false);
     if (err) {
         return err;
     }
+    glFrontFace(GL_CCW);
+    glCullFace(GL_BACK);
+    glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
 
     Shader shader;
     if ((err = shader_load_file(&shader, VERTEX, "main.vert"))) {
@@ -60,19 +65,31 @@ int main() {
     mat4 v_mat;
     mat4 p_mat;
 
+    // PROJECTION MATRIX
     ivec2 size;
     window_size(&window, size);
     mat4_projection(p_mat, 90.0f, 0.1f, 100.0f, (float) size[0] / (float) size[1]);
     //mat4_identity(p_mat);
-    mat4_print(p_mat);
 
-    vec3 test = {0.0f, 0.0f, -3.0f};
+
+    // VIEW MATRIX
+    vec3 test = {0.0f, 0.0f, -10.0f};
     mat4_translate(v_mat, test);
 
+    // SHADER BINDING
     shader_bind(&shader);
     register_texture(&shader, &texture, 1);
     shader_uniform_mat4(&shader, "projection", p_mat);
     shader_uniform_mat4(&shader, "view", v_mat);
+
+    // TRANSFORM
+    Transform transform;
+    transform_default(&transform);
+
+    transform.scale[0] = 0.001f;
+    transform.scale[1] = 0.001f;
+    transform.scale[2] = 1.0f;
+
 
     while (!window_should_close(&window)) {
         // Clear buffer
@@ -80,12 +97,19 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // uniforms
-        float s = (float) fabs(sin(glfwGetTime()));
-        vec3 scale = {s * 0.001f, s * 0.001f, 1.0f};
-        vec3 translate = {-0.00015f, 0.0f, 0.0f};
-        mat4_transform(m_mat, scale, translate);
-        //mat4_translate(m_mat, translate);
-        //mat4_scale(m_mat, scale);
+        float s = (float) sin(glfwGetTime()) / 5.0f;
+        //transform.scale[0] = s * 0.001f;
+        // transform.scale[1] = s * 0.001f;
+        //transform.scale[2] = 1.0f;
+
+        //transform.translation[0] = -0.00015f;
+
+        quat q;
+        vec3 axis = {1.0f, 1.0f, 0.0f};
+        quat_axis_angle(q, axis, s * 360.0f);
+        memcpy(transform.rotation, q, sizeof(quat));
+
+        transform_to_matrix(&transform, m_mat);
         shader_uniform_mat4(&shader, "model", m_mat);
 
         // render

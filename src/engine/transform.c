@@ -13,8 +13,25 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-//
-// Created by birdi on 4/28/2019.
-//
+#include <transform.h>
 
-#include "Quaternion.h"
+void transform_default(Transform* transform) {
+    memset(transform, 0, sizeof(Transform));
+    transform->scale[0] = 1.0f;
+    transform->scale[1] = 1.0f;
+    transform->scale[2] = 1.0f;
+    transform->rotation[3] = 1.0f;
+}
+
+void transform_to_matrix(Transform* transform, mat4 mat) {
+    mat4 s, r, t;
+    mat4_scale(s, transform->scale);
+    mat4_translate(t, transform->translation);
+    quat_rotation(transform->rotation, r);
+
+    mat4_mul(s, r, s);
+    mat4_mul(s, r, t);
+    memcpy(mat, t, sizeof(float) * 16);
+}
+
+

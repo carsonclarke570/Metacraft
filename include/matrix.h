@@ -21,8 +21,8 @@
 #include <string.h>
 #include <math.h>
 
-#include <Common.h>
-#include <Vector.h>
+#include <common.h>
+#include <vector.h>
 
 #define INDEX(R, C) ((R * 4) + C)
 
@@ -61,15 +61,6 @@ void mat4_translate(mat4 mat, const vec3 translation);
  * @param translation   A vector holding the x, y and z scale values.
  */
 void mat4_scale(mat4 mat, const vec3 scale);
-
-/**
- * Creates a transformation matrix
- *
- * @param mat       4 x 4 matrix.
- * @param scale     A vector holding the x, y and z scale values.
- * @param translate A vector holding the x, y and z translate values.
- */
-void mat4_transform(mat4 mat, const vec3 scale, const vec3 translate);
 
 /**
  * Multiples two matrices together in the form Y = AB.

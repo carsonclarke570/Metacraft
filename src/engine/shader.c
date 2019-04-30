@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include <Shader.h>
+#include <shader.h>
 
 
 extern const char *texture_type_map[4];

@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include <Texture.h>
+#include <texture.h>
 
 #include <math.h>
 #define STB_IMAGE_IMPLEMENTATION

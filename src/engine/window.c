@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include <Window.h>
+#include <window.h>
 
 // Callback definitions
 void resize_callback(GLFWwindow* window, int width, int height);
@@ -26,7 +26,11 @@ int32_t window_create(Window* window, uint16_t width, uint16_t height, const cha
     // Create window and context
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, GL_VER_MAJ);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, GL_VER_MIN);
-    window->window = glfwCreateWindow(width, height, title, NULL, NULL);
+    if (full_screen)
+        window->window = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
+    else
+        window->window = glfwCreateWindow(width, height, title, NULL, NULL);
+
     if (!window->window) {
         fprintf(stderr, "ERROR: Failed to create window!\n");
         return CODE_WINDOW_CREATE_ERR;

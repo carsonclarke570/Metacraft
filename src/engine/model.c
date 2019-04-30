@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include <Model.h>
+#include <model.h>
 
 int model_create(Model *model, const char *filename) {
     const struct aiScene* scene = aiImportFile(filename, aiProcess_Triangulate | aiProcess_FlipUVs);

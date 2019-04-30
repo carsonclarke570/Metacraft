@@ -25,8 +25,8 @@
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
-#include <Common.h>
-#include <Vector.h>
+#include <common.h>
+#include <vector.h>
 
 typedef struct {
     GLFWwindow* window;

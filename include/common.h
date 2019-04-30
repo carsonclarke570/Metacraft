@@ -36,9 +36,9 @@
 #define GL_VER_MAJ  3
 #define GL_VER_MIN  3
 
-#define GL_CLEAR_COLOR_R 0.0f
-#define GL_CLEAR_COLOR_G 0.0f
-#define GL_CLEAR_COLOR_B 0.0f
+#define GL_CLEAR_COLOR_R 0.1f
+#define GL_CLEAR_COLOR_G 0.1f
+#define GL_CLEAR_COLOR_B 0.1f
 
 #define GL_PI   3.14159265358979323846f
 

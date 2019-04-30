@@ -1,5 +1,11 @@
 Coding Conventions
 
+- Filename
+    Lowercase
+
+    {file_name}.h
+    {file_name}.c
+
 - Structs
 
     typedef struct {

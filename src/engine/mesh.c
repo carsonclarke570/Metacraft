@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include <Mesh.h>
+#include <mesh.h>
 
 
 void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i, Texture **textures, unsigned int num_t) {
