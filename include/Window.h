@@ -65,6 +65,6 @@ bool window_should_close(Window* window);
  * @param window    Pointer to Window struct
  * @param size      The size of the window in a vec2 formatted { width, height }
  */
-void window_size(Window* window, ivec2* size);
+void window_size(Window* window, ivec2 size);
 
 #endif

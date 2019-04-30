@@ -40,8 +40,6 @@
 #define GL_CLEAR_COLOR_G 0.0f
 #define GL_CLEAR_COLOR_B 0.0f
 
-#define NO_COPY(T)                     \
-    T(const T&) = delete;              \
-    void operator=(const T&) = delete;
+#define GL_PI   3.14159265358979323846f
 
 #endif

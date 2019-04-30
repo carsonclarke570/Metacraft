@@ -6,32 +6,10 @@
 
 #IncludeRegexTransform: 
 
-../libs/glfw/deps/mingw/_mingw_dxhelper.h
-
-../libs/glfw/deps/mingw/dinput.h
-objbase.h
--
-_mingw_dxhelper.h
--
-
-../libs/glfw/deps/mingw/xinput.h
-windef.h
--
-
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/include/GLFW/glfw3.h
 stddef.h
 -
 stdint.h
--
-OpenGL/gl3.h
--
-OpenGL/gl3ext.h
--
-OpenGL/gl.h
--
-OpenGL/glu.h
--
-GL/glcorearb.h
 -
 GLES/gl.h
 -
@@ -49,13 +27,27 @@ GLES3/gl31.h
 -
 GLES2/gl2ext.h
 -
-vulkan/vulkan.h
+GLES3/gl32.h
+-
+GLES2/gl2ext.h
+-
+OpenGL/gl3.h
+-
+OpenGL/gl3ext.h
+-
+GL/glcorearb.h
+-
+OpenGL/gl.h
+-
+OpenGL/glu.h
 -
 GL/gl.h
 -
 GL/glext.h
 -
 GL/glu.h
+-
+vulkan/vulkan.h
 -
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/cocoa_joystick.h
@@ -75,18 +67,22 @@ dlfcn.h
 -
 Carbon/Carbon.h
 -
+CoreVideo/CVBase.h
+-
+CoreVideo/CVDisplayLink.h
+-
 Cocoa/Cocoa.h
 -
-Carbon/Carbon.h
--
-ApplicationServices/ApplicationServices.h
--
-posix_tls.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_tls.h
+posix_thread.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_thread.h
 cocoa_joystick.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/cocoa_joystick.h
 nsgl_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/nsgl_context.h
+egl_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/egl_context.h
+osmesa_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.h
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/context.c
 internal.h
@@ -123,6 +119,8 @@ C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/glx_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/init.c
 internal.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/internal.h
+mappings.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/mappings.h
 string.h
 -
 stdlib.h
@@ -130,6 +128,8 @@ stdlib.h
 stdio.h
 -
 stdarg.h
+-
+assert.h
 -
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/input.c
@@ -139,7 +139,11 @@ assert.h
 -
 float.h
 -
+math.h
+-
 stdlib.h
+-
+string.h
 -
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/internal.h
@@ -155,32 +159,18 @@ x11_platform.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/x11_platform.h
 wl_platform.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wl_platform.h
-mir_platform.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/mir_platform.h
+null_platform.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/null_platform.h
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/linux_joystick.h
+linux/input.h
+-
+linux/limits.h
+-
 regex.h
 -
 
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/mir_platform.h
-sys/queue.h
--
-pthread.h
--
-dlfcn.h
--
-mir_toolkit/mir_client_library.h
--
-posix_tls.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_tls.h
-posix_time.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_time.h
-linux_joystick.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/linux_joystick.h
-xkb_unicode.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/xkb_unicode.h
-egl_context.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/egl_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/mappings.h
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/monitor.c
 internal.h
@@ -199,13 +189,41 @@ limits.h
 -
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/nsgl_context.h
+stdatomic.h
+-
+
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/null_joystick.h
+
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/null_platform.h
+dlfcn.h
+-
+osmesa_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.h
+posix_time.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_time.h
+posix_thread.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_thread.h
+null_joystick.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/null_joystick.h
+
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.c
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+internal.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/internal.h
+
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.h
+
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_thread.h
+pthread.h
+-
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_time.h
 stdint.h
--
-
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_tls.h
-pthread.h
 -
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/vulkan.c
@@ -237,15 +255,13 @@ stdlib.h
 -
 malloc.h
 -
-initguid.h
--
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_joystick.c
 internal.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/internal.h
-math.h
+stdio.h
 -
-initguid.h
+math.h
 -
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_joystick.h
@@ -267,15 +283,13 @@ wctype.h
 -
 windows.h
 -
-mmsystem.h
--
 dinput.h
 -
 xinput.h
 -
 dbt.h
 -
-malloc.h
+dwmapi.h
 -
 win32_joystick.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_joystick.h
@@ -283,12 +297,16 @@ wgl_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wgl_context.h
 egl_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/egl_context.h
+osmesa_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.h
 
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_time.c
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_thread.c
 internal.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/internal.h
+assert.h
+-
 
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_tls.c
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_time.c
 internal.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/internal.h
 
@@ -325,22 +343,36 @@ wayland-client.h
 -
 xkbcommon/xkbcommon.h
 -
+xkbcommon/xkbcommon-compose.h
+-
 dlfcn.h
 -
-posix_tls.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_tls.h
+posix_thread.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_thread.h
 posix_time.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_time.h
 linux_joystick.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/linux_joystick.h
+null_joystick.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/null_joystick.h
 xkb_unicode.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/xkb_unicode.h
 egl_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/egl_context.h
+osmesa_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.h
+wayland-xdg-shell-client-protocol.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wayland-xdg-shell-client-protocol.h
+wayland-xdg-decoration-client-protocol.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wayland-xdg-decoration-client-protocol.h
+wayland-viewporter-client-protocol.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wayland-viewporter-client-protocol.h
 wayland-relative-pointer-unstable-v1-client-protocol.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wayland-relative-pointer-unstable-v1-client-protocol.h
 wayland-pointer-constraints-unstable-v1-client-protocol.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wayland-pointer-constraints-unstable-v1-client-protocol.h
+wayland-idle-inhibit-unstable-v1-client-protocol.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wayland-idle-inhibit-unstable-v1-client-protocol.h
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/x11_platform.h
 unistd.h
@@ -365,20 +397,24 @@ X11/XKBlib.h
 -
 X11/extensions/Xinerama.h
 -
-X11/extensions/xf86vmode.h
+X11/extensions/XInput2.h
 -
-posix_tls.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_tls.h
+posix_thread.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_thread.h
 posix_time.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/posix_time.h
-linux_joystick.h
-C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/linux_joystick.h
 xkb_unicode.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/xkb_unicode.h
 glx_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/glx_context.h
 egl_context.h
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/egl_context.h
+osmesa_context.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.h
+linux_joystick.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/linux_joystick.h
+null_joystick.h
+C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/null_joystick.h
 
 C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/xkb_unicode.h
 

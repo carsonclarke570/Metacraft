@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/joysticks.dir/joysticks.c.obj"
-  "CMakeFiles/joysticks.dir/__/deps/glad.c.obj"
+  "CMakeFiles/joysticks.dir/__/deps/glad_gl.c.obj"
   "joysticks.pdb"
   "joysticks.exe"
   "joysticks.exe.manifest"
-  "libjoysticks.dll.a"
+  "joysticks.lib"
 )
 
 # Per-language clean rules from dependency scanning.

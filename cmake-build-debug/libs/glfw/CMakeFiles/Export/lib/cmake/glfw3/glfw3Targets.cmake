@@ -54,7 +54,7 @@ endif()
 add_library(glfw STATIC IMPORTED)
 
 set_target_properties(glfw PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/Program Files (x86)/Daybreak/include"
 )
 
 # Load information for each installed configuration.

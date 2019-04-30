@@ -53,11 +53,11 @@ void window_destroy(Window* window) {
 bool window_should_close(Window* window) {
     return glfwWindowShouldClose(window->window);
 }
-void window_size(Window* window, ivec2* size) {
+void window_size(Window* window, ivec2 size) {
     int32_t width, height;
     glfwGetFramebufferSize(window->window, &width, &height);
-    *size[0] = width;
-    *size[1] = height;
+    size[0] = width;
+    size[1] = height;
 }
 
 // Callbacks

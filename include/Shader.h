@@ -24,6 +24,7 @@
 #include <glad/glad.h>
 
 #include <Common.h>
+#include <Matrix.h>
 #include <Texture.h>
 
 enum ShaderType {
@@ -95,6 +96,15 @@ void shader_register_attrib(Shader* shader, const char* attrib);
  * @param uniform   Name of the uniform to register.
  */
 void shader_register_uniform(Shader* shader, const char* uniform);
+
+/**
+ * Updates a shader's mat4 uniform.
+ *
+ * @param shader    Pointer to Shader struct.
+ * @param name      Name of uniform to update.
+ * @param data      mat4 data to update with.
+ */
+void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
 
 /**
  * Registers a texture to the shader

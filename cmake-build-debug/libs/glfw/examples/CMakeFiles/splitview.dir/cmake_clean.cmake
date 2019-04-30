@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/splitview.dir/splitview.c.obj"
-  "CMakeFiles/splitview.dir/glfw.rc.obj"
-  "CMakeFiles/splitview.dir/__/deps/glad.c.obj"
+  "CMakeFiles/splitview.dir/glfw.rc.res"
+  "CMakeFiles/splitview.dir/__/deps/glad_gl.c.obj"
   "splitview.pdb"
   "splitview.exe"
   "splitview.exe.manifest"
-  "libsplitview.dll.a"
+  "splitview.lib"
 )
 
 # Per-language clean rules from dependency scanning.

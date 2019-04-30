@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/events.dir/events.c.obj"
   "CMakeFiles/events.dir/__/deps/getopt.c.obj"
-  "CMakeFiles/events.dir/__/deps/glad.c.obj"
+  "CMakeFiles/events.dir/__/deps/glad_gl.c.obj"
   "events.pdb"
   "events.exe"
   "events.exe.manifest"
-  "libevents.dll.a"
+  "events.lib"
 )
 
 # Per-language clean rules from dependency scanning.

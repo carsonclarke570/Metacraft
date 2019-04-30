@@ -59,9 +59,15 @@ void process(Model* model, struct aiNode *node, const struct aiScene *scene, int
             vertices[j].position[1] = mesh->mVertices[j].y;
             vertices[j].position[2] = mesh->mVertices[j].z;
 
-            vertices[j].normal[0] = mesh->mNormals[j].x;
-            vertices[j].normal[1] = mesh->mNormals[j].y;
-            vertices[j].normal[2] = mesh->mNormals[j].z;
+            if (mesh->mNormals) {
+                vertices[j].normal[0] = mesh->mNormals[j].x;
+                vertices[j].normal[1] = mesh->mNormals[j].y;
+                vertices[j].normal[2] = mesh->mNormals[j].z;
+            } else {
+                vertices[j].normal[0] = 0.0f;
+                vertices[j].normal[1] = 0.0f;
+                vertices[j].normal[2] = 0.0f;
+            }
 
             if(mesh->mTextureCoords[0]) {
                 vertices[j].texture[0] = mesh->mTextureCoords[0][j].x;

@@ -1,11 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/tearing.dir/tearing.c.obj"
-  "CMakeFiles/tearing.dir/__/deps/getopt.c.obj"
-  "CMakeFiles/tearing.dir/__/deps/glad.c.obj"
+  "CMakeFiles/tearing.dir/__/deps/glad_gl.c.obj"
   "tearing.pdb"
   "tearing.exe"
   "tearing.exe.manifest"
-  "libtearing.dll.a"
+  "tearing.lib"
 )
 
 # Per-language clean rules from dependency scanning.

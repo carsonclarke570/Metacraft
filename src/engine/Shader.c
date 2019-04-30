@@ -153,6 +153,11 @@ void shader_register_uniform(Shader* shader, const char* uniform) {
     //TODO
 }
 
+void shader_uniform_mat4(Shader* shader, const char* name, mat4 data) {
+    GLuint transform = glGetUniformLocation(shader->program, name);
+    glUniformMatrix4fv(transform, 1, GL_FALSE, data);
+}
+
 void register_texture(Shader* shader, Texture* texture, unsigned int slot) {
     glActiveTexture(GL_TEXTURE0 + slot);
     glUniform1i(glGetUniformLocation(shader->program, texture_type_map[texture->type]), slot);

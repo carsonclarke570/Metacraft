@@ -50,10 +50,6 @@ void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int*
     glBindVertexArray(0);
 }
 
-void mesh_make_cube(Mesh* mesh) {
-
-}
-
 void mesh_destroy(Mesh* mesh) {
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(1, &mesh->vbo);

@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/msaa.dir/msaa.c.obj"
   "CMakeFiles/msaa.dir/__/deps/getopt.c.obj"
-  "CMakeFiles/msaa.dir/__/deps/glad.c.obj"
+  "CMakeFiles/msaa.dir/__/deps/glad_gl.c.obj"
   "msaa.pdb"
   "msaa.exe"
   "msaa.exe.manifest"
-  "libmsaa.dll.a"
+  "msaa.lib"
 )
 
 # Per-language clean rules from dependency scanning.
