@@ -42,4 +42,10 @@
 
 #define GL_PI   3.14159265358979323846f
 
+// Engine settings
+#define WIN_WIDTH   1200
+#define WIN_HEIGHT  800
+#define WIN_TITLE   "Not Minecraft"
+#define WIN_FULL    false
+
 #endif
