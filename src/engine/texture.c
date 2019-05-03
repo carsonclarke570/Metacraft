@@ -93,16 +93,13 @@ const char *texture_type_map[4] = {
 
 
 void texture_pool_allocate(unsigned int size) {
-    texture_pool.textures = malloc(size * sizeof(Texture*));
+    texture_pool.textures = malloc(size * sizeof(Texture));
     texture_pool.capacity = size;
     texture_pool.num_textures = 0;
 }
 
 void texture_pool_delete() {
     free(texture_pool.textures);
-    for (int i = 0; i < texture_pool.capacity; i++) {
-        free(texture_pool.textures);
-    }
     texture_pool.textures = NULL;
     texture_pool.capacity = 0;
     texture_pool.num_textures = 0;

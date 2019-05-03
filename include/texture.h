@@ -65,7 +65,7 @@ void bind_texture(Texture* texture, unsigned int slot);
 // Global
 
 typedef struct {
-    Texture **textures;
+    Texture *textures;
     unsigned int capacity;
     unsigned int num_textures;
 } TexturePool;

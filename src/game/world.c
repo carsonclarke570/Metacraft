@@ -35,8 +35,7 @@ void world_init(World* world) {
 
     // TEXTURES
     texture_pool_allocate(10);
-    texture_pool.textures[0] = malloc(sizeof(Texture));
-    create_texture(texture_pool.textures[0], "dirt.png", TEXTURE_DIFFUSE);
+    create_texture(&texture_pool.textures[0], "dirt.png", TEXTURE_DIFFUSE);
 
     // SHADERS
     shader_load_file(&world->shader, VERTEX, "main.vert");
@@ -55,7 +54,7 @@ void world_init(World* world) {
 
     // SHADER BINDING
     shader_bind(&world->shader);
-    register_texture(&world->shader, texture_pool.textures[0], 1);
+    register_texture(&world->shader, &texture_pool.textures[0], 1);
     shader_uniform_mat4(&world->shader, "projection", p_mat);
     shader_uniform_mat4(&world->shader, "view", v_mat);
 
@@ -87,7 +86,7 @@ void world_update(World* world) {
 }
 
 void world_render(World* world) {
-    bind_texture(texture_pool.textures[0], 1);
+    bind_texture(&texture_pool.textures[0], 1);
     //mesh_render(&world->chunk_mesh, &world->shader);
     model_render(&world->chunk_mesh, &world->shader);
 }
