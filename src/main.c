@@ -6,20 +6,18 @@
 #include <matrix.h>
 #include <transform.h>
 #include <engine.h>
+#include <world.h>
 
 extern TexturePool texture_pool;
 
-Shader shader;
-Texture texture;
-Model model;
-Transform transform;
-mat4 m_mat;
+World world;
 
 void init() {
+    world_init(&world);
+/*
     // TEXTURES
     texture_pool_allocate(10);
-    create_texture(&texture, "dirt.png", TEXTURE_DIFFUSE);
-    texture_pool.textures[0] = &texture;
+    create_texture(texture_pool.textures[0], "dirt.png", TEXTURE_DIFFUSE);
 
     // SHADERS
     shader_load_file(&shader, VERTEX, "main.vert");
@@ -63,10 +61,13 @@ void init() {
     transform_default(&transform);
     transform.scale[0] = 0.001f;
     transform.scale[1] = 0.001f;
-    transform.scale[2] = 1.0f;
+    transform.scale[2] = 1.0f; */
 }
 
 void update() {
+    world_update(&world);
+
+    /*
     // uniforms
     float s = (float) sin(glfwGetTime()) / 5.0f;
     //transform.scale[0] = s * 0.001f;
@@ -82,23 +83,19 @@ void update() {
 
     transform_to_matrix(&transform, m_mat);
     shader_uniform_mat4(&shader, "model", m_mat);
+    */
 }
 
 void render() {
+    world_render(&world);
     // render
     //mesh_render(&mesh, &shader);
-    bind_texture(&texture, 1);
-    model_render(&model, &shader);
+    /*bind_texture(&texture, 1);
+    model_render(&model, &shader); */
 }
 
 void cleanup() {
-    // Clean up
-    destroy_texture(&texture);
-    shader_destroy(&shader);
-    model_delete(&model);
-
-    // Global cleanup
-    texture_pool_delete();
+    world_delete(&world);
 }
 
 int main() {

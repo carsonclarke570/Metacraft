@@ -51,11 +51,10 @@ typedef struct {
  * @param mesh          Pointer to Mesh struct
  * @param vertices      Vertices to add into the Mesh's buffer.
  * @param num_v         Number of vertices to add.
- * @param indices       Indices to add inti the Mesh's buffer.
+ * @param indices       Indices to add into the Mesh's buffer.
  * @param num_i         Number of indices to add.
- * @param textures      Array of pointers to the textures the mesh uses.
  */
-void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i, Texture **textures, unsigned int num_t);
+void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i);
 
 /**
  * Destroys a Mesh struct

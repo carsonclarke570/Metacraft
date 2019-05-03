@@ -100,7 +100,9 @@ void texture_pool_allocate(unsigned int size) {
 
 void texture_pool_delete() {
     free(texture_pool.textures);
-
+    for (int i = 0; i < texture_pool.capacity; i++) {
+        free(texture_pool.textures);
+    }
     texture_pool.textures = NULL;
     texture_pool.capacity = 0;
     texture_pool.num_textures = 0;

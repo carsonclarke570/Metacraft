@@ -17,10 +17,7 @@
 #include <mesh.h>
 
 
-void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i, Texture **textures, unsigned int num_t) {
-    mesh->textures = textures;
-    mesh->num_textures = num_t;
-
+void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i) {
     if (indices) {
         mesh->num_elements = num_i;
         mesh->indexed = true;
@@ -58,10 +55,6 @@ void mesh_destroy(Mesh* mesh) {
 
 
 void mesh_render(Mesh* mesh, Shader* shader) {
-    for (unsigned int i = 0; i < mesh->num_textures; i++) {
-        register_texture(shader, mesh->textures[i], i);
-        bind_texture(mesh->textures[i], i);
-    }
     glBindVertexArray(mesh->vao);
     if (mesh->indexed) {
         glDrawElements(GL_TRIANGLES, mesh->num_elements, GL_UNSIGNED_INT, 0);

@@ -48,4 +48,19 @@
 #define WIN_TITLE   "Not Minecraft"
 #define WIN_FULL    false
 
+// Chunk stuff
+#define CHUNK_HEIGHT    256
+#define CHUNK_WIDTH     16
+#define CHUNK_INDEX(r, c, h) ((WIDTH * (h * WIDTH) + r) + c)
+
+#define CHUNK_MESH_SIZE  0.1f
+#define BLOCK_SIZE  (CHUNK_MESH_SIZE / CHUNK_WIDTH)
+
+#define FACE_NORTH  1
+#define FACE_SOUTH  2
+#define FACE_EAST   4
+#define FACE_WEST   8
+#define FACE_UP     16
+#define FACE_DOWN   32
+
 #endif
