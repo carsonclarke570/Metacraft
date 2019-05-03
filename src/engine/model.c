@@ -85,7 +85,7 @@ void process(Model* model, struct aiNode *node, const struct aiScene *scene, int
             }
         }
 
-        mesh_create(&model->meshes[idx], vertices, mesh->mNumVertices, indices, mesh->mNumFaces * 3, NULL, 0);
+        mesh_create(&model->meshes[idx], vertices, mesh->mNumVertices, indices, mesh->mNumFaces * 3);
 
         free(vertices);
         free(indices);
