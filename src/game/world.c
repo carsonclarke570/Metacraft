@@ -64,8 +64,9 @@ void world_init(World* world) {
 
     // TRANSFORM
     transform_default(&world->chunk_t);
-    world->chunk_t.translation[0] = 0.0f;
-    world->chunk_t.translation[1] = -0.5f;
+    world->chunk_t.translation[0] = 5.0f;
+    world->chunk_t.translation[1] = -2.5f;
+    world->chunk_t.translation[2] = -10.0f;
 
     transform_default(&world->cube_t);
     world->cube_t.translation[0] = -5.0f;
@@ -100,9 +101,9 @@ void world_render(World* world) {
 
 
     // Render cube
-    //transform_to_matrix(&world->cube_t, mat);
-    //shader_uniform_mat4(&world->shader, "model", mat);
-    //model_render(&world->test_cube, &world->shader);
+    transform_to_matrix(&world->cube_t, mat);
+    shader_uniform_mat4(&world->shader, "model", mat);
+    model_render(&world->test_cube, &world->shader);
 }
 
 void world_delete(World* world) {
