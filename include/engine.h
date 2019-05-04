@@ -26,6 +26,7 @@
 #include <window.h>
 
 typedef struct {
+    Window window;
     void (*init)();
     void (*update)();
     void (*render)();

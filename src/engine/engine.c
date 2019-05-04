@@ -16,20 +16,27 @@
 
 #include <engine.h>
 
-int engine_init() {
+int engine_init(Game* game) {
     if (!glfwInit()) {
         fprintf(stderr, "ERROR: GLFW failed to initialize!\n");
         return CODE_GLFW_INIT_ERR;
     }
-    return CODE_SUCCESS;
-}
+    fprintf(stdout, "ENGINE: Initialized GLFW!\n");
 
-int engine_run(Game* game) {
-    Window window;
-    int32_t err = window_create(&window, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE, WIN_FULL);
+    int32_t err = window_create(&game->window, WIN_WIDTH, WIN_HEIGHT, WIN_TITLE, WIN_FULL);
     if (err) {
         return err;
     }
+    fprintf(stdout, "ENGINE: Created window context!\n");
+
+    const GLubyte* vendor = glGetString(GL_VENDOR);
+    const GLubyte* renderer = glGetString(GL_RENDERER);
+    const GLubyte* version = glGetString(GL_VERSION);
+    const GLubyte* language = glGetString(GL_SHADING_LANGUAGE_VERSION);
+    const GLubyte* ext = glGetString(GL_EXTENSIONS);
+
+    fprintf(stdout, "ENGINE: OpenGL Details\n\tVendor: %s\n\tRenderer: %s\n\tVersion: %s\n\tGLSL: %s\n\tExts: %s\n",
+            vendor, renderer, version, language, ext);
 
     glFrontFace(GL_CCW);
     glCullFace(GL_BACK);
@@ -37,9 +44,14 @@ int engine_run(Game* game) {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
 
+    return CODE_SUCCESS;
+}
+
+int engine_run(Game* game) {
+
     game->init();
 
-    while (!window_should_close(&window)) {
+    while (!window_should_close(&game->window)) {
         // Clear buffer
         glClearColor(GL_CLEAR_COLOR_R, GL_CLEAR_COLOR_G, GL_CLEAR_COLOR_B, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -48,11 +60,11 @@ int engine_run(Game* game) {
         game->render();
 
         // Swap buffers, poll IO events
-        glfwSwapBuffers(window.window);
+        glfwSwapBuffers(game->window.window);
         glfwPollEvents();
     }
     game->cleanup();
 
-    window_destroy(&window);
+    window_destroy(&game->window);
     glfwTerminate();
 }

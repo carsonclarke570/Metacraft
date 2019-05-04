@@ -22,16 +22,20 @@ void world_init(World* world) {
     chunk_allocate(&world->chunk);
 
     // CHUNK STUFF
-    /*uint32_t temp = FACE_EAST << 24;
-    uint32_t faces[4] = {
-            temp & (0 << 8) & 0,
-            temp & (16 << 8) & 0,
-            temp & (16 << 8) & 16,
-            temp & (0 << 8) & 16,
+    uint32_t temp = (FACE_EAST | FACE_WEST | FACE_UP) << 24u;
+    uint32_t faces[8] = {
+            temp | (7u << 8u) | 7u,
+            temp | (7u << 8u) | 8u,
+            temp | (8u << 8u) | 8u,
+            temp | (8u << 8u) | 7u,
+            temp | (1u << 16u) | (0u << 8u) | 0u,
+            temp | (1u << 16u) | (15u << 8u) | 0u,
+            temp | (1u << 16u) | (0u << 8u) | 15u,
+            temp | (1u << 16u) | (15u << 8u) | 15u
     };
 
-    chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 4, 4); */
-    model_create(&world->chunk_mesh, "cube.obj");
+    chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 24);
+    model_create(&world->test_cube, "cube.obj");
 
     // TEXTURES
     texture_pool_allocate(10);
@@ -46,10 +50,10 @@ void world_init(World* world) {
     mat4 p_mat;
 
     // PROJECTION MATRIX
-    mat4_projection(p_mat, 90.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
+    mat4_projection(p_mat, 45.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
 
     // VIEW MATRIX
-    vec3 test = {0.0f, 0.0f, -10.0f};
+    vec3 test = {0.0f, 0.0000f, -5.0f};
     mat4_translate(v_mat, test);
 
     // SHADER BINDING
@@ -58,45 +62,55 @@ void world_init(World* world) {
     shader_uniform_mat4(&world->shader, "projection", p_mat);
     shader_uniform_mat4(&world->shader, "view", v_mat);
 
-    // TRANSFORM for chunk
-    transform_default(&world->transform);
-    world->transform.scale[0] = 0.001f;
-    world->transform.scale[1] = 0.001f;
-    world->transform.scale[2] = 1.0f;
+    // TRANSFORM
+    transform_default(&world->chunk_t);
+    world->chunk_t.translation[0] = 0.0f;
+    world->chunk_t.translation[1] = -0.5f;
+
+    transform_default(&world->cube_t);
+    world->cube_t.translation[0] = -5.0f;
+    world->cube_t.translation[2] = -10.0f;
 }
 
 void world_update(World* world) {
 
-    // uniforms
-    float s = (float) sin(glfwGetTime()) / 5.0f;
-    //transform.scale[0] = s * 0.001f;
-    // transform.scale[1] = s * 0.001f;
-    //transform.scale[2] = 1.0f;
+    float s = sinf(glfwGetTime() / 2.0f);
 
-    //transform.translation[0] = -0.00015f;
 
     quat q;
-    mat4 mat;
     vec3 axis = {0.0f, 1.0f, 0.0f};
     quat_axis_angle(q, axis, s * 360.0f);
-    memcpy(world->transform.rotation, q, sizeof(quat));
 
-    transform_to_matrix(&world->transform, mat);
-    shader_uniform_mat4(&world->shader, "model", mat);
+    // Cube
+    memcpy(world->cube_t.rotation, q, sizeof(quat));
+
+    // Chunk
+    memcpy(world->chunk_t.rotation, q, sizeof(quat));
 }
 
 void world_render(World* world) {
     bind_texture(&texture_pool.textures[0], 1);
-    //mesh_render(&world->chunk_mesh, &world->shader);
-    model_render(&world->chunk_mesh, &world->shader);
+
+    mat4 mat;
+
+    // Render chunk
+    transform_to_matrix(&world->chunk_t, mat);
+    shader_uniform_mat4(&world->shader, "model", mat);
+    mesh_render(&world->chunk_mesh, &world->shader);
+
+
+    // Render cube
+    //transform_to_matrix(&world->cube_t, mat);
+    //shader_uniform_mat4(&world->shader, "model", mat);
+    //model_render(&world->test_cube, &world->shader);
 }
 
 void world_delete(World* world) {
     // Clean up
     chunk_delete(&world->chunk);
     shader_destroy(&world->shader);
-    //mesh_destroy(&world->chunk_mesh);
-    model_delete(&world->chunk_mesh);
+    mesh_destroy(&world->chunk_mesh);
+    //model_delete(&world->chunk_mesh);
 
     // Global cleanup
     texture_pool_delete();

@@ -23,8 +23,6 @@
 
 typedef struct {
     uint16_t* chunk;
-    float x_off;
-    float z_off;
 } Chunk;
 
 /**

@@ -25,7 +25,7 @@ void mat4_identity(mat4 mat) {
 }
 
 void mat4_projection(mat4 mat, float fov, float near, float far, float aspect) {
-    float r = tan(fov * 0.5f * GL_PI * 180.0f);
+    float r = tanf(fov * 0.5f * GL_PI / 180.0f);
 
     memset(mat, 0, 16 * sizeof(float));
     mat[INDEX(0, 0)] = 1.0f / (r * aspect);
@@ -50,7 +50,7 @@ void mat4_scale(mat4 mat, const vec3 scale) {
     mat[INDEX(3, 3)] = 1.0f;
 }
 
-void mat4_mul(mat4 a, mat4 b, mat4 y) {
+void mat4_mul(const mat4 a, const mat4 b, mat4 y) {
     mat4 temp;
     float sum;
     for (int r = 0; r < 4; r++) {

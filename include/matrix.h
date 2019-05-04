@@ -69,7 +69,7 @@ void mat4_scale(mat4 mat, const vec3 scale);
  * @param b     The B matrix.
  * @param y     Result of the operation.
  */
-void mat4_mul(mat4 a, mat4 b, mat4 y);
+void mat4_mul(const mat4 a, const mat4 b, mat4 y);
 
 /**
  * Prints a matrix to stdout.

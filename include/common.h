@@ -33,7 +33,7 @@
 #define MAX_STR_LEN 50
 
 // GL
-#define GL_VER_MAJ  3
+#define GL_VER_MAJ  4
 #define GL_VER_MIN  3
 
 #define GL_CLEAR_COLOR_R 0.1f
@@ -53,14 +53,14 @@
 #define CHUNK_WIDTH     16
 #define CHUNK_INDEX(r, c, h) ((WIDTH * (h * WIDTH) + r) + c)
 
-#define CHUNK_MESH_SIZE  0.1f
+#define CHUNK_MESH_SIZE  5.0f
 #define BLOCK_SIZE  (CHUNK_MESH_SIZE / CHUNK_WIDTH)
 
-#define FACE_NORTH  1
-#define FACE_SOUTH  2
-#define FACE_EAST   4
-#define FACE_WEST   8
-#define FACE_UP     16
-#define FACE_DOWN   32
+#define FACE_NORTH  1u
+#define FACE_SOUTH  2u
+#define FACE_EAST   4u
+#define FACE_WEST   8u
+#define FACE_UP     16u
+#define FACE_DOWN   32u
 
 #endif

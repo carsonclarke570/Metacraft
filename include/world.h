@@ -25,9 +25,19 @@
 
 typedef struct {
     Chunk chunk;
-    Model chunk_mesh;
+
+    // Test materials
+    mat4 model_matrix;
     Shader shader;
-    Transform transform;
+
+    // Chunk
+    Mesh chunk_mesh;
+    Transform chunk_t;
+
+    // Test Cube
+    Model test_cube;
+    Transform cube_t;
+
 } World;
 
 /**

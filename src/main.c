@@ -101,13 +101,13 @@ void cleanup() {
 int main() {
 
     // Start Up Code
-    engine_init();
-
     Game game;
     game.init = init;
     game.render = render;
     game.cleanup = cleanup;
     game.update = update;
+
+    engine_init(&game);
 
     engine_run(&game);
 

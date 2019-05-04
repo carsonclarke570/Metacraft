@@ -29,8 +29,8 @@ void transform_to_matrix(Transform* transform, mat4 mat) {
     mat4_translate(t, transform->translation);
     quat_rotation(transform->rotation, r);
 
-    mat4_mul(s, r, s);
-    mat4_mul(s, r, t);
+    mat4_mul(r, s, s);
+    mat4_mul(t, s, t);
     memcpy(mat, t, sizeof(float) * 16);
 }
 
