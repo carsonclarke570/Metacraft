@@ -67,13 +67,13 @@ void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indic
             // Construct face
             Vertex face[4] = {
                     {{-off + (c * BLOCK_SIZE), h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {0.0f, 0.0f}},
+                            {-1.0f, 0.0f, 0.0f}, {0.0f, 0.0f}},
                     {{-off + (c * BLOCK_SIZE), (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {0.0f, 1.0f}},
+                            {-1.0f, 0.0f, 0.0f}, {0.0f, 1.0f}},
                     {{-off + (c * BLOCK_SIZE), (h+1) * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {1.0f, 1.0f}},
+                            {-1.0f, 0.0f, 0.0f}, {1.0f, 1.0f}},
                     {{-off + (c * BLOCK_SIZE), h * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {1.0f, 0.0f}}
+                            {-1.0f, 0.0f, 0.0f}, {1.0f, 0.0f}}
             };
             memcpy(&m_vertices[v_i], face, sizeof(Vertex) * 4);
 
@@ -91,13 +91,13 @@ void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indic
             // Construct face
             Vertex face[4] = {
                     {{-off + ((c+1) * BLOCK_SIZE), (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {1.0f, 0.0f}},
+                            {0.0f, 1.0f, 0.0f}, {1.0f, 0.0f}},
                     {{-off + (c * BLOCK_SIZE), (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {0.0f, 0.0f}},
+                            {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},
                     {{-off + (c * BLOCK_SIZE), (h+1) * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {0.0f, 1.0f}},
+                            {0.0f, 1.0f, 0.0f}, {0.0f, 1.0f}},
                     {{-off + ((c+1) * BLOCK_SIZE), (h+1) * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
-                            {1.0f, 0.0f, 0.0f}, {1.0f, 1.0f}}
+                            {0.0f, 1.0f, 0.0f}, {1.0f, 1.0f}}
             };
             memcpy(&m_vertices[v_i], face, sizeof(Vertex) * 4);
 
@@ -108,6 +108,81 @@ void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indic
             m_indices[i_i + 3] = v_i;
             m_indices[i_i + 4] = v_i + 3;
             m_indices[i_i + 5] = v_i + 2;
+            v_i += 4;
+            i_i += 6;
+        }
+
+        if (faces & FACE_DOWN) {
+            // Construct face
+            Vertex face[4] = {
+                    {{-off + (c * BLOCK_SIZE), h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
+                            {0.0f, -1.0f, 0.0f}, {0.0f, 1.0f}},
+                    {{-off + ((c+1) * BLOCK_SIZE), h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
+                            {0.0f, -1.0f, 0.0f}, {1.0f, 1.0f}},
+                    {{-off + (c * BLOCK_SIZE), h * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
+                            {0.0f, -1.0f, 0.0f}, {0.0f, 0.0f}},
+                    {{-off + ((c+1) * BLOCK_SIZE), h * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
+                            {0.0f, -1.0f, 0.0f}, {1.0f, 0.0f}}
+            };
+            memcpy(&m_vertices[v_i], face, sizeof(Vertex) * 4);
+
+            // Construct face indices
+            m_indices[i_i] = v_i;
+            m_indices[i_i + 1] = v_i + 2;
+            m_indices[i_i + 2] = v_i + 1;
+            m_indices[i_i + 3] = v_i + 1;
+            m_indices[i_i + 4] = v_i + 2;
+            m_indices[i_i + 5] = v_i + 3;
+            v_i += 4;
+            i_i += 6;
+        }
+
+        if (faces & FACE_NORTH) {
+            // Construct face
+            Vertex face[4] = {
+                    {{((c+1) * BLOCK_SIZE) - off, (h+1) * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {0.0f, 1.0f}},
+                    {{(c * BLOCK_SIZE) - off, (h+1) * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {1.0f, 1.0f}},
+                    {{((c+1) * BLOCK_SIZE) - off, h * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {0.0f, 0.0f}},
+                    {{(c * BLOCK_SIZE) - off, h * BLOCK_SIZE, off - ((r+1) * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {1.0f, 0.0f}}
+            };
+            memcpy(&m_vertices[v_i], face, sizeof(Vertex) * 4);
+
+            // Construct face indices
+            m_indices[i_i] = v_i;
+            m_indices[i_i + 1] = v_i + 2;
+            m_indices[i_i + 2] = v_i + 1;
+            m_indices[i_i + 3] = v_i + 1;
+            m_indices[i_i + 4] = v_i + 2;
+            m_indices[i_i + 5] = v_i + 3;
+            v_i += 4;
+            i_i += 6;
+        }
+
+        if (faces & FACE_NORTH) {
+            // Construct face
+            Vertex face[4] = {
+                    {{(c * BLOCK_SIZE) - off, (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {0.0f, 1.0f}},
+                    {{((c+1) * BLOCK_SIZE) - off, (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {1.0f, 1.0f}},
+                    {{(c * BLOCK_SIZE) - off, h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {0.0f, 0.0f}},
+                    {{((c+1) * BLOCK_SIZE) - off, h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
+                            {0.0f, 0.0f, -1.0f}, {1.0f, 0.0f}}
+            };
+            memcpy(&m_vertices[v_i], face, sizeof(Vertex) * 4);
+
+            // Construct face indices
+            m_indices[i_i] = v_i;
+            m_indices[i_i + 1] = v_i + 2;
+            m_indices[i_i + 2] = v_i + 1;
+            m_indices[i_i + 3] = v_i + 1;
+            m_indices[i_i + 4] = v_i + 2;
+            m_indices[i_i + 5] = v_i + 3;
             v_i += 4;
             i_i += 6;
         }

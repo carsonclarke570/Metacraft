@@ -26,10 +26,13 @@ int32_t window_create(Window* window, uint16_t width, uint16_t height, const cha
     // Create window and context
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, GL_VER_MAJ);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, GL_VER_MIN);
-    if (full_screen)
-        window->window = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
-    else
+    if (full_screen) {
+        GLFWmonitor *monitor = glfwGetPrimaryMonitor();
+        const GLFWvidmode *mode = glfwGetVideoMode(monitor);
+        window->window = glfwCreateWindow(mode->width, mode->height, title, monitor, NULL);
+    } else {
         window->window = glfwCreateWindow(width, height, title, NULL, NULL);
+    }
 
     if (!window->window) {
         fprintf(stderr, "ERROR: Failed to create window!\n");

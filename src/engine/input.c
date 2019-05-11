@@ -32,7 +32,7 @@ void input_poll(Input* input, Window* window) {
     glfwGetCursorPos(window->window, &xpos, &ypos);
 
     input->cursor_offset[0] = xpos - input->cursor_position[0];
-    input->cursor_offset[1] = ypos - input->cursor_position[1];
+    input->cursor_offset[1] = input->cursor_position[1] - ypos;
     input->cursor_position[0] = xpos;
     input->cursor_position[1] = ypos;
 }

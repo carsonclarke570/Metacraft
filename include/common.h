@@ -65,7 +65,7 @@
 #define CAMERA_YAW          -(GL_PI / 2.0f);
 #define CAMERA_PITCH        0.0f
 #define CAMERA_SPEED        2.5f
-#define CAMERA_SENSITIVITY  0.01f
+#define CAMERA_SENSITIVITY  0.005f
 
 #define KEY_BIND_FORWARD    GLFW_KEY_W
 #define KEY_BIND_BACKWARD   GLFW_KEY_S

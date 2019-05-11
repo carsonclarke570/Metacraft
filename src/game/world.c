@@ -24,7 +24,7 @@ void world_init(World* world, Game* game) {
 
     // CHUNK STUFF
     chunk_allocate(&world->chunk);
-    uint32_t temp = (FACE_EAST | FACE_WEST | FACE_UP) << 24u;
+    uint32_t temp = (FACE_EAST | FACE_WEST | FACE_UP | FACE_DOWN | FACE_SOUTH | FACE_NORTH) << 24u;
     uint32_t faces[8] = {
             temp | (7u << 8u) | 7u,
             temp | (7u << 8u) | 8u,
@@ -35,7 +35,7 @@ void world_init(World* world, Game* game) {
             temp | (1u << 16u) | (0u << 8u) | 15u,
             temp | (1u << 16u) | (15u << 8u) | 15u
     };
-    chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 24);
+    chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 48);
 
     // CUBE
     mesh_cube(&world->test_cube);
@@ -90,7 +90,7 @@ void world_update(World* world, Game* game, double delta) {
     memcpy(world->cube_t.rotation, q, sizeof(quat));
 
     // Chunk
-    memcpy(world->chunk_t.rotation, q, sizeof(quat));
+    //memcpy(world->chunk_t.rotation, q, sizeof(quat));
 }
 
 void world_render(World* world, Game* game, double delta) {
