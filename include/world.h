@@ -23,9 +23,11 @@
 #include <chunk.h>
 #include <engine.h>
 #include <transform.h>
+#include <uniform_buffer.h>
 
 typedef struct {
     Camera camera;
+    UniformBuffer mvp;
     Chunk chunk;
 
     // Test materials

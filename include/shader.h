@@ -106,6 +106,16 @@ void shader_register_uniform(Shader* shader, const char* uniform);
  */
 void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
 
+
+/**
+ * Binds a uniform buffer object to a Shader by slot number.
+ *
+ * @param shader    Pointer to Shader struct
+ * @param name      Name of uniform buffer
+ * @param slot      Slot where the uniform buffer is bound.
+ */
+void shader_bind_ubo(Shader* shader, const char* name, uint32_t slot);
+
 /**
  * Registers a texture to the shader
  *

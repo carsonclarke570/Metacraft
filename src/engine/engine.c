@@ -79,7 +79,7 @@ int engine_run(Game* game) {
         // Update/Render logic
         game->update(game, delta);
         while (count >= ENG_FRAME_TIME) {
-            game->render(game, delta);
+            game->render(game, ENG_FRAME_TIME);
             glfwSwapBuffers(game->window.window);
             count -= ENG_FRAME_TIME;
         }

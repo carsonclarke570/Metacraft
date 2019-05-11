@@ -48,21 +48,25 @@ void world_init(World* world, Game* game) {
     shader_load_file(&world->shader, VERTEX, "main.vert");
     shader_load_file(&world->shader, FRAGMENT, "main.frag");
     shader_compile(&world->shader);
+    shader_bind_ubo(&world->shader, "mvp_mat", 0);
+
+    // MODEL - VIEW - PROJECTION
+    uniform_buffer_create(&world->mvp, 3 * sizeof(mat4), 0);
 
     mat4 v_mat;
     mat4 p_mat;
 
     // PROJECTION MATRIX
     mat4_projection(p_mat, 45.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
+    uniform_buffer_store(&world->mvp, 2 * sizeof(mat4), sizeof(mat4), p_mat);
 
     // VIEW MATRIX
     camera_view_matrix(&world->camera, v_mat);
+    uniform_buffer_store(&world->mvp, sizeof(mat4), sizeof(mat4), v_mat);
 
     // SHADER BINDING
     shader_bind(&world->shader);
     register_texture(&world->shader, &texture_pool.textures[0], 1);
-    shader_uniform_mat4(&world->shader, "projection", p_mat);
-    shader_uniform_mat4(&world->shader, "view", v_mat);
 
     // TRANSFORM
     transform_default(&world->chunk_t);
@@ -100,16 +104,16 @@ void world_render(World* world, Game* game, double delta) {
 
     // Update view
     camera_view_matrix(&world->camera, mat);
-    shader_uniform_mat4(&world->shader, "view", mat);
+    uniform_buffer_store(&world->mvp, sizeof(mat4), sizeof(mat4), mat);
 
     // Render chunk
     transform_to_matrix(&world->chunk_t, mat);
-    shader_uniform_mat4(&world->shader, "model", mat);
+    uniform_buffer_store(&world->mvp, 0, sizeof(mat4), mat);
     mesh_render(&world->chunk_mesh, &world->shader);
 
     // Render cube
     transform_to_matrix(&world->cube_t, mat);
-    shader_uniform_mat4(&world->shader, "model", mat);
+    uniform_buffer_store(&world->mvp, 0, sizeof(mat4), mat);
     mesh_render(&world->test_cube, &world->shader);
 }
 
