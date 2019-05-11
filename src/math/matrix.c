@@ -50,6 +50,36 @@ void mat4_scale(mat4 mat, const vec3 scale) {
     mat[INDEX(3, 3)] = 1.0f;
 }
 
+void mat4_look_at(mat4 mat, const vec3 eye, const vec3 object, const vec3 up) {
+    vec3 f, u, s;
+
+    // Calculate direction vectors.
+    vec3_sub(object, eye, f);
+    vec3_normalize(f, f);
+
+    vec3_normalize(up, u);
+
+    vec3_cross(f, u, s);
+    vec3_normalize(s, s);
+
+    vec3_cross(s, f, u);
+
+    memset(mat, 0, 16 * sizeof(float));
+    mat[INDEX(0, 0)] = s[0];
+    mat[INDEX(1, 0)] = s[1];
+    mat[INDEX(2, 0)] = s[2];
+    mat[INDEX(0, 1)] = u[0];
+    mat[INDEX(1, 1)] = u[1];
+    mat[INDEX(2, 1)] = u[2];
+    mat[INDEX(0, 2)] = -f[0];
+    mat[INDEX(1, 2)] = -f[1];
+    mat[INDEX(2, 2)] = -f[2];
+    mat[INDEX(3, 0)] = -vec3_dot(s, eye);
+    mat[INDEX(3, 1)] = -vec3_dot(u, eye);
+    mat[INDEX(3, 2)] = vec3_dot(f, eye);
+    mat[INDEX(3, 3)] = 1.0f;
+}
+
 void mat4_mul(const mat4 a, const mat4 b, mat4 y) {
     mat4 temp;
     float sum;

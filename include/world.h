@@ -19,11 +19,13 @@
 
 #include <GLFW/glfw3.h>
 
+#include <camera.h>
 #include <chunk.h>
-#include <model.h>
+#include <engine.h>
 #include <transform.h>
 
 typedef struct {
+    Camera camera;
     Chunk chunk;
 
     // Test materials
@@ -35,7 +37,7 @@ typedef struct {
     Transform chunk_t;
 
     // Test Cube
-    Model test_cube;
+    Mesh test_cube;
     Transform cube_t;
 
 } World;
@@ -44,27 +46,33 @@ typedef struct {
  * Initializes a world.
  *
  * @param world     World struct
+ * @param game      Game object to allow access global game stuff
  */
-void world_init(World* world);
+void world_init(World* world, Game* game);
 
 /**
  * Update a world.
  *
  * @param world     World struct
+ * @param game      Game object to allow access global game stuff
+ * @param delta     Time since last update.
  */
-void world_update(World* world);
+void world_update(World* world, Game* game, double delta);
 
 /**
  * Render a world.
  *
  * @param world     World struct
+ * @param game      Game object to allow access global game stuff
+ * @param delta     Time since last render.
  */
-void world_render(World* world);
+void world_render(World* world, Game* game, double delta);
 
 /**
  * Delete a world.
  *
  * @param world     World struct
+ * @param game      Game object to allow access global game stuff
  */
 void world_delete(World* world);
 

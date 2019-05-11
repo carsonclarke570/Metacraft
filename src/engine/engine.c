@@ -49,19 +49,47 @@ int engine_init(Game* game) {
 
 int engine_run(Game* game) {
 
-    game->init();
+    // Initialize game data and input manager
+    input_init(&game->input, &game->window);
+    input_cursor_mode(&game->window, CURSOR_DISABLED);
+    game->init(game);
 
+    // Timing
+    double now = glfwGetTime();
+    double last;
+    double count = 0.0f;
+    double delta;
+
+    // Game loop
     while (!window_should_close(&game->window)) {
         // Clear buffer
         glClearColor(GL_CLEAR_COLOR_R, GL_CLEAR_COLOR_G, GL_CLEAR_COLOR_B, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        game->update();
-        game->render();
+        // Handle timing
+        last = now;
+        now = glfwGetTime();
 
-        // Swap buffers, poll IO events
-        glfwSwapBuffers(game->window.window);
+        delta = now - last;
+        count += delta;
+
+        // Process input
+        input_poll(&game->input, &game->window);
+
+        // Update/Render logic
+        game->update(game, delta);
+        while (count >= ENG_FRAME_TIME) {
+            game->render(game, delta);
+            glfwSwapBuffers(game->window.window);
+            count -= ENG_FRAME_TIME;
+        }
+
+        // Poll IO events
         glfwPollEvents();
+
+        // Binds the exit key
+        if (glfwGetKey(game->window.window, KEY_BIND_QUIT) == GLFW_PRESS)
+            glfwSetWindowShouldClose(game->window.window, true);
     }
     game->cleanup();
 

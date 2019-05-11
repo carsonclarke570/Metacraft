@@ -13,12 +13,6 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glfw)
 # glad
 add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glad)
 
-# assimp
-option(ASSIMP_BUILD_ASSIMP_TOOLS OFF)
-option(ASSIMP_BUILD_SAMPLES OFF)
-option(ASSIMP_BUILD_TESTS OFF)
-add_subdirectory(${PROJECT_SOURCE_DIR}/libs/assimp)
-
 # Compile settings
 if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
@@ -64,7 +58,6 @@ add_definitions(
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} src/main.c)
 
 target_link_libraries(${PROJECT_NAME}
-        assimp
         glfw
         ${GLFW_LIBRARIES}
         glad

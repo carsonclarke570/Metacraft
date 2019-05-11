@@ -30,7 +30,54 @@ typedef int ivec3[3];
  * @param vec   Vector to normalize.
  * @param y     Normalized vector.
  */
-void vec3_normalize(vec3 vec, vec3 y);
-void vec2_normalize(vec2 vec, vec2 y);
+void vec3_normalize(const vec3 vec, vec3 y);
+void vec2_normalize(const vec2 vec, vec2 y);
+
+/**
+ *  Computes the dot product of two vectors.
+ *
+ * @param a     First vector.
+ * @param b     Second vector.
+ * @return      The dot (innner) product.
+ */
+float vec3_dot(const vec3 a, const vec3 b);
+float vec2_dot(const vec2 a, const vec2 b);
+
+/**
+ * Computes the cross product of two vectors.
+ *
+ * @param a     First vector.
+ * @param b     Second vector.
+ * @param y     Resulting vector.
+ */
+void vec3_cross(const vec3 a, const vec3 b, vec3 y);
+
+/**
+ * Subtracts two vectors. y = a - b.
+ *
+ * @param a     First vector.
+ * @param b     Second vector.
+ * @param y     Resulting vector.
+ */
+void vec3_sub(const vec3 a, const vec3 b, vec3 y);
+
+/**
+ * Adds two vectors. y = a + b.
+ *
+ * @param a     First vector.
+ * @param b     Second vector.
+ * @param y     Resulting vector.
+ */
+void vec3_add(const vec3 a, const vec3 b, vec3 y);
+
+/**
+ * Scales a vector by a constant. y = c * a
+ *
+ * @param a     Vector to scale.
+ * @param c     Constant scale factor.
+ * @param y     Resulting vector.
+ */
+void vec3_mulf(const vec3 a, float c, vec3 y);
+void vec2_mulf(const vec2 a, float c, vec2 y);
 
 #endif

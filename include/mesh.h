@@ -57,6 +57,13 @@ typedef struct {
 void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i);
 
 /**
+ * Constructs a cube Mesh.
+ *
+ * @param mesh  Pointer to Mesh struct
+ */
+void mesh_cube(Mesh* mesh);
+
+/**
  * Destroys a Mesh struct
  *
  * @param mesh  Pointer to Mesh struct

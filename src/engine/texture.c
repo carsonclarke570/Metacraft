@@ -84,6 +84,7 @@ void bind_texture(Texture* texture, unsigned int slot) {
 
 // Globals
 TexturePool texture_pool = {NULL, 0, 0};
+
 const char *texture_type_map[4] = {
         "texture_diffuse",
         "texture_specular",

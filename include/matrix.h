@@ -55,6 +55,17 @@ void mat4_projection(mat4 mat, float fov, float near, float far, float aspect);
 void mat4_translate(mat4 mat, const vec3 translation);
 
 /**
+ * Creates a matrix that induces a rotation such that some camera eye faces an
+ * object.
+ *
+ * @param mat       Resulting matrix.
+ * @param eye       Camera eye position.
+ * @param object    Object or location to look at.
+ * @param up        Up vector.
+ */
+void mat4_look_at(mat4 mat, const vec3 eye, const vec3 object, const vec3 up);
+
+/**
  * Creates a scale matrix.
  *
  * @param mat   4 x 4 matrix

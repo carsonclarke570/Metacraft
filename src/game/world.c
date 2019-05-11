@@ -18,10 +18,12 @@
 
 extern TexturePool texture_pool;
 
-void world_init(World* world) {
-    chunk_allocate(&world->chunk);
+void world_init(World* world, Game* game) {
+    // CAMERA
+    camera_init(&world->camera);
 
     // CHUNK STUFF
+    chunk_allocate(&world->chunk);
     uint32_t temp = (FACE_EAST | FACE_WEST | FACE_UP) << 24u;
     uint32_t faces[8] = {
             temp | (7u << 8u) | 7u,
@@ -33,12 +35,13 @@ void world_init(World* world) {
             temp | (1u << 16u) | (0u << 8u) | 15u,
             temp | (1u << 16u) | (15u << 8u) | 15u
     };
-
     chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 24);
-    model_create(&world->test_cube, "cube.obj");
+
+    // CUBE
+    mesh_cube(&world->test_cube);
 
     // TEXTURES
-    texture_pool_allocate(10);
+    texture_pool_allocate(1);
     create_texture(&texture_pool.textures[0], "dirt.png", TEXTURE_DIFFUSE);
 
     // SHADERS
@@ -53,8 +56,7 @@ void world_init(World* world) {
     mat4_projection(p_mat, 45.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
 
     // VIEW MATRIX
-    vec3 test = {0.0f, 0.0000f, -5.0f};
-    mat4_translate(v_mat, test);
+    camera_view_matrix(&world->camera, v_mat);
 
     // SHADER BINDING
     shader_bind(&world->shader);
@@ -73,10 +75,12 @@ void world_init(World* world) {
     world->cube_t.translation[2] = -10.0f;
 }
 
-void world_update(World* world) {
+void world_update(World* world, Game* game, double delta) {
+
+    camera_move(&world->camera, &game->window, delta);
+    camera_look(&world->camera, game->input.cursor_offset);
 
     float s = sinf(glfwGetTime() / 2.0f);
-
 
     quat q;
     vec3 axis = {0.0f, 1.0f, 0.0f};
@@ -89,21 +93,24 @@ void world_update(World* world) {
     memcpy(world->chunk_t.rotation, q, sizeof(quat));
 }
 
-void world_render(World* world) {
+void world_render(World* world, Game* game, double delta) {
     bind_texture(&texture_pool.textures[0], 1);
 
     mat4 mat;
+
+    // Update view
+    camera_view_matrix(&world->camera, mat);
+    shader_uniform_mat4(&world->shader, "view", mat);
 
     // Render chunk
     transform_to_matrix(&world->chunk_t, mat);
     shader_uniform_mat4(&world->shader, "model", mat);
     mesh_render(&world->chunk_mesh, &world->shader);
 
-
     // Render cube
     transform_to_matrix(&world->cube_t, mat);
     shader_uniform_mat4(&world->shader, "model", mat);
-    model_render(&world->test_cube, &world->shader);
+    mesh_render(&world->test_cube, &world->shader);
 }
 
 void world_delete(World* world) {
@@ -111,7 +118,7 @@ void world_delete(World* world) {
     chunk_delete(&world->chunk);
     shader_destroy(&world->shader);
     mesh_destroy(&world->chunk_mesh);
-    //model_delete(&world->chunk_mesh);
+    mesh_destroy(&world->test_cube);
 
     // Global cleanup
     texture_pool_delete();

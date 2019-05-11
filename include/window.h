@@ -30,6 +30,7 @@
 
 typedef struct {
     GLFWwindow* window;
+    vec2 cursor_off;
 } Window;
 
 /**

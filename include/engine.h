@@ -19,17 +19,17 @@
 
 #include <stdio.h>
 
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
-#include <common.h>
+#include <input.h>
 #include <window.h>
 
-typedef struct {
+typedef struct st_game {
     Window window;
-    void (*init)();
-    void (*update)();
-    void (*render)();
+    Input input;
+    void (*init)(struct st_game* game);
+    void (*update)(struct st_game* game, double delta);
+    void (*render)(struct st_game* game, double delta);
     void (*cleanup)();
 } Game;
 

@@ -17,6 +17,8 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
+#include <GLFW/glfw3.h>
+
 // Error Codes
 #define CODE_SUCCESS                00
 #define CODE_GLFW_INIT_ERR          01   // GLFW
@@ -48,6 +50,30 @@
 #define WIN_TITLE   "Not Minecraft"
 #define WIN_FULL    false
 
+#define ENG_FRAME_CAP       60.0f
+#define ENG_FRAME_TIME      1.0f / ENG_FRAME_CAP
+
+// Coordinate stuff
+#define WORLD_UP        {0.0f, 1.0f, 0.0f}
+#define WORLD_DOWN      {0.0f, -1.0f, 0.0f}
+#define WORLD_LEFT      {-1.0f, 0.0f, 0.0f}
+#define WORLD_RIGHT     {1.0f, 0.0f, 0.0f}
+#define WORLD_FORWARD   {0.0f, 0.0f, -1.0f}
+#define WORLD_BACKWARD  {0.0f, 0.0f, 1.0f}
+
+// Camera defaults
+#define CAMERA_YAW          -(GL_PI / 2.0f);
+#define CAMERA_PITCH        0.0f
+#define CAMERA_SPEED        2.5f
+#define CAMERA_SENSITIVITY  0.01f
+
+#define KEY_BIND_FORWARD    GLFW_KEY_W
+#define KEY_BIND_BACKWARD   GLFW_KEY_S
+#define KEY_BIND_LEFT       GLFW_KEY_A
+#define KEY_BIND_RIGHT      GLFW_KEY_D
+
+#define KEY_BIND_QUIT       GLFW_KEY_ESCAPE
+
 // Chunk stuff
 #define CHUNK_HEIGHT    256
 #define CHUNK_WIDTH     16
@@ -62,5 +88,6 @@
 #define FACE_WEST   8u
 #define FACE_UP     16u
 #define FACE_DOWN   32u
+
 
 #endif
