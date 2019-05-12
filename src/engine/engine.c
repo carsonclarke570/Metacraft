@@ -61,10 +61,9 @@ int engine_run(Game* game) {
     double delta;
 
     // Game loop
+
     while (!window_should_close(&game->window)) {
-        // Clear buffer
         glClearColor(GL_CLEAR_COLOR_R, GL_CLEAR_COLOR_G, GL_CLEAR_COLOR_B, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Handle timing
         last = now;
@@ -79,8 +78,12 @@ int engine_run(Game* game) {
         // Update/Render logic
         game->update(game, delta);
         while (count >= ENG_FRAME_TIME) {
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             game->render(game, ENG_FRAME_TIME);
+
+            // Swap buffers
             glfwSwapBuffers(game->window.window);
+
             count -= ENG_FRAME_TIME;
         }
 

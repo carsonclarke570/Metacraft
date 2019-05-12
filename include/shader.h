@@ -106,6 +106,14 @@ void shader_register_uniform(Shader* shader, const char* uniform);
  */
 void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
 
+/**
+ * Updates a shader's float uniform.
+ *
+ * @param shader    Pointer to Shader struct.
+ * @param name      Name of uniform to update.
+ * @param data      float data to update with.
+ */
+void shader_uniform_float(Shader* shader, const char* name, float data);
 
 /**
  * Binds a uniform buffer object to a Shader by slot number.

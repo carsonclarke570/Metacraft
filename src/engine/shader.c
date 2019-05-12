@@ -81,13 +81,6 @@ int shader_load_text(Shader* shader, enum ShaderType type, const char* src) {
 }
 
 int shader_load_file(Shader* shader, enum ShaderType type, const char* file) {
-    //std::ifstream parser;
-    //parser.open(file, std::ios_base::in);
-    //if (parser) {
-    //   std::string buffer(std::istreambuf_iterator<char>(parser), (std::istreambuf_iterator<char>()));
-    //    return load_text(type, buffer);
-    //}
-    //fprintf(stderr, "ERROR: Invalid file path \"%s\"\n", file);
     FILE* fp = fopen(file, "rb");
     if (!fp) {
         fprintf(stderr, "ERROR: Failed to open file %s\n", file);
@@ -156,6 +149,11 @@ void shader_register_uniform(Shader* shader, const char* uniform) {
 void shader_uniform_mat4(Shader* shader, const char* name, mat4 data) {
     GLuint transform = glGetUniformLocation(shader->program, name);
     glUniformMatrix4fv(transform, 1, GL_FALSE, data);
+}
+
+void shader_uniform_float(Shader* shader, const char* name, float data) {
+    GLuint loc = glGetUniformLocation(shader->program, name);
+    glUniform1f(loc, data);
 }
 
 void shader_bind_ubo(Shader* shader, const char* name, uint32_t slot) {

@@ -37,6 +37,9 @@ void world_init(World* world, Game* game) {
     };
     chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 48);
 
+    // SKYBOX
+    cubemap_create(&world->sky_box);
+
     // CUBE
     mesh_cube(&world->test_cube);
 
@@ -57,6 +60,11 @@ void world_init(World* world, Game* game) {
     shader_compile(&world->normal_shader);
     shader_bind_ubo(&world->normal_shader, "mvp_mat", 0);
 #endif
+
+    shader_load_file(&world->sky_shader, VERTEX, "skybox.vert");
+    shader_load_file(&world->sky_shader, FRAGMENT, "skybox.frag");
+    shader_compile(&world->sky_shader);
+    shader_bind_ubo(&world->sky_shader, "mvp_mat", 0);
 
     // MODEL - VIEW - PROJECTION
     uniform_buffer_create(&world->mvp, 3 * sizeof(mat4), 0);
@@ -129,11 +137,16 @@ void world_render(World* world, Game* game, double delta) {
 #if N_DEBUG
     mesh_render(&world->test_cube, &world->normal_shader);
 #endif
+    shader_bind(&world->sky_shader);
+    shader_uniform_float(&world->sky_shader, "time", glfwGetTime());
+    cubemap_render(&world->sky_box, &world->sky_shader);
 }
 
 void world_delete(World* world) {
     // Clean up
     chunk_delete(&world->chunk);
+    cubemap_delete(&world->sky_box);
+    shader_destroy(&world->sky_shader);
     shader_destroy(&world->shader);
     mesh_destroy(&world->chunk_mesh);
     mesh_destroy(&world->test_cube);
