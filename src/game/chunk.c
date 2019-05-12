@@ -162,17 +162,17 @@ void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indic
             i_i += 6;
         }
 
-        if (faces & FACE_NORTH) {
+        if (faces & FACE_SOUTH) {
             // Construct face
             Vertex face[4] = {
                     {{(c * BLOCK_SIZE) - off, (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {0.0f, 0.0f, -1.0f}, {0.0f, 1.0f}},
+                            {0.0f, 0.0f, 1.0f}, {0.0f, 1.0f}},
                     {{((c+1) * BLOCK_SIZE) - off, (h+1) * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {0.0f, 0.0f, -1.0f}, {1.0f, 1.0f}},
+                            {0.0f, 0.0f, 1.0f}, {1.0f, 1.0f}},
                     {{(c * BLOCK_SIZE) - off, h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {0.0f, 0.0f, -1.0f}, {0.0f, 0.0f}},
+                            {0.0f, 0.0f, 1.0f}, {0.0f, 0.0f}},
                     {{((c+1) * BLOCK_SIZE) - off, h * BLOCK_SIZE, off - (r * BLOCK_SIZE)},
-                            {0.0f, 0.0f, -1.0f}, {1.0f, 0.0f}}
+                            {0.0f, 0.0f, 1.0f}, {1.0f, 0.0f}}
             };
             memcpy(&m_vertices[v_i], face, sizeof(Vertex) * 4);
 

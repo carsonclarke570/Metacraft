@@ -25,10 +25,16 @@
 #include <transform.h>
 #include <uniform_buffer.h>
 
+#define N_DEBUG 0
+
 typedef struct {
     Camera camera;
     UniformBuffer mvp;
     Chunk chunk;
+
+#if N_DEBUG
+    Shader normal_shader;
+#endif
 
     // Test materials
     mat4 model_matrix;

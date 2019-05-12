@@ -50,6 +50,14 @@ void world_init(World* world, Game* game) {
     shader_compile(&world->shader);
     shader_bind_ubo(&world->shader, "mvp_mat", 0);
 
+#if N_DEBUG
+    shader_load_file(&world->normal_shader, VERTEX, "debug.vert");
+    shader_load_file(&world->normal_shader, GEOMETRY, "debug.geom");
+    shader_load_file(&world->normal_shader, FRAGMENT, "debug.frag");
+    shader_compile(&world->normal_shader);
+    shader_bind_ubo(&world->normal_shader, "mvp_mat", 0);
+#endif
+
     // MODEL - VIEW - PROJECTION
     uniform_buffer_create(&world->mvp, 3 * sizeof(mat4), 0);
 
@@ -110,11 +118,17 @@ void world_render(World* world, Game* game, double delta) {
     transform_to_matrix(&world->chunk_t, mat);
     uniform_buffer_store(&world->mvp, 0, sizeof(mat4), mat);
     mesh_render(&world->chunk_mesh, &world->shader);
+#if N_DEBUG
+    mesh_render(&world->chunk_mesh, &world->normal_shader);
+#endif
 
     // Render cube
     transform_to_matrix(&world->cube_t, mat);
     uniform_buffer_store(&world->mvp, 0, sizeof(mat4), mat);
     mesh_render(&world->test_cube, &world->shader);
+#if N_DEBUG
+    mesh_render(&world->test_cube, &world->normal_shader);
+#endif
 }
 
 void world_delete(World* world) {

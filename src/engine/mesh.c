@@ -100,6 +100,7 @@ void mesh_destroy(Mesh* mesh) {
 
 
 void mesh_render(Mesh* mesh, Shader* shader) {
+    shader_bind(shader);
     glBindVertexArray(mesh->vao);
     if (mesh->indexed) {
         glDrawElements(GL_TRIANGLES, mesh->num_elements, GL_UNSIGNED_INT, 0);

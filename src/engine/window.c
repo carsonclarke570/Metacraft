@@ -26,6 +26,8 @@ int32_t window_create(Window* window, uint16_t width, uint16_t height, const cha
     // Create window and context
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, GL_VER_MAJ);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, GL_VER_MIN);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
     if (full_screen) {
         GLFWmonitor *monitor = glfwGetPrimaryMonitor();
         const GLFWvidmode *mode = glfwGetVideoMode(monitor);
