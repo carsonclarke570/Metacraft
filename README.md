@@ -1,6 +1,6 @@
 # mineCraft - (Hopefully) A C-based Minecraft Clone with Ray-Tracing
 
-Description here.
+This is yet another Minecraft clone...   written in C...   with ray tracing...   if we get that far...   maybe...
 
 ## Getting Started
 
@@ -22,10 +22,6 @@ sudo apt install cmake
 
 If the version of CMake is out of date (because Ubuntu), uninstall it with:
 ```
-sudo apt remove --purge --auto-remove cmake
-```
-or
-```
 sudo apt purge --auto-remove cmake
 ```
 
@@ -40,6 +36,8 @@ cd cmake-<version>.<build>/
 ./bootstrap
 make -j4
 sudo make install
+cd ..
+rm -r temp
 ```
 
 ### Building
@@ -61,7 +59,6 @@ The program shoud launch in a new window.
 ## Built With
 
 * [glfw](https://github.com/glfw/glfw) - A multi-platform library for OpenGL, OpenGL ES, Vulkan, window and input 
-* [assimp](https://github.com/assimp/assimp) - A 3D Object loading library
 * [glad](https://github.com/Dav1dde/glad) - OpenGL loader
 * [stb](https://github.com/nothings/stb) - Image loading library
 
