@@ -18,10 +18,12 @@
 
 // Callback definitions
 void resize_callback(GLFWwindow* window, int width, int height);
+void error_callback(int id, const char *msg);
 
 int32_t window_create(Window* window, uint16_t width, uint16_t height, const char* title, bool full_screen) {
     // Initialize structure members
     window->window = NULL;
+    glfwSetErrorCallback(error_callback);
 
     // Create window and context
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, GL_VER_MAJ);
@@ -73,5 +75,10 @@ void window_size(Window* window, ivec2 size) {
 void resize_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
+
+void error_callback(int id, const char *msg) {
+    fprintf(stderr, "ERROR: ID: %d, MSG: %s\n", id, msg);
+}
+
 
 

@@ -1,25 +1,130 @@
+================================
 Coding Conventions
+================================
 
-- Filename
-    Lowercase
+An example of a Linked List data structure is used throughout the guide.
+Acronyms and other edgecases are left to the programmer's discretion.
+If something feels wrong it it allowable to break convention so long as the
+resulting code or organizational structure is reasonable and internally
+consistent.
 
-    {file_name}.h
-    {file_name}.c
+You get bonus points if related symbols have the same number of characters
+WITHOUT sacrificing clarity of purpose or function!
 
-- Structs
 
-    typedef struct {
-        int example;
-        float another_example
-    } StructName;
 
-- Function Prototypes
+================================
+Filenames
+================================
 
-    # Allocates and initializes data
-    void {StructName}_create({Struct} *{StructName}, ...)
+Use lowercase letters and underscores for the file names.
 
-    # Allocates data. No initialization, just pass enough info to allocate
-    void {StructName}_allocate({Struct} *{StructName}, ...)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+linked_list.h
+linked_list.c
+node.h
+node.c
 
-    # Destroys data
-    void {StructName}_delete({Struct}* {StructName})
+
+
+
+
+
+
+================================
+Header Files
+================================
+
+Defines should be used to declare constant primitive values.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#ifndef LINKEDLIST_H
+#ifndef LINKEDLIST_H
+
+#include <stdlib.h>
+#include "common.h"
+
+// Defines should be uppercase with underscores and the value should always
+// be in parentheses.
+#define MAX_LENGTH (100)
+
+// Macros should expect a semicolon, and multiline macros should be wrapped
+// in a 'do while' loop. Internal variables should be named with care to avoid
+// conflicts. Uppercase works well.
+#define GET_NODE_AT(L,I,N) do {\
+    N = L->first;\
+    for (int _I = 0; _I < I && N; _I++)\
+        N = N->next;\
+} while(0)
+
+// Bonus points for one line
+#define GET_NODE_AT(L,I,N) for (int _I = (N = L->first) ? 0 : I; i++ < I && (N = N->next);)
+
+[...]
+
+#endif
+
+
+
+
+================================
+Variables
+================================
+
+Variables should 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+================================
+Structs
+================================
+
+Typedef all structs and use UpperCammelCase without underscores for the type
+symbol. If the struct defines a field as a type of itself, name the struct
+with the type name followed by the characters '_t'. Field names should follow
+the local variable convention. Append fields with a single line comment if
+necessary.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+typedef struct {
+    int edges;           // 
+    float another_example; // 
+} LinkedList;
+
+
+typedef struct Node_t {
+    int example;            // 
+    struct Node_t next;     // 
+    struct Node_t previous; // 
+} Node;
+
+
+
+================================
+Function Prototypes
+================================
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+Allocates a structure.
+The first argument will be a pointer of the struct type of the same name.
+Any additional arguments will only be provided if they are instrumental in
+allocating the correct amount of space. Any additional space allocated for
+the structure is expected to be freed by the 'free_{StructName}' function.
+Any data passed in is expected to also be initialized withing the struct.
+*/
+void allocate_node(Node *node, int edges);
+
+// Allocates data. No initialization, just pass enough info to allocate
+void {StructName}_allocate({Struct} *{StructName}, ...)
+
+// Destroys data
+void {StructName}_delete({Struct}* {StructName})
