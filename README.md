@@ -10,12 +10,12 @@ cloen da repo
 
 Please ensure you have the latest version of cmake and OpenGL installed.
 
-To install OpenGL, run:
+Install OpenGL:
 ```
 sudo apt install xorg-dev libgl1-mesa-dev libglu-dev libassimp-dev
 ```
 
-To install CMake, run:
+Install CMake:
 ```
 sudo apt install cmake
 ```
@@ -29,7 +29,8 @@ or
 sudo apt purge --auto-remove cmake
 ```
 
-and reinstall manualy with: (i.e. <version> = 3.14, <build> = 3)
+and reinstall manualy with the latest version:
+(i.e. version = 3.14, build = 3)
 ```
 mkdir ~/temp
 cd ~/temp
@@ -41,24 +42,16 @@ make -j4
 sudo make install
 ```
 
-### Installing
+### Building
 
 After cloning the repository and installing cmake and OpenGL:
 
-Create a build directory in the project
-
+Create a build directory in the project, run CMake in that directory,
+run the generated Makefile, and execute the program
 ```
 mkdir build
 cd build
-```
-Run CMake in that directory
-
-```
 cmake ..
-```
-
-Run the produced Makefile and execute the program
-```
 make
 ./Daybreak
 ```

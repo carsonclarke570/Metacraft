@@ -4,7 +4,7 @@ Coding Conventions
 
 An example of a Linked List data structure is used throughout the guide.
 Acronyms and other edgecases are left to the programmer's discretion.
-If something feels wrong it it allowable to break convention so long as the
+If something feels wrong it acceptable to break convention so long as the
 resulting code or organizational structure is reasonable and internally
 consistent.
 
@@ -14,17 +14,18 @@ WITHOUT sacrificing clarity of purpose or function!
 
 
 ================================
-Filenames
+File Names
 ================================
 
-Use lowercase letters and underscores for the file names.
+Use 'lowerCamelCase' and underscores for the file names.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-linked_list.h
-linked_list.c
+common.h
+linkedList_debug.c
+linkedList.h
+linkedList.c
 node.h
 node.c
-
 
 
 
@@ -38,7 +39,9 @@ Header Files
 Defines should be used to declare constant primitive values.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+/*
+license
+*/
 #ifndef LINKEDLIST_H
 #ifndef LINKEDLIST_H
 
@@ -58,13 +61,9 @@ Defines should be used to declare constant primitive values.
         N = N->next;\
 } while(0)
 
-// Bonus points for one line
-#define GET_NODE_AT(L,I,N) for (int _I = (N = L->first) ? 0 : I; i++ < I && (N = N->next);)
-
 [...]
 
 #endif
-
 
 
 
@@ -72,11 +71,32 @@ Defines should be used to declare constant primitive values.
 Variables
 ================================
 
-Variables should 
+Variables should use 'lowerCammelCase' and underscores to separat
+action/object qualifiers.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int nodeCount;
+void (*copy_linkedList)(LinkedList *, LinkedList *);
 
 
+
+================================
+Functions
+================================
+
+Functions should follow the same naming convention as variables. Docstrings
+should be placed with the function prototype and not with the function
+declaration.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void allocate_linkedList(Node *node);
+void free_linkedList(Node *node);
+
+void allocate_node(Node *node);
+void free_node(Node *node);
+void copy_node(Node *node);
+
+Node *get_node(int index);
 
 
 
@@ -91,17 +111,19 @@ the local variable convention. Append fields with a single line comment if
 necessary.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-typedef struct {
-    int edges;           // 
-    float another_example; // 
-} LinkedList;
-
-
 typedef struct Node_t {
-    int example;            // 
     struct Node_t next;     // 
     struct Node_t previous; // 
+    DATA *data;             // 
 } Node;
+
+
+
+typedef struct {
+    int size;    // 
+    Node *first; // 
+    Node *last;  // 
+} LinkedList;
 
 
 
@@ -109,22 +131,21 @@ typedef struct Node_t {
 Function Prototypes
 ================================
 
-
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*
-Allocates a structure.
 The first argument will be a pointer of the struct type of the same name.
 Any additional arguments will only be provided if they are instrumental in
 allocating the correct amount of space. Any additional space allocated for
 the structure is expected to be freed by the 'free_{StructName}' function.
 Any data passed in is expected to also be initialized withing the struct.
-*/
-void allocate_node(Node *node, int edges);
 
-// Allocates data. No initialization, just pass enough info to allocate
-void {StructName}_allocate({Struct} *{StructName}, ...)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void allocate_linkedList(LinkedList *list);
+void free_linkedList(LinkedList* list);
 
-// Destroys data
-void {StructName}_delete({Struct}* {StructName})
+LinkedList *create_linkedList();
+void delete_linkedList(LinkedList *list);
+
+void allocate_node(Node *node);
+void free_node(Node* node);
+
+
+
