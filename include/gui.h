@@ -21,9 +21,15 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// GUIResource Formats
+#define GUI_FONT    ( 1) // ignores others
+#define GUI_CENTER  ( 2) // ignores GUI_STRETCH
+#define GUI_TILE    ( 4) // ignores GUI_FILL and GUI_STRETCH
+#define GUI_FILL    ( 8) // ignores GUI_STRETCH
+#define GUI_STRETCH (16) 
+#define GUI_UNROLL  (32) // defines border width (used with GUI_STRETCH)
 
-
-// GUIElement IDs
+// GUIElement Model IDs
 #define GUI_KEYBOARD ( 0)
 #define GUI_MOUSE    ( 1)
 
@@ -52,7 +58,7 @@
 
 typedef struct {
     char *uri;       // Unique Resource Identifier
-    bool managed;    // if true, this resource will not be automatically freed
+    bool managed;    // if true, will not be freed automatically
     uint8_t format;  // image format (1, 2, 4, 8, 16, 13, ARGB, FONT)
     uint16_t width;  // image width
     uint16_t height; // image height
@@ -60,13 +66,11 @@ typedef struct {
 } GUIResource;
 
 
-
 typedef struct {
     uint16_t capacity;
     uint16_t count;
     GUIResource *internal; // array of internal resources
 } GUIResourceManager;
-
 
 
 typedef struct {
@@ -78,32 +82,19 @@ typedef struct {
     float y;          // offset scalled to screen height
     float width;      // scaled to screen width (offset if anchored to left and right)
     float height;     // scaled to screen height (offset if anchored to top and bottom)
-    bool enabled;     // if true, handlers may be called
+    bool enabled;     // if true, state may be changed
     bool managed;     // if true, will not be freed automatically
 } GUIElement;
 
 
-
 typedef struct {
-    void (*hide)();       // called before screen is hidden
+    void (*onShow)();     // called before screen is shown
+    void (*onHide)();     // called before screen is hidden
     bool managed;         // if true, will not be freed automatically
     GUIElement *mouse;    // mouse GUIElement
     GUIElement *focused;  // GUIElement recieving GUIKeyEvent focus
     GUIElement *elements; // child GUIElements
 } GUIScreen;
-
-
-
-/*
-GUIElement Models
-
-To Register:
-create a new struct
-create a new define
-add the apropriate 'cases' to the functions 'load_ge()', 'draw_ge()', and 'free_ge()'
-
-*/
-
 
 
 
@@ -113,15 +104,14 @@ Stores cursor information and state. Used for drag and drop operations
 and GUIMouseEvent handling.
 */
 typedef struct {
-    float x;              // pointer X screen coordinate
-    float y;              // pointer Y screen coordinate
+    float x;              // pointer x screen coordinate
+    float y;              // pointer y screen coordinate
     bool isDown;          // 
     uint8_t buttons;      // 
     GUIElement *over;     // pointer to GUIElement where mouse is over
     GUIElement *down;     // GUIElement where mouse is down
     GUIElement *children; // child GUIElements
 } GUIMouse;
-
 
 
 /*
@@ -131,7 +121,6 @@ handling.
 typedef struct {
     char *keymap; // holds raw, mapped, and down key state array
 } GUIKeyboard;
-
 
 
 // General GUIElement Models
@@ -144,43 +133,38 @@ typedef struct {
 } GUIPanel;
 
 
-
 typedef struct {
     char *text;         // displayed text
     uint8_t anchor;     // text anchor flags
     float x;            // fraction of screen width
     float y;            // fraction of screen height
-    void *font;         // pointer to font glyph set (ALWAYS MANAGED)
-    float fontSize;     // DPI
+    GUIResource *font;   // pointer to font glyph set
+    float fontSize;     // fraction of screen height
     uint32_t fontColor; // ARGB color value
 } GUILabel;
 
 
-
 typedef struct {
-    // label stuff here
+    void (*onEnter)();
     bool acceptsENTER; // if true, ENTER will be typed, passed otherwise
     bool acceptsTAB;   // if true, TAB will be typed, passed otherwise
-    void *background;  // 
-    void *disabled;    // 
+    GUILabel *label;
+    GUIResource *background;  // 
 } GUITextBox;
 
 
-
 typedef struct {
-    // label stuff here
-    void *normal;   // 
-    void *focused;  // 
-    void *pressed;  // 
-    void *disabled; // 
+    void (*onClick)();
+    GUILabel *label;
+    GUIResource *normal;  // 
+    GUIResource *focused; // 
+    GUIResource *pressed; // 
 } GUIButton;
-
 
 
 typedef struct {
     GUIResource *image; // image
 } GUIImage;
-
 
 
 typedef struct {
@@ -189,15 +173,13 @@ typedef struct {
     float step;
     float stop;
     float value;
-    char *backgroundImage; // loaded image
-    void *sliderImage;     // pointer to loaded image
+    GUIResource *background; // loaded image
+    GUIResource *slider;     // pointer to loaded image
 } GUISlider;
-
 
 
 typedef struct {
 } GUIDivider;
-
 
 
 // Custom GUIElement Models
@@ -210,12 +192,10 @@ typedef struct {
 } GUIItemStack;
 
 
-
 typedef struct {
     char *text;              // 
     GUIResource *background; // 
 } GUIItemHover;
-
 
 
 typedef struct {
@@ -224,62 +204,277 @@ typedef struct {
 } GUIItemSlot;
 
 
-
 typedef struct {
 } GUIInventory;
 
 
 
-
-
-
-
-
-
 /*
-Function Prototypes
-*/
-void allocate_gs(GUIScreen *screen);
-void free_gs(GUIScreen *screen);
-void show_gs(GUIScreen *screen);
-void hide_gs(GUIScreen *screen);
-void draw_gs(GUIScreen *screen);
-
-void allocate_ge(GUIElement *element);
-void free_ge(GUIElement *element);
-void draw_ge(GUIElement *element, uint16_t px, uint16_t py, uint16_t pw, uint16_t ph);
-
-
-
-/*
-Called before the GUIScreen is shown. Loads any unloaded resources so long as
-all GUIElement models are registered. All loaded resources will be managed
-internally.
+Creates a GUIResourceManager object for controlling what GUIResources are
+loaded and when they are freed.
 
 Parameters:
-    GUIScreen *screen - The GUIScreen for which to load resources.
+Returns:
+    GUIResourceManager * - The created GUIResoureManager.
+Errors:
+    CODE_MALLOC_ERROR
 */
-//void show_gs(GUIScreen *screen);
+GUIResourceManager *create_guiResourceManager();
 
 
 
 /*
-Called before the GUIScreen is shown. Performs any screen specific on-load
-operations.
-Used when screen must load data on any type of enter
+Frees all the GUIResourceManager and all loaded GUIResources.
+
+Parameters:
+    GUIResourceManager *manager - The GUIResoureManager to free.
+Returns:
+Errors:
 */
-void show_gsSelectWorld();
-void show_gsCreateWorld();
-void show_gsCustomizeWorld();
-void show_gsRenameWorld();
-void show_gsDeleteWorld();
-void show_gsMultiplayer();
-void show_gsAddServer();
-void show_gsDirectConnect();
-void show_gsWorldOptions();
-void show_gsVideoOptions();
-void show_gsSoundOptions();
-void show_gsInputOptions();
+void free_guiResourceManager(GUIResourceManager *manager);
+
+
+
+/*
+Attempts to load a GUIResource given a URI and the desired resource format.
+If a GUIResource with the same URI has already been loaded in the
+GUIResourceManager, it will be returned, otherwise it will be loaded and
+added. If the GUIResource cannot be loaded, NULL is returned. The loaded
+GUIResource will be marked as 'unmanaged'.
+
+Parameters:
+    GUIResourceManager *manager - The GUIResourceManager to load the
+                                  GUIResource into.
+    char *uri - The filename of the GUIResource to load.
+    uint8_t format - The format ID defining how the GUIResource should be
+                     loaded and used.
+Returns:
+    GUIResource * - Pointer to the loaded GUIResource.
+    NULL - The Resource failed to load because of either a file access or
+           format error.
+Errors:
+    CODE_MALLOC_ERROR
+*/
+GUIResource *load_guiResource(GUIResourceManager *manager, char *uri,
+        uint8_t format);
+
+
+
+/*
+Attempts to add a GUIResource given a pointer to a uint8_t buffer, the
+width, height, and the desired resource format.
+If a GUIResource with the same address has already been added in the
+GUIResourceManager, it will be returned, otherwise it will be added.
+If the GUIResource cannot be loaded, NULL is returned. The added
+GUIResource will be marked as 'managed'.
+
+Parameters:
+    GUIResourceManager *manager - The GUIResourceManager to add the
+                                  GUIResource into.
+    uint8_t *data - Pointer to the data to interpret for the GUIResource.
+    uint16_t *width - The width of the image.
+    uint16_t *height - The height of the image.
+    uint8_t format - The format ID defining how the GUIResource should be
+                     loaded and used.
+Returns:
+    GUIResource * - Pointer to the stolen GUIResource.
+    NULL - The Resource failed to load because of either a memory access or
+           format error.
+Errors:
+    CODE_MALLOC_ERROR
+*/
+GUIResource *add_guiResource(GUIResourceManager *manager, uint8_t *data,
+        uint16_t width, uint8_t format);
+
+
+
+/*
+Removes and frees a GUIResource from the GUIResourceManager. If the
+GUIResource is marked as 'managed' then it will not be freed but will still
+be removed from the GUIResourceManager.
+
+Parameters:
+    GUIResourceManager *manager - The GUIResourceManager to free the
+                                  GUIResource from.
+    GUIResource *resource - The GUIResource to free.
+Returns:
+Errors:
+*/
+void free_guiResource(GUIResourceManager *manager, GUIResource *resource);
+
+
+
+/*
+Draws an image defined by the given GUIResource to the screen at the specified
+coordinates with the specified dimensions.
+
+Parameters:
+    GUIResource *image - The GUIResource to draw.
+    uint16_t x - The x screen coordinate.
+    uint16_t y - The y screen coordinate.
+    uint16_t width - The width of the drawing area.
+    uint16_t height - The height of the drawing area.
+Returns:
+Errors:
+*/
+void draw_image(GUIResource *image, uint16_t x, uint16_t y, uint16_t width,
+        uint16_t height);
+
+
+
+/*
+Draws the given text with the font defined by the given GUIResource to the
+screen at the specified coordinates with the specified dimensions.
+
+Parameters:
+    char *text - The null terminated string to draw.
+    GUIResource *font - The GUIResource to use as the font.
+    uint16_t x - The x screen coordinate.
+    uint16_t y - The y screen coordinate.
+    uint16_t width - The width of the drawing area.
+    uint16_t height - The height of the drawing area.
+Returns:
+Errors:
+*/
+void draw_text(char *text, GUIResource *font, uint16_t x, uint16_t y,
+        uint16_t width, uint16_t height);
+
+
+
+/*
+Creates a GUIScreen object for containing the GUIElements to be drawn and
+preserving any UI state. The GUIScreen will be marked as 'unmanaged'.
+
+Parameters:
+Returns:
+    GUIScreen * - The created GUIScreen.
+Errors:
+*/
+GUIScreen *create_guiScreen();
+
+
+
+/*
+Frees the given GUIScreen and all GUIElements it contains, as well as any
+'unmanaged' GUIResources used exclusively by the screen. If the GUIScreen is marked as
+'managed' then neither it nor its GUIElements will be freed.
+
+Parameters:
+    GUIScreen *screen - The GUIScreen to free.
+Returns:
+Errors:
+*/
+void free_guiScreen(GUIScreen *screen);
+
+
+
+/*
+Loads any unloaded GUIResources, calls the given GUIScreen's 'onShow' event
+handler, calls the current GUIScreen's 'onHide' event handler, and makes the
+given one current.
+
+Parameters:
+    GUIScreen *screen - The GUIScreen that will be shown.
+Returns:
+Errors:
+*/
+void show_guiScreen(GUIScreen *screen);
+
+
+
+/*
+Draws the given GUIScreen.
+
+Parameters:
+    GUIScreen *screen - The GUIScreen that will be drawn.
+Returns:
+Errors:
+*/
+void draw_guiScreen(GUIScreen *screen);
+
+
+
+/*
+Creates a GUIElement to define some model's general attributes. The GUIElement
+will be marked as 'unmanaged'. An anchor value of NULL is interpreted as
+relative to the upper left of the parent by default.
+
+If the anchor is set as (GUI_BOTTOM) then 'y' will be relative to the parent's
+lower bound. If set as (GUI_RIGHT) then 'x' will be relative to the parent's
+right bound.
+
+If the anchor is set as (GUI_TOP | GUI_BOTTOM) then 'height' will be an offset
+of the parent's lower bound. If set as (GUI_LEFT | GUI_RIGHT) then 'width'
+will be an offset of the parent's right bound.
+
+Parameters:
+    uint8_t modelID - The ID of the behavioral and visual model.
+    void *model - Pointer to a behavioral and visual model.
+    uint8_t tabIndex - The tab index for focus shift ordering.
+    uint8_t anchor - The sides which are made relative to its parent's.
+    float x - The x position as a fraction of screen width.
+    float y - The y position as a fraction of screen height.
+    float width - The width as a fraction of screen width.
+    float height - The height as a fraction of screen height.
+    bool enabled - The interactable state. If false, its state cannot be
+                   changed.
+Returns:
+    GUIElement * - The created GUIElement.
+Errors:
+*/
+GUIElement *create_guiElement(uint8_t modelID, void *model, uint8_t tabIndex,
+        uint8_t anchor, float x, float y, float width, float height,
+        bool enabled);
+
+
+
+/*
+Frees the given GUIElement and all 'unmanaged' GUIResources exclusively used.
+If it is marked as 'managed' then neither it nor its GUIResources will be
+freed.
+
+Parameters:
+    GUIElement *element - The GUIElement to free.
+Returns:
+Errors:
+*/
+void free_guiElement(GUIElement *element);
+
+
+
+/*
+Draws the given GUIElement as defined by its anchor, position, and dimensions
+relative to the parent dimensions given.
+
+Parameters:
+    GUIElement *element - The GUIElement to draw.
+    int16_t px - The parent's x position in pixels.
+    int16_t py - The parent's y position in pixels.
+    int16_t pw - The parent's width in pixels.
+    int16_t ph - The parent's height in pixels.
+Returns:
+Errors:
+*/
+void draw_guiElement(GUIElement *element, uint16_t px, uint16_t py, uint16_t pw, uint16_t ph);
+
+
+
+/*
+Event handlers called before the GUIScreen is shown. Performs any screen
+specific on-load operations. Used when screen must load data before use.
+*/
+void onShow_SelectWorld(GUIScreen *screen);
+void onShow_CreateWorld(GUIScreen *screen);
+void onShow_CustomizeWorld(GUIScreen *screen);
+void onShow_RenameWorld(GUIScreen *screen);
+void onShow_DeleteWorld(GUIScreen *screen);
+void onShow_Multiplayer(GUIScreen *screen);
+void onShow_AddServer(GUIScreen *screen);
+void onShow_DirectConnect(GUIScreen *screen);
+void onShow_WorldOptions(GUIScreen *screen);
+void onShow_VideoOptions(GUIScreen *screen);
+void onShow_SoundOptions(GUIScreen *screen);
+void onShow_InputOptions(GUIScreen *screen);
 
 
 
@@ -288,27 +483,21 @@ Called before the GUIScreen is hidden.
 Performs any screen specific on-free operations.
 Used when screen must save data on any type of leave (game close, escape, back, etc.)
 */
-void hide_gsCreateWorld();
-void hide_gsCustomizeWorld();
-void hide_gsWorldOptions();
-void hide_gsVideoOptions();
-void hide_gsSoundOptions();
-void hide_gsInputOptions();
-void hide_gsGame();
+void onHide_CreateWorld(GUIScreen *screen);
+void onHide_CustomizeWorld(GUIScreen *screen);
+void onHide_WorldOptions(GUIScreen *screen);
+void onHide_VideoOptions(GUIScreen *screen);
+void onHide_SoundOptions(GUIScreen *screen);
+void onHide_InputOptions(GUIScreen *screen);
+void onHide_Game(GUIScreen *screen);
 
 
 
-/*
-GUIElement Models
-*/
 //const GUIKeyboard gm_keyboard = {NULL};
 //const GUIKeyboard gm_mouse = {0.0f, 0.0f, false, 0b0, NULL, NULL, NULL};
 
 
 
-/*
-GUIScreens
-*/
 /*
 const GUIScreen gsSplash = {
     hide_gs, true, NULL, NULL, {
