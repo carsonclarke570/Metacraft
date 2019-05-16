@@ -21,7 +21,7 @@ void chunk_allocate(Chunk* chunk) {
 }
 
 void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indices, int num_faces) {
-    mesh_destroy(mesh);
+    mesh_delete(mesh);
 
     Vertex *m_vertices = malloc(num_faces * 4 * sizeof(Vertex));
     unsigned int *m_indices = malloc(num_faces * 6 * sizeof(unsigned int));

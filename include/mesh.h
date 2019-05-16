@@ -64,20 +64,26 @@ void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int*
 void mesh_cube(Mesh* mesh);
 
 /**
+ * Constructs a quad.
+ *
+ * @param mesh  Pointer to Mesh struct
+ */
+void mesh_quad(Mesh* mesh);
+
+/**
  * Destroys a Mesh struct
  *
  * @param mesh  Pointer to Mesh struct
  */
-void mesh_destroy(Mesh* mesh);
+void mesh_delete(Mesh *mesh);
 
 /**
  * Renders the Mesh to the screen. Shader is not bound in this function, user
  * must ensure that they have bound the shader.
  *
  * @param mesh      Pointer to Mesh struct
- * @param shader    Shader to update texture data to
  */
-void mesh_render(Mesh* mesh, Shader* shader);
+void mesh_render(Mesh* mesh);
 
 
 #endif

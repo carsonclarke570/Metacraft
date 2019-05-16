@@ -81,23 +81,6 @@ int shader_load_file(Shader* shader, enum ShaderType type, const char* file);
 int shader_compile(Shader* shader);
 
 /**
- * Registers an attribute to a Shader object.
- *
- * @param shader    Pointer to Shader struct
- * @param attrib    Name of the attribute to register.
- */
-void shader_register_attrib(Shader* shader, const char* attrib);
-
-/**
- * Registers a uniform by querying its location in the shader and
- * storing it in a map.
- *
- * @param shader    Pointer to Shader struct
- * @param uniform   Name of the uniform to register.
- */
-void shader_register_uniform(Shader* shader, const char* uniform);
-
-/**
  * Updates a shader's mat4 uniform.
  *
  * @param shader    Pointer to Shader struct.
@@ -107,6 +90,15 @@ void shader_register_uniform(Shader* shader, const char* uniform);
 void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
 
 /**
+ * Updates a shader's vec3 uniform.
+ *
+ * @param shader    Pointer to Shader struct.
+ * @param name      Name of uniform to update.
+ * @param data      vec3 data to update with.
+ */
+void shader_uniform_vec3(Shader* shader, const char* name, vec3 data);
+
+/**
  * Updates a shader's float uniform.
  *
  * @param shader    Pointer to Shader struct.
@@ -114,6 +106,15 @@ void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
  * @param data      float data to update with.
  */
 void shader_uniform_float(Shader* shader, const char* name, float data);
+
+/**
+ * Updates a shader's int uniform.
+ *
+ * @param shader    Pointer to Shader struct.
+ * @param name      Name of uniform to update.
+ * @param data      int data to update with.
+ */
+void shader_uniform_int(Shader* shader, const char* name, int data);
 
 /**
  * Binds a uniform buffer object to a Shader by slot number.

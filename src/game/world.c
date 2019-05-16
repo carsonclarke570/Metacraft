@@ -47,12 +47,41 @@ void world_init(World* world, Game* game) {
     texture_pool_allocate(1);
     create_texture(&texture_pool.textures[0], "dirt.png", TEXTURE_DIFFUSE);
 
-    // SHADERS
-    shader_load_file(&world->shader, VERTEX, "main.vert");
-    shader_load_file(&world->shader, FRAGMENT, "main.frag");
-    shader_compile(&world->shader);
-    shader_bind_ubo(&world->shader, "mvp_mat", 0);
+    // LIGHT
+    world->sunlight.light.ambient[0] = 0.05f;
+    world->sunlight.light.ambient[1] = 0.05f;
+    world->sunlight.light.ambient[2] = 0.05f;
+    world->sunlight.light.diffuse[0] = 0.4f;
+    world->sunlight.light.diffuse[1] = 0.4f;
+    world->sunlight.light.diffuse[2] = 0.4f;
+    world->sunlight.light.specular[0] = 0.5f;
+    world->sunlight.light.specular[1] = 0.5f;
+    world->sunlight.light.specular[2] = 0.5f;
 
+    // SHADERS
+    shader_load_file(&world->ambient_light, VERTEX, "light.vert");
+    shader_load_file(&world->ambient_light, FRAGMENT, "ambient-light.frag");
+    shader_compile(&world->ambient_light);
+
+    vec3 ambience = {0.1f, 0.1f, 0.1f};
+    shader_bind(&world->ambient_light);
+    shader_uniform_vec3(&world->ambient_light, "ambience", ambience);
+    shader_uniform_int(&world->ambient_light, "buf_position", 0);
+    shader_uniform_int(&world->ambient_light, "buf_normal", 1);
+    shader_uniform_int(&world->ambient_light, "buf_albedo", 2);
+    shader_unbind();
+
+    /* Geometry Pass Shader */
+    shader_load_file(&world->geometry, VERTEX, "geometry.vert");
+    shader_load_file(&world->geometry, FRAGMENT, "geometry.frag");
+    shader_compile(&world->geometry);
+
+    /* Geometry Pass Configuration */
+    shader_bind(&world->geometry);
+    shader_bind_ubo(&world->geometry, "mvp_mat", 0);
+    shader_unbind();
+
+    /* Normal Debug Shader + Configuration */
 #if N_DEBUG
     shader_load_file(&world->normal_shader, VERTEX, "debug.vert");
     shader_load_file(&world->normal_shader, GEOMETRY, "debug.geom");
@@ -61,28 +90,45 @@ void world_init(World* world, Game* game) {
     shader_bind_ubo(&world->normal_shader, "mvp_mat", 0);
 #endif
 
+    /* Skybox Shader + Configuration */
     shader_load_file(&world->sky_shader, VERTEX, "skybox.vert");
     shader_load_file(&world->sky_shader, FRAGMENT, "skybox.frag");
     shader_compile(&world->sky_shader);
+
+    shader_bind(&world->sky_shader);
     shader_bind_ubo(&world->sky_shader, "mvp_mat", 0);
+    shader_unbind();
+
+    /* Framebuffer Creation */
+    Attachment attachments[] = {
+            {GL_RGB16F, GL_RGB, GL_FLOAT},          // Position
+            {GL_RGB16F, GL_RGB, GL_FLOAT},          // Normal
+            {GL_RGBA, GL_RGBA, GL_UNSIGNED_BYTE}    // Color + specular
+    };
+    ivec2 size = {WIN_WIDTH, WIN_HEIGHT};
+    framebuffer_create(&world->g_buffer, attachments, 3, size, true);
+
+    /* Screen Quad Creation */
+    mesh_quad(&world->frame);
+
+    /* Model View Projection Uniform buffer */
+    uniform_buffer_create(&world->mvp_mat, 3 * sizeof(mat4), 0);
 
     // MODEL - VIEW - PROJECTION
-    uniform_buffer_create(&world->mvp, 3 * sizeof(mat4), 0);
-
     mat4 v_mat;
     mat4 p_mat;
 
     // PROJECTION MATRIX
     mat4_projection(p_mat, 45.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
-    uniform_buffer_store(&world->mvp, 2 * sizeof(mat4), sizeof(mat4), p_mat);
+    uniform_buffer_store(&world->mvp_mat, 2 * sizeof(mat4), sizeof(mat4), p_mat);
 
     // VIEW MATRIX
     camera_view_matrix(&world->camera, v_mat);
-    uniform_buffer_store(&world->mvp, sizeof(mat4), sizeof(mat4), v_mat);
+    uniform_buffer_store(&world->mvp_mat, sizeof(mat4), sizeof(mat4), v_mat);
 
     // SHADER BINDING
-    shader_bind(&world->shader);
-    register_texture(&world->shader, &texture_pool.textures[0], 1);
+    shader_bind(&world->geometry);
+    register_texture(&world->geometry, &texture_pool.textures[0], 5);
 
     // TRANSFORM
     transform_default(&world->chunk_t);
@@ -106,37 +152,69 @@ void world_update(World* world, Game* game, double delta) {
     vec3 axis = {0.0f, 1.0f, 0.0f};
     quat_axis_angle(q, axis, s * 360.0f);
 
+
+    // Light
+    float inclination = 5.0f;
+    float azimuth = glfwGetTime() / 5.0f;
+
+    world->sunlight.direction[0] = sinf(inclination) * cosf(azimuth);
+    world->sunlight.direction[0] = sinf(inclination) * sinf(azimuth);
+    world->sunlight.direction[0] = cosf(inclination);
+
     // Cube
     memcpy(world->cube_t.rotation, q, sizeof(quat));
 
     // Chunk
-    //memcpy(world->chunk_t.rotation, q, sizeof(quat));
+    memcpy(world->chunk_t.rotation, q, sizeof(quat));
 }
 
 void world_render(World* world, Game* game, double delta) {
-    bind_texture(&texture_pool.textures[0], 1);
+
+    /* Begin GEOMETRY Pass */
+    framebuffer_bind(&world->g_buffer);
 
     mat4 mat;
 
-    // Update view
+    // Uniform Buffer update
     camera_view_matrix(&world->camera, mat);
-    uniform_buffer_store(&world->mvp, sizeof(mat4), sizeof(mat4), mat);
+    uniform_buffer_store(&world->mvp_mat, sizeof(mat4), sizeof(mat4), mat);
 
-    // Render chunk
+    // Geometry rendering
+    shader_bind(&world->geometry);
+
+    bind_texture(&texture_pool.textures[0], 5);
     transform_to_matrix(&world->chunk_t, mat);
-    uniform_buffer_store(&world->mvp, 0, sizeof(mat4), mat);
-    mesh_render(&world->chunk_mesh, &world->shader);
+    uniform_buffer_store(&world->mvp_mat, 0, sizeof(mat4), mat);
+
+    shader_bind(&world->geometry);
+    mesh_render(&world->chunk_mesh);
 #if N_DEBUG
-    mesh_render(&world->chunk_mesh, &world->normal_shader);
+    shader_bind(&world->normal_shader);
+    mesh_render(&world->chunk_mesh);
 #endif
 
-    // Render cube
     transform_to_matrix(&world->cube_t, mat);
-    uniform_buffer_store(&world->mvp, 0, sizeof(mat4), mat);
-    mesh_render(&world->test_cube, &world->shader);
+    uniform_buffer_store(&world->mvp_mat, 0, sizeof(mat4), mat);
+
+    shader_bind(&world->geometry);
+    mesh_render(&world->test_cube);
 #if N_DEBUG
-    mesh_render(&world->test_cube, &world->normal_shader);
+    shader_bind(&world->normal_shader);
+    mesh_render(&world->test_cube);
 #endif
+
+    shader_unbind();
+    framebuffer_unbind();
+    /* End GEOMETRY Pass */
+
+    /* Begin LIGHT Pass*/
+    // Ambient light
+    framebuffer_bind_textures(&world->g_buffer, &world->ambient_light);
+    mesh_render(&world->frame);
+    framebuffer_blit_depth(&world->g_buffer);
+    /* End LIGHT Pass */
+
+    // Sky rendering
     shader_bind(&world->sky_shader);
     shader_uniform_float(&world->sky_shader, "time", glfwGetTime());
     cubemap_render(&world->sky_box, &world->sky_shader);
@@ -146,10 +224,19 @@ void world_delete(World* world) {
     // Clean up
     chunk_delete(&world->chunk);
     cubemap_delete(&world->sky_box);
+
+    //Shaders
     shader_destroy(&world->sky_shader);
-    shader_destroy(&world->shader);
-    mesh_destroy(&world->chunk_mesh);
-    mesh_destroy(&world->test_cube);
+    shader_destroy(&world->ambient_light);
+    shader_destroy((&world->geometry));
+
+    // Meshes
+    mesh_delete(&world->chunk_mesh);
+    mesh_delete(&world->test_cube);
+    mesh_delete(&world->frame);
+
+    // Framebuffers
+    framebuffer_delete(&world->g_buffer);
 
     // Global cleanup
     texture_pool_delete();

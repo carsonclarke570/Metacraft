@@ -12,7 +12,7 @@ const vec4 DAY_HOR = vec4(0.32, 0.92, 1.0, 1.0);
 
 const vec4 NIGHT = vec4(0.1, 0.1, 0.1, 1.0);
 
-const float DAY_LEN = 2.0f; // In seconds
+const float DAY_LEN = 10.0f; // In seconds
 
 void main() {
     vec3 point = normalize(fs_in.position.xyz);

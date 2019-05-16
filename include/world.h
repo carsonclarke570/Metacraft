@@ -22,28 +22,36 @@
 #include <camera.h>
 #include <chunk.h>
 #include <engine.h>
+#include <framebuffer.h>
 #include <cubemap.h>
 #include <transform.h>
 #include <uniform_buffer.h>
+#include <light.h>
 
 #define N_DEBUG 0
 
 typedef struct {
     // Scene materials
     Camera camera;
-    UniformBuffer mvp;
     CubeMap sky_box;
+
+    UniformBuffer mvp_mat;
+    Framebuffer g_buffer;
+    Mesh frame;
+
+    DirectionalLight sunlight;
+
+    Shader sky_shader;
+    Shader ambient_light;
+    Shader geometry;
 #if N_DEBUG
     Shader normal_shader;
 #endif
-
-    Shader sky_shader;
 
     // Test materials
     Chunk chunk;
 
     mat4 model_matrix;
-    Shader shader;
 
     // Chunk
     Mesh chunk_mesh;

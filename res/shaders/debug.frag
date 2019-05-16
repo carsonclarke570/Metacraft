@@ -1,7 +1,8 @@
 #version 330 core
-
-out vec4 out_color;
+layout (location = 0) out vec3 buf_position;
+layout (location = 1) out vec3 buf_normal;
+layout (location = 2) out vec4 buf_albedo;
 
 void main() {
-    out_color = vec4(1.0, 1.0, 0.0, 1.0);
+    buf_albedo = vec4(1.0, 1.0, 0.0, 1.0);
 }

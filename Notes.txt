@@ -6,3 +6,4 @@ Textures / Texture Pool
 - After creating and registering a texture, it can be accessed in the Shader
   using one of the name texture_diffuse, texture_specular, texture_normal
   or texture_height
+

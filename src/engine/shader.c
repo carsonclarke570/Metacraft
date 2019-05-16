@@ -138,22 +138,24 @@ int shader_compile(Shader* shader) {
     return CODE_SUCCESS;
 }
 
-void shader_register_attrib(Shader* shader, const char* attrib) {
-    //TODO
-}
-
-void shader_register_uniform(Shader* shader, const char* uniform) {
-    //TODO
-}
-
 void shader_uniform_mat4(Shader* shader, const char* name, mat4 data) {
-    GLuint transform = glGetUniformLocation(shader->program, name);
-    glUniformMatrix4fv(transform, 1, GL_FALSE, data);
+    GLuint loc = glGetUniformLocation(shader->program, name);
+    glUniformMatrix4fv(loc, 1, GL_FALSE, data);
+}
+
+void shader_uniform_vec3(Shader* shader, const char* name, vec3 data) {
+    GLuint loc = glGetUniformLocation(shader->program, name);
+    glUniform3fv(loc, 1, data);
 }
 
 void shader_uniform_float(Shader* shader, const char* name, float data) {
     GLuint loc = glGetUniformLocation(shader->program, name);
     glUniform1f(loc, data);
+}
+
+void shader_uniform_int(Shader* shader, const char* name, int data) {
+    GLuint loc = glGetUniformLocation(shader->program, name);
+    glUniform1i(loc, data);
 }
 
 void shader_bind_ubo(Shader* shader, const char* name, uint32_t slot) {

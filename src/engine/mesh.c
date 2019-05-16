@@ -92,15 +92,28 @@ void mesh_cube(Mesh* mesh) {
     mesh_create(mesh,vertices, 24, indices, 36);
 }
 
-void mesh_destroy(Mesh* mesh) {
+void mesh_quad(Mesh* mesh) {
+    Vertex vertices[] = {
+            {{-1.0f,  1.0f, 0.0f}, {0.0f, 0.0f, 0.0f}, {0.0f, 1.0f}},
+            {{-1.0f, -1.0f, 0.0f}, {0.0f, 0.0f, 0.0f}, {0.0f, 0.0f}},
+            {{1.0f,  1.0f, 0.0f}, {0.0f, 0.0f, 0.0f}, {1.0f, 1.0f}},
+            {{1.0f, -1.0f, 0.0f}, {0.0f, 0.0f, 0.0f}, {1.0f, 0.0f}}
+    };
+    unsigned int indices[] = {
+            0, 1, 2,
+            2, 1, 3
+    };
+    mesh_create(mesh, vertices, 4, indices, 6);
+}
+
+void mesh_delete(Mesh *mesh) {
     glDeleteVertexArrays(1, &mesh->vao);
     glDeleteBuffers(1, &mesh->vbo);
     glDeleteBuffers(1, &mesh->ibo);
 }
 
 
-void mesh_render(Mesh* mesh, Shader* shader) {
-    shader_bind(shader);
+void mesh_render(Mesh* mesh) {
     glBindVertexArray(mesh->vao);
     if (mesh->indexed) {
         glDrawElements(GL_TRIANGLES, mesh->num_elements, GL_UNSIGNED_INT, 0);
