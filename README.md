@@ -8,7 +8,7 @@ cloen da repo
 
 ### Prerequisites
 
-Please ensure you have the latest version of cmake and OpenGL installed.
+Please ensure you have the latest versions of CMake and OpenGL (4.3) installed.
 
 Install OpenGL:
 ```
@@ -42,10 +42,8 @@ rm -r temp
 
 ### Building
 
-After cloning the repository and installing cmake and OpenGL:
-
 Create a build directory in the project, run CMake in that directory,
-run the generated Makefile, and execute the program
+run the generated Makefile, and execute the program:
 ```
 mkdir build
 cd build
