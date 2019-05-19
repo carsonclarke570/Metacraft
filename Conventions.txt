@@ -3,8 +3,14 @@ Coding Conventions
 - Filename
     Lowercase
 
+    # C Source and Header files
     {file_name}.h
     {file_name}.c
+    
+    # Shader files
+    {shader_name}.frag
+    {shader_name}.geom
+    {shader_name}.vert
 
 - Structs
 
