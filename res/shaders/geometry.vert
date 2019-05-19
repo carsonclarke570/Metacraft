@@ -22,7 +22,7 @@ void main() {
     vs_out.position = world_pos.xyz;
 
     // Normals
-    vs_out.normal = transpose(inverse(mat3(model))) * in_normal;
+    vs_out.normal = mat3(model) * in_normal;
 
     // Texture coordinates
     vs_out.texcoord = in_texture;

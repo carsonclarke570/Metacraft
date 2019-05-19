@@ -22,23 +22,17 @@
 
 // Member
 
-int create_texture(Texture* texture, const char* file, enum TextureType type) {
+void create_texture(Texture* texture, enum TextureType type) {
     texture->type = type;
-
     glGenTextures(1, &texture->texture);
-    glBindTexture(GL_TEXTURE_2D, texture->texture);
+}
 
-    // Set texture wrapping
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
+int texture_load(Texture* texture, const char* file) {
     // Load images
     int width, height, channels;
     stbi_set_flip_vertically_on_load(true);
 
+    glBindTexture(GL_TEXTURE_2D, texture->texture);
     uint8_t* data = stbi_load(file, &width, &height, &channels, 0);
     if (data) {
         GLint format = 0;
@@ -72,7 +66,17 @@ int create_texture(Texture* texture, const char* file, enum TextureType type) {
     return CODE_SUCCESS;
 }
 
-void destroy_texture(Texture* texture) {
+void texture_sampling(Texture* texture, GLenum wrap, GLenum filter) {
+    glBindTexture(GL_TEXTURE_2D, texture->texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter);
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+void texture_delete(Texture *texture) {
     glDeleteTextures(1, &texture->texture);
     texture->texture = 0;
 }

@@ -27,14 +27,29 @@ void framebuffer_create(Framebuffer* buffer, Attachment* attachments, int n, ive
     glBindFramebuffer(GL_FRAMEBUFFER, buffer->buffer);
 
     GLenum* atts = malloc(n * sizeof(GLenum));
+    Attachment* a = attachments;
     for (int i = 0; i < n; i++) {
         glGenTextures(1, &buffer->textures[i]);
-        glBindTexture(GL_TEXTURE_2D, buffer->textures[i]);
-        glTexImage2D(GL_TEXTURE_2D, 0, attachments[i].internal_format, size[0], size[1], 0, attachments[i].format, attachments[i].type, NULL);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_2D, buffer->textures[i], 0);
+        glBindTexture(a->target, buffer->textures[i]);
+        if (a->target == GL_TEXTURE_CUBE_MAP) {
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 1, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 2, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 3, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 4, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + 5, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+        } else {
+            glTexImage2D(a->target, 0, a->internal_format, size[0], size[1], 0, a->format, a->type, NULL);
+        }
+        glTexParameteri(a->target, GL_TEXTURE_MIN_FILTER, a->filter);
+        glTexParameteri(a->target, GL_TEXTURE_MAG_FILTER, a->filter);
+        if (a->target == GL_TEXTURE_CUBE_MAP) {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, GL_TEXTURE_CUBE_MAP_POSITIVE_X, buffer->textures[i], 0);
+        } else {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + i, a->target, buffer->textures[i], 0);
+        }
         atts[i] = GL_COLOR_ATTACHMENT0 + i;
+        a++;
     }
     glDrawBuffers(n, atts);
     free(atts);
@@ -77,7 +92,6 @@ void framebuffer_unbind() {
 
 
 void framebuffer_bind_textures(Framebuffer* buffer, Shader* shader) {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     shader_bind(shader);
     for (int i = 0; i < buffer->n; i++) {
         glActiveTexture(GL_TEXTURE0 + i);

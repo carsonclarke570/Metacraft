@@ -41,18 +41,34 @@ typedef struct {
  * the Texture.
  *
  * @param texture   Pointer to Texture struct
- * @param file      Filepath of image to open
  * @param name      The name of texture
  * @return  CODE_SUCCESS if success, else a relevant error code.
  */
-int create_texture(Texture* texture, const char* file, enum TextureType type);
+void create_texture(Texture* texture, enum TextureType type);
+
+/**
+ * Loads a texture from an image.
+ *
+ * @param texture   Pointer to Texture struct
+ * @param file      File path of the image
+ */
+int texture_load(Texture* texture, const char* file);
+
+/**
+ * Sets the sampling parameters of the texture.
+ *
+ * @param texture   Pointer to Texture struct
+ * @param wrap      Wrapping settings
+ * @param filter    Filter settings
+ */
+void texture_sampling(Texture* texture, GLenum wrap, GLenum filter);
 
 /**
  * Destroys a Texture object.
  *
  * @param texture   Pointer to Texture struct
  */
-void destroy_texture(Texture* texture);
+void texture_delete(Texture *texture);
 
 /**
  * Binds the texture to a specific texture slot.

@@ -31,19 +31,27 @@
 #define N_DEBUG 0
 
 typedef struct {
+    float lerp;
+    float time;
+} DayCycle;
+
+typedef struct {
     // Scene materials
     Camera camera;
     CubeMap sky_box;
 
     UniformBuffer mvp_mat;
     Framebuffer g_buffer;
+    Framebuffer sky_buffer;
     Mesh frame;
 
+    DayCycle day_cycle;
     DirectionalLight sunlight;
 
     Shader sky_shader;
-    Shader ambient_light;
+    Shader pbr_shader;
     Shader geometry;
+    Shader bloom;
 #if N_DEBUG
     Shader normal_shader;
 #endif

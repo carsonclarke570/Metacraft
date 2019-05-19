@@ -138,12 +138,12 @@ int shader_compile(Shader* shader) {
     return CODE_SUCCESS;
 }
 
-void shader_uniform_mat4(Shader* shader, const char* name, mat4 data) {
+void shader_uniform_mat4(Shader* shader, const char* name, const mat4 data) {
     GLuint loc = glGetUniformLocation(shader->program, name);
     glUniformMatrix4fv(loc, 1, GL_FALSE, data);
 }
 
-void shader_uniform_vec3(Shader* shader, const char* name, vec3 data) {
+void shader_uniform_vec3(Shader* shader, const char* name, const vec3 data) {
     GLuint loc = glGetUniformLocation(shader->program, name);
     glUniform3fv(loc, 1, data);
 }

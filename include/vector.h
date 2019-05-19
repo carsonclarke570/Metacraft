@@ -53,6 +53,16 @@ float vec2_dot(const vec2 a, const vec2 b);
 void vec3_cross(const vec3 a, const vec3 b, vec3 y);
 
 /**
+ * Computes the linear interpolation of two vectors.
+ *
+ * @param a     First vector.
+ * @param b     Second vector.
+ * @param c     Percent to lerp by.
+ * @param y     Resulting vector;
+ */
+void vec3_lerp(const vec3 a, const vec3 b, float c, vec3 y);
+
+/**
  * Subtracts two vectors. y = a - b.
  *
  * @param a     First vector.
