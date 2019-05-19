@@ -169,6 +169,7 @@ void world_update(World* world, Game* game, double delta) {
     if (world->day_cycle.time > 20.f)
         world->day_cycle.time -= 20.0f;
 
+
     float l;
     vec3 light;
     const vec3 daylight = {0.9f, 0.9f, 0.9f};
