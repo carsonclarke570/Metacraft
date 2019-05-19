@@ -48,7 +48,7 @@ The program shoud launch in a new window.
 
 ## Contributing
 
-TO-DO
+Please contact Carson Clarke-Magrab at ctc7359@rit.edu if you are interested in contributing or make a pull request.
 
 ## Versioning
 
