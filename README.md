@@ -1,6 +1,6 @@
 # Metacraft - A C-based Minecraft Clone
 
-A C-based Minecraft clone written in OpenGL utilizing advanced rendering techniques such as PBR shading, environment mapping and deffered rendering. 
+A C-based Minecraft clone written in OpenGL utilizing advanced rendering techniques such as PBR shading, environment mapping and deferred rendering. 
 
 ## Getting Started
 
