@@ -21,6 +21,7 @@
 
 #include <camera.h>
 #include <chunk.h>
+#include <day_cycle.h>
 #include <engine.h>
 #include <framebuffer.h>
 #include <cubemap.h>
@@ -29,11 +30,6 @@
 #include <light.h>
 
 #define N_DEBUG 0
-
-typedef struct {
-    float lerp;
-    float time;
-} DayCycle;
 
 typedef struct {
     // Scene materials

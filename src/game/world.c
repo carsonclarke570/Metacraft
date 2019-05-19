@@ -52,17 +52,6 @@ void world_init(World* world, Game* game) {
     texture_load(&texture_pool.textures[1], "gold_ore_n.png");
     texture_load(&texture_pool.textures[2], "gold_ore_s.png");
 
-    // LIGHT
-    world->sunlight.light.ambient[0] = 0.05f;
-    world->sunlight.light.ambient[1] = 0.05f;
-    world->sunlight.light.ambient[2] = 0.05f;
-    world->sunlight.light.diffuse[0] = 0.9f;
-    world->sunlight.light.diffuse[1] = 0.9f;
-    world->sunlight.light.diffuse[2] = 0.9f;
-    world->sunlight.light.specular[0] = 0.5f;
-    world->sunlight.light.specular[1] = 0.5f;
-    world->sunlight.light.specular[2] = 0.5f;
-
     /* PBR Lighting Shader */
     shader_load_file(&world->pbr_shader, VERTEX, "light.vert");
     shader_load_file(&world->pbr_shader, FRAGMENT, "light.frag");
@@ -156,59 +145,17 @@ void world_update(World* world, Game* game, double delta) {
     camera_look(&world->camera, game->input.cursor_offset);
 
     /* DAY NIGHT CYCLE */
-    float t = glfwGetTime();
-    float t_adjust = t * ((2.0f * 3.14159265f) / 20.0f);
-    float sin_t = sinf(t_adjust);
-    float cos_t = cosf(t_adjust);
-
-    world->sunlight.direction[0] = sin_t;
-    world->sunlight.direction[1] = cos_t;
-    world->sunlight.direction[2] = 0.0f;
-
-    world->day_cycle.time += delta;
-    if (world->day_cycle.time > 20.f)
-        world->day_cycle.time -= 20.0f;
-
-
-    float l;
-    vec3 light;
-    const vec3 daylight = {0.9f, 0.9f, 0.9f};
-    const vec3 moonlight = {0.0f, 0.0f, 0.0f};
-    if (world->day_cycle.time >= 18.5f) { // DAWN
-        l = 1.0f - ((world->day_cycle.time - 18.5f) / 1.5f);
-        world->day_cycle.lerp = l;
-        vec3_lerp(daylight, moonlight, l, light);
-        world->sunlight.light.diffuse[0] = light[0];
-        world->sunlight.light.diffuse[1] = light[1];
-        world->sunlight.light.diffuse[2] = light[2];
-    } else if (world->day_cycle.time >= 11.5f) { // NIGHT
-        world->day_cycle.lerp = 1.0f;
-        world->sunlight.light.diffuse[0] = moonlight[0];
-        world->sunlight.light.diffuse[1] = moonlight[1];
-        world->sunlight.light.diffuse[2] = moonlight[2];
-    } else if (world->day_cycle.time >= 10.0f) { // DUSK
-        l = (world->day_cycle.time - 10.0f) / 1.5f;
-        world->day_cycle.lerp = l;
-        vec3_lerp(daylight, moonlight, l, light);
-        world->sunlight.light.diffuse[0] = light[0];
-        world->sunlight.light.diffuse[1] = light[1];
-        world->sunlight.light.diffuse[2] = light[2];
-    } else { // DAY
-        world->day_cycle.lerp = 0.0f;
-        world->sunlight.light.diffuse[0] = daylight[0];
-        world->sunlight.light.diffuse[1] = daylight[1];
-        world->sunlight.light.diffuse[2] = daylight[2];
-    }
+    day_update(&world->day_cycle, delta);
 
     /* OTHER UPDATES */
-    float s = sinf(t / 2.0f);
+    float s = sinf(glfwGetTime() / 2.0f);
 
     quat q;
     vec3 axis = {0.0f, 1.0f, 0.0f};
     quat_axis_angle(q, axis, s * 360.0f);
 
     // Cube
-    memcpy(world->cube_t.rotation, q, sizeof(quat));
+    //memcpy(world->cube_t.rotation, q, sizeof(quat));
 
     // Chunk
     //memcpy(world->chunk_t.rotation, q, sizeof(quat));
@@ -253,8 +200,7 @@ void world_render(World* world, Game* game, double delta) {
     shader_bind(&world->pbr_shader);
     framebuffer_bind_textures(&world->g_buffer, &world->pbr_shader);
     shader_uniform_vec3(&world->pbr_shader, "eye_pos", world->camera.position);
-    shader_uniform_vec3(&world->pbr_shader, "direction", world->sunlight.direction);
-    shader_uniform_vec3(&world->pbr_shader, "diffuse", world->sunlight.light.diffuse);
+    day_shader_update(&world->day_cycle, &world->pbr_shader);
     shader_bind(&world->pbr_shader);
     mesh_render(&world->frame);
 
