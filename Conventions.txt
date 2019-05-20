@@ -1,31 +1,151 @@
+================================
 Coding Conventions
+================================
 
-- Filename
-    Lowercase
+An example of a Linked List data structure is used throughout the guide.
+Acronyms and other edgecases are left to the programmer's discretion.
+If something feels wrong it acceptable to break convention so long as the
+resulting code or organizational structure is reasonable and internally
+consistent.
 
-    # C Source and Header files
-    {file_name}.h
-    {file_name}.c
-    
-    # Shader files
-    {shader_name}.frag
-    {shader_name}.geom
-    {shader_name}.vert
+You get bonus points if related symbols have the same number of characters
+WITHOUT sacrificing clarity of purpose or function!
 
-- Structs
 
-    typedef struct {
-        int example;
-        float another_example
-    } StructName;
 
-- Function Prototypes
+================================
+File Names
+================================
 
-    # Allocates and initializes data
-    void {StructName}_create({Struct} *{StructName}, ...)
+Use 'lowerCamelCase' and underscores for the file names.
 
-    # Allocates data. No initialization, just pass enough info to allocate
-    void {StructName}_allocate({Struct} *{StructName}, ...)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+common.h
+linkedList_debug.c
+linkedList.h
+linkedList.c
+node.h
+node.c
 
-    # Destroys data
-    void {StructName}_delete({Struct}* {StructName})
+
+
+
+
+
+================================
+Header Files
+================================
+
+Defines should be used to declare constant primitive values.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/*
+license
+*/
+#ifndef LINKEDLIST_H
+#ifndef LINKEDLIST_H
+
+#include <stdlib.h>
+#include "common.h"
+
+// Defines should be uppercase with underscores and the value should always
+// be in parentheses.
+#define MAX_LENGTH (100)
+
+// Macros should expect a semicolon, and multiline macros should be wrapped
+// in a 'do while' loop. Internal variables should be named with care to avoid
+// conflicts. Uppercase works well.
+#define GET_NODE_AT(L,I,N) do {\
+    N = L->first;\
+    for (int _I = 0; _I < I && N; _I++)\
+        N = N->next;\
+} while(0)
+
+[...]
+
+#endif
+
+
+
+================================
+Variables
+================================
+
+Variables should use 'lowerCammelCase' and underscores to separat
+action/object qualifiers.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int nodeCount;
+void (*copy_linkedList)(LinkedList *, LinkedList *);
+
+
+
+================================
+Functions
+================================
+
+Functions should follow the same naming convention as variables. Docstrings
+should be placed with the function prototype and not with the function
+declaration.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void allocate_linkedList(Node *node);
+void free_linkedList(Node *node);
+
+void allocate_node(Node *node);
+void free_node(Node *node);
+void copy_node(Node *node);
+
+Node *get_node(int index);
+
+
+
+================================
+Structs
+================================
+
+Typedef all structs and use UpperCammelCase without underscores for the type
+symbol. If the struct defines a field as a type of itself, name the struct
+with the type name followed by the characters '_t'. Field names should follow
+the local variable convention. Append fields with a single line comment if
+necessary.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+typedef struct Node_t {
+    struct Node_t next;     // 
+    struct Node_t previous; // 
+    DATA *data;             // 
+} Node;
+
+
+
+typedef struct {
+    int size;    // 
+    Node *first; // 
+    Node *last;  // 
+} LinkedList;
+
+
+
+================================
+Function Prototypes
+================================
+
+The first argument will be a pointer of the struct type of the same name.
+Any additional arguments will only be provided if they are instrumental in
+allocating the correct amount of space. Any additional space allocated for
+the structure is expected to be freed by the 'free_{StructName}' function.
+Any data passed in is expected to also be initialized withing the struct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+void allocate_linkedList(LinkedList *list);
+void free_linkedList(LinkedList* list);
+
+LinkedList *create_linkedList();
+void delete_linkedList(LinkedList *list);
+
+void allocate_node(Node *node);
+void free_node(Node* node);
+
+
+
