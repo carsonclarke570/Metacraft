@@ -161,7 +161,13 @@ void world_update(World* world, Game* game, double delta) {
     //memcpy(world->chunk_t.rotation, q, sizeof(quat));
 }
 
-void scene_render(World* world) {
+void world_render(World* world, Game* game, double delta) {
+    world_geometry_pass(world);
+    world_lighting_pass(world);
+    world_sky_pass(world);
+}
+
+void world_scene(World* world) {
     mat4 mat;
 
     transform_to_matrix(&world->chunk_t, mat);
@@ -173,10 +179,9 @@ void scene_render(World* world) {
     mesh_render(&world->test_cube);
 }
 
-void world_render(World* world, Game* game, double delta) {
+void world_geometry_pass(World* world) {
     mat4 view;
 
-    /* Begin GEOMETRY Pass */
     glViewport(0, 0, world->g_buffer.size[0], world->g_buffer.size[1]);
     framebuffer_bind(&world->g_buffer);
 
@@ -188,13 +193,13 @@ void world_render(World* world, Game* game, double delta) {
     bind_texture(&texture_pool.textures[2], 7);
 
     shader_bind(&world->geometry);
-    scene_render(world);
+    world_scene(world);
     shader_unbind();
 
     framebuffer_unbind();
-    /* End GEOMETRY Pass */
+}
 
-    /* Begin LIGHT Pass */
+void world_lighting_pass(World* world) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // Ambient light
     shader_bind(&world->pbr_shader);
@@ -205,8 +210,9 @@ void world_render(World* world, Game* game, double delta) {
     mesh_render(&world->frame);
 
     framebuffer_blit_depth(&world->g_buffer);
-    /* End LIGHT Pass */
+}
 
+void world_sky_pass(World* world) {
     shader_bind(&world->sky_shader);
     shader_uniform_float(&world->sky_shader, "percent", world->day_cycle.lerp);
     cubemap_render(&world->sky_box, &world->sky_shader);
@@ -219,9 +225,9 @@ void world_delete(World* world) {
     cubemap_delete(&world->sky_box);
 
     //Shaders
-    shader_destroy(&world->sky_shader);
-    shader_destroy(&world->pbr_shader);
-    shader_destroy((&world->geometry));
+    shader_delete(&world->sky_shader);
+    shader_delete(&world->pbr_shader);
+    shader_delete((&world->geometry));
 
     // Meshes
     mesh_delete(&world->chunk_mesh);

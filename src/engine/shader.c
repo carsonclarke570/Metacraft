@@ -19,7 +19,7 @@
 
 extern const char *texture_type_map[4];
 
-void shader_create(Shader* shader) {
+void shader_create(Shader *shader) {
     shader->program = 0;
     shader->shaders[VERTEX] = 0;
     shader->shaders[FRAGMENT] = 0;
@@ -27,12 +27,12 @@ void shader_create(Shader* shader) {
     shader->shaders[COMPUTE] = 0;
 }
 
-void shader_destroy(Shader* shader) {
+void shader_delete(Shader *shader) {
     glDeleteProgram(shader->program);
     shader->program = 0;
 }
 
-int shader_load_text(Shader* shader, enum ShaderType type, const char* src) {
+int shader_load_text(Shader *shader, enum ShaderType type, const char *src) {
     // Create shader
     GLenum gl_type;
     switch(type) {
@@ -163,12 +163,12 @@ void shader_bind_ubo(Shader* shader, const char* name, uint32_t slot) {
     glUniformBlockBinding(shader->program, loc, slot);
 }
 
-void register_texture(Shader* shader, Texture* texture, unsigned int slot) {
+void register_texture(Shader *shader, Texture *texture, unsigned int slot) {
     glActiveTexture(GL_TEXTURE0 + slot);
     glUniform1i(glGetUniformLocation(shader->program, texture_type_map[texture->type]), slot);
 }
 
-void shader_bind(Shader* shader) {
+void shader_bind(Shader *shader) {
     glUseProgram(shader->program);
 }
 

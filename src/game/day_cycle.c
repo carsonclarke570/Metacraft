@@ -21,45 +21,54 @@ const vec3 MOONLIGHT = MOONLIGHT_DIFFUSE;
 
 void day_update(DayCycle* cycle, float delta) {
     cycle->time = cycle->time + delta;
-    float t_adjust = cycle->time * ((2.0f * 3.14159265f) / CYCLE_LEN);
-    float sin_t = sinf(t_adjust);
-    float cos_t = cosf(t_adjust);
-
-    cycle->sun_position[0] = sin_t;
-    cycle->sun_position[1] = cos_t;
-    cycle->sun_position[2] = 0.0f;
-
     if (cycle->time > CYCLE_LEN) {
         cycle->time -= CYCLE_LEN;
     }
 
+    float t_adjust = cycle->time * (3.14159265f / LIGHT_CYCLE);
+    float sin_t = sinf(t_adjust);
+    float cos_t = cosf(t_adjust);
+
+    if (fabsf(cycle->time) < 0.0001) {
+        printf("DAY START %f\n", t_adjust);
+    }
+
+    if (fabsf(cycle->time - DUSK_END) < 0.0001) {
+        printf("DAY END %f\n", t_adjust);
+    }
+
+    cycle->sun_position[0] = cos_t;
+    cycle->sun_position[1] = sin_t;
+    cycle->sun_position[2] = 0.0f;
+
     float alpha;
     vec3 light;
     float t = cycle->time;
-    if (t >= NIGHT_END) { // DAWN
-        alpha = 1.0f - ((t - NIGHT_END) / DAWN_LEN);
-        cycle->lerp = alpha;
-        vec3_lerp(DAYLIGHT, MOONLIGHT, alpha, light);
+
+    if (t < DAWN_END) {
+        alpha = t / DAWN_LEN;
+        cycle->lerp = 1.0f - alpha;
+        vec3_lerp(MOONLIGHT, DAYLIGHT, alpha, light);
         cycle->sunlight[0] = light[0];
         cycle->sunlight[1] = light[1];
         cycle->sunlight[2] = light[2];
-    } else if (t >= DUSK_END) { // NIGHT
-        cycle->lerp = 1.0f;
-        cycle->sunlight[0] = MOONLIGHT[0];
-        cycle->sunlight[1] = MOONLIGHT[1];
-        cycle->sunlight[2] = MOONLIGHT[2];
-    } else if (t >= DAY_END) { // DUSK
+    } else if (t < DAY_END) {
+        cycle->lerp = 0.0f;
+        cycle->sunlight[0] = DAYLIGHT[0];
+        cycle->sunlight[1] = DAYLIGHT[1];
+        cycle->sunlight[2] = DAYLIGHT[2];
+    } else if (t < DUSK_END) {
         alpha = (t - DAY_END) / DUSK_LEN;
         cycle->lerp = alpha;
         vec3_lerp(DAYLIGHT, MOONLIGHT, alpha, light);
         cycle->sunlight[0] = light[0];
         cycle->sunlight[1] = light[1];
         cycle->sunlight[2] = light[2];
-    } else { // DAY
-        cycle->lerp = 0.0f;
-        cycle->sunlight[0] = DAYLIGHT[0];
-        cycle->sunlight[1] = DAYLIGHT[1];
-        cycle->sunlight[2] = DAYLIGHT[2];
+    } else {
+        cycle->lerp = 1.0f;
+        cycle->sunlight[0] = MOONLIGHT[0];
+        cycle->sunlight[1] = MOONLIGHT[1];
+        cycle->sunlight[2] = MOONLIGHT[2];
     }
 }
 

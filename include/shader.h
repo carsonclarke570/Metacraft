@@ -48,7 +48,7 @@ void shader_create(Shader* shader);
  *
  * @param shader    Pointer to Shader struct
  */
-void shader_destroy(Shader* shader);
+void shader_delete(Shader *shader);
 
 /**
  * Loads and attaches a shader from text.

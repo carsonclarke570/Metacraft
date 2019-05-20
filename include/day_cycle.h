@@ -20,19 +20,20 @@
 #include <shader.h>
 #include <vector.h>
 
-#define DAY_LEN     10.0f
-#define NIGHT_LEN   7.0f
-#define DUSK_LEN    1.5f
-#define DAWN_LEN    1.5f
+#define DAY_LEN     30.0f
+#define NIGHT_LEN   25.0f
+#define DUSK_LEN    10.0f
+#define DAWN_LEN    10.0f
 
 #define SUNLIGHT_DIFFUSE    {0.9f, 0.9f, 0.9f}
 #define MOONLIGHT_DIFFUSE   {0.0f, 0.0f, 0.0f}
 
-#define DAY_END     (DAY_LEN)
+#define DAWN_END    (DAWN_LEN)
+#define DAY_END     (DAWN_END + DAY_LEN)
 #define DUSK_END    (DAY_END + DUSK_LEN)
 #define NIGHT_END   (DUSK_END + NIGHT_LEN)
-#define DAWN_END    (NIGHT_END + DAWN_LEN)
-#define CYCLE_LEN   (DAWN_END)
+#define CYCLE_LEN   (NIGHT_END)
+#define LIGHT_CYCLE (DUSK_LEN + DAWN_LEN + DAY_LEN)
 
 typedef struct {
     vec3 sun_position;
