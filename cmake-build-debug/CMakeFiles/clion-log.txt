@@ -1,17 +1,19 @@
-"C:\Program Files\JetBrains\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\birdi\CLionProjects\Daybreak
-CMake Deprecation Warning at libs/glfw/CMakeLists.txt:10 (cmake_policy):
-  The OLD behavior for policy CMP0042 will be removed from a future version
-  of CMake.
-
-  The cmake-policies(7) manual explains that the OLD behaviors of all
-  policies are deprecated and that a policy should be set to OLD only under
-  specific short-term circumstances.  Projects should be ported to the NEW
-  behavior and not rely on setting a policy to OLD.
-
-
--- Could NOT find Vulkan (missing: VULKAN_INCLUDE_DIR) 
+"C:\Program Files\JetBrains\CLion 2019.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DASSIMP_BUILD_SMD_LOADER=NO -G "CodeBlocks - NMake Makefiles" C:\Users\birdi\CLionProjects\Daybreak
 -- Using Win32 for window creation
-GLM: GCC - GNU compiler
+-- Shared libraries disabled
+-- Looking for DirectX...
+-- DirectX_PREFIX_PATH changed.
+-- Found DirectX: C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86/d3d9.lib
+-- DX lib dir: C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86
+-- Looking for ZLIB...
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Could not locate ZLIB
+-- compiling zlib from sources
+-- Could NOT find rt (missing: RT_LIBRARY) 
+-- Enabled importer formats: AMF 3DS AC ASE ASSBIN ASSXML B3D BVH COLLADA DXF CSM HMP IRRMESH IRR LWO LWS MD2 MD3 MD5 MDC MDL NFF NDO OFF OBJ OGRE OPENGEX PLY MS3D COB BLEND IFC XGL FBX Q3D Q3BSP RAW SIB SMD STL TERRAGEN 3D X X3D GLTF 3MF MMD STEP
+-- Disabled importer formats:
+-- Enabled exporter formats: 3DS ASSBIN COLLADA OBJ OPENGEX PLY FBX STL X X3D GLTF 3MF STEP
+-- Disabled exporter formats:
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug

@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/reopen.dir/reopen.c.obj"
-  "CMakeFiles/reopen.dir/__/deps/glad.c.obj"
+  "CMakeFiles/reopen.dir/__/deps/glad_gl.c.obj"
   "reopen.pdb"
   "reopen.exe"
   "reopen.exe.manifest"
-  "libreopen.dll.a"
+  "reopen.lib"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -9,12 +9,13 @@ file(REMOVE_RECURSE
   "CMakeFiles/glfw.dir/win32_joystick.c.obj"
   "CMakeFiles/glfw.dir/win32_monitor.c.obj"
   "CMakeFiles/glfw.dir/win32_time.c.obj"
-  "CMakeFiles/glfw.dir/win32_tls.c.obj"
+  "CMakeFiles/glfw.dir/win32_thread.c.obj"
   "CMakeFiles/glfw.dir/win32_window.c.obj"
   "CMakeFiles/glfw.dir/wgl_context.c.obj"
   "CMakeFiles/glfw.dir/egl_context.c.obj"
-  "libglfw3.pdb"
-  "libglfw3.a"
+  "CMakeFiles/glfw.dir/osmesa_context.c.obj"
+  "glfw3d.pdb"
+  "glfw3d.lib"
 )
 
 # Per-language clean rules from dependency scanning.

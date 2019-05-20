@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/boing.dir/boing.c.obj"
-  "CMakeFiles/boing.dir/glfw.rc.obj"
-  "CMakeFiles/boing.dir/__/deps/glad.c.obj"
+  "CMakeFiles/boing.dir/glfw.rc.res"
+  "CMakeFiles/boing.dir/__/deps/glad_gl.c.obj"
   "boing.pdb"
   "boing.exe"
   "boing.exe.manifest"
-  "libboing.dll.a"
+  "boing.lib"
 )
 
 # Per-language clean rules from dependency scanning.

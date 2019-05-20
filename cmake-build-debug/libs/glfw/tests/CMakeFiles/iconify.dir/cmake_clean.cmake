@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/iconify.dir/iconify.c.obj"
   "CMakeFiles/iconify.dir/__/deps/getopt.c.obj"
-  "CMakeFiles/iconify.dir/__/deps/glad.c.obj"
+  "CMakeFiles/iconify.dir/__/deps/glad_gl.c.obj"
   "iconify.pdb"
   "iconify.exe"
   "iconify.exe.manifest"
-  "libiconify.dll.a"
+  "iconify.lib"
 )
 
 # Per-language clean rules from dependency scanning.

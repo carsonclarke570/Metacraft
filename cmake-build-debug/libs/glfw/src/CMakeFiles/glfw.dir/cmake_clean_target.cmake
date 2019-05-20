@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libglfw3.a"
+  "glfw3d.lib"
 )

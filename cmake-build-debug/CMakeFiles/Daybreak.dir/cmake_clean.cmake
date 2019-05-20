@@ -1,16 +1,20 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Daybreak.dir/src/Mesh.cpp.obj"
-  "CMakeFiles/Daybreak.dir/src/Shader.cpp.obj"
-  "CMakeFiles/Daybreak.dir/src/Texture.cpp.obj"
-  "CMakeFiles/Daybreak.dir/src/Window.cpp.obj"
-  "CMakeFiles/Daybreak.dir/main.cpp.obj"
+  "CMakeFiles/Daybreak.dir/src/engine/Mesh.c.obj"
+  "CMakeFiles/Daybreak.dir/src/engine/Model.c.obj"
+  "CMakeFiles/Daybreak.dir/src/engine/Shader.c.obj"
+  "CMakeFiles/Daybreak.dir/src/engine/Texture.c.obj"
+  "CMakeFiles/Daybreak.dir/src/engine/Window.c.obj"
+  "CMakeFiles/Daybreak.dir/src/main.c.obj"
+  "CMakeFiles/Daybreak.dir/src/math/Matrix.c.obj"
+  "CMakeFiles/Daybreak.dir/src/math/Quaternion.c.obj"
+  "CMakeFiles/Daybreak.dir/src/math/Vector.c.obj"
   "Daybreak.pdb"
   "Daybreak.exe"
   "Daybreak.exe.manifest"
-  "libDaybreak.dll.a"
+  "Daybreak.lib"
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang CXX)
+foreach(lang C)
   include(CMakeFiles/Daybreak.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

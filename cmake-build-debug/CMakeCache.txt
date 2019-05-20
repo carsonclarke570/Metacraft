@@ -14,14 +14,99 @@
 # EXTERNAL cache entries
 ########################
 
-//Build shared library
+//Android JNI IOSystem support is active
+ASSIMP_ANDROID_JNIIOSYSTEM:BOOL=OFF
+
+//Enable AddressSanitizer.
+ASSIMP_ASAN:BOOL=OFF
+
+//Path the tool executables are installed to.
+ASSIMP_BIN_INSTALL_DIR:STRING=bin
+
+//default value of all ASSIMP_BUILD_XXX_EXPORTER values
+ASSIMP_BUILD_ALL_EXPORTERS_BY_DEFAULT:BOOL=ON
+
+//default value of all ASSIMP_BUILD_XXX_IMPORTER values
+ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT:BOOL=ON
+
+//describe the current architecture.
+ASSIMP_BUILD_ARCHITECTURE:STRING=
+
+//If the supplementary tools for Assimp are built in addition to
+// the library.
+ASSIMP_BUILD_ASSIMP_TOOLS:BOOL=OFF
+
+//describe the current compiler.
+ASSIMP_BUILD_COMPILER:STRING=
+
+//Build the C4D importer, which relies on the non-free Melange
+// SDK.
+ASSIMP_BUILD_NONFREE_C4D_IMPORTER:BOOL=OFF
+
+//If the official samples are built as well (needs Glut).
+ASSIMP_BUILD_SAMPLES:BOOL=OFF
+
+//No help, variable specified on the command line.
+ASSIMP_BUILD_SMD_LOADER:UNINITIALIZED=NO
+
+//If the test suite for Assimp is built in addition to the library.
+ASSIMP_BUILD_TESTS:BOOL=OFF
+
+//Build your own zlib
+ASSIMP_BUILD_ZLIB:BOOL=OFF
+
+//Enable this to measure test coverage.
+ASSIMP_COVERALLS:BOOL=OFF
+
+//Set to ON to enable double precision processing
+ASSIMP_DOUBLE_PRECISION:BOOL=OFF
+
+//Path the header files are installed to.
+ASSIMP_INCLUDE_INSTALL_DIR:STRING=include
+
+//Install MSVC debug files.
+ASSIMP_INSTALL_PDB:BOOL=ON
+
+//Suffix to append to library names
+ASSIMP_LIBRARY_SUFFIX:STRING=
+
+//Path the built library files are installed to.
+ASSIMP_LIB_INSTALL_DIR:STRING=lib
+
+//Disable Assimp's export functionality.
+ASSIMP_NO_EXPORT:BOOL=OFF
+
+//Set to ON to generate CPack configuration files and packaging
+// targets
+ASSIMP_OPT_BUILD_PACKAGES:BOOL=OFF
+
+//the package-specific version used for uploading the sources
+ASSIMP_PACKAGE_VERSION:STRING=0
+
+//Enable Undefined Behavior sanitizer.
+ASSIMP_UBSAN:BOOL=OFF
+
+//Treat warnings as errors.
+ASSIMP_WERROR:BOOL=OFF
+
+//Value Computed by CMake
+Assimp_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/assimp
+
+//Value Computed by CMake
+Assimp_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/libs/assimp
+
+//Build documentation using Doxygen.
+BUILD_DOCS:BOOL=OFF
+
+//Build package as Mac OS X Framework bundle.
+BUILD_FRAMEWORK:BOOL=OFF
+
+//Build package with shared libraries.
 BUILD_SHARED_LIBS:BOOL=OFF
 
-//Build static library
-BUILD_STATIC_LIBS:BOOL=ON
-
-//Path to a program.
-CMAKE_AR:FILEPATH=C:/MinGW/bin/ar.exe
+//For backwards compatibility, what version of CMake commands and
+// syntax should this version of CMake try to support.
+CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -42,112 +127,96 @@ CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=C:/MinGW/bin/g++.exe
-
-//A wrapper around 'ar' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_CXX_COMPILER_AR:FILEPATH=C:/MinGW/bin/gcc-ar.exe
-
-//A wrapper around 'ranlib' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_CXX_COMPILER_RANLIB:FILEPATH=C:/MinGW/bin/gcc-ranlib.exe
+CMAKE_CXX_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.20.27508/bin/Hostx86/x86/cl.exe
 
 //Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=
+CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3 /GR /EHsc
 
 //Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=-g
+CMAKE_CXX_FLAGS_DEBUG:STRING=/MDd /Zi /Ob0 /Od /RTC1
 
 //Flags used by the CXX compiler during MINSIZEREL builds.
-CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+CMAKE_CXX_FLAGS_MINSIZEREL:STRING=/MD /O1 /Ob1 /DNDEBUG
 
 //Flags used by the CXX compiler during RELEASE builds.
-CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+CMAKE_CXX_FLAGS_RELEASE:STRING=/MD /O2 /Ob2 /DNDEBUG
 
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
-CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 
 //Libraries linked by default with all C++ applications.
-CMAKE_CXX_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=C:/MinGW/bin/gcc.exe
-
-//A wrapper around 'ar' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_C_COMPILER_AR:FILEPATH=C:/MinGW/bin/gcc-ar.exe
-
-//A wrapper around 'ranlib' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_C_COMPILER_RANLIB:FILEPATH=C:/MinGW/bin/gcc-ranlib.exe
+CMAKE_C_COMPILER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.20.27508/bin/Hostx86/x86/cl.exe
 
 //Flags used by the C compiler during all build types.
-CMAKE_C_FLAGS:STRING=
+CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3
 
 //Flags used by the C compiler during DEBUG builds.
-CMAKE_C_FLAGS_DEBUG:STRING=-g
+CMAKE_C_FLAGS_DEBUG:STRING=/MDd /Zi /Ob0 /Od /RTC1
 
 //Flags used by the C compiler during MINSIZEREL builds.
-CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+CMAKE_C_FLAGS_MINSIZEREL:STRING=/MD /O1 /Ob1 /DNDEBUG
 
 //Flags used by the C compiler during RELEASE builds.
-CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+CMAKE_C_FLAGS_RELEASE:STRING=/MD /O2 /Ob2 /DNDEBUG
 
 //Flags used by the C compiler during RELWITHDEBINFO builds.
-CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 
 //Libraries linked by default with all C applications.
-CMAKE_C_STANDARD_LIBRARIES:STRING=-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+CMAKE_C_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+
+//Debug Postfix for lib, samples and tools
+CMAKE_DEBUG_POSTFIX:STRING=d
 
 //Flags used by the linker during all build types.
-CMAKE_EXE_LINKER_FLAGS:STRING=
+CMAKE_EXE_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during DEBUG builds.
-CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
+CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
 
 //Flags used by the linker during MINSIZEREL builds.
-CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=
+CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=/INCREMENTAL:NO
 
 //Flags used by the linker during RELEASE builds.
-CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
+CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 
 //Flags used by the linker during RELWITHDEBINFO builds.
-CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
-//Convert GNU import libraries to MS format (requires Visual Studio)
-CMAKE_GNUtoMS:BOOL=OFF
-
-//user executables (bin)
+//User executables (bin)
 CMAKE_INSTALL_BINDIR:PATH=bin
 
-//read-only architecture-independent data (DATAROOTDIR)
+//Read-only architecture-independent data (DATAROOTDIR)
 CMAKE_INSTALL_DATADIR:PATH=
 
-//read-only architecture-independent data root (share)
+//Read-only architecture-independent data root (share)
 CMAKE_INSTALL_DATAROOTDIR:PATH=share
 
-//documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
 CMAKE_INSTALL_DOCDIR:PATH=
 
 //C header files (include)
 CMAKE_INSTALL_INCLUDEDIR:PATH=include
 
-//info documentation (DATAROOTDIR/info)
+//Info documentation (DATAROOTDIR/info)
 CMAKE_INSTALL_INFODIR:PATH=
 
-//object code libraries (lib)
+//Object code libraries (lib)
 CMAKE_INSTALL_LIBDIR:PATH=lib
 
-//program executables (libexec)
+//Program executables (libexec)
 CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
 
-//locale-dependent data (DATAROOTDIR/locale)
+//Locale-dependent data (DATAROOTDIR/locale)
 CMAKE_INSTALL_LOCALEDIR:PATH=
 
-//modifiable single-machine data (var)
+//Modifiable single-machine data (var)
 CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
 
-//man documentation (DATAROOTDIR/man)
+//Man documentation (DATAROOTDIR/man)
 CMAKE_INSTALL_MANDIR:PATH=
 
 //C header files for non-gcc (/usr/include)
@@ -156,49 +225,43 @@ CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Daybreak
 
-//system admin executables (sbin)
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
 CMAKE_INSTALL_SBINDIR:PATH=sbin
 
-//modifiable architecture-independent data (com)
+//Modifiable architecture-independent data (com)
 CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
 
-//read-only single-machine data (etc)
+//Read-only single-machine data (etc)
 CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=C:/MinGW/bin/ld.exe
+CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.20.27508/bin/Hostx86/x86/link.exe
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/MinGW/bin/mingw32-make.exe
+//Program used to build from makefiles.
+CMAKE_MAKE_PROGRAM:STRING=nmake
 
 //Flags used by the linker during the creation of modules during
 // all build types.
-CMAKE_MODULE_LINKER_FLAGS:STRING=
+CMAKE_MODULE_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during the creation of modules during
 // DEBUG builds.
-CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=
+CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
 
 //Flags used by the linker during the creation of modules during
 // MINSIZEREL builds.
-CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=
+CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=/INCREMENTAL:NO
 
 //Flags used by the linker during the creation of modules during
 // RELEASE builds.
-CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
+CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 
 //Flags used by the linker during the creation of modules during
 // RELWITHDEBINFO builds.
-CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
-
-//Path to a program.
-CMAKE_NM:FILEPATH=C:/MinGW/bin/nm.exe
-
-//Path to a program.
-CMAKE_OBJCOPY:FILEPATH=C:/MinGW/bin/objcopy.exe
-
-//Path to a program.
-CMAKE_OBJDUMP:FILEPATH=C:/MinGW/bin/objdump.exe
+CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -209,32 +272,14 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Daybreak
 
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=0.9.9
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=9
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=9
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=
-
-//Path to a program.
-CMAKE_RANLIB:FILEPATH=C:/MinGW/bin/ranlib.exe
-
 //RC compiler
-CMAKE_RC_COMPILER:FILEPATH=C:/MinGW/bin/windres.exe
+CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.17763.0/x86/rc.exe
 
 //Flags for Windows Resource Compiler during all build types.
-CMAKE_RC_FLAGS:STRING=
+CMAKE_RC_FLAGS:STRING=/DWIN32
 
 //Flags for Windows Resource Compiler during DEBUG builds.
-CMAKE_RC_FLAGS_DEBUG:STRING=
+CMAKE_RC_FLAGS_DEBUG:STRING=/D_DEBUG
 
 //Flags for Windows Resource Compiler during MINSIZEREL builds.
 CMAKE_RC_FLAGS_MINSIZEREL:STRING=
@@ -245,28 +290,25 @@ CMAKE_RC_FLAGS_RELEASE:STRING=
 //Flags for Windows Resource Compiler during RELWITHDEBINFO builds.
 CMAKE_RC_FLAGS_RELWITHDEBINFO:STRING=
 
-//Path to a program.
-CMAKE_SH:FILEPATH=CMAKE_SH-NOTFOUND
-
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
-CMAKE_SHARED_LINKER_FLAGS:STRING=
+CMAKE_SHARED_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during the creation of shared libraries
 // during DEBUG builds.
-CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=
+CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=/debug /INCREMENTAL
 
 //Flags used by the linker during the creation of shared libraries
 // during MINSIZEREL builds.
-CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=
+CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=/INCREMENTAL:NO
 
 //Flags used by the linker during the creation of shared libraries
 // during RELEASE builds.
-CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=
+CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 
 //Flags used by the linker during the creation of shared libraries
 // during RELWITHDEBINFO builds.
-CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
 //If set, runtime paths are not added when installing shared libraries,
 // but are added when building.
@@ -277,7 +319,7 @@ CMAKE_SKIP_RPATH:BOOL=NO
 
 //Flags used by the linker during the creation of static libraries
 // during all build types.
-CMAKE_STATIC_LINKER_FLAGS:STRING=
+CMAKE_STATIC_LINKER_FLAGS:STRING=/machine:X86
 
 //Flags used by the linker during the creation of static libraries
 // during DEBUG builds.
@@ -295,9 +337,6 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 // during RELWITHDEBINFO builds.
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
-//Path to a program.
-CMAKE_STRIP:FILEPATH=C:/MinGW/bin/strip.exe
-
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -310,8 +349,38 @@ Daybreak_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-deb
 //Value Computed by CMake
 Daybreak_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak
 
-//The directory containing a CMake configuration file for GLFW3.
-GLFW3_DIR:PATH=GLFW3_DIR-NOTFOUND
+//Path to a file.
+DirectX_D3D11_INCLUDE_DIR:PATH=C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/um
+
+//Path to a library.
+DirectX_D3D11_LIBRARY:FILEPATH=C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86/d3d11.lib
+
+//Path to a library.
+DirectX_D3DCOMPILER_LIBRARY:FILEPATH=C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86/d3dcompiler.lib
+
+//Path to a library.
+DirectX_D3DX11_LIBRARY:FILEPATH=DirectX_D3DX11_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_D3DX9_LIBRARY:FILEPATH=DirectX_D3DX9_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_DXERR_LIBRARY:FILEPATH=DirectX_DXERR_LIBRARY-NOTFOUND
+
+//Path to a library.
+DirectX_DXGI_LIBRARY:FILEPATH=C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86/dxgi.lib
+
+//Path to a library.
+DirectX_DXGUID_LIBRARY:FILEPATH=C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86/dxguid.lib
+
+//x
+DirectX_INCLUDE_DIR:PATH=C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/shared
+
+//x
+DirectX_LIBRARY:FILEPATH=C:/Program Files (x86)/Windows Kits/10/Lib/10.0.17763.0/um/x86/d3d9.lib
+
+//Single output directory for building all executables.
+EXECUTABLE_OUTPUT_PATH:PATH=
 
 //Value Computed by CMake
 GLFW_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw
@@ -331,9 +400,6 @@ GLFW_BUILD_TEST:BOOL=OFF
 //Build the GLFW test programs
 GLFW_BUILD_TESTS:BOOL=ON
 
-//Include internals in documentation
-GLFW_DOCUMENT_INTERNALS:BOOL=OFF
-
 //Generate installation target
 GLFW_INSTALL:BOOL=ON
 
@@ -343,62 +409,8 @@ GLFW_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/libs/glfw
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
 
-//Use the Vulkan loader statically linked into application
+//Assume the Vulkan loader is linked with the application
 GLFW_VULKAN_STATIC:BOOL=OFF
-
-//Enable language extensions
-GLM_DISABLE_AUTO_DETECTION:BOOL=OFF
-
-//No CMake Message
-GLM_QUIET:BOOL=OFF
-
-//Build unit tests
-GLM_TEST_ENABLE:BOOL=ON
-
-//Enable C++ 11
-GLM_TEST_ENABLE_CXX_11:BOOL=OFF
-
-//Enable C++ 14
-GLM_TEST_ENABLE_CXX_14:BOOL=OFF
-
-//Enable C++ 17
-GLM_TEST_ENABLE_CXX_17:BOOL=OFF
-
-//Enable C++ 20
-GLM_TEST_ENABLE_CXX_20:BOOL=OFF
-
-//Enable C++ 98
-GLM_TEST_ENABLE_CXX_98:BOOL=OFF
-
-//Enable fast math optimizations
-GLM_TEST_ENABLE_FAST_MATH:BOOL=OFF
-
-//Enable language extensions
-GLM_TEST_ENABLE_LANG_EXTENSIONS:BOOL=OFF
-
-//Enable AVX optimizations
-GLM_TEST_ENABLE_SIMD_AVX:BOOL=OFF
-
-//Enable AVX2 optimizations
-GLM_TEST_ENABLE_SIMD_AVX2:BOOL=OFF
-
-//Enable SSE2 optimizations
-GLM_TEST_ENABLE_SIMD_SSE2:BOOL=OFF
-
-//Enable SSE3 optimizations
-GLM_TEST_ENABLE_SIMD_SSE3:BOOL=OFF
-
-//Enable SSE 4.1 optimizations
-GLM_TEST_ENABLE_SIMD_SSE4_1:BOOL=OFF
-
-//Enable SSE 4.2 optimizations
-GLM_TEST_ENABLE_SIMD_SSE4_2:BOOL=OFF
-
-//Enable SSSE3 optimizations
-GLM_TEST_ENABLE_SIMD_SSSE3:BOOL=OFF
-
-//Force 'pure' instructions
-GLM_TEST_FORCE_PURE:BOOL=OFF
 
 //Value Computed by CMake
 Glad_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glad
@@ -406,9 +418,17 @@ Glad_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/l
 //Value Computed by CMake
 Glad_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/libs/glad
 
-//Takes an empty string or 64. Directory where lib will be installed:
-// lib or lib64
-LIB_SUFFIX:STRING=
+//Don't call git to get the hash.
+IGNORE_GIT_HASH:BOOL=OFF
+
+//Inject debug postfix in .a/.so lib names
+INJECT_DEBUG_POSTFIX:BOOL=ON
+
+//Single output directory for building all libraries.
+LIBRARY_OUTPUT_PATH:PATH=
+
+//the suffix for the assimp windows library
+LIBRARY_SUFFIX:STRING=-vc140-mt
 
 //OpenGL library for win32
 OPENGL_gl_LIBRARY:STRING=opengl32
@@ -416,34 +436,49 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 //GLU library for win32
 OPENGL_glu_LIBRARY:STRING=glu32
 
-//The directory containing a CMake configuration file for OP.
-OP_DIR:PATH=OP_DIR-NOTFOUND
-
-//Value Computed by CMake
-Stb_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/stb
-
-//Value Computed by CMake
-Stb_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/libs/stb
-
-//Path to a file.
-VULKAN_INCLUDE_DIR:PATH=VULKAN_INCLUDE_DIR-NOTFOUND
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=PKG_CONFIG_EXECUTABLE-NOTFOUND
 
 //Path to a library.
-VULKAN_LIBRARY:FILEPATH=C:/Windows/System32/vulkan-1.dll
+RT_LIBRARY:FILEPATH=RT_LIBRARY-NOTFOUND
+
+//Use system installed Irrlicht/IrrXML library.
+SYSTEM_IRRXML:BOOL=OFF
+
+//Use MSVC runtime library DLL
+USE_MSVC_RUNTIME_LIBRARY_DLL:BOOL=ON
+
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=ZLIB_INCLUDE_DIR-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_DBG:FILEPATH=ZLIB_LIBRARY_DBG-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_REL:FILEPATH=ZLIB_LIBRARY_REL-NOTFOUND
+
+//Dependencies for the target
+assimp_LIB_DEPENDS:STATIC=general;zlibstatic;general;IrrXML;
 
 //Value Computed by CMake
-glm_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glm
+zlib_BINARY_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/assimp/contrib/zlib
 
 //Value Computed by CMake
-glm_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/libs/glm
+zlib_SOURCE_DIR:STATIC=C:/Users/birdi/CLionProjects/Daybreak/libs/assimp/contrib/zlib
 
 
 ########################
 # INTERNAL cache entries
 ########################
 
-//ADVANCED property for variable: CMAKE_AR
-CMAKE_AR-ADVANCED:INTERNAL=1
+//Enable building amd64 assembly implementation
+AMD64:INTERNAL=FALSE
+//Enable building i686 assembly implementation
+ASM686:INTERNAL=FALSE
+//ADVANCED property for variable: ASSIMP_BUILD_ARCHITECTURE
+ASSIMP_BUILD_ARCHITECTURE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ASSIMP_BUILD_COMPILER
+ASSIMP_BUILD_COMPILER-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug
 //Major version of cmake used to create the current loaded cache
@@ -462,10 +497,6 @@ CMAKE_CPACK_COMMAND:INTERNAL=C:/Program Files/JetBrains/CLion 2019.1/bin/cmake/w
 CMAKE_CTEST_COMMAND:INTERNAL=C:/Program Files/JetBrains/CLion 2019.1/bin/cmake/win/bin/ctest.exe
 //ADVANCED property for variable: CMAKE_CXX_COMPILER
 CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
-CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
-CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
 CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
@@ -480,10 +511,6 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 CMAKE_CXX_STANDARD_LIBRARIES-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER
 CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_COMPILER_AR
-CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
-CMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS
 CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
@@ -510,16 +537,12 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=CodeBlocks
-//CXX compiler system defined macros
-CMAKE_EXTRA_GENERATOR_CXX_SYSTEM_DEFINED_MACROS:INTERNAL=__STDC__;1;__STDC_VERSION__;201112L;__STDC_UTF_16__;1;__STDC_UTF_32__;1;__STDC_HOSTED__;1;__GNUC__;6;__GNUC_MINOR__;3;__GNUC_PATCHLEVEL__;0;__VERSION__;"6.3.0";__ATOMIC_RELAXED;0;__ATOMIC_SEQ_CST;5;__ATOMIC_ACQUIRE;2;__ATOMIC_RELEASE;3;__ATOMIC_ACQ_REL;4;__ATOMIC_CONSUME;1;__FINITE_MATH_ONLY__;0;__SIZEOF_INT__;4;__SIZEOF_LONG__;4;__SIZEOF_LONG_LONG__;8;__SIZEOF_SHORT__;2;__SIZEOF_FLOAT__;4;__SIZEOF_DOUBLE__;8;__SIZEOF_LONG_DOUBLE__;12;__SIZEOF_SIZE_T__;4;__CHAR_BIT__;8;__BIGGEST_ALIGNMENT__;16;__ORDER_LITTLE_ENDIAN__;1234;__ORDER_BIG_ENDIAN__;4321;__ORDER_PDP_ENDIAN__;3412;__BYTE_ORDER__;__ORDER_LITTLE_ENDIAN__;__FLOAT_WORD_ORDER__;__ORDER_LITTLE_ENDIAN__;__SIZEOF_POINTER__;4;__SIZE_TYPE__;unsigned int;__PTRDIFF_TYPE__;int;__WCHAR_TYPE__;short unsigned int;__WINT_TYPE__;short unsigned int;__INTMAX_TYPE__;long long int;__UINTMAX_TYPE__;long long unsigned int;__CHAR16_TYPE__;short unsigned int;__CHAR32_TYPE__;unsigned int;__SIG_ATOMIC_TYPE__;int;__INT8_TYPE__;signed char;__INT16_TYPE__;short int;__INT32_TYPE__;int;__INT64_TYPE__;long long int;__UINT8_TYPE__;unsigned char;__UINT16_TYPE__;short unsigned int;__UINT32_TYPE__;unsigned int;__UINT64_TYPE__;long long unsigned int;__INT_LEAST8_TYPE__;signed char;__INT_LEAST16_TYPE__;short int;__INT_LEAST32_TYPE__;int;__INT_LEAST64_TYPE__;long long int;__UINT_LEAST8_TYPE__;unsigned char;__UINT_LEAST16_TYPE__;short unsigned int;__UINT_LEAST32_TYPE__;unsigned int;__UINT_LEAST64_TYPE__;long long unsigned int;__INT_FAST8_TYPE__;signed char;__INT_FAST16_TYPE__;short int;__INT_FAST32_TYPE__;int;__INT_FAST64_TYPE__;long long int;__UINT_FAST8_TYPE__;unsigned char;__UINT_FAST16_TYPE__;short unsigned int;__UINT_FAST32_TYPE__;unsigned int;__UINT_FAST64_TYPE__;long long unsigned int;__INTPTR_TYPE__;int;__UINTPTR_TYPE__;unsigned int;__has_include(STR);__has_include__(STR);__has_include_next(STR);__has_include_next__(STR);__GXX_ABI_VERSION;1010;__SCHAR_MAX__;0x7f;__SHRT_MAX__;0x7fff;__INT_MAX__;0x7fffffff;__LONG_MAX__;0x7fffffffL;__LONG_LONG_MAX__;0x7fffffffffffffffLL;__WCHAR_MAX__;0xffff;__WCHAR_MIN__;0;__WINT_MAX__;0xffff;__WINT_MIN__;0;__PTRDIFF_MAX__;0x7fffffff;__SIZE_MAX__;0xffffffffU;__INTMAX_MAX__;0x7fffffffffffffffLL;__INTMAX_C(c);c ## LL;__UINTMAX_MAX__;0xffffffffffffffffULL;__UINTMAX_C(c);c ## ULL;__SIG_ATOMIC_MAX__;0x7fffffff;__SIG_ATOMIC_MIN__;(-__SIG_ATOMIC_MAX__ - 1);__INT8_MAX__;0x7f;__INT16_MAX__;0x7fff;__INT32_MAX__;0x7fffffff;__INT64_MAX__;0x7fffffffffffffffLL;__UINT8_MAX__;0xff;__UINT16_MAX__;0xffff;__UINT32_MAX__;0xffffffffU;__UINT64_MAX__;0xffffffffffffffffULL;__INT_LEAST8_MAX__;0x7f;__INT8_C(c);c;__INT_LEAST16_MAX__;0x7fff;__INT16_C(c);c;__INT_LEAST32_MAX__;0x7fffffff;__INT32_C(c);c;__INT_LEAST64_MAX__;0x7fffffffffffffffLL;__INT64_C(c);c ## LL;__UINT_LEAST8_MAX__;0xff;__UINT8_C(c);c;__UINT_LEAST16_MAX__;0xffff;__UINT16_C(c);c;__UINT_LEAST32_MAX__;0xffffffffU;__UINT32_C(c);c ## U;__UINT_LEAST64_MAX__;0xffffffffffffffffULL;__UINT64_C(c);c ## ULL;__INT_FAST8_MAX__;0x7f;__INT_FAST16_MAX__;0x7fff;__INT_FAST32_MAX__;0x7fffffff;__INT_FAST64_MAX__;0x7fffffffffffffffLL;__UINT_FAST8_MAX__;0xff;__UINT_FAST16_MAX__;0xffff;__UINT_FAST32_MAX__;0xffffffffU;__UINT_FAST64_MAX__;0xffffffffffffffffULL;__INTPTR_MAX__;0x7fffffff;__UINTPTR_MAX__;0xffffffffU;__GCC_IEC_559;2;__GCC_IEC_559_COMPLEX;2;__FLT_EVAL_METHOD__;2;__DEC_EVAL_METHOD__;2;__FLT_RADIX__;2;__FLT_MANT_DIG__;24;__FLT_DIG__;6;__FLT_MIN_EXP__;(-125);__FLT_MIN_10_EXP__;(-37);__FLT_MAX_EXP__;128;__FLT_MAX_10_EXP__;38;__FLT_DECIMAL_DIG__;9;__FLT_MAX__;3.40282346638528859812e+38F;__FLT_MIN__;1.17549435082228750797e-38F;__FLT_EPSILON__;1.19209289550781250000e-7F;__FLT_DENORM_MIN__;1.40129846432481707092e-45F;__FLT_HAS_DENORM__;1;__FLT_HAS_INFINITY__;1;__FLT_HAS_QUIET_NAN__;1;__DBL_MANT_DIG__;53;__DBL_DIG__;15;__DBL_MIN_EXP__;(-1021);__DBL_MIN_10_EXP__;(-307);__DBL_MAX_EXP__;1024;__DBL_MAX_10_EXP__;308;__DBL_DECIMAL_DIG__;17;__DBL_MAX__;((double)1.79769313486231570815e+308L);__DBL_MIN__;((double)2.22507385850720138309e-308L);__DBL_EPSILON__;((double)2.22044604925031308085e-16L);__DBL_DENORM_MIN__;((double)4.94065645841246544177e-324L);__DBL_HAS_DENORM__;1;__DBL_HAS_INFINITY__;1;__DBL_HAS_QUIET_NAN__;1;__LDBL_MANT_DIG__;64;__LDBL_DIG__;18;__LDBL_MIN_EXP__;(-16381);__LDBL_MIN_10_EXP__;(-4931);__LDBL_MAX_EXP__;16384;__LDBL_MAX_10_EXP__;4932;__DECIMAL_DIG__;21;__LDBL_MAX__;1.18973149535723176502e+4932L;__LDBL_MIN__;3.36210314311209350626e-4932L;__LDBL_EPSILON__;1.08420217248550443401e-19L;__LDBL_DENORM_MIN__;3.64519953188247460253e-4951L;__LDBL_HAS_DENORM__;1;__LDBL_HAS_INFINITY__;1;__LDBL_HAS_QUIET_NAN__;1;__DEC32_MANT_DIG__;7;__DEC32_MIN_EXP__;(-94);__DEC32_MAX_EXP__;97;__DEC32_MIN__;1E-95DF;__DEC32_MAX__;9.999999E96DF;__DEC32_EPSILON__;1E-6DF;__DEC32_SUBNORMAL_MIN__;0.000001E-95DF;__DEC64_MANT_DIG__;16;__DEC64_MIN_EXP__;(-382);__DEC64_MAX_EXP__;385;__DEC64_MIN__;1E-383DD;__DEC64_MAX__;9.999999999999999E384DD;__DEC64_EPSILON__;1E-15DD;__DEC64_SUBNORMAL_MIN__;0.000000000000001E-383DD;__DEC128_MANT_DIG__;34;__DEC128_MIN_EXP__;(-6142);__DEC128_MAX_EXP__;6145;__DEC128_MIN__;1E-6143DL;__DEC128_MAX__;9.999999999999999999999999999999999E6144DL;__DEC128_EPSILON__;1E-33DL;__DEC128_SUBNORMAL_MIN__;0.000000000000000000000000000000001E-6143DL;__REGISTER_PREFIX__; ;__USER_LABEL_PREFIX__;_;__GNUC_STDC_INLINE__;1;__NO_INLINE__;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8;1;__GCC_ATOMIC_BOOL_LOCK_FREE;2;__GCC_ATOMIC_CHAR_LOCK_FREE;2;__GCC_ATOMIC_CHAR16_T_LOCK_FREE;2;__GCC_ATOMIC_CHAR32_T_LOCK_FREE;2;__GCC_ATOMIC_WCHAR_T_LOCK_FREE;2;__GCC_ATOMIC_SHORT_LOCK_FREE;2;__GCC_ATOMIC_INT_LOCK_FREE;2;__GCC_ATOMIC_LONG_LOCK_FREE;2;__GCC_ATOMIC_LLONG_LOCK_FREE;2;__GCC_ATOMIC_TEST_AND_SET_TRUEVAL;1;__GCC_ATOMIC_POINTER_LOCK_FREE;2;__GCC_HAVE_DWARF2_CFI_ASM;1;__PRAGMA_REDEFINE_EXTNAME;1;__SIZEOF_WCHAR_T__;2;__SIZEOF_WINT_T__;2;__SIZEOF_PTRDIFF_T__;4;__i386;1;__i386__;1;i386;1;__SIZEOF_FLOAT80__;12;__SIZEOF_FLOAT128__;16;__ATOMIC_HLE_ACQUIRE;65536;__ATOMIC_HLE_RELEASE;131072;__GCC_ASM_FLAG_OUTPUTS__;1;__i586;1;__i586__;1;__pentium;1;__pentium__;1;__code_model_32__;1;__SEG_FS;1;__SEG_GS;1;_X86_;1;__stdcall;__attribute__((__stdcall__));__fastcall;__attribute__((__fastcall__));__thiscall;__attribute__((__thiscall__));__cdecl;__attribute__((__cdecl__));_stdcall;__attribute__((__stdcall__));_fastcall;__attribute__((__fastcall__));_thiscall;__attribute__((__thiscall__));_cdecl;__attribute__((__cdecl__));__GXX_MERGED_TYPEINFO_NAMES;0;__GXX_TYPEINFO_EQUALITY_INLINE;0;__MSVCRT__;1;__MINGW32__;1;_WIN32;1;__WIN32;1;__WIN32__;1;WIN32;1;__WINNT;1;__WINNT__;1;WINNT;1;_INTEGRAL_MAX_BITS;64;__declspec(x);__attribute__((x));__DECIMAL_BID_FORMAT__;1;__STDC__;1;__cplusplus;201402L;__STDC_UTF_16__;1;__STDC_UTF_32__;1;__STDC_HOSTED__;1;__GNUC__;6;__GNUC_MINOR__;3;__GNUC_PATCHLEVEL__;0;__VERSION__;"6.3.0";__ATOMIC_RELAXED;0;__ATOMIC_SEQ_CST;5;__ATOMIC_ACQUIRE;2;__ATOMIC_RELEASE;3;__ATOMIC_ACQ_REL;4;__ATOMIC_CONSUME;1;__FINITE_MATH_ONLY__;0;__SIZEOF_INT__;4;__SIZEOF_LONG__;4;__SIZEOF_LONG_LONG__;8;__SIZEOF_SHORT__;2;__SIZEOF_FLOAT__;4;__SIZEOF_DOUBLE__;8;__SIZEOF_LONG_DOUBLE__;12;__SIZEOF_SIZE_T__;4;__CHAR_BIT__;8;__BIGGEST_ALIGNMENT__;16;__ORDER_LITTLE_ENDIAN__;1234;__ORDER_BIG_ENDIAN__;4321;__ORDER_PDP_ENDIAN__;3412;__BYTE_ORDER__;__ORDER_LITTLE_ENDIAN__;__FLOAT_WORD_ORDER__;__ORDER_LITTLE_ENDIAN__;__SIZEOF_POINTER__;4;__GNUG__;6;__SIZE_TYPE__;unsigned int;__PTRDIFF_TYPE__;int;__WCHAR_TYPE__;short unsigned int;__WINT_TYPE__;short unsigned int;__INTMAX_TYPE__;long long int;__UINTMAX_TYPE__;long long unsigned int;__CHAR16_TYPE__;short unsigned int;__CHAR32_TYPE__;unsigned int;__SIG_ATOMIC_TYPE__;int;__INT8_TYPE__;signed char;__INT16_TYPE__;short int;__INT32_TYPE__;int;__INT64_TYPE__;long long int;__UINT8_TYPE__;unsigned char;__UINT16_TYPE__;short unsigned int;__UINT32_TYPE__;unsigned int;__UINT64_TYPE__;long long unsigned int;__INT_LEAST8_TYPE__;signed char;__INT_LEAST16_TYPE__;short int;__INT_LEAST32_TYPE__;int;__INT_LEAST64_TYPE__;long long int;__UINT_LEAST8_TYPE__;unsigned char;__UINT_LEAST16_TYPE__;short unsigned int;__UINT_LEAST32_TYPE__;unsigned int;__UINT_LEAST64_TYPE__;long long unsigned int;__INT_FAST8_TYPE__;signed char;__INT_FAST16_TYPE__;short int;__INT_FAST32_TYPE__;int;__INT_FAST64_TYPE__;long long int;__UINT_FAST8_TYPE__;unsigned char;__UINT_FAST16_TYPE__;short unsigned int;__UINT_FAST32_TYPE__;unsigned int;__UINT_FAST64_TYPE__;long long unsigned int;__INTPTR_TYPE__;int;__UINTPTR_TYPE__;unsigned int;__has_include(STR);__has_include__(STR);__has_include_next(STR);__has_include_next__(STR);__GXX_WEAK__;1;__DEPRECATED;1;__GXX_RTTI;1;__cpp_rtti;199711;__GXX_EXPERIMENTAL_CXX0X__;1;__cpp_binary_literals;201304;__cpp_hex_float;201603;__cpp_runtime_arrays;198712;__cpp_unicode_characters;200704;__cpp_raw_strings;200710;__cpp_unicode_literals;200710;__cpp_user_defined_literals;200809;__cpp_lambdas;200907;__cpp_range_based_for;200907;__cpp_static_assert;200410;__cpp_decltype;200707;__cpp_attributes;200809;__cpp_rvalue_reference;200610;__cpp_rvalue_references;200610;__cpp_variadic_templates;200704;__cpp_initializer_lists;200806;__cpp_delegating_constructors;200604;__cpp_nsdmi;200809;__cpp_inheriting_constructors;200802;__cpp_ref_qualifiers;200710;__cpp_alias_templates;200704;__cpp_return_type_deduction;201304;__cpp_init_captures;201304;__cpp_generic_lambdas;201304;__cpp_constexpr;201304;__cpp_decltype_auto;201304;__cpp_aggregate_nsdmi;201304;__cpp_variable_templates;201304;__cpp_digit_separators;201309;__cpp_sized_deallocation;201309;__EXCEPTIONS;1;__cpp_exceptions;199711;__GXX_ABI_VERSION;1010;__SCHAR_MAX__;0x7f;__SHRT_MAX__;0x7fff;__INT_MAX__;0x7fffffff;__LONG_MAX__;0x7fffffffL;__LONG_LONG_MAX__;0x7fffffffffffffffLL;__WCHAR_MAX__;0xffff;__WCHAR_MIN__;0;__WINT_MAX__;0xffff;__WINT_MIN__;0;__PTRDIFF_MAX__;0x7fffffff;__SIZE_MAX__;0xffffffffU;__INTMAX_MAX__;0x7fffffffffffffffLL;__INTMAX_C(c);c ## LL;__UINTMAX_MAX__;0xffffffffffffffffULL;__UINTMAX_C(c);c ## ULL;__SIG_ATOMIC_MAX__;0x7fffffff;__SIG_ATOMIC_MIN__;(-__SIG_ATOMIC_MAX__ - 1);__INT8_MAX__;0x7f;__INT16_MAX__;0x7fff;__INT32_MAX__;0x7fffffff;__INT64_MAX__;0x7fffffffffffffffLL;__UINT8_MAX__;0xff;__UINT16_MAX__;0xffff;__UINT32_MAX__;0xffffffffU;__UINT64_MAX__;0xffffffffffffffffULL;__INT_LEAST8_MAX__;0x7f;__INT8_C(c);c;__INT_LEAST16_MAX__;0x7fff;__INT16_C(c);c;__INT_LEAST32_MAX__;0x7fffffff;__INT32_C(c);c;__INT_LEAST64_MAX__;0x7fffffffffffffffLL;__INT64_C(c);c ## LL;__UINT_LEAST8_MAX__;0xff;__UINT8_C(c);c;__UINT_LEAST16_MAX__;0xffff;__UINT16_C(c);c;__UINT_LEAST32_MAX__;0xffffffffU;__UINT32_C(c);c ## U;__UINT_LEAST64_MAX__;0xffffffffffffffffULL;__UINT64_C(c);c ## ULL;__INT_FAST8_MAX__;0x7f;__INT_FAST16_MAX__;0x7fff;__INT_FAST32_MAX__;0x7fffffff;__INT_FAST64_MAX__;0x7fffffffffffffffLL;__UINT_FAST8_MAX__;0xff;__UINT_FAST16_MAX__;0xffff;__UINT_FAST32_MAX__;0xffffffffU;__UINT_FAST64_MAX__;0xffffffffffffffffULL;__INTPTR_MAX__;0x7fffffff;__UINTPTR_MAX__;0xffffffffU;__GCC_IEC_559;2;__GCC_IEC_559_COMPLEX;2;__FLT_EVAL_METHOD__;2;__DEC_EVAL_METHOD__;2;__FLT_RADIX__;2;__FLT_MANT_DIG__;24;__FLT_DIG__;6;__FLT_MIN_EXP__;(-125);__FLT_MIN_10_EXP__;(-37);__FLT_MAX_EXP__;128;__FLT_MAX_10_EXP__;38;__FLT_DECIMAL_DIG__;9;__FLT_MAX__;3.40282346638528859812e+38F;__FLT_MIN__;1.17549435082228750797e-38F;__FLT_EPSILON__;1.19209289550781250000e-7F;__FLT_DENORM_MIN__;1.40129846432481707092e-45F;__FLT_HAS_DENORM__;1;__FLT_HAS_INFINITY__;1;__FLT_HAS_QUIET_NAN__;1;__DBL_MANT_DIG__;53;__DBL_DIG__;15;__DBL_MIN_EXP__;(-1021);__DBL_MIN_10_EXP__;(-307);__DBL_MAX_EXP__;1024;__DBL_MAX_10_EXP__;308;__DBL_DECIMAL_DIG__;17;__DBL_MAX__;double(1.79769313486231570815e+308L);__DBL_MIN__;double(2.22507385850720138309e-308L);__DBL_EPSILON__;double(2.22044604925031308085e-16L);__DBL_DENORM_MIN__;double(4.94065645841246544177e-324L);__DBL_HAS_DENORM__;1;__DBL_HAS_INFINITY__;1;__DBL_HAS_QUIET_NAN__;1;__LDBL_MANT_DIG__;64;__LDBL_DIG__;18;__LDBL_MIN_EXP__;(-16381);__LDBL_MIN_10_EXP__;(-4931);__LDBL_MAX_EXP__;16384;__LDBL_MAX_10_EXP__;4932;__DECIMAL_DIG__;21;__LDBL_MAX__;1.18973149535723176502e+4932L;__LDBL_MIN__;3.36210314311209350626e-4932L;__LDBL_EPSILON__;1.08420217248550443401e-19L;__LDBL_DENORM_MIN__;3.64519953188247460253e-4951L;__LDBL_HAS_DENORM__;1;__LDBL_HAS_INFINITY__;1;__LDBL_HAS_QUIET_NAN__;1;__DEC32_MANT_DIG__;7;__DEC32_MIN_EXP__;(-94);__DEC32_MAX_EXP__;97;__DEC32_MIN__;1E-95DF;__DEC32_MAX__;9.999999E96DF;__DEC32_EPSILON__;1E-6DF;__DEC32_SUBNORMAL_MIN__;0.000001E-95DF;__DEC64_MANT_DIG__;16;__DEC64_MIN_EXP__;(-382);__DEC64_MAX_EXP__;385;__DEC64_MIN__;1E-383DD;__DEC64_MAX__;9.999999999999999E384DD;__DEC64_EPSILON__;1E-15DD;__DEC64_SUBNORMAL_MIN__;0.000000000000001E-383DD;__DEC128_MANT_DIG__;34;__DEC128_MIN_EXP__;(-6142);__DEC128_MAX_EXP__;6145;__DEC128_MIN__;1E-6143DL;__DEC128_MAX__;9.999999999999999999999999999999999E6144DL;__DEC128_EPSILON__;1E-33DL;__DEC128_SUBNORMAL_MIN__;0.000000000000000000000000000000001E-6143DL;__REGISTER_PREFIX__; ;__USER_LABEL_PREFIX__;_;__GNUC_STDC_INLINE__;1;__NO_INLINE__;1;__WCHAR_UNSIGNED__;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8;1;__GCC_ATOMIC_BOOL_LOCK_FREE;2;__GCC_ATOMIC_CHAR_LOCK_FREE;2;__GCC_ATOMIC_CHAR16_T_LOCK_FREE;2;__GCC_ATOMIC_CHAR32_T_LOCK_FREE;2;__GCC_ATOMIC_WCHAR_T_LOCK_FREE;2;__GCC_ATOMIC_SHORT_LOCK_FREE;2;__GCC_ATOMIC_INT_LOCK_FREE;2;__GCC_ATOMIC_LONG_LOCK_FREE;2;__GCC_ATOMIC_LLONG_LOCK_FREE;2;__GCC_ATOMIC_TEST_AND_SET_TRUEVAL;1;__GCC_ATOMIC_POINTER_LOCK_FREE;2;__GCC_HAVE_DWARF2_CFI_ASM;1;__PRAGMA_REDEFINE_EXTNAME;1;__SIZEOF_WCHAR_T__;2;__SIZEOF_WINT_T__;2;__SIZEOF_PTRDIFF_T__;4;__i386;1;__i386__;1;i386;1;__SIZEOF_FLOAT80__;12;__SIZEOF_FLOAT128__;16;__ATOMIC_HLE_ACQUIRE;65536;__ATOMIC_HLE_RELEASE;131072;__GCC_ASM_FLAG_OUTPUTS__;1;__i586;1;__i586__;1;__pentium;1;__pentium__;1;__code_model_32__;1;__SEG_FS;1;__SEG_GS;1;_X86_;1;__stdcall;__attribute__((__stdcall__));__fastcall;__attribute__((__fastcall__));__thiscall;__attribute__((__thiscall__));__cdecl;__attribute__((__cdecl__));_stdcall;__attribute__((__stdcall__));_fastcall;__attribute__((__fastcall__));_thiscall;__attribute__((__thiscall__));_cdecl;__attribute__((__cdecl__));__GXX_MERGED_TYPEINFO_NAMES;0;__GXX_TYPEINFO_EQUALITY_INLINE;0;__MSVCRT__;1;__MINGW32__;1;_WIN32;1;__WIN32;1;__WIN32__;1;WIN32;1;__WINNT;1;__WINNT__;1;WINNT;1;_INTEGRAL_MAX_BITS;64;__declspec(x);__attribute__((x));__DECIMAL_BID_FORMAT__;1
 //CXX compiler system include directories
-CMAKE_EXTRA_GENERATOR_CXX_SYSTEM_INCLUDE_DIRS:INTERNAL=c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/mingw32;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include/c++/backward;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
-//C compiler system defined macros
-CMAKE_EXTRA_GENERATOR_C_SYSTEM_DEFINED_MACROS:INTERNAL=__STDC__;1;__STDC_VERSION__;201112L;__STDC_UTF_16__;1;__STDC_UTF_32__;1;__STDC_HOSTED__;1;__GNUC__;6;__GNUC_MINOR__;3;__GNUC_PATCHLEVEL__;0;__VERSION__;"6.3.0";__ATOMIC_RELAXED;0;__ATOMIC_SEQ_CST;5;__ATOMIC_ACQUIRE;2;__ATOMIC_RELEASE;3;__ATOMIC_ACQ_REL;4;__ATOMIC_CONSUME;1;__FINITE_MATH_ONLY__;0;__SIZEOF_INT__;4;__SIZEOF_LONG__;4;__SIZEOF_LONG_LONG__;8;__SIZEOF_SHORT__;2;__SIZEOF_FLOAT__;4;__SIZEOF_DOUBLE__;8;__SIZEOF_LONG_DOUBLE__;12;__SIZEOF_SIZE_T__;4;__CHAR_BIT__;8;__BIGGEST_ALIGNMENT__;16;__ORDER_LITTLE_ENDIAN__;1234;__ORDER_BIG_ENDIAN__;4321;__ORDER_PDP_ENDIAN__;3412;__BYTE_ORDER__;__ORDER_LITTLE_ENDIAN__;__FLOAT_WORD_ORDER__;__ORDER_LITTLE_ENDIAN__;__SIZEOF_POINTER__;4;__SIZE_TYPE__;unsigned int;__PTRDIFF_TYPE__;int;__WCHAR_TYPE__;short unsigned int;__WINT_TYPE__;short unsigned int;__INTMAX_TYPE__;long long int;__UINTMAX_TYPE__;long long unsigned int;__CHAR16_TYPE__;short unsigned int;__CHAR32_TYPE__;unsigned int;__SIG_ATOMIC_TYPE__;int;__INT8_TYPE__;signed char;__INT16_TYPE__;short int;__INT32_TYPE__;int;__INT64_TYPE__;long long int;__UINT8_TYPE__;unsigned char;__UINT16_TYPE__;short unsigned int;__UINT32_TYPE__;unsigned int;__UINT64_TYPE__;long long unsigned int;__INT_LEAST8_TYPE__;signed char;__INT_LEAST16_TYPE__;short int;__INT_LEAST32_TYPE__;int;__INT_LEAST64_TYPE__;long long int;__UINT_LEAST8_TYPE__;unsigned char;__UINT_LEAST16_TYPE__;short unsigned int;__UINT_LEAST32_TYPE__;unsigned int;__UINT_LEAST64_TYPE__;long long unsigned int;__INT_FAST8_TYPE__;signed char;__INT_FAST16_TYPE__;short int;__INT_FAST32_TYPE__;int;__INT_FAST64_TYPE__;long long int;__UINT_FAST8_TYPE__;unsigned char;__UINT_FAST16_TYPE__;short unsigned int;__UINT_FAST32_TYPE__;unsigned int;__UINT_FAST64_TYPE__;long long unsigned int;__INTPTR_TYPE__;int;__UINTPTR_TYPE__;unsigned int;__has_include(STR);__has_include__(STR);__has_include_next(STR);__has_include_next__(STR);__GXX_ABI_VERSION;1010;__SCHAR_MAX__;0x7f;__SHRT_MAX__;0x7fff;__INT_MAX__;0x7fffffff;__LONG_MAX__;0x7fffffffL;__LONG_LONG_MAX__;0x7fffffffffffffffLL;__WCHAR_MAX__;0xffff;__WCHAR_MIN__;0;__WINT_MAX__;0xffff;__WINT_MIN__;0;__PTRDIFF_MAX__;0x7fffffff;__SIZE_MAX__;0xffffffffU;__INTMAX_MAX__;0x7fffffffffffffffLL;__INTMAX_C(c);c ## LL;__UINTMAX_MAX__;0xffffffffffffffffULL;__UINTMAX_C(c);c ## ULL;__SIG_ATOMIC_MAX__;0x7fffffff;__SIG_ATOMIC_MIN__;(-__SIG_ATOMIC_MAX__ - 1);__INT8_MAX__;0x7f;__INT16_MAX__;0x7fff;__INT32_MAX__;0x7fffffff;__INT64_MAX__;0x7fffffffffffffffLL;__UINT8_MAX__;0xff;__UINT16_MAX__;0xffff;__UINT32_MAX__;0xffffffffU;__UINT64_MAX__;0xffffffffffffffffULL;__INT_LEAST8_MAX__;0x7f;__INT8_C(c);c;__INT_LEAST16_MAX__;0x7fff;__INT16_C(c);c;__INT_LEAST32_MAX__;0x7fffffff;__INT32_C(c);c;__INT_LEAST64_MAX__;0x7fffffffffffffffLL;__INT64_C(c);c ## LL;__UINT_LEAST8_MAX__;0xff;__UINT8_C(c);c;__UINT_LEAST16_MAX__;0xffff;__UINT16_C(c);c;__UINT_LEAST32_MAX__;0xffffffffU;__UINT32_C(c);c ## U;__UINT_LEAST64_MAX__;0xffffffffffffffffULL;__UINT64_C(c);c ## ULL;__INT_FAST8_MAX__;0x7f;__INT_FAST16_MAX__;0x7fff;__INT_FAST32_MAX__;0x7fffffff;__INT_FAST64_MAX__;0x7fffffffffffffffLL;__UINT_FAST8_MAX__;0xff;__UINT_FAST16_MAX__;0xffff;__UINT_FAST32_MAX__;0xffffffffU;__UINT_FAST64_MAX__;0xffffffffffffffffULL;__INTPTR_MAX__;0x7fffffff;__UINTPTR_MAX__;0xffffffffU;__GCC_IEC_559;2;__GCC_IEC_559_COMPLEX;2;__FLT_EVAL_METHOD__;2;__DEC_EVAL_METHOD__;2;__FLT_RADIX__;2;__FLT_MANT_DIG__;24;__FLT_DIG__;6;__FLT_MIN_EXP__;(-125);__FLT_MIN_10_EXP__;(-37);__FLT_MAX_EXP__;128;__FLT_MAX_10_EXP__;38;__FLT_DECIMAL_DIG__;9;__FLT_MAX__;3.40282346638528859812e+38F;__FLT_MIN__;1.17549435082228750797e-38F;__FLT_EPSILON__;1.19209289550781250000e-7F;__FLT_DENORM_MIN__;1.40129846432481707092e-45F;__FLT_HAS_DENORM__;1;__FLT_HAS_INFINITY__;1;__FLT_HAS_QUIET_NAN__;1;__DBL_MANT_DIG__;53;__DBL_DIG__;15;__DBL_MIN_EXP__;(-1021);__DBL_MIN_10_EXP__;(-307);__DBL_MAX_EXP__;1024;__DBL_MAX_10_EXP__;308;__DBL_DECIMAL_DIG__;17;__DBL_MAX__;((double)1.79769313486231570815e+308L);__DBL_MIN__;((double)2.22507385850720138309e-308L);__DBL_EPSILON__;((double)2.22044604925031308085e-16L);__DBL_DENORM_MIN__;((double)4.94065645841246544177e-324L);__DBL_HAS_DENORM__;1;__DBL_HAS_INFINITY__;1;__DBL_HAS_QUIET_NAN__;1;__LDBL_MANT_DIG__;64;__LDBL_DIG__;18;__LDBL_MIN_EXP__;(-16381);__LDBL_MIN_10_EXP__;(-4931);__LDBL_MAX_EXP__;16384;__LDBL_MAX_10_EXP__;4932;__DECIMAL_DIG__;21;__LDBL_MAX__;1.18973149535723176502e+4932L;__LDBL_MIN__;3.36210314311209350626e-4932L;__LDBL_EPSILON__;1.08420217248550443401e-19L;__LDBL_DENORM_MIN__;3.64519953188247460253e-4951L;__LDBL_HAS_DENORM__;1;__LDBL_HAS_INFINITY__;1;__LDBL_HAS_QUIET_NAN__;1;__DEC32_MANT_DIG__;7;__DEC32_MIN_EXP__;(-94);__DEC32_MAX_EXP__;97;__DEC32_MIN__;1E-95DF;__DEC32_MAX__;9.999999E96DF;__DEC32_EPSILON__;1E-6DF;__DEC32_SUBNORMAL_MIN__;0.000001E-95DF;__DEC64_MANT_DIG__;16;__DEC64_MIN_EXP__;(-382);__DEC64_MAX_EXP__;385;__DEC64_MIN__;1E-383DD;__DEC64_MAX__;9.999999999999999E384DD;__DEC64_EPSILON__;1E-15DD;__DEC64_SUBNORMAL_MIN__;0.000000000000001E-383DD;__DEC128_MANT_DIG__;34;__DEC128_MIN_EXP__;(-6142);__DEC128_MAX_EXP__;6145;__DEC128_MIN__;1E-6143DL;__DEC128_MAX__;9.999999999999999999999999999999999E6144DL;__DEC128_EPSILON__;1E-33DL;__DEC128_SUBNORMAL_MIN__;0.000000000000000000000000000000001E-6143DL;__REGISTER_PREFIX__; ;__USER_LABEL_PREFIX__;_;__GNUC_STDC_INLINE__;1;__NO_INLINE__;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4;1;__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8;1;__GCC_ATOMIC_BOOL_LOCK_FREE;2;__GCC_ATOMIC_CHAR_LOCK_FREE;2;__GCC_ATOMIC_CHAR16_T_LOCK_FREE;2;__GCC_ATOMIC_CHAR32_T_LOCK_FREE;2;__GCC_ATOMIC_WCHAR_T_LOCK_FREE;2;__GCC_ATOMIC_SHORT_LOCK_FREE;2;__GCC_ATOMIC_INT_LOCK_FREE;2;__GCC_ATOMIC_LONG_LOCK_FREE;2;__GCC_ATOMIC_LLONG_LOCK_FREE;2;__GCC_ATOMIC_TEST_AND_SET_TRUEVAL;1;__GCC_ATOMIC_POINTER_LOCK_FREE;2;__GCC_HAVE_DWARF2_CFI_ASM;1;__PRAGMA_REDEFINE_EXTNAME;1;__SIZEOF_WCHAR_T__;2;__SIZEOF_WINT_T__;2;__SIZEOF_PTRDIFF_T__;4;__i386;1;__i386__;1;i386;1;__SIZEOF_FLOAT80__;12;__SIZEOF_FLOAT128__;16;__ATOMIC_HLE_ACQUIRE;65536;__ATOMIC_HLE_RELEASE;131072;__GCC_ASM_FLAG_OUTPUTS__;1;__i586;1;__i586__;1;__pentium;1;__pentium__;1;__code_model_32__;1;__SEG_FS;1;__SEG_GS;1;_X86_;1;__stdcall;__attribute__((__stdcall__));__fastcall;__attribute__((__fastcall__));__thiscall;__attribute__((__thiscall__));__cdecl;__attribute__((__cdecl__));_stdcall;__attribute__((__stdcall__));_fastcall;__attribute__((__fastcall__));_thiscall;__attribute__((__thiscall__));_cdecl;__attribute__((__cdecl__));__GXX_MERGED_TYPEINFO_NAMES;0;__GXX_TYPEINFO_EQUALITY_INLINE;0;__MSVCRT__;1;__MINGW32__;1;_WIN32;1;__WIN32;1;__WIN32__;1;WIN32;1;__WINNT;1;__WINNT__;1;WINNT;1;_INTEGRAL_MAX_BITS;64;__declspec(x);__attribute__((x));__DECIMAL_BID_FORMAT__;1
+CMAKE_EXTRA_GENERATOR_CXX_SYSTEM_INCLUDE_DIRS:INTERNAL=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508\ATLMFC\include;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508\include;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt
 //C compiler system include directories
-CMAKE_EXTRA_GENERATOR_C_SYSTEM_INCLUDE_DIRS:INTERNAL=c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed;c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../mingw32/include
+CMAKE_EXTRA_GENERATOR_C_SYSTEM_INCLUDE_DIRS:INTERNAL=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508\ATLMFC\include;C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.20.27508\include;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt;C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=MinGW Makefiles
+CMAKE_GENERATOR:INTERNAL=NMake Makefiles
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
@@ -555,6 +578,8 @@ CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
 CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
 CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
 CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
@@ -575,18 +600,10 @@ CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_NM
-CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
-//ADVANCED property for variable: CMAKE_OBJCOPY
-CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_OBJDUMP
-CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=11
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_RANLIB
-CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
 CMAKE_RC_COMPILER-ADVANCED:INTERNAL=1
 CMAKE_RC_COMPILER_WORKS:INTERNAL=1
@@ -602,8 +619,6 @@ CMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Path to CMake installation.
 CMAKE_ROOT:INTERNAL=C:/Program Files/JetBrains/CLion 2019.1/bin/cmake/win/share/cmake-3.13
-//ADVANCED property for variable: CMAKE_SH
-CMAKE_SH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -628,30 +643,68 @@ CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_STRIP
-CMAKE_STRIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//Have include dinput.h
-DINPUT_H_FOUND:INTERNAL=
+//ADVANCED property for variable: DirectX_D3D11_INCLUDE_DIR
+DirectX_D3D11_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_D3D11_LIBRARY
+DirectX_D3D11_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_D3DCOMPILER_LIBRARY
+DirectX_D3DCOMPILER_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_D3DX11_LIBRARY
+DirectX_D3DX11_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_D3DX9_LIBRARY
+DirectX_D3DX9_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_DXERR_LIBRARY
+DirectX_DXERR_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_DXGI_LIBRARY
+DirectX_DXGI_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_DXGUID_LIBRARY
+DirectX_DXGUID_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_INCLUDE_DIR
+DirectX_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: DirectX_LIBRARY
+DirectX_LIBRARY-ADVANCED:INTERNAL=1
+//x
+DirectX_PREFIX_PATH_INT_CHECK:INTERNAL=C:/apps_x86/Microsoft DirectX SDK*;C:/Program Files (x86)/Microsoft DirectX SDK*;C:/apps/Microsoft DirectX SDK*;C:/Program Files/Microsoft DirectX SDK*;C:/Program Files (x86)/Windows Kits/8.1;C:\Program Files (x86)/Microsoft DirectX SDK*
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Have function fseeko
+HAVE_FSEEKO:INTERNAL=
+//Result of TRY_COMPILE
+HAVE_OFF64_T:INTERNAL=FALSE
+//Have include stddef.h
+HAVE_STDDEF_H:INTERNAL=1
+//Have include stdint.h
+HAVE_STDINT_H:INTERNAL=1
+//Have include sys/types.h
+HAVE_SYS_TYPES_H:INTERNAL=1
+//IrrXML_Include
+IRRXML_INCLUDE_DIR:INTERNAL=C:/Users/birdi/CLionProjects/Daybreak/libs/assimp/contrib/irrXML
+//IrrXML
+IRRXML_LIBRARY:INTERNAL=IrrXML
+//CHECK_TYPE_SIZE: off64_t unknown
+OFF64_T:INTERNAL=
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: VULKAN_INCLUDE_DIR
-VULKAN_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: VULKAN_LIBRARY
-VULKAN_LIBRARY-ADVANCED:INTERNAL=1
-//Have include xinput.h
-XINPUT_H_FOUND:INTERNAL=
-//Test _GLFW_HAS_64ASLR
-_GLFW_HAS_64ASLR:INTERNAL=
-//Test _GLFW_HAS_ASLR
-_GLFW_HAS_ASLR:INTERNAL=1
-//Test _GLFW_HAS_DEP
-_GLFW_HAS_DEP:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: RT_LIBRARY
+RT_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_DBG
+ZLIB_LIBRARY_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_REL
+ZLIB_LIBRARY_REL-ADVANCED:INTERNAL=1
+//x
+ZLIB_PREFIX_PATH_INT_CHECK:INTERNAL=
+//Have include unistd.h
+Z_HAVE_UNISTD_H:INTERNAL=
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/Daybreak
 

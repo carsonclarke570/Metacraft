@@ -9,22 +9,22 @@ set(CMAKE_DEPENDS_CHECK_C
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/init.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/input.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/monitor.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
+  "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/osmesa_context.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/vulkan.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/wgl_context.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_init.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_joystick.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_monitor.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+  "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_thread.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_time.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
-  "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_tls.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_tls.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/win32_window.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
   "C:/Users/birdi/CLionProjects/Daybreak/libs/glfw/src/window.c" "C:/Users/birdi/CLionProjects/Daybreak/cmake-build-debug/libs/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "MSVC")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C
-  "UNICODE"
-  "WINVER=0x0501"
+  "_CRT_SECURE_NO_WARNINGS"
   "_GLFW_USE_CONFIG_H"
   )
 
@@ -33,7 +33,6 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../libs/glfw/include"
   "../libs/glfw/src"
   "libs/glfw/src"
-  "../libs/glfw/deps/mingw"
   )
 
 # Targets to which this target links.

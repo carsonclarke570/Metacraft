@@ -1,4 +1,4 @@
-ToolSet: 5.0 (local)@C:\MinGW
+ToolSet: 16.0 (local)@C:\Program Files (x86)\Microsoft Visual Studio\2019\Community
 Options: 
 
-Options:
+Options:-DASSIMP_BUILD_SMD_LOADER=NO

@@ -1,0 +1,31 @@
+Coding Conventions
+
+- Filename
+    Lowercase
+
+    # C Source and Header files
+    {file_name}.h
+    {file_name}.c
+    
+    # Shader files
+    {shader_name}.frag
+    {shader_name}.geom
+    {shader_name}.vert
+
+- Structs
+
+    typedef struct {
+        int example;
+        float another_example
+    } StructName;
+
+- Function Prototypes
+
+    # Allocates and initializes data
+    void {StructName}_create({Struct} *{StructName}, ...)
+
+    # Allocates data. No initialization, just pass enough info to allocate
+    void {StructName}_allocate({Struct} *{StructName}, ...)
+
+    # Destroys data
+    void {StructName}_delete({Struct}* {StructName})

@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gears.dir/gears.c.obj"
-  "CMakeFiles/gears.dir/glfw.rc.obj"
-  "CMakeFiles/gears.dir/__/deps/glad.c.obj"
+  "CMakeFiles/gears.dir/glfw.rc.res"
+  "CMakeFiles/gears.dir/__/deps/glad_gl.c.obj"
   "gears.pdb"
   "gears.exe"
   "gears.exe.manifest"
-  "libgears.dll.a"
+  "gears.lib"
 )
 
 # Per-language clean rules from dependency scanning.
