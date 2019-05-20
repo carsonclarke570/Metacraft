@@ -1,38 +1,53 @@
-# Metacraft - A C-based Minecraft Clone
+# mineCraft - (Hopefully) A C-based Minecraft Clone with Ray-Tracing
 
-A C-based Minecraft clone written in OpenGL utilizing advanced rendering techniques such as PBR shading, environment mapping and deferred rendering. 
+This is yet another Minecraft clone...   written in C...   with ray tracing...   if we get that far...   maybe...
 
 ## Getting Started
 
-Clone the repo to your machine.
+cloen da repo
 
 ### Prerequisites
 
-Please ensure you have the latest version of cmake and OpenGL installed. You can install them with:
+Please ensure you have the latest versions of CMake and OpenGL (4.3) installed.
 
+Install OpenGL:
 ```
-sudo apt install cmake
 sudo apt install xorg-dev libgl1-mesa-dev libglu-dev libassimp-dev
 ```
 
-### Installing
+Install CMake:
+```
+sudo apt install cmake
+```
 
-After cloning the repository and installing cmake and OpenGL:
+If the version of CMake is out of date (because Ubuntu), uninstall it with:
+```
+sudo apt purge --auto-remove cmake
+```
 
-Create a build directory in the project
+and reinstall manualy with the latest version:
+(i.e. version = 3.14, build = 3)
+```
+mkdir ~/temp
+cd ~/temp
+wget https://cmake.org/files/v<version>/cmake-<version>.<build>.tar.gz
+tar -xzvf cmake-<version>.<build>.tar.gz
+cd cmake-<version>.<build>/
+./bootstrap
+make -j4
+sudo make install
+cd ..
+rm -r temp
+```
 
+### Building
+
+Create a build directory in the project, run CMake in that directory,
+run the generated Makefile, and execute the program:
 ```
 mkdir build
 cd build
-```
-Run CMake in that directory
-
-```
 cmake ..
-```
-
-Run the produced Makefile and execute the program
-```
 make
 ./Daybreak
 ```
@@ -42,13 +57,12 @@ The program shoud launch in a new window.
 ## Built With
 
 * [glfw](https://github.com/glfw/glfw) - A multi-platform library for OpenGL, OpenGL ES, Vulkan, window and input 
-* [assimp](https://github.com/assimp/assimp) - A 3D Object loading library
 * [glad](https://github.com/Dav1dde/glad) - OpenGL loader
 * [stb](https://github.com/nothings/stb) - Image loading library
 
 ## Contributing
 
-Please contact Carson Clarke-Magrab at ctc7359@rit.edu if you are interested in contributing or make a pull request.
+TO-DO
 
 ## Versioning
 
@@ -57,6 +71,7 @@ TO-DO
 ## Authors
 
 * **Carson Clarke-Magrab** - *Engine Design* - [carsonclarke570](https://github.com/carsonclarke570)
+* **Wesley Dahar** - *Unrealistic Ideas* - [WesleyDahar](https://github.com/WesleyDahar)
 
 See also the list of [contributors](https://github.com/carsonclarke570/mineCraft/graphs/contributors) who participated in this project.
 
@@ -67,3 +82,4 @@ This project is licensed under the Apache License - see the [LICENSE.md](LICENSE
 ## Acknowledgments
 
 * The existence of the GrubHub delivery service
+* CTRL-Z
