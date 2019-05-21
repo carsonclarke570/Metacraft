@@ -7,3 +7,7 @@ Textures / Texture Pool
   using one of the name texture_diffuse, texture_specular, texture_normal
   or texture_height
 
+PBR Materials
+- Normal Map (R -> X, G -> Y, B -> Z)
+- Diffuse Map (R -> R, G -> G, B -> B);
+- Metal/Rough/AO Map (R -> Roughness, G -> Metallic, B -> AO)

@@ -21,28 +21,28 @@
 
 #include <camera.h>
 #include <chunk.h>
+#include <day_cycle.h>
 #include <engine.h>
 #include <framebuffer.h>
 #include <cubemap.h>
 #include <transform.h>
 #include <uniform_buffer.h>
-#include <light.h>
 
 #define N_DEBUG 0
 
 typedef struct {
     // Scene materials
     Camera camera;
-    CubeMap sky_box;
 
     UniformBuffer mvp_mat;
     Framebuffer g_buffer;
     Mesh frame;
 
-    DirectionalLight sunlight;
+    CubeMap sky_box;
+    DayCycle day_cycle;
 
     Shader sky_shader;
-    Shader ambient_light;
+    Shader pbr_shader;
     Shader geometry;
 #if N_DEBUG
     Shader normal_shader;
@@ -88,6 +88,41 @@ void world_update(World* world, Game* game, double delta);
  * @param delta     Time since last render.
  */
 void world_render(World* world, Game* game, double delta);
+
+/**
+ * Renders the scene.
+ *
+ * @param world
+ */
+void world_scene(World* world);
+
+/**
+ *  Performs a deferred rendering geometry pass. Writes the data to three
+ *  framebuffers (G-Buffer) formatted as such:
+ *      location 0 - (vec4) position + metallic
+ *      location 1 - (vec4) albedo + roughness
+ *      location 2 - (vec4) normal + ao
+ *
+ *  @param world     World struct
+ */
+void world_geometry_pass(World* world);
+
+/**
+ * Performs a physically-based lighting pass. Uses the G-Buffer to obtain data
+ * from the scene.
+ *
+ * @param world     World struct
+ */
+void world_lighting_pass(World* world);
+
+/**
+ * Draws the skybox by rendering the scene six times from the center of the
+ * current chunk to six textures. These textures are used as environment
+ * mapping for the PBR shading.
+ *
+ * @param world     World struct
+ */
+void world_sky_pass(World* world);
 
 /**
  * Delete a world.

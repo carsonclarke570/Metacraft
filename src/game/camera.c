@@ -34,7 +34,7 @@ void update_vector(Camera* camera) {
     vec3_normalize(f, camera->up);
 }
 
-void camera_init(Camera* camera) {
+void init_camera(Camera *camera) {
     memset(camera, 0, sizeof(Camera));
     camera->front[2] = 1.0f;
     camera->up[1] = 1.0f;
@@ -46,14 +46,14 @@ void camera_init(Camera* camera) {
 }
 
 
-void camera_view_matrix(Camera* camera, mat4 view) {
+void get_view(Camera *camera, mat4 view) {
     vec3 temp;
     vec3_add(camera->position, camera->front, temp);
     mat4_look_at(view, camera->position, temp, camera->up);
 }
 
 
-void camera_move(Camera* camera, Window* window, float delta) {
+void move_camera(Camera *camera, Window *window, float delta) {
     const float velocity = camera->speed * delta;
     GLFWwindow* win = window->window;
 
@@ -77,7 +77,7 @@ void camera_move(Camera* camera, Window* window, float delta) {
 }
 
 
-void camera_look(Camera* camera, vec2 offset) {
+void look_camera(Camera *camera, vec2 offset) {
     vec2 temp;
     vec2_mulf(offset, camera->sensitivity, temp);
 

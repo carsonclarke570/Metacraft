@@ -46,6 +46,12 @@ void vec3_cross(const vec3 a, const vec3 b, vec3 y) {
     y[2] = z_;
 }
 
+void vec3_lerp(const vec3 a, const vec3 b, float c, vec3 y) {
+    y[0] = a[0] + (c * (b[0] - a[0]));
+    y[1] = a[1] + (c * (b[1] - a[1]));
+    y[2] = a[2] + (c * (b[2] - a[2]));
+}
+
 void vec3_sub(const vec3 a, const vec3 b, vec3 y) {
     y[0] = a[0] - b[0];
     y[1] = a[1] - b[1];
