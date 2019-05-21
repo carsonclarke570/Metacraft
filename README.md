@@ -1,6 +1,6 @@
-# mineCraft - (Hopefully) A C-based Minecraft Clone with Ray-Tracing
+# Metacraft - A C-based Minecraft Clone
 
-This is yet another Minecraft clone...   written in C...   with ray tracing...   if we get that far...   maybe...
+A C-based Minecraft clone written in OpenGL utilizing advanced rendering techniques such as PBR shading, environment mapping and deferred rendering.
 
 ## Getting Started
 
