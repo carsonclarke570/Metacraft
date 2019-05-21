@@ -19,8 +19,7 @@
 extern TexturePool texture_pool;
 
 void world_init(World* world, Game* game) {
-    // CAMERA
-    init_camera(&world->camera);
+    fprintf(stdout, "\nWORLD: Loading Resources...\n");
 
     // CHUNK STUFF
     chunk_allocate(&world->chunk);
@@ -41,7 +40,7 @@ void world_init(World* world, Game* game) {
     mesh_cube(&world->test_cube);
 
     // TEXTURES
-    texture_pool_allocate(3);
+    texture_pool_allocate(6);
     create_texture(&texture_pool.textures[0], TEXTURE_DIFFUSE);
     create_texture(&texture_pool.textures[1], TEXTURE_NORMAL);
     create_texture(&texture_pool.textures[2], TEXTURE_SPECULAR);
@@ -51,6 +50,16 @@ void world_init(World* world, Game* game) {
     texture_load(&texture_pool.textures[0], "gold_ore.png");
     texture_load(&texture_pool.textures[1], "gold_ore_n.png");
     texture_load(&texture_pool.textures[2], "gold_ore_s.png");
+
+    create_texture(&texture_pool.textures[3], TEXTURE_DIFFUSE);
+    create_texture(&texture_pool.textures[4], TEXTURE_NORMAL);
+    create_texture(&texture_pool.textures[5], TEXTURE_SPECULAR);
+    texture_sampling(&texture_pool.textures[3], GL_CLAMP_TO_EDGE, GL_LINEAR);
+    texture_sampling(&texture_pool.textures[4], GL_CLAMP_TO_EDGE, GL_LINEAR);
+    texture_sampling(&texture_pool.textures[5], GL_CLAMP_TO_EDGE, GL_LINEAR);
+    texture_load(&texture_pool.textures[3], "blocks.png");
+    texture_load(&texture_pool.textures[4], "blocks_n.png");
+    texture_load(&texture_pool.textures[5], "blocks_s.png");
 
     /* PBR Lighting Shader */
     shader_load_file(&world->pbr_shader, VERTEX, "light.vert");
@@ -71,11 +80,10 @@ void world_init(World* world, Game* game) {
     /* Geometry Pass Configuration */
     shader_bind(&world->geometry);
     shader_bind_ubo(&world->geometry, "mvp_mat", 0);
-    register_texture(&world->geometry, &texture_pool.textures[0], 5);
-    register_texture(&world->geometry, &texture_pool.textures[1], 6);
-    register_texture(&world->geometry, &texture_pool.textures[2], 7);
+    register_texture(&world->geometry, &texture_pool.textures[3], 5);
+    register_texture(&world->geometry, &texture_pool.textures[4], 6);
+    register_texture(&world->geometry, &texture_pool.textures[5], 7);
     shader_unbind();
-
 
     /* Day/Night Cycle */
     const vec3 day_sky = {0.0, 0.0, 1.0};
@@ -124,6 +132,7 @@ void world_init(World* world, Game* game) {
     uniform_buffer_store(&world->mvp_mat, 2 * sizeof(mat4), sizeof(mat4), p_mat);
 
     // VIEW MATRIX
+    init_camera(&world->camera);
     get_view(&world->camera, v_mat);
     uniform_buffer_store(&world->mvp_mat, sizeof(mat4), sizeof(mat4), v_mat);
 
@@ -136,6 +145,8 @@ void world_init(World* world, Game* game) {
     transform_default(&world->cube_t);
     world->cube_t.translation[0] = -5.0f;
     world->cube_t.translation[2] = -10.0f;
+
+    fprintf(stdout, "WORLD: Resources loaded.\n");
 }
 
 void world_update(World* world, Game* game, double delta) {
@@ -170,9 +181,17 @@ void world_render(World* world, Game* game, double delta) {
 void world_scene(World* world) {
     mat4 mat;
 
+    bind_texture(&texture_pool.textures[3], 5);
+    bind_texture(&texture_pool.textures[4], 6);
+    bind_texture(&texture_pool.textures[5], 7);
+
     transform_to_matrix(&world->chunk_t, mat);
     uniform_buffer_store(&world->mvp_mat, 0, sizeof(mat4), mat);
     mesh_render(&world->chunk_mesh);
+
+    bind_texture(&texture_pool.textures[0], 5);
+    bind_texture(&texture_pool.textures[1], 6);
+    bind_texture(&texture_pool.textures[2], 7);
 
     transform_to_matrix(&world->cube_t, mat);
     uniform_buffer_store(&world->mvp_mat, 0, sizeof(mat4), mat);
@@ -187,10 +206,6 @@ void world_geometry_pass(World* world) {
 
     get_view(&world->camera, view);
     uniform_buffer_store(&world->mvp_mat, sizeof(mat4), sizeof(mat4), view);
-
-    bind_texture(&texture_pool.textures[0], 5);
-    bind_texture(&texture_pool.textures[1], 6);
-    bind_texture(&texture_pool.textures[2], 7);
 
     shader_bind(&world->geometry);
     world_scene(world);

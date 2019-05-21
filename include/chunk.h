@@ -19,7 +19,18 @@
 
 #include <stdint.h>
 
+#include <block_id.h>
 #include <mesh.h>
+
+#define TEX_UNIT_X          (float)(1.0f / BLOCKS_PER_ROW)
+#define TEX_UNIT_Y          (float)(1.0f / BLOCKS_PER_COL)
+
+#define X_INDEX(i)          ((int)(i % BLOCKS_PER_ROW))
+#define Y_INDEX(i)          ((int)(i / BLOCKS_PER_ROW))
+
+#define TEXTURE_X(id) ((float)X_INDEX(id) * TEX_UNIT_X)
+#define TEXTURE_Y(id) (1.0f - ((float)Y_INDEX(id) * TEX_UNIT_Y))
+
 
 typedef struct {
     uint16_t* chunk;
