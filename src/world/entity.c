@@ -33,8 +33,3 @@ void write_entity(Entity *entity, FILE *file) {
 }
 
 
-
-#endif
-
-
-
