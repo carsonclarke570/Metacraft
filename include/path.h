@@ -11,19 +11,19 @@ path.h
 #include "entity.h"
 
 
-#define DIST_BLOCK (4.0) // default arrival distance for blocks is 4.0m
-#define DIST_MOB (1.0) // default arrival distance for mobs is 1.0m
+#define DIST_BLOCK (4.0)       // default arrival distance for blocks is 4.0m
+#define DIST_MOB (1.0)         // default arrival distance for mobs is 1.0m
 #define DIST_COLLECTIVE (16.0) // default arrival distance for collectives is 16.0m
 
 
 typedef struct {
-    bool hasGravity;    // the Path is influenced by gravity
-    bool isTraversable; // destination can be reached
-    Entity *traveler;   // Entity following the Path
-    Entity *target;     // Entity being followed
-    double destination[3];   // coordinates being moved to (target and destination are  mutually exclusive)
-    uint16_t stopCount; // number of stops defining the Path
-    double *stops[3];        // array of coordinates defining the Path
+    bool hasGravity;       // the Path is influenced by gravity
+    bool isTraversable;    // destination can be reached
+    Entity *traveler;      // Entity following the Path
+    Entity *target;        // Entity being followed
+    double destination[3]; // coordinates being moved to (target and destination are  mutually exclusive)
+    uint16_t stopCount;    // number of stops defining the Path
+    double *stops;         // array of coordinates defining the Path (iterate by 3's!)
 } Path;
 
 

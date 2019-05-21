@@ -14,44 +14,48 @@
     limitations under the License.
 */
 
-#ifndef _COMMON_H_
-#define _COMMON_H_
+#ifndef COMMON_H
+#define COMMON_H
 
 #include <GLFW/glfw3.h>
 
+
+
 // Error Codes
-#define CODE_SUCCESS                00
-#define CODE_GLFW_INIT_ERR          01   // GLFW
-#define CODE_WINDOW_CREATE_ERR      02
-#define CODE_GLAD_INIT_ERR          10   // glad
-#define CODE_INVALID_SHADER_TYPE    20   // Shaders
-#define CODE_SHADER_COMPILE_ERROR   21
-#define CODE_SHADER_LINK_ERROR      22
-#define CODE_INVALID_FILENAME       30  // File reading
-#define CODE_READING_ERROR          31
-#define CODE_UNRECOGNIZED_FORMAT    40  // Textures
+#define CODE_SUCCESS                ( 0)
+#define CODE_GLFW_INIT_ERR          ( 1)   // GLFW
+#define CODE_WINDOW_CREATE_ERR      ( 2)
+#define CODE_GLAD_INIT_ERR          (10)   // glad
+#define CODE_INVALID_SHADER_TYPE    (20)   // Shaders
+#define CODE_SHADER_COMPILE_ERROR   (21)
+#define CODE_SHADER_LINK_ERROR      (22)
+#define CODE_INVALID_FILENAME       (30)  // File reading
+#define CODE_READING_ERROR          (31)
+#define CODE_UNRECOGNIZED_FORMAT    (40)  // Textures
+#define CODE_MALLOC_ERROR           (50)
+#define CODE_FILE_ERROR             (51)
 
 // String stuff
-#define MAX_STR_LEN 50
+#define MAX_STR_LEN (50)
 
 // GL
-#define GL_VER_MAJ  4
-#define GL_VER_MIN  3
+#define GL_VER_MAJ  (4)
+#define GL_VER_MIN  (3)
 
-#define GL_CLEAR_COLOR_R 0.1f
-#define GL_CLEAR_COLOR_G 0.1f
-#define GL_CLEAR_COLOR_B 0.1f
+#define GL_CLEAR_COLOR_R (0.1f)
+#define GL_CLEAR_COLOR_G (0.1f)
+#define GL_CLEAR_COLOR_B (0.1f)
 
-#define GL_PI   3.14159265358979323846f
+#define GL_PI   (3.14159265358979323846f)
 
 // Engine settings
-#define WIN_WIDTH   1200
-#define WIN_HEIGHT  800
-#define WIN_TITLE   "Not Minecraft"
-#define WIN_FULL    false
+#define WIN_WIDTH   (1200)
+#define WIN_HEIGHT  (800)
+#define WIN_TITLE   ("Metacraft")
+#define WIN_FULL    (false)
 
-#define ENG_FRAME_CAP       60.0f
-#define ENG_FRAME_TIME      1.0f / ENG_FRAME_CAP
+#define ENG_FRAME_CAP       (60.0f)
+#define ENG_FRAME_TIME      (1.0f / ENG_FRAME_CAP)
 
 // Coordinate stuff
 #define WORLD_UP        {0.0f, 1.0f, 0.0f}
@@ -75,19 +79,71 @@
 #define KEY_BIND_QUIT       GLFW_KEY_ESCAPE
 
 // Chunk stuff
-#define CHUNK_HEIGHT    256
-#define CHUNK_WIDTH     16
+#define CHUNK_HEIGHT    (256)
+#define CHUNK_WIDTH     (16)
 #define CHUNK_INDEX(r, c, h) ((WIDTH * (h * WIDTH) + r) + c)
 
-#define CHUNK_MESH_SIZE  5.0f
+#define CHUNK_MESH_SIZE  (5.0f)
 #define BLOCK_SIZE  (CHUNK_MESH_SIZE / CHUNK_WIDTH)
 
-#define FACE_NORTH  1u
-#define FACE_SOUTH  2u
-#define FACE_EAST   4u
-#define FACE_WEST   8u
-#define FACE_UP     16u
-#define FACE_DOWN   32u
+#define FACE_NORTH  (1u)
+#define FACE_SOUTH  (2u)
+#define FACE_EAST   (4u)
+#define FACE_WEST   (8u)
+#define FACE_UP     (16u)
+#define FACE_DOWN   (32u)
+
+
+
+// Log
+
+#define LOG_MSG_MALLOC_ERROR ("Failed to 'malloc()' at line %s of \'%s\'", __LINE__, __FILE__)
+
+#if LOG
+FILE *logfile;
+#define LOG_REDIRECT(F) do {\
+  LOG_CLOSE();\
+  LOG_OPEN(F);\
+} while (0)
+#define LOG_OPEN(F) do {\
+  LOG_CLOSE();\
+  if ((F) == stderr || (F) == stdout) {\
+    logfile = F;\
+  } else if (!(logfile = fopen(F, "w"))) {\
+    fprintf(stderr, "Failed to open '%s' for logging.", F);\
+    exit(CODE_FILE_ERROR);\
+  }\
+} while (0)
+#define LOG_CLOSE() do {\
+  if (logfile && logfile != stderr && logfile != stdout) {\
+    fclose(logfile);\
+    logfile = NULL;\
+  }\
+} while (0)
+#define LOG_T(...) fprintf(logfile, __VA_ARGS__)
+#define LOG_I(...) do {\
+  fprintf(logfile, "[INFO]: "); fprintf(logfile, __VA_ARGS__);\
+} while (0)
+#define LOG_D(...) do {\
+  fprintf(logfile, "[DEBUG]: "); fprintf(logfile, __VA_ARGS__);\
+} while (0)
+#define LOG_W(...) do {\
+  fprintf(logfile, "[WARNING]: "); fprintf(logfile, __VA_ARGS__);\
+} while (0)
+#define LOG_E(...) do {\
+  fprintf(logfile, "[ERROR]: "); fprintf(logfile, __VA_ARGS__);\
+} while (0)
+#else
+#define LOG_REDIRECT(F)
+#define LOG_OPEN(F)
+#define LOG_CLOSE()
+#define LOG_T(...)
+#define LOG_I(...)
+#define LOG_D(...)
+#define LOG_W(...)
+#define LOG_E(...)
+#endif
+
 
 
 #endif

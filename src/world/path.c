@@ -5,6 +5,7 @@ path.c
 
 */
 #include "path.h"
+#include "common.h"
 
 
 
@@ -22,7 +23,7 @@ Returns:
     NULL - No Path exists.
 Errors:
 */
-Path *path_to_block(Entity *entity, double *destination, double *distance, bool aoa, bool los) {
+Path *path_to_block(Entity *traveler, double *destination, double *distance, bool aoa, bool los) {
     return NULL;
 }
 
@@ -42,7 +43,7 @@ Returns:
     NULL - No Path exists.
 Errors:
 */
-Path *path_to_entity(Entity *entity, Entity *entity, double *distance, bool aoa, bool los) {
+Path *path_to_entity(Entity *traveler, Entity *target, double *distance, bool aoa, bool los) {
     return NULL;
 }
 
@@ -86,10 +87,10 @@ bool verify_path(Path *path, bool recalculate) {
 void allocate_path(Path *path, uint16_t stopCount) {
     if (
         !(path = malloc(sizeof(Path))) ||
-        !(path->stops = malloc(sizeof(vec3) * stopCount))
+        !(path->stops = malloc(3 * sizeof(double) * stopCount))
     ) {
         LOG_E(LOG_MSG_MALLOC_ERROR);
-        exit(MALLOC_ERROR);
+        exit(CODE_MALLOC_ERROR);
     }
 
     path->stopCount = stopCount;
