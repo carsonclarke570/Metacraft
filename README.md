@@ -52,7 +52,7 @@ make
 ./Daybreak
 ```
 
-The program shoud launch in a new window.
+The program should launch in a new window.
 
 ## Built With
 
