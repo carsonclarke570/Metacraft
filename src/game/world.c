@@ -20,7 +20,7 @@ extern TexturePool texture_pool;
 
 void world_init(World* world, Game* game) {
     // CAMERA
-    camera_init(&world->camera);
+    init_camera(&world->camera);
 
     // CHUNK STUFF
     chunk_allocate(&world->chunk);
@@ -124,7 +124,7 @@ void world_init(World* world, Game* game) {
     uniform_buffer_store(&world->mvp_mat, 2 * sizeof(mat4), sizeof(mat4), p_mat);
 
     // VIEW MATRIX
-    camera_view_matrix(&world->camera, v_mat);
+    get_view(&world->camera, v_mat);
     uniform_buffer_store(&world->mvp_mat, sizeof(mat4), sizeof(mat4), v_mat);
 
     // TRANSFORM
@@ -141,8 +141,8 @@ void world_init(World* world, Game* game) {
 void world_update(World* world, Game* game, double delta) {
 
     // Update camera
-    camera_move(&world->camera, &game->window, delta);
-    camera_look(&world->camera, game->input.cursor_offset);
+    move_camera(&world->camera, &game->window, delta);
+    look_camera(&world->camera, game->input.cursor_offset);
 
     /* DAY NIGHT CYCLE */
     day_update(&world->day_cycle, delta);
@@ -185,7 +185,7 @@ void world_geometry_pass(World* world) {
     glViewport(0, 0, world->g_buffer.size[0], world->g_buffer.size[1]);
     framebuffer_bind(&world->g_buffer);
 
-    camera_view_matrix(&world->camera, view);
+    get_view(&world->camera, view);
     uniform_buffer_store(&world->mvp_mat, sizeof(mat4), sizeof(mat4), view);
 
     bind_texture(&texture_pool.textures[0], 5);

@@ -29,14 +29,6 @@ void day_update(DayCycle* cycle, float delta) {
     float sin_t = sinf(t_adjust);
     float cos_t = cosf(t_adjust);
 
-    if (fabsf(cycle->time) < 0.0001) {
-        printf("DAY START %f\n", t_adjust);
-    }
-
-    if (fabsf(cycle->time - DUSK_END) < 0.0001) {
-        printf("DAY END %f\n", t_adjust);
-    }
-
     cycle->sun_position[0] = cos_t;
     cycle->sun_position[1] = sin_t;
     cycle->sun_position[2] = 0.0f;

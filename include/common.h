@@ -89,5 +89,4 @@
 #define FACE_UP     16u
 #define FACE_DOWN   32u
 
-
 #endif
