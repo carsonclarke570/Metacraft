@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _WORLD_H_
-#define _WORLD_H_
+#ifndef WORLD2_H
+#define WORLD2_H
 
 #include <GLFW/glfw3.h>
 

@@ -13,17 +13,20 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-
-#ifndef _CHUNK_H_
-#define _CHUNK_H_
-
-#include <stdint.h>
+#ifndef CHUNK2_H
+#define CHUNK2_H
 
 #include <mesh.h>
+
+#include "common.h"
+
+
 
 typedef struct {
     uint16_t* chunk;
 } Chunk;
+
+
 
 /**
  * Allocates a Chunk in memory.
@@ -31,6 +34,8 @@ typedef struct {
  * @param chunk    Pointer to Chunk struct
  */
 void chunk_allocate(Chunk* chunk);
+
+
 
 /**
  *  Creates a chunk mesh from chunk data and a list of exposed faces/blocks.
@@ -48,6 +53,8 @@ void chunk_allocate(Chunk* chunk);
  */
 void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indices, int num_faces);
 
+
+
 /**
  * Deletes a Chunk from memory.
  *
@@ -55,4 +62,8 @@ void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indic
  */
 void chunk_delete(Chunk* chunk);
 
+
+
 #endif
+
+

@@ -13,12 +13,15 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-
 #include "chunk.h"
+
+
 
 void chunk_allocate(Chunk* chunk) {
     chunk->chunk = malloc(CHUNK_HEIGHT * CHUNK_WIDTH * CHUNK_WIDTH * sizeof(uint16_t));
 }
+
+
 
 void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indices, int num_faces) {
     mesh_delete(mesh);
@@ -193,7 +196,11 @@ void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indic
     free(m_indices);
 }
 
+
+
 void chunk_delete(Chunk* chunk) {
     free(chunk->chunk);
     chunk->chunk = NULL;
 }
+
+

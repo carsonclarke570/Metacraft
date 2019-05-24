@@ -1,8 +1,17 @@
 /*
-mob.h
+    Copyright 2019 Wesley Dahar
 
-A model for Mob[ile]s, any Player or AI conrolled entity.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 */
 #ifndef MOB_H
 #define MOB_H
@@ -44,6 +53,71 @@ void free_mob(Mob *mob);
 
 void allocate_collective(Collective *collective);
 void free_collective(Collective *collective);
+
+// Mob Utils
+Mob *create_bat();
+Mob *create_blaze();
+Mob *create_cat();
+Mob *create_cave_spider();
+Mob *create_chicken();
+Mob *create_cod();
+Mob *create_cow();
+Mob *create_creeper();
+Mob *create_dolphin();
+Mob *create_donkey();
+Mob *create_drowned();
+Mob *create_elder_guardian();
+Mob *create_ender_dragon();
+Mob *create_enderman();
+Mob *create_endermite();
+Mob *create_evoker();
+Mob *create_ghast();
+Mob *create_giant();
+Mob *create_guardian();
+Mob *create_horse();
+Mob *create_husk();
+Mob *create_illusioner();
+Mob *create_iron_golem();
+Mob *create_llama();
+Mob *create_magma_cube();
+Mob *create_mooshroom();
+Mob *create_mule();
+Mob *create_ocelot();
+Mob *create_panda();
+Mob *create_parrot();
+Mob *create_phantom();
+Mob *create_pig();
+Mob *create_pillager();
+Mob *create_polar_bear();
+Mob *create_pufferfish();
+Mob *create_rabbit();
+Mob *create_ravager();
+Mob *create_salmon();
+Mob *create_sheep();
+Mob *create_shulker();
+Mob *create_silverfish();
+Mob *create_skeleton();
+Mob *create_skeleton_horse();
+Mob *create_slime();
+Mob *create_snow_golem();
+Mob *create_spider();
+Mob *create_squid();
+Mob *create_stray();
+Mob *create_trader_llama();
+Mob *create_tropical_fish();
+Mob *create_turtle();
+Mob *create_vex();
+Mob *create_villager();
+Mob *create_vindicator();
+Mob *create_wandering_trader();
+Mob *create_witch();
+Mob *create_whither();
+Mob *create_whither_skeleton();
+Mob *create_wolf();
+Mob *create_zombie();
+Mob *create_zombie_horse();
+Mob *create_zombie_pigman();
+Mob *create_zombie_villager();
 
 
 

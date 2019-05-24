@@ -13,11 +13,15 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-
 #ifndef COMMON_H
 #define COMMON_H
 
 #include <GLFW/glfw3.h>
+
+#include <stdio.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 
 
@@ -35,7 +39,7 @@
 #define CODE_MALLOC_ERROR           (50)
 #define CODE_FILE_ERROR             (51)
 
-// String stuff
+// String Stuff
 #define MAX_STR_LEN (50)
 
 // GL
@@ -48,7 +52,7 @@
 
 #define GL_PI   (3.14159265358979323846f)
 
-// Engine settings
+// Engine Settings
 #define WIN_WIDTH   (1200)
 #define WIN_HEIGHT  (800)
 #define WIN_TITLE   ("Metacraft")
@@ -57,7 +61,7 @@
 #define ENG_FRAME_CAP       (60.0f)
 #define ENG_FRAME_TIME      (1.0f / ENG_FRAME_CAP)
 
-// Coordinate stuff
+// Coordinate Stuff
 #define WORLD_UP        {0.0f, 1.0f, 0.0f}
 #define WORLD_DOWN      {0.0f, -1.0f, 0.0f}
 #define WORLD_LEFT      {-1.0f, 0.0f, 0.0f}
@@ -65,11 +69,11 @@
 #define WORLD_FORWARD   {0.0f, 0.0f, -1.0f}
 #define WORLD_BACKWARD  {0.0f, 0.0f, 1.0f}
 
-// Camera defaults
-#define CAMERA_YAW          -(GL_PI / 2.0f);
-#define CAMERA_PITCH        0.0f
-#define CAMERA_SPEED        2.5f
-#define CAMERA_SENSITIVITY  0.005f
+// Camera Defaults
+#define CAMERA_YAW          (-GL_PI / 2.0f);
+#define CAMERA_PITCH        (0.0f)
+#define CAMERA_SPEED        (2.5f)
+#define CAMERA_SENSITIVITY  (0.005f)
 
 #define KEY_BIND_FORWARD    GLFW_KEY_W
 #define KEY_BIND_BACKWARD   GLFW_KEY_S
@@ -78,7 +82,7 @@
 
 #define KEY_BIND_QUIT       GLFW_KEY_ESCAPE
 
-// Chunk stuff
+// Chunk Stuff
 #define CHUNK_HEIGHT    (256)
 #define CHUNK_WIDTH     (16)
 #define CHUNK_INDEX(r, c, h) ((WIDTH * (h * WIDTH) + r) + c)
@@ -95,8 +99,16 @@
 
 
 
-// Log
+// Version Info
+#define METACRAFT_VERSION_MAJOR (0u)
+#define METACRAFT_VERSION_MINOR (1u)
+#define METACRAFT_VERSION_STABLE (false)
+#define METACRAFT_VERSION_RELEASE (false)
+#define METACRAFT_VERSION_DATE_STRING ("05/24/2019\0")
 
+
+
+// Log
 #define LOG_MSG_MALLOC_ERROR ("Failed to 'malloc()' at line %s of \'%s\'", __LINE__, __FILE__)
 
 #if LOG

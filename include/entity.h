@@ -1,18 +1,20 @@
 /*
-entity.h
+    Copyright 2019 Wesley Dahar
 
-A model for physically affected objects.
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-Author:
-  Wesley Dahar
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
 */
 #ifndef ENTITY_H
 #define ENTITY_H
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdbool.h>
 
 #include "common.h"
 
@@ -33,7 +35,7 @@ typedef struct {
 
 
 typedef struct {
-    uint16_t itemID;  // item ID
+    uint16_t itemID;  // ItemMeta ID
     Entity *entity;   // base physical model
     uint16_t despawn; // despawn tick downcounter (reset if stack is incremented)
     uint8_t stack;    // number of items with identical 'tags' (exists as stack)
@@ -43,7 +45,7 @@ typedef struct {
 
 
 typedef struct {
-    uint16_t blockID; // block ID
+    uint16_t blockID; // BlockMeta ID
     Entity *entity;   // base physical model
     uint8_t *tags;    // attributes, properties, and effects
 } BlockEntity;
@@ -57,6 +59,12 @@ typedef struct {
 } VehicleEntity;
 
 
+typedef struct {
+    uint16_t capacity;
+    uint16_t count;
+    uint8_t data;
+} EntityCache;
+
 
 /*
 Function Prototypes
@@ -69,7 +77,11 @@ void write_entity(Entity *entity, FILE *file);
 
 
 
-#endif
+// Global EntityCache
+static EntityCache *sEntityCache;
 
+
+
+#endif
 
 
