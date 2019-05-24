@@ -12,7 +12,7 @@ Please ensure you have the latest versions of CMake and OpenGL (4.3) installed.
 
 Install OpenGL:
 ```
-sudo apt install xorg-dev libgl1-mesa-dev libglu-dev libassimp-dev
+sudo apt install xorg-dev libgl1-mesa-dev libglu-dev
 ```
 
 Install CMake:
