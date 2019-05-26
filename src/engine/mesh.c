@@ -89,7 +89,7 @@ void mesh_cube(Mesh* mesh) {
         21, 22, 20,
         23, 22, 21
     };
-    mesh_create(mesh,vertices, 24, indices, 36);
+    mesh_create(mesh, vertices, 24, indices, 36);
 }
 
 void mesh_quad(Mesh* mesh) {

@@ -128,7 +128,7 @@ void world_init(World* world, Game* game) {
     mat4 p_mat;
 
     // PROJECTION MATRIX
-    mat4_projection(p_mat, 45.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
+    mat4_perspective(p_mat, 45.0f, 0.1f, 100.0f, (float) WIN_WIDTH / (float) WIN_HEIGHT);
     uniform_buffer_store(&world->mvp_mat, 2 * sizeof(mat4), sizeof(mat4), p_mat);
 
     // VIEW MATRIX

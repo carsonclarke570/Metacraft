@@ -35,6 +35,7 @@ typedef struct Camera_t {
     // Camera options
     float speed;
     float sensitivity;
+
 } Camera;
 
 /**

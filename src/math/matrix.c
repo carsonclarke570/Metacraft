@@ -24,16 +24,28 @@ void mat4_identity(mat4 mat) {
     mat[INDEX(3, 3)] = 1.0f;
 }
 
-void mat4_projection(mat4 mat, float fov, float near, float far, float aspect) {
+void mat4_perspective(mat4 mat, float fov, float near, float far, float aspect) {
     float r = tanf(fov * 0.5f * GL_PI / 180.0f);
 
     memset(mat, 0, 16 * sizeof(float));
     mat[INDEX(0, 0)] = 1.0f / (r * aspect);
     mat[INDEX(1, 1)] = 1.0f / r;
-    mat[INDEX(2, 2)] = (-far - near) / (far - near);
+    mat[INDEX(2, 2)] = -(far + near) / (far - near);
     mat[INDEX(3, 2)] = (-2.0f * far * near) / (far - near);
     mat[INDEX(2, 3)] = -1.0f;
 }
+
+void mat4_orthographic(mat4 mat, float left, float right, float bottom, float top, float near, float far) {
+    memset(mat, 0, 16 * sizeof(float));
+    mat[INDEX(0, 0)] = 2.0f / (right - left);
+    mat[INDEX(1, 1)] = 2.0f / (top - bottom);
+    mat[INDEX(2, 2)] = -2.0f / (far - near);
+    mat[INDEX(3, 0)] = -(right + left) / (right - left);
+    mat[INDEX(3, 0)] = -(top + bottom) / (top - bottom);
+    mat[INDEX(3, 0)] = -(far + near) / (far - near);
+    mat[INDEX(3, 3)] = 1.0f;
+}
+
 
 void mat4_translate(mat4 mat, const vec3 translation) {
     mat4_identity(mat);

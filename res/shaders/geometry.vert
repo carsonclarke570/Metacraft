@@ -17,14 +17,10 @@ layout (std140) uniform mvp_mat {
 };
 
 void main() {
-    // Positions
     vec4 world_pos = model * vec4(in_position, 1.0);
+
     vs_out.position = world_pos.xyz;
-
-    // Normals
     vs_out.normal = mat3(model) * in_normal;
-
-    // Texture coordinates
     vs_out.texcoord = in_texture;
 
     gl_Position = projection * view * world_pos;

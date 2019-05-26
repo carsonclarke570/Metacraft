@@ -23,11 +23,11 @@ vec3 get_normal() {
     vec2 st1 = dFdx(fs_in.texcoord);
     vec2 st2 = dFdy(fs_in.texcoord);
 
-    vec3 N   = normalize(fs_in.normal);
     vec3 T  = normalize(Q1*st2.t - Q2*st1.t);
+    vec3 N   = normalize(fs_in.normal);
     vec3 B  = -normalize(cross(N, T));
-    mat3 TBN = mat3(T, B, N);
 
+    mat3 TBN = mat3(T, B, N);
     return normalize(TBN * tangentNormal);
 }
 

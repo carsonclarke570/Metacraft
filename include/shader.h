@@ -90,6 +90,15 @@ int shader_compile(Shader* shader);
 void shader_uniform_mat4(Shader* shader, const char* name, const mat4 data);
 
 /**
+ * Updates a shader's vec2 uniform.
+ *
+ * @param shader    Pointer to Shader struct.
+ * @param name      Name of uniform to update.
+ * @param data      vec2 data to update with.
+ */
+void shader_uniform_vec2(Shader* shader, const char* name, const vec2 data);
+
+/**
  * Updates a shader's vec3 uniform.
  *
  * @param shader    Pointer to Shader struct.

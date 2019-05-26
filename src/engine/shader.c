@@ -143,6 +143,11 @@ void shader_uniform_mat4(Shader* shader, const char* name, const mat4 data) {
     glUniformMatrix4fv(loc, 1, GL_FALSE, data);
 }
 
+void shader_uniform_vec2(Shader* shader, const char* name, const vec2 data) {
+    GLuint loc = glGetUniformLocation(shader->program, name);
+    glUniform2fv(loc, 1, data);
+}
+
 void shader_uniform_vec3(Shader* shader, const char* name, const vec3 data) {
     GLuint loc = glGetUniformLocation(shader->program, name);
     glUniform3fv(loc, 1, data);
