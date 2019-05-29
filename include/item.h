@@ -16,25 +16,26 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include <stdio.h>
-#include <stdint.h>
-#include <stdbool.h>
+#include "common.h"
 
 
 
-// instance values
 typedef struct {
-    uint16_t itemID;   // ItemMeta ID
-    uint16_t tag;      // index of tag data in TagCache
+    uint8_t id;     // ItemMeta index
+    uint8_t tag;    // index of tag data in TagCache
+    uint8_t nibble; // nibble for id and tag data
 } Item;
 
 
 
-// static and default values
 typedef struct {
     char *name;
+    char *lore;
+    uint8_t stackSize;
     uint8_t fuelValue;
-    uint16_t reduceID;
+    uint8_t foodValue;
+    uint8_t damageValue;
+    uint8_t healthValue;
 } ItemMeta;
 
 
@@ -46,10 +47,9 @@ bool end_attack_item_handler(Item *tool);
 
 
 
-// 
+// Object Lifecycle
 Item *create_item(uint16_t itemID);
 void free_item(Item *item);
-
 void read_item(Item *item, FILE *file);
 void write_item(Item *item, FILE *file);
 

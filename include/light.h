@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _LIGHT_H_
-#define _LIGHT_H_
+#ifndef LIGHT_H
+#define LIGHT_H
 
 #include <shader.h>
 

@@ -16,37 +16,53 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 
-#include "common.h"
+#include "item.h"
 
 
 
+// redefine Item as Block
+typedef Item Block;
+
+
+
+/*
+isTransparent : 1; // is semi-transparent
+isSolid : 1;       // has a physical model
+isStable : 1;      // will not be destroyed by water or loss of contact
+isLightSource : 1; // this block can emit light (see tag for value)
+requiresUpdate : 1;
+
+toolType : 4;      // the tool required to break
+toolLevel : 4;     // the minimum tool quality required to break
+*/
 typedef struct {
-    uint16_t blockID : 12; // BlockMeta ID
-    uint16_t tag : 12;     // index of tag data in TagCache
-} Block;
-
-
-
-typedef struct {
-    uint16_t itemID : 12;    // 
-    bool isOpaque : 1;       // is semi-transparent
-    bool isSolid : 1;        // has a physical model
-    bool isStable : 1;       // will not be destroyed by water or loss of contact
-    bool is : 1;       // 
-    uint8_t toolLevel;       // the minimum tool quality required
-    uint8_t blastResistance; // 
-    bool hasAnimation;
-    bool isLightsource;
-    uint8_t stateTagCount;
-    uint8_t stateTags[8];     // up to 8 state tags
+    uint8_t flags;
+    uint8_t toolFlags;
+    uint16_t blastResistance; // 
+    uint8_t animationFrame;  // animation frame counter for updating mesh texture
+    uint8_t stateTagCount;   // number of static tag data bytes preceding dynamic tags
+    uint8_t stateTags[8];    // up to 8 static block state tags
+    int *mesh;//Mesh *mesh;              // block Mesh
+    int *body;//RigidBody *body;         // block physical model
 } BlockMeta;
+
+
+
+void set_block(Block *block);
+
+void break_block(Block *block);
+void place_block(Block *block);
+
+char *generate_blockLore(Block *block);
 
 
 
 // Global BlockMetas
 const BlockMeta blockMetas[] = {
-
-}
+    {0b1010, 0b00000000, 0, 0, 0, {0}, NULL, NULL},// AIR
+    {0},
+    {0b0110, 0b00010001, 30, 0, 0, {0}, NULL, NULL} // STONE
+};
 
 
 

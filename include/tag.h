@@ -31,35 +31,58 @@ they are not repeatedly read or modified each frame.
 
 
 
-// Tag Identifiers             bytes  type  purpose
-#define T_WATERLOGGED ()  //  0      bool   block containes water
-#define T_LIGHTSOURCE ()  //  0      bool  
-#define T_FIREPROOF   ()  //  0      bool  
-#define T_ORIENTATION ()  //  1      flags  stores axis alignment data
-#define T_   ()  //  0      bool  
+// Tag Attributes
+#define TA_WATERLOGGED ()  // true, false
+#define TA_LIGHTSOURCE ()  // true, false
+#define TA_FIREPROOF   ()  // true, false
+#define TA_ORIENTATION ()  // north, south, east, west, up, down
+#define TA_STICKY      ()  // true, false
 
 
 
-// Common Tag Values
-#define T_NORTH ( 1)
-#define T_SOUTH ( 2)
-#define T_EAST  ( 4)
-#define T_WEST  ( 8)
-#define T_UP    (16)
-#define T_DOWN  (32)
+// Tag Values
+#define TV_TRUE  (1)
+#define TV_FALSE (0)
+
+#define TV_NORTH ( 1)
+#define TV_SOUTH ( 2)
+#define TV_EAST  ( 4)
+#define TV_WEST  ( 8)
+#define TV_UP    (16)
+#define TV_DOWN  (32)
+
+#define TV_ ( 1)
+#define TV_ ( 2)
+#define TV_ ( 4)
+#define TV_ ( 8)
+#define TV_ (16)
+#define TV_ (32)
+
+#define TV_ ( 1)
+#define TV_ ( 2)
+#define TV_ ( 4)
+#define TV_ ( 8)
+#define TV_ (16)
+#define TV_ (32)
+
+
+// Tag strings
+#define TS_TRUE ("true\0")
+#define TS_FALSE ("false\0")
+
+#define TS_NORTH ("north\0")
+#define TS_SOUTH ("south\0")
+#define TS_EAST  ("east\0")
+#define TS_WEST  ("west\0")
+#define TS_UP    ("up\0")
+#define TS_DOWN  ("down\0")
 
 
 
 typedef struct {
     uint16_t space;
-    uint16_t next8;
-    uint16_t next16;
-    uint16_t next32;
-    uint16_t next64;
-    uint8_t *data8;
-    uint16_t *data16;
-    uint32_t *data32;
-    uint64_t *data64;
+    uint16_t next;
+    uint8_t *data;
     uint64_t *preset;
 } TagCache;
 
@@ -110,6 +133,13 @@ void remove_tag(uint8_t *tag);
 /*
 
 */
+uint8_t *get_tagData(uint8_t *tag);
+
+
+
+/*
+
+*/
 void modify_tag(uint8_t *tag, uint8_t property, uint8_t *data);
 
 
@@ -131,6 +161,24 @@ void write_tag(uint8_t *tag, FILE *file);
 // Internal TagCache
 static TagCache *sTagCache;
 
+
+
+// Global
+char *gTagAttributeStrings[] = {
+    "\0",
+    "\0",
+    "\0",
+    "\0"
+};
+
+
+
+char *gTagValueStrings[] = {
+    "true\0",
+    "false\0",
+    "\0",
+    "\0"
+};
 
 
 #endif

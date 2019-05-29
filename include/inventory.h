@@ -13,26 +13,43 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-#ifndef WEATHER_H
-#define WEATHER_H
+#ifndef INVENTORY_H
+#define INVENTORY_H
 
-#include "common.h"
+#include "item.h"
 
 
 
 typedef struct {
-    uint8_t cloudCover; // 
-    bool precipitating; // 
-    bool thundering;
-    bool lightninging;
-    double wind[2];
-    double cloudCycle;
-    double weatherCycle;
-} Weather;
+    uint8_t count;
+    Item item;
+} ItemSlot;
 
 
 
-void toggle_percipitation(bool value);
+typedef struct {
+    uint8_t slotCount;
+    ItemSlot *itemSlots;
+} Inventory;
+
+
+
+typedef struct {
+    uint16_t capacity;
+    uint16_t count;
+    Inventory **inventories;
+} InventoryCache;
+
+
+
+InventoryCache *create_inventoryCache();
+void free_inventoryCache(InventoryCache *cache);
+
+Inventory *create_inventory(uint16_t id);
+void free_inventory(Inventory *inventory);
+
+Inventory *read_inventory(FILE *file);
+void write_inventory(Inventory *inventory, FILE *file);
 
 
 
