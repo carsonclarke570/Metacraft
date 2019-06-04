@@ -105,56 +105,56 @@ void free_tagCache();
 /*
 
 */
-void create_tag(uint8_t *tag);
+void create_tag(Item *item);
 
 
 
 /*
 
 */
-void free_tag(uint8_t *tag);
+void free_tag(Item *item);
 
 
 
 /*
 
 */
-void insert_tag(uint8_t *tag);
+void insert_tag(Item *item);
 
 
 
 /*
 
 */
-void remove_tag(uint8_t *tag);
+void remove_tag(Item *item);
 
 
 
 /*
 
 */
-uint8_t *get_tagData(uint8_t *tag);
+uint8_t *get_tagData(Item *item);
 
 
 
 /*
 
 */
-void modify_tag(uint8_t *tag, uint8_t property, uint8_t *data);
+void modify_tag(Item *item, uint8_t property, uint8_t *data);
 
 
 
 /*
 
 */
-void read_tag(uint8_t *tag, FILE *file);
+void read_tag(Item *item, FILE *file);
 
 
 
 /*
 
 */
-void write_tag(uint8_t *tag, FILE *file);
+void write_tag(Item *item, FILE *file);
 
 
 

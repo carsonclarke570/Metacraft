@@ -28,6 +28,7 @@ typedef struct {
 
 
 typedef struct {
+    uint16_t id;
     uint8_t slotCount;
     ItemSlot *itemSlots;
 } Inventory;
@@ -42,13 +43,79 @@ typedef struct {
 
 
 
+/*
+
+
+Parameters:
+Returns:
+    InventoryCache * - 
+Errors:
+    CODE_MALLOC_ERROR
+*/
 InventoryCache *create_inventoryCache();
+
+
+
+/*
+
+
+Parameters:
+    InventoryCache *cache - 
+Returns:
+Errors:
+*/
 void free_inventoryCache(InventoryCache *cache);
 
+
+
+/*
+
+
+Parameters:
+    uint16_t id - 
+Returns:
+    Inventory * - 
+Errors:
+    CODE_MALLOC_ERROR
+*/
 Inventory *create_inventory(uint16_t id);
+
+
+
+/*
+
+
+Parameters:
+    Inventory *inventory - 
+Returns:
+Errors:
+*/
 void free_inventory(Inventory *inventory);
 
+
+
+/*
+
+
+Parameters:
+    FILE *file - 
+Returns:
+    Inventory * - 
+Errors:
+*/
 Inventory *read_inventory(FILE *file);
+
+
+
+/*
+
+
+Parameters:
+    Inventory *inventory - 
+    FILE *file - 
+Returns:
+Errors:
+*/
 void write_inventory(Inventory *inventory, FILE *file);
 
 

@@ -72,10 +72,12 @@ Inventory *read_inventory(FILE *file) {
     uint16_t id;
     
     // read inventory id
-    
+    fread(&id, 2, 1, file);
     Inventory *inventory = create_inventory(id);
     
     // read slot data
+    for (id = 0; id < inventory->slotCount; id++)
+        fread(&inventory->itemSlots[id], sizeof(ItemSlot), 1, file);
     
     return inventory;
 }
@@ -83,7 +85,10 @@ Inventory *read_inventory(FILE *file) {
 
 
 void write_inventory(Inventory *inventory, FILE *file) {
+    
     // write inventory id
+    fwrite(&inventory->id, 2, 1, file);
+    
     // write slot data
 }
 

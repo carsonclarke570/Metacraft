@@ -10,9 +10,11 @@ with open("item.h", "r") as fi:
         line = next(lines)
         fo.write(line)
         
-        while not line == "const ItemProperty itemProperties[] = {\n":
+        while True:
             line = next(lines)
             fo.write(line)
+            if line == "const ItemMeta itemMetas[] = {\n":
+                break
         
         line = next(lines)
         fo.write(line)
@@ -28,10 +30,10 @@ with open("item.h", "r") as fi:
             n = str(i)
             j = 32 - len(items[i])
             fo.write(
-                "#define " + items[i] + (j * ' ') + '(' +
+                "#define ID_" + items[i] + (j * ' ') + '(' +
                 ((4 - len(n)) * ' ') + n + ")\n"
             )
-        fo.write("\n\n\n#endif\n\n\n\n")
+        fo.write("\n\n\n#endif\n\n\n")
 
 
 
