@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _TRANSFORM_H_
-#define _TRANSFORM_H_
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
 
 #include <matrix.h>
 #include <quaternion.h>

@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _UNIFORM_BUFFER_H_
-#define _UNIFORM_BUFFER_H_
+#ifndef UNIFORM_BUFFER_H
+#define UNIFORM_BUFFER_H
 
 #include <stdint.h>
 

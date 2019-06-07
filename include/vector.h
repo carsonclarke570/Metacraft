@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _MATH_H_
-#define _MATH_H_
+#ifndef MATH_H
+#define MATH_H
 
 #include <math.h>
 

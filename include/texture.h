@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _TEXTURE_H_
-#define _TEXTURE_H_
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
 #include <stdbool.h>
 #include <stdint.h>

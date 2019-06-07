@@ -17,7 +17,7 @@
 #include <mesh.h>
 
 
-void mesh_create(Mesh* mesh, Vertex* vertices, unsigned int num_v, unsigned int* indices, unsigned int num_i) {
+void mesh_create(Mesh* mesh, Vertex* vertices, uint32_t num_v, uint32_t* indices, uint32_t num_i) {
     if (indices) {
         mesh->num_elements = num_i;
         mesh->indexed = true;
