@@ -16,8 +16,7 @@
 #ifndef TAG_H
 #define TAG_H
 
-#include <stdio.h>
-#include <stdint.h>
+#include "item.h"
 
 
 
@@ -51,19 +50,19 @@ they are not repeatedly read or modified each frame.
 #define TV_UP    (16)
 #define TV_DOWN  (32)
 
-#define TV_ ( 1)
-#define TV_ ( 2)
-#define TV_ ( 4)
-#define TV_ ( 8)
-#define TV_ (16)
-#define TV_ (32)
+#define TV_a ( 1)
+#define TV_b ( 2)
+#define TV_c ( 4)
+#define TV_d ( 8)
+#define TV_e (16)
+#define TV_f (32)
 
-#define TV_ ( 1)
-#define TV_ ( 2)
-#define TV_ ( 4)
-#define TV_ ( 8)
-#define TV_ (16)
-#define TV_ (32)
+#define TV_g ( 1)
+#define TV_h ( 2)
+#define TV_i ( 4)
+#define TV_j ( 8)
+#define TV_k (16)
+#define TV_l (32)
 
 
 // Tag strings
@@ -179,6 +178,7 @@ char *gTagValueStrings[] = {
     "\0",
     "\0"
 };
+
 
 
 #endif

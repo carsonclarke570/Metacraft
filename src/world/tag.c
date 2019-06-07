@@ -23,38 +23,23 @@ void initialize_tagCache() {
     
     if (
         !(sTagCache = malloc(sizeof(TagCache))) ||
-        !(sTagCache->data8 = malloc(space)) ||
-        !(sTagCache->data16 = malloc(space)) ||
-        !(sTagCache->data32 = malloc(space)) ||
-        !(sTagCache->data64 = malloc(space))
+        !(sTagCache->data = malloc(space))
     ) {
         LOG_E(LOG_MSG_MALLOC_ERROR);
         exit(CODE_MALLOC_ERROR);
     }
 
     sTagCache->space = space;
-    sTagCache->next8 = 0;
-    sTagCache->next16 = 0;
-    sTagCache->next32 = 0;
-    sTagCache->next64 = 0;
+    sTagCache->next = 0;
 }
 
 
 
 void free_tagCache() {
-    if (sTagCache->next8)
+    if (sTagCache->next)
         LOG_W("Freeing TagCache containing %d byte aligned tags.", tagCache->next8);
-    if (sTagCache->next16)
-        LOG_W("Freeing TagCache containing %d 2 byte aligned tags.", tagCache->next16);
-    if (sTagCache->next32)
-        LOG_W("Freeing TagCache containing %d 4 byte aligned tags.", tagCache->next32);
-    if (sTagCache->next64)
-        LOG_W("Freeing TagCache containing %d 8 byte aligned tags.", tagCache->next64);
     
-    free(sTagCache->data8);
-    free(sTagCache->data16);
-    free(sTagCache->data32);
-    free(sTagCache->data64);
+    free(sTagCache->data);
     free(sTagCache);
     sTagCache = NULL;
 }

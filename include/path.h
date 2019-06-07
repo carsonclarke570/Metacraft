@@ -16,13 +16,14 @@
 #ifndef PATH_H
 #define PATH_H
 
-#include "common.h"
 #include "entity.h"
+
 
 
 #define DIST_BLOCK (4.0)       // default arrival distance for blocks is 4.0m
 #define DIST_MOB (1.0)         // default arrival distance for mobs is 1.0m
 #define DIST_COLLECTIVE (16.0) // default arrival distance for collectives is 16.0m
+
 
 
 typedef struct {
@@ -38,17 +39,81 @@ typedef struct {
 
 
 /*
-Function Prototypes
+
 */
-void allocate_path(Path *path);
+Path *allocate_path();
+
+
+
+/*
+
+*/
 void free_path(Path *path);
 
+
+
+/*
+
+*/
 void read_path(Path *path, FILE *file);
+
+
+
+/*
+
+*/
 void write_path(Path *path, FILE *file);
 
+
+
+/*
+Determines if a Path is still traversable, and will attempt to find a new
+route if necessary. The traversibility of the Path is returned.
+
+Parameters:
+    Path *path - The Path to verify and potentially modify.
+    bool recalcualte - The Path should be recalculated if it is not found to
+                       be traversible.
+Returns:
+    bool - The traversability of the Path.
+Errors:
+*/
 bool verify_path(Path *path, bool recalculate);
 
+
+
+/*
+Finds a path from one Entity to another.
+
+Parameters:
+    Entity *traveler - The Entity that will be traversing the Path.
+    double *destination - The Block to approach.
+    double *distance - The maximum arrival distance from 'target'.
+    bool aoa - True if 'distance' defines a required angle of approach for the Path.
+    bool los - True if the Path must have a clear line of sight to 'target'.
+Returns:
+    Path * - A valid Path.
+    NULL - No Path exists.
+Errors:
+*/
 Path *path_to_block(Entity *traveler, double *destination, double *distance, bool aoa, bool los);
+
+
+
+/*
+Finds a path from one Entity to another.
+
+Parameters:
+    Entity *traveler - The Entity that will be traversing the Path.
+    Entity *target - The Entity to approach.
+    double *distance - The maximum arrival distance from 'target'.
+    bool aoa - True if 'distance' defines a required angle of approach for the Path.
+    bool los - True if the Path must have a clear line of sight to 'target'.
+Returns:
+    Path * - A valid Path.
+    NULL - No Path exists.
+Errors:
+*/
 Path *path_to_entity(Entity *traveler, Entity *target, double *distance, bool aoa, bool los);
 
 

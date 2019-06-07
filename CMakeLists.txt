@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(Daybreak)
+project("Daybreak")
 
 # OpenGL
 find_package(OpenGL REQUIRED)
@@ -10,14 +10,14 @@ option(GLFW_BUILD_EAMPLES OFF)
 option(GLFW_BUILD_TEST OFF)
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glfw)
 
-# glad
+# GLAD
 add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glad)
 
 # Compile settings
 if(MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4")
 else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++11")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic -std=c99")
     if(NOT WIN32)
         set(GLAD_LIBRARIES dl)
     endif()
@@ -33,7 +33,7 @@ include_directories(
 
 # Sources
 file(GLOB_RECURSE HEADERS ${PROJECT_SOURCE_DIR}/include/*.h
-                  ${PROJECT_SOURCE_DIR}/libs/stb/include/*.h)
+                  ${PROJECT_SOURCE_DIR}/lib/stb/include/*.h)
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.c)
 file(GLOB_RECURSE SHADERS ${PROJECT_SOURCE_DIR}/res/shaders/*.frag
                   ${PROJECT_SOURCE_DIR}/res/shaders/*.geom
