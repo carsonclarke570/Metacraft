@@ -8,10 +8,10 @@ find_package(OpenGL REQUIRED)
 option(GLFW_BUILD_DOCS OFF)
 option(GLFW_BUILD_EAMPLES OFF)
 option(GLFW_BUILD_TEST OFF)
-add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glfw)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glfw)
 
 # glad
-add_subdirectory(${PROJECT_SOURCE_DIR}/libs/glad)
+add_subdirectory(${PROJECT_SOURCE_DIR}/lib/glad)
 
 # Compile settings
 if(MSVC)
@@ -26,10 +26,9 @@ endif()
 # Includes
 include_directories(
         ${PROJECT_SOURCE_DIR}/include/
-        ${PROJECT_SOURCE_DIR}/libs/assimp/include/
-        ${PROJECT_SOURCE_DIR}/libs/stb/include/
-        ${PROJECT_SOURCE_DIR}/libs/glad/include/
-        ${PROJECT_SOURCE_DIR}/libs/glfw/include/
+        ${PROJECT_SOURCE_DIR}/lib/stb/include/
+        ${PROJECT_SOURCE_DIR}/lib/glad/include/
+        ${PROJECT_SOURCE_DIR}/lib/glfw/include/
 )
 
 # Sources
