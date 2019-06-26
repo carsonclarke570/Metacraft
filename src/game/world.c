@@ -22,19 +22,20 @@ void world_init(World* world, Game* game) {
     fprintf(stdout, "\nWORLD: Loading Resources...\n");
 
     // CHUNK STUFF
-    chunk_allocate(&world->chunk);
-    uint32_t temp = (FACE_EAST | FACE_WEST | FACE_UP | FACE_DOWN | FACE_SOUTH | FACE_NORTH) << 24u;
-    uint32_t faces[8] = {
-            temp | (7u << 8u) | 7u,
-            temp | (7u << 8u) | 8u,
-            temp | (8u << 8u) | 8u,
-            temp | (8u << 8u) | 7u,
-            temp | (1u << 16u) | (0u << 8u) | 0u,
-            temp | (1u << 16u) | (15u << 8u) | 0u,
-            temp | (1u << 16u) | (0u << 8u) | 15u,
-            temp | (1u << 16u) | (15u << 8u) | 15u
-    };
-    chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 48);
+//    chunk_allocate(&world->chunk);
+//    uint32_t temp = (FACE_EAST | FACE_WEST | FACE_UP | FACE_DOWN | FACE_SOUTH | FACE_NORTH) << 24u;
+//    uint32_t faces[8] = {
+//            temp | (7u << 8u) | 7u,
+//            temp | (7u << 8u) | 8u,
+//            temp | (8u << 8u) | 8u,
+//            temp | (8u << 8u) | 7u,
+//            temp | (1u << 16u) | (0u << 8u) | 0u,
+//            temp | (1u << 16u) | (15u << 8u) | 0u,
+//            temp | (1u << 16u) | (0u << 8u) | 15u,
+//            temp | (1u << 16u) | (15u << 8u) | 15u
+//    };
+//    chunk_mesh(&world->chunk, &world->chunk_mesh, faces, 8, 48);
+    mesh_cube(&world->chunk_mesh);
 
     // CUBE
     mesh_cube(&world->test_cube);
