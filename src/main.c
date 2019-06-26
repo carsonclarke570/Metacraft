@@ -6,6 +6,8 @@
 #include <transform.h>
 #include <world.h>
 
+#include <testing.h>
+
 extern TexturePool texture_pool;
 
 World world;
@@ -27,6 +29,8 @@ void cleanup() {
 }
 
 int main() {
+
+    UNIT_TEST();
 
     // Start Up Code
     Game game;

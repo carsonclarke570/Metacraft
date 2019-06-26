@@ -22,15 +22,13 @@
 #include <block_id.h>
 #include <mesh.h>
 
-#define TEX_UNIT_X          (float)(1.0f / BLOCKS_PER_ROW)
-#define TEX_UNIT_Y          (float)(1.0f / BLOCKS_PER_COL)
-
-#define X_INDEX(i)          ((int)(i % BLOCKS_PER_ROW))
-#define Y_INDEX(i)          ((int)(i / BLOCKS_PER_ROW))
-
-#define TEXTURE_X(id) ((float)X_INDEX(id) * TEX_UNIT_X)
-#define TEXTURE_Y(id) (1.0f - ((float)Y_INDEX(id) * TEX_UNIT_Y))
-
+#define NORTH_FACE  0
+#define SOUTH_FACE  1
+#define EAST_FACE   2
+#define WEST_FACE   3
+#define UP_FACE     4
+#define DOWN_FACE   5
+#define NUM_FACES   6
 
 typedef struct {
     uint16_t* chunk;
@@ -57,7 +55,7 @@ void chunk_allocate(Chunk* chunk);
  * @param num_indices   Number of indices
  * @param num_faces     Number of faces visible
  */
-void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indices, int num_faces);
+//void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indices, int num_faces);
 
 /**
  * Deletes a Chunk from memory.

@@ -30,6 +30,7 @@
 #define CODE_INVALID_FILENAME       30  // File reading
 #define CODE_READING_ERROR          31
 #define CODE_UNRECOGNIZED_FORMAT    40  // Textures
+#define CODE_INDEX_OUT_OF_BOUNDS    50  // Collecton
 
 // String stuff
 #define MAX_STR_LEN 50
@@ -81,12 +82,5 @@
 
 #define CHUNK_MESH_SIZE  5.0f
 #define BLOCK_SIZE  (CHUNK_MESH_SIZE / CHUNK_WIDTH)
-
-#define FACE_NORTH  1u
-#define FACE_SOUTH  2u
-#define FACE_EAST   4u
-#define FACE_WEST   8u
-#define FACE_UP     16u
-#define FACE_DOWN   32u
 
 #endif
