@@ -21,8 +21,8 @@
 #include <string.h>
 #include <math.h>
 
-#include <common.h>
-#include <vector.h>
+#include "common.h"
+#include "vector.h"
 
 #define INDEX(R, C) (((R) * 4) + (C))
 

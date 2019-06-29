@@ -39,7 +39,8 @@ int main() {
     game.cleanup = cleanup;
     game.update = update;
 
-    engine_init(&game);
+    int err;
+    if (err = engine_init(&game)) return err;
 
     engine_run(&game);
 
