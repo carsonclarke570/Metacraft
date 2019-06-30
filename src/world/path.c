@@ -18,24 +18,48 @@
 
 
 Path *path_to_block(Entity *traveler, double *destination, double *distance, bool aoa, bool los) {
-    return NULL;
+    Path *path;
+
+    if (!(path = malloc(sizeof(Path)))) {
+        LOG_E(LOG_MSG_MALLOC_ERROR);
+        exit(CODE_MALLOC_ERROR);
+    }
+
+    path->destination[0] = destination[0];
+    path->destination[1] = destination[1];
+    path->destination[2] = destination[2];
+    path->hasGravity = false;
+    
+    return path;
 }
 
 
 
 Path *path_to_entity(Entity *traveler, Entity *target, double *distance, bool aoa, bool los) {
-    return NULL;
+    Path *path;
+    
+    if (!(path = malloc(sizeof(Path)))) {
+        LOG_E(LOG_MSG_MALLOC_ERROR);
+        exit(CODE_MALLOC_ERROR);
+    }
+    
+    path->destination[0] = target->position[0];
+    path->destination[1] = target->position[1];
+    path->destination[2] = target->position[2];
+    path->hasGravity = false;
+    
+    aoa = los = false;
+    distance = NULL;
+    
+    return path;
 }
 
 
 
 bool verify_path(Path *path, bool recalculate) {
-    int valid;
-    int si;
+    int valid = 1;
     
-    for (si = 0; si < path->stopCount; si++) {
-        valid = 1;
-        
+    for (int si = 0; si < path->stopCount; si++) {
         if (!valid) {
             if (recalculate) {
                 path->stopCount = --si;
@@ -65,6 +89,8 @@ Path *allocate_path() {
     }
     
     path->stopCount = stopCount;
+
+    return path;
 }
 
 
@@ -78,13 +104,13 @@ void free_path(Path *path) {
 
 
 void read_path(Path *path, FILE *file) {
-    // 
+    fread(path, sizeof(Path), 1, file);
 }
 
 
 
 void write_path(Path *path, FILE *file) {
-    // 
+    fwrite(path, sizeof(Path), 1, file);
 }
 
 

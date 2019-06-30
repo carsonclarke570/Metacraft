@@ -16,3 +16,25 @@
 #include "item.h"
 
 
+
+void load_items() {
+    sItemMetas = {
+        {0}
+    };
+}
+
+
+
+bool primary_item(Item item) {
+    return false;
+}
+
+
+
+bool secondary_item(Item item) {
+    return false;
+}
+
+
+
+

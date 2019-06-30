@@ -16,13 +16,56 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "common.h"
+#include "mesh.h"
 
 
 
-#define ITEM_ID   (20U)      // item >> ITEM_ID
-#define ITEM_TAG  (0xFFFU)   // item & ITEM_TAG
-#define ITEM_DATA (0xFF000U) // item & ITEM_DATA
+#define ITEM_ID   (20u)      // item >> ITEM_ID
+#define ITEM_TAG  (0xFFFu)   // item & ITEM_TAG
+#define ITEM_DATA (0xFF000u) // item & ITEM_DATA
+
+
+
+// Tool Flags
+#define TF_UNOBTAINABLE (1 << 7) // cannot be mined
+#define TF_SPECIAL      (1 << 6) // has special rules (inventory items are not special)
+
+// If level is 0, any tool can be used but only the specified tool will
+// benefit from the level.
+#define TF_HAND    (0)
+#define TF_SHEARS  (5 << 3)
+
+#define TF_AXE          (1 << 3)
+#define TF_WOODEN_AXE   (TF_AXE | 1)
+#define TF_STONE_AXE    (TF_AXE | 2)
+#define TF_IRON_AXE     (TF_AXE | 3)
+#define TF_DIAMOND_AXE  (TF_AXE | 4)
+#define TF_TITANIUM_AXE (TF_AXE | 5)
+#define TF_MITHRIL_AXE  (TF_AXE | 6)
+
+#define TF_SHOVEL          (2 << 3)
+#define TF_WOODEN_SHOVEL   (TF_SHOVEL | 1)
+#define TF_STONE_SHOVEL    (TF_SHOVEL | 2)
+#define TF_IRON_SHOVEL     (TF_SHOVEL | 3)
+#define TF_DIAMOND_SHOVEL  (TF_SHOVEL | 4)
+#define TF_TITANIUM_SHOVEL (TF_SHOVEL | 5)
+#define TF_MITHRIL_SHOVEL  (TF_SHOVEL | 6)
+
+#define TF_PICKAXE          (3 << 3)
+#define TF_WOODEN_PICKAXE   (TF_PICKAXE | 1)
+#define TF_STONE_PICKAXE    (TF_PICKAXE | 2)
+#define TF_IRON_PICKAXE     (TF_PICKAXE | 3)
+#define TF_DIAMOND_PICKAXE  (TF_PICKAXE | 4)
+#define TF_TITANIUM_PICKAXE (TF_PICKAXE | 5)
+#define TF_MITHRIL_PICKAXE  (TF_PICKAXE | 6)
+
+#define TF_SWORD          (4 << 3)
+#define TF_WOODEN_SWORD   (TF_SWORD | 1)
+#define TF_STONE_SWORD    (TF_SWORD | 2)
+#define TF_IRON_SWORD     (TF_SWORD | 3)
+#define TF_DIAMOND_SWORD  (TF_SWORD | 4)
+#define TF_TITANIUM_SWORD (TF_SWORD | 5)
+#define TF_MITHRIL_SWORD  (TF_SWORD | 6)
 
 
 
@@ -31,14 +74,23 @@ typedef uint32_t Item;
 
 
 typedef struct {
-    char *name;
-    char *lore;
-    uint8_t stackSize;
-    uint8_t fuelValue;
-    uint8_t foodValue;
-    uint8_t damageValue;
-    uint8_t healthValue;
+    char *name;        // id string
+    Mesh *mesh;        // entity model
+    GUIResource *icon; // GUI icon
+    //void *use;         // computed goto in use function
+    //void *attack;      // computed goto in attack function
+    uint16_t density;  // defines blast resistance, weight, break time, etc.
+    uint8_t fuel;      // equivalent fuel value
+    uint8_t food;      // equivalent food value
+    uint8_t damage;    // base attack damage
+    uint8_t health;    // base health value
+    uint8_t toolFlags; // defines maximum mining ability
+    uint8_t stackSize; // max stack size
 } ItemMeta;
+
+
+
+void initialize_itemMetas();
 
 
 
@@ -58,7 +110,6 @@ void write_item(Item *item, FILE *file);
 
 
 // Global ItemMetas
-// Blocks listed first so defines may be used for both Item and BlockMetas
 const ItemMeta itemMetas[] = {
     {"air", 0, 0, NULL, NULL},
     {"stone", 0, 0, NULL, NULL},
@@ -764,7 +815,17 @@ const ItemMeta itemMetas[] = {
     {"red_tulip", 0, 0, NULL, NULL},
     {"rose_bush", 0, 0, NULL, NULL},
     {"sunflower", 0, 0, NULL, NULL},
-    {"white_tulip", 0, 0, NULL, NULL}
+    {"white_tulip", 0, 0, NULL, NULL},
+    {"bat", 0, 0, NULL, NULL},                 // MOBS
+    {"blaze", 0, 0, NULL, NULL},
+    {"cat", 0, 0, NULL, NULL},
+    {"cave_spider", 0, 0, NULL, NULL},
+    {"chicken", 0, 0, NULL, NULL},
+    {"cod", 0, 0, NULL, NULL},
+    {"cow", 0, 0, NULL, NULL},
+    {"creeper", 0, 0, NULL, NULL},
+    {"", 0, 0, NULL, NULL},                    // Misc
+    {"", 0, 0, NULL, NULL}                     // Items
 };
 
 

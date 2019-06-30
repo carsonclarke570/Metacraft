@@ -50,32 +50,6 @@ they are not repeatedly read or modified each frame.
 #define TV_UP    (16)
 #define TV_DOWN  (32)
 
-#define TV_a ( 1)
-#define TV_b ( 2)
-#define TV_c ( 4)
-#define TV_d ( 8)
-#define TV_e (16)
-#define TV_f (32)
-
-#define TV_g ( 1)
-#define TV_h ( 2)
-#define TV_i ( 4)
-#define TV_j ( 8)
-#define TV_k (16)
-#define TV_l (32)
-
-
-// Tag strings
-#define TS_TRUE ("true\0")
-#define TS_FALSE ("false\0")
-
-#define TS_NORTH ("north\0")
-#define TS_SOUTH ("south\0")
-#define TS_EAST  ("east\0")
-#define TS_WEST  ("west\0")
-#define TS_UP    ("up\0")
-#define TS_DOWN  ("down\0")
-
 
 
 typedef struct {

@@ -16,7 +16,7 @@
 #ifndef PATH_H
 #define PATH_H
 
-#include "entity.h"
+#include "chunk.h"
 
 
 
@@ -27,11 +27,13 @@
 
 
 typedef struct {
-    bool hasGravity;       // the Path is influenced by gravity
-    bool isTraversable;    // destination can be reached
+    uint8_t hasGravity;    // the Path is influenced by gravity
+    uint8_t isTraversable; // destination can be reached
     Entity *traveler;      // Entity following the Path
-    Entity *target;        // Entity being followed
-    double destination[3]; // coordinates being moved to (target and destination are  mutually exclusive)
+    union {
+        Entity *target;        // Entity being followed
+        double destination[3]; // coordinates being moved to
+    };
     uint16_t stopCount;    // number of stops defining the Path
     double *stops;         // array of coordinates defining the Path (iterate by 3's!)
 } Path;

@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef _ENGINE_H_
-#define _ENGINE_H_
+#ifndef ENGINE_H
+#define ENGINE_H
 
 #include <stdio.h>
 

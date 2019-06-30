@@ -1,5 +1,5 @@
 /*
-    Copyright 2019 Carson Clarke-Magrab
+    Copyright 2019 Wesley Dahar
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -13,54 +13,134 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */
-#ifndef CHUNK2_H
-#define CHUNK2_H
+#ifndef CHUNK_H
+#define CHUNK_H
 
-#include <mesh.h>
-
-#include "common.h"
+#include "block.h"
+#include "entity.h"
+#include "mesh.h"
 
 
 
 typedef struct {
-    uint16_t* chunk;
+    Chunk *north;               // adjacent northern chunk
+    Chunk *south;               // adjacent southern chunk
+    Chunk *east;                // adjacent eastern chunk
+    Chunk *west;                // adjacent western chunk
+    uint32_t *visible;          // ordered list of visible Block indices
+    uint32_t *updated;          // ordered list of Block indicies to be evaluated
+    uint32_t *active;           // ordered list of active Block indices
+    Mesh *mesh;                 // 
+    EntityCache *entityCache;   // 
+    int64_t x;                  // chunk X coordinate
+    int64_t z;                  // chunk Z coordinate
+    uint64_t lastTick;          // last tick value 
+    uint64_t inhabitedTime;     // number of ticks occupied by players
+    uint32_t visibleCount;      // number of visible Block indicies
+    uint32_t updatedCount;      // number of Block indicies to be evaluated
+    uint16_t activeCount;       // number of active Block indicies
+    uint8_t dirty;              // 
+    Block blocks[131072];       // array of Blocks [y = 512][x = 16][z = 16]
 } Chunk;
 
 
 
-/**
- * Allocates a Chunk in memory.
- *
- * @param chunk    Pointer to Chunk struct
- */
-void chunk_allocate(Chunk* chunk);
+/*
+Recalculates the Chunk's 'visible' and 'updated' lists. Any loaded, adjacent
+Chunks will have their Blocks along the edge of contact recalculated as well.
+This is a resource intensive task and should only be called when a Chunk is
+first generated.
+
+WARNING: This method will read, but not use the data in the address range
+of +/- 256 blocks of the 'blocks' array.
+
+Parameters:
+    Chunk *chunk - The chunck for which to recalculate visibility.
+Returns:
+Errors:
+*/
+void calculate_visibility(Chunk *chunk);
 
 
 
-/**
- *  Creates a chunk mesh from chunk data and a list of exposed faces/blocks.
- *  Format:
- *      [31 - 24]   Mask for exposed faces
- *      [23 - 15]   Height index
- *      [15 - 8]    Row index
- *      [7 - 0]     Column index
- *
- * @param chunk         Pointer to Chunk struct.
- * @param mesh          Pointer to resulting mesh.
- * @param indices       The indices of exposed blocks.
- * @param num_indices   Number of indices
- * @param num_faces     Number of faces visible
- */
-void chunk_mesh(Chunk* chunk, Mesh* mesh, const uint32_t* indices, int num_indices, int num_faces);
+/*
+
+
+Parameters:
+Returns:
+Errors:
+*/
+void chunk_tick_handler(Chunk *chunk);
 
 
 
-/**
- * Deletes a Chunk from memory.
- *
- * @param chunk     Pointer to Chunk struct
- */
-void chunk_delete(Chunk* chunk);
+/*
+Allocates space for a Chunk. No initialization is done.
+
+Parameters:
+Returns:
+    Chunk * - The allocated Chunk.
+Errors:
+    CODE_MALLOC_ERROR
+*/
+Chunk *allocate_chunk();
+
+
+
+/*
+Frees the data used by the Chunk.
+
+Parameters:
+    Chunk *chunk - The Chunk to free.
+Returns:
+Errors:
+*/
+void free_chunk(Chunk *chunk);
+
+
+
+/*
+
+Parameters:
+    Chunk *chunk - The Chunk to read into.
+    FILE *file - The file to read from.
+    int64_t x - 
+    int64_t z - 
+Returns:
+Errors:
+*/
+void read_chunk(Chunk *chunk, int64_t x, int64_t z);
+
+
+
+/*
+
+Parameters:
+    Chunk *chunk - The Chunk to write from.
+Returns:
+Errors:
+*/
+void write_chunk(Chunk *chunk);
+
+
+
+/*
+The reconsiles outstanding Block updates with the visible Block data,
+and uses the Chunks visible block data to generate a renderable Mesh.
+
+Parameters:
+    Chunk *chunk - The Chunk for which to generate a Mesh.
+Returns:
+Errors:
+    CODE_MALLOC_ERROR
+*/
+void generate_chunk_mesh(Chunk *chunk);
+
+
+
+// Global Vertex and Index Buffers
+static Vertex sVertexBuffer[];
+static uint32_t sIndexBuffer[];
 
 
 

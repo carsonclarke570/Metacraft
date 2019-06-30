@@ -16,12 +16,6 @@
 #ifndef MOB_H
 #define MOB_H
 
-#include <stdio.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-#include "common.h"
 #include "entity.h"
 
 
