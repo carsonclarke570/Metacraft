@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef MATH_H
-#define MATH_H
+#ifndef _MATH_H_
+#define _MATH_H_
 
 #include <math.h>
 
@@ -51,6 +51,16 @@ float vec2_dot(const vec2 a, const vec2 b);
  * @param y     Resulting vector.
  */
 void vec3_cross(const vec3 a, const vec3 b, vec3 y);
+
+/**
+ * Computes the linear interpolation of two vectors.
+ *
+ * @param a     First vector.
+ * @param b     Second vector.
+ * @param c     Percent to lerp by.
+ * @param y     Resulting vector;
+ */
+void vec3_lerp(const vec3 a, const vec3 b, float c, vec3 y);
 
 /**
  * Subtracts two vectors. y = a - b.

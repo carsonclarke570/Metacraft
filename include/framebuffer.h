@@ -30,6 +30,8 @@ typedef struct {
     GLint internal_format;
     GLenum format;
     GLenum type;
+    GLenum target;
+    GLenum filter;
 } Attachment;
 
 typedef struct {

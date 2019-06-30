@@ -7,3 +7,17 @@ Textures / Texture Pool
   using one of the name texture_diffuse, texture_specular, texture_normal
   or texture_height
 
+=======
+Notes
+
+Textures / Texture Pool
+- The user is expect to populate the texture pool themselves.
+- The index of the texture in the texture pool will be the id of that texture
+- After creating and registering a texture, it can be accessed in the Shader
+  using one of the name texture_diffuse, texture_specular, texture_normal
+  or texture_height
+
+PBR Materials
+- Normal Map (R -> X, G -> Y, B -> Z)
+- Diffuse Map (R -> R, G -> G, B -> B);
+- Metal/Rough/AO Map (R -> Roughness, G -> Metallic, B -> AO)

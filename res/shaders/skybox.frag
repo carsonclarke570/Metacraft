@@ -1,22 +1,18 @@
 #version 330 core
 
-in DATA {
-    vec4 position;
-    float time;
-} fs_in;
-
+in vec3 texcoord;
 out vec4 out_color;
 
-const vec4 DAY_TOP = vec4(0.0, 0.0, 1.0, 1.0);
-const vec4 DAY_HOR = vec4(0.32, 0.92, 1.0, 1.0);
-
-const vec4 NIGHT = vec4(0.1, 0.1, 0.1, 1.0);
-
-const float DAY_LEN = 10.0f; // In seconds
+uniform float percent;
+uniform vec3 day_sky;
+uniform vec3 day_hor;
+uniform vec3 night_sky;
+uniform vec3 night_hor;
 
 void main() {
-    vec3 point = normalize(fs_in.position.xyz);
-    float a = point.y;
-    float b = sin(fs_in.time / DAY_LEN);
-    out_color = mix(mix(DAY_HOR, DAY_TOP, a), NIGHT, b);
+    float a = normalize(texcoord).y;
+
+    vec3 day = mix(day_hor, day_sky, a);
+    vec3 night = mix(night_hor, night_sky, a);
+    out_color = vec4(mix(day, night, percent), 1.0f);
 }

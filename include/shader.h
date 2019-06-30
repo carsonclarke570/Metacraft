@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef SHADER_H
-#define SHADER_H
+#ifndef _SHADER_H_
+#define _SHADER_H_
 
 #include <stdint.h>
 #include <stdio.h>
@@ -48,7 +48,7 @@ void shader_create(Shader* shader);
  *
  * @param shader    Pointer to Shader struct
  */
-void shader_destroy(Shader* shader);
+void shader_delete(Shader *shader);
 
 /**
  * Loads and attaches a shader from text.
@@ -87,7 +87,16 @@ int shader_compile(Shader* shader);
  * @param name      Name of uniform to update.
  * @param data      mat4 data to update with.
  */
-void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
+void shader_uniform_mat4(Shader* shader, const char* name, const mat4 data);
+
+/**
+ * Updates a shader's vec2 uniform.
+ *
+ * @param shader    Pointer to Shader struct.
+ * @param name      Name of uniform to update.
+ * @param data      vec2 data to update with.
+ */
+void shader_uniform_vec2(Shader* shader, const char* name, const vec2 data);
 
 /**
  * Updates a shader's vec3 uniform.
@@ -96,7 +105,7 @@ void shader_uniform_mat4(Shader* shader, const char* name, mat4 data);
  * @param name      Name of uniform to update.
  * @param data      vec3 data to update with.
  */
-void shader_uniform_vec3(Shader* shader, const char* name, vec3 data);
+void shader_uniform_vec3(Shader* shader, const char* name, const vec3 data);
 
 /**
  * Updates a shader's float uniform.

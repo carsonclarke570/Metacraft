@@ -14,14 +14,14 @@
     limitations under the License.
 */
 
-#ifndef _CAMERA_H_
-#define _CAMERA_H_
+#ifndef CAMERA_H
+#define CAMERA_H
 
 #include <matrix.h>
 #include <vector.h>
 #include <window.h>
 
-typedef struct {
+typedef struct Camera_t {
     // Camera attributes
     vec3 position;
     vec3 up;
@@ -35,6 +35,7 @@ typedef struct {
     // Camera options
     float speed;
     float sensitivity;
+
 } Camera;
 
 /**
@@ -42,7 +43,7 @@ typedef struct {
  *
  * @param camera    Pointer to Camera struct
  */
-void camera_init(Camera* camera);
+void init_camera(Camera *camera);
 
 /**
  * Generates a view matrix from the camera data.
@@ -50,7 +51,7 @@ void camera_init(Camera* camera);
  * @param camera    Pointer to Camera struct
  * @param view      Resulting view matrix.
  */
-void camera_view_matrix(Camera* camera, mat4 view);
+void get_view(Camera *camera, mat4 view);
 
 /**
  * Moves the camera.
@@ -59,7 +60,7 @@ void camera_view_matrix(Camera* camera, mat4 view);
  * @param window    Pointer to window to get input from
  * @param delta     Time passed since last update.
  */
-void camera_move(Camera* camera, Window* window, float delta);
+void move_camera(Camera *camera, Window *window, float delta);
 
 /**
  * Makes the camera look.
@@ -67,6 +68,6 @@ void camera_move(Camera* camera, Window* window, float delta);
  * @param camera    Pointer to Camera struct
  * @param offset    The offset from the last update
  */
-void camera_look(Camera* camera, vec2 offset);
+void look_camera(Camera *camera, vec2 offset);
 
 #endif

@@ -21,6 +21,16 @@
 #include "mesh.h"
 
 
+#include <block_id.h>
+#include <mesh.h>
+
+#define NORTH_FACE  0
+#define SOUTH_FACE  1
+#define EAST_FACE   2
+#define WEST_FACE   3
+#define UP_FACE     4
+#define DOWN_FACE   5
+#define NUM_FACES   6
 
 typedef struct {
     Chunk *north;               // adjacent northern chunk
@@ -141,7 +151,6 @@ void generate_chunk_mesh(Chunk *chunk);
 // Global Vertex and Index Buffers
 static Vertex sVertexBuffer[];
 static uint32_t sIndexBuffer[];
-
 
 
 #endif

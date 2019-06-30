@@ -36,11 +36,12 @@
 #define CODE_INVALID_FILENAME       (30)  // File reading
 #define CODE_READING_ERROR          (31)
 #define CODE_UNRECOGNIZED_FORMAT    (40)  // Textures
-#define CODE_MALLOC_ERROR           (50)
-#define CODE_FILE_ERROR             (51)
+#define CODE_INDEX_OUT_OF_BOUNDS    (50)  // Collecton
+#define CODE_MALLOC_ERROR           (60)
+#define CODE_FILE_ERROR             (61)
 
-// String Stuff
-#define MAX_STR_LEN (50)
+// String stuff
+#define MAX_STR_LEN 50
 
 // GL
 #define GL_VER_MAJ  (4)
@@ -89,13 +90,6 @@
 
 #define CHUNK_MESH_SIZE  (5.0f)
 #define BLOCK_SIZE  (CHUNK_MESH_SIZE / CHUNK_WIDTH)
-
-#define FACE_NORTH  (1u)
-#define FACE_SOUTH  (2u)
-#define FACE_EAST   (4u)
-#define FACE_WEST   (8u)
-#define FACE_UP     (16u)
-#define FACE_DOWN   (32u)
 
 
 

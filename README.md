@@ -1,6 +1,6 @@
-# mineCraft - (Hopefully) A C-based Minecraft Clone with Ray-Tracing
+# Metacraft - A C-based Minecraft Clone
 
-This is yet another Minecraft clone...   written in C...   with ray tracing...   if we get that far...   maybe...
+A C-based Minecraft clone written in OpenGL utilizing advanced rendering techniques such as PBR shading, environment mapping and deferred rendering.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ Please ensure you have the latest versions of CMake and OpenGL (4.3) installed.
 
 Install OpenGL:
 ```
-sudo apt install xorg-dev libgl1-mesa-dev libglu-dev
+sudo apt install xorg-dev libgl1-mesa-dev libglu-dev libassimp-dev
 ```
 
 Install CMake:
@@ -52,7 +52,7 @@ make
 ./Daybreak
 ```
 
-The program shoud launch in a new window.
+The program should launch in a new window.
 
 ## Built With
 

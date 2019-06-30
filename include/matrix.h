@@ -24,7 +24,7 @@
 #include <common.h>
 #include <vector.h>
 
-#define INDEX(R, C) ((R * 4) + C)
+#define INDEX(R, C) (((R) * 4) + (C))
 
 typedef float mat4[16];
 
@@ -36,7 +36,7 @@ typedef float mat4[16];
 void mat4_identity(mat4 mat);
 
 /**
- * Creates a projection matrix.
+ * Creates a perspective projection matrix.
  *
  * @param mat       4 x 4 matrix.
  * @param fov     View angle in degrees.
@@ -44,7 +44,20 @@ void mat4_identity(mat4 mat);
  * @param far       Far plane cutoff value.
  * @param aspect    Aspect ratio (WIDTH / HEIGHT).
  */
-void mat4_projection(mat4 mat, float fov, float near, float far, float aspect);
+void mat4_perspective(mat4 mat, float fov, float near, float far, float aspect);
+
+/**
+ * Creates a orthographic projection matrix.
+ *
+ * @param mat       4 x 4 matrix
+ * @param left      Left side of viewing volume
+ * @param right     Right side of viewing volume
+ * @param bottom    Bottom side of viewing volume
+ * @param top       Top side of viewing volume
+ * @param near      Near plane cutoff value.
+ * @param far       Far plane cutoff value.
+ */
+void mat4_orthographic(mat4 mat, float left, float right, float bottom, float top, float near, float far);
 
 /**
  * Creates a translation matrix.
