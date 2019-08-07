@@ -105,11 +105,12 @@ int test_array_set(UtilTestSuite* suite) {
     data.texture[1] = 1.0f;
 
     int err = array_set(&suite->array, 2, &data);
+    
     ASSERT(err == 0);
     ASSERT(suite->array.size == 4);
     ASSERT(suite->array.capacity == 4);
     ASSERT(suite->array.data != NULL);
-/* 
+ 
     ArrayData* result = NULL;
     result = array_get(&suite->array, 2);
     ASSERT(result != NULL);
@@ -117,7 +118,9 @@ int test_array_set(UtilTestSuite* suite) {
     ASSERT(result->position[1] == 2.0f);
     ASSERT(result->position[2] == 3.0f);
     ASSERT(result->texture[0] == 0.0f);
-    ASSERT(result->texture[1] == 1.0f); */
+    ASSERT(result->texture[1] == 1.0f); 
+    
+    return 0;
 }
 
 int test_util() {

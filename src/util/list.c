@@ -37,7 +37,7 @@ void* array_get(Array* array, uint64_t i) {
 int array_set(Array* array, uint64_t i, void* data) {
     if (i >= array->size) return CODE_INDEX_OUT_OF_BOUNDS;
 
-    memcpy((uint8_t*) array->data + (i * array->data_size), data, array->data_size);
+    memcpy(((uint8_t*) array->data) + (i * array->data_size), data, array->data_size);
     return 0;
 }
 

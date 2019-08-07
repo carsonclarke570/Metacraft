@@ -23,7 +23,7 @@
 #define TEST_START(test) printf("\tTEST %s:", test)
 #define TEST_END() printf("\tPASS\n")
 #define ASSERT(test) do { if (!(test)) { FAIL; return 1; }} while(0)
-#define VERIFY(test, suite) do { int r = test(suite); if (r) return r; } while(0)
+#define VERIFY(test, suite) do { int r = test(suite); if (r) { free(suite); return r;} } while(0)
 #define VERIFY_MODULE(test) do { int r = test(); if (r) return r; } while(0)
 
 #ifdef ENABLE_UNIT_TESTING
