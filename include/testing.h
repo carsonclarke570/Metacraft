@@ -19,19 +19,18 @@
 
 #include <stdio.h>
 
-#define FAIL printf("\tFAIL\n\t%s\t%s:%d\n", __func__, __FILE__, __LINE__)
-#define TEST_START(test) printf("TEST %s:", test)
+#define FAIL printf("\tFAIL\n\t\t%s\t%s:%d\n", __func__, __FILE__, __LINE__)
+#define TEST_START(test) printf("\tTEST %s:", test)
 #define TEST_END() printf("\tPASS\n")
 #define ASSERT(test) do { if (!(test)) { FAIL; return 1; }} while(0)
 #define VERIFY(test, suite) do { int r = test(suite); if (r) return r; } while(0)
 #define VERIFY_MODULE(test) do { int r = test(); if (r) return r; } while(0)
 
-#define ENABLE_UNIT_TESTING 1
-
-#if ENABLE_UNIT_TESTING
-    #define UNIT_TEST()     \
-        VERIFY_MODULE(test_util);        \
-        printf("\n")
+#ifdef ENABLE_UNIT_TESTING
+    #define UNIT_TEST()                 \
+        VERIFY_MODULE(test_util);       \
+        printf("\n");                   \
+        return 0
 
 #else
     #define UNIT_TEST()

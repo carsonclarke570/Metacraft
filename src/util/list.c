@@ -34,26 +34,13 @@ void* array_get(Array* array, uint64_t i) {
     return (uint8_t*) array->data + (i * array->data_size);
 }
 
-/**
- * Sets an element in the dynamic array.
- *
- * @param array     Pointer to the Array struct.
- * @param i         Index to set.
- * @param data      Data to add at the index.
- * @return          An error code if an error occurs.
- */
 int array_set(Array* array, uint64_t i, void* data) {
     if (i >= array->size) return CODE_INDEX_OUT_OF_BOUNDS;
 
     memcpy((uint8_t*) array->data + (i * array->data_size), data, array->data_size);
+    return 0;
 }
 
-/**
- * Adds an element to the end of a dynamic array.
- *
- * @param array     Pointer to Array struct.
- * @param data      Data to add.
- */
 void array_add(Array* array, void* data) {
     if (array->size == array->capacity) {
         if (!array->capacity) array->capacity = 1;
@@ -65,11 +52,6 @@ void array_add(Array* array, void* data) {
     array->size++;
 }
 
-/**
- * Clears an array but keeps the current capacity.
- *
- * @param array     Pointer to Array struct.
- */
 void array_clear(Array* array) {
     array->size = 0;
 }
