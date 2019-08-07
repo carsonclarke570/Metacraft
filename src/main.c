@@ -6,6 +6,7 @@
 #include <transform.h>
 #include <world.h>
 
+#define ENABLE_UNIT_TESTING
 #include <testing.h>
 
 extern TexturePool texture_pool;

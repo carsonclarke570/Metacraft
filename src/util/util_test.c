@@ -31,11 +31,26 @@ typedef struct {
 } ArrayData;
 
 int create_util_suite(UtilTestSuite *suite) {
+    // Create List
     array_allocate(&suite->array, 0, sizeof(ArrayData));
     ASSERT(suite->array.data != NULL);
     ASSERT(suite->array.size == 0);
     ASSERT(suite->array.data_size == sizeof(ArrayData));
     ASSERT(suite->array.capacity == 0);
+
+    // Populate list
+    ArrayData data;
+    data.position[2] = 2.0f;
+    array_add(&suite->array, &data);
+    data.position[2] = 3.0f;
+    array_add(&suite->array, &data);
+    data.position[2] = 4.0f;
+    array_add(&suite->array, &data);
+    data.position[2] = 5.0f;
+    array_add(&suite->array, &data);
+    ASSERT(suite->array.data != NULL);
+    ASSERT(suite->array.size == 4);
+    ASSERT(suite->array.capacity == 4);
     return 0;
 }
 
@@ -54,12 +69,12 @@ int test_array_add(UtilTestSuite *suite) {
     data.texture[1] = 1.0f;
 
     array_add(&suite->array, &data);
-    ASSERT(suite->array.size == 1);
-    ASSERT(suite->array.capacity == GROWTH_FACTOR);
+    ASSERT(suite->array.size == 5);
+    ASSERT(suite->array.capacity == 8);
     ASSERT(suite->array.data != NULL);
 
     ArrayData* result = NULL;
-    result = array_get(&suite->array, 0);
+    result = array_get(&suite->array, 4);
     ASSERT(result != NULL);
     ASSERT(result->position[0] == 1.0f);
     ASSERT(result->position[1] == 2.0f);
@@ -69,17 +84,61 @@ int test_array_add(UtilTestSuite *suite) {
     return 0;
 }
 
+int test_array_get(UtilTestSuite *suite) {
+    ArrayData* result = NULL;
+    result = array_get(&suite->array, 0);
+    ASSERT(result != NULL);
+    ASSERT(result->position[2] == 2.0f);
+
+    result = array_get(&suite->array, 3);
+    ASSERT(result != NULL);
+    ASSERT(result->position[2] == 5.0f);
+    return 0;
+}
+
+int test_array_set(UtilTestSuite* suite) {
+    ArrayData data;
+    data.position[0] = 1.0f;
+    data.position[1] = 2.0f;
+    data.position[2] = 3.0f;
+    data.texture[0] = 0.0f;
+    data.texture[1] = 1.0f;
+
+    int err = array_set(&suite->array, 2, &data);
+    
+    ASSERT(err == 0);
+    ASSERT(suite->array.size == 4);
+    ASSERT(suite->array.capacity == 4);
+    ASSERT(suite->array.data != NULL);
+ 
+    ArrayData* result = NULL;
+    result = array_get(&suite->array, 2);
+    ASSERT(result != NULL);
+    ASSERT(result->position[0] == 1.0f);
+    ASSERT(result->position[1] == 2.0f);
+    ASSERT(result->position[2] == 3.0f);
+    ASSERT(result->texture[0] == 0.0f);
+    ASSERT(result->texture[1] == 1.0f); 
+    
+    return 0;
+}
+
 int test_util() {
     UtilTestSuite *suite = malloc(sizeof(UtilTestSuite));
 
     int (*test_funcs[])(UtilTestSuite*) = {
             test_array_add,
+            test_array_get,
+            test_array_set,
     };
 
     char* names[] = {
             "array_add",
+            "array_get",
+            "array_set",
     };
 
+    printf("UNIT TESTS: util\n");
     for (int i = 0; i < sizeof(test_funcs) / sizeof(test_funcs[0]); i++) {
         TEST_START(names[i]);
         VERIFY(create_util_suite, suite);
